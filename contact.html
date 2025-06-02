@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cape Technology Solutions - Careers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Apply gradient to whole page on both html and body */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #7a192b 0%, #000000 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    .page-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      animation: slideUp 1.2s ease-out;
+    }
+
+    /* Fancy fade-in for body */
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Slide up animation for content */
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Job Box base styling */
+    .job-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      color: black;
+      /* Removed old animation, now handled by reveal classes */
+    }
+
+    /* Pulsing heading for effect */
+    .job-box h2 {
+      animation: pulseText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseText {
+      from {
+        color: #7a192b;
+        transform: scale(1);
+      }
+      to {
+        color: #ff4c4c;
+        transform: scale(1.03);
+      }
+    }
+
+    /* Scroll reveal: hidden by default */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    /* When visible */
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+  background: linear-gradient(135deg, #7a192b 0%, #000000 100%);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.7);
+  animation: fadeInFooter 1.5s ease-in-out forwards;
+}
+
+footer a {
+  color: #ff4c4c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffa6a6;
+  text-decoration: underline;
+}
+
+@keyframes fadeInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="page-container d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    <header class="custom-header py-4">
+      <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="logo-button d-flex align-items-center text-decoration-none">
+            <img src="images/CapeLogo.png" alt="Cape Technology Logo" class="logo-img" />
+          </a>
+          <h1 class="company-name text-white m-0">Cape Technology Solutions</h1>
+        </div>
+
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container flex-grow-1 mt-4">
+      <div class="job-box reveal">
+        <h2>Senior Software Development Positions</h2>
+        <p>
+          Multiple Senior Software Engineer positions on the Joint Live, Virtual, Constructive (JLVC) project and the Joint Training Tool (JTT) project teams. JLVC is a mature HLA and DIS federation of 40+ distinct applications developed and maintained by the Joint Staff, the Services, and various Governmental agencies. JTT is a modern web-based tool that allows operational planning and training to support military exercises for Joint Staff.
+        </p>
+        <ul>
+          <li>Full-time salary</li>
+          <li>Full benefits package</li>
+          <li>Remote (~5 trips/year to Suffolk, VA)</li>
+          <li>Competitive pay</li>
+          <li>Requires Bachelor’s degree in CS, Math, IT, or similar</li>
+          <li>16+ years of relevant experience</li>
+          <li>Current Security Clearance is desired, Eligibility is minimum requirement</li>
+          <li>Highly motivated, Logical thinking and problem-solving skills</li>
+          <li>Fluent in Agile Development and Scaled Agile Framework</li>
+          <li>Able to design code branching strategies</li>
+          <li>Capable of designing enterprise software development lifecycles</li>
+          <li>Participate in code peer reviews</li>
+          <li>Design, document, and implement software development conventions and standards</li>
+          <li>Be part of a team environment with open communication</li>
+          <li>Focus on problem solving and innovative thinking</li>
+          <li>Lead and participate in requirements, bug, maintenance, user story and research tasks</li>
+        </ul>
+
+        <h4>Desired Technologies</h4>
+        <ul>
+          <li>C/C++, Qt Toolkit, Java, RESTful Web services, ElasticSearch</li>
+          <li>Desktop: Qt Widgets</li>
+          <li>Web: ReactJS, Javascript, NodeJS, CSS</li>
+          <li>Databases: SQLite, CockroachDB, OrientDB</li>
+          <li>Containerization: Docker & Kubernetes</li>
+          <li>Version Control: Git, GitLab</li>
+          <li>Management: Atlassian Jira and Confluence</li>
+          <li>Map Technologies: OpenMap, OpenLayers</li>
+          <li>Messaging: Kafka, gRPC (Protocol Buffers), RabbitMQ, IEEE 1516.2010 HLA, RPR 3.0, DIS v6,7</li>
+          <li>Operating Systems: Linux (RHEL), Windows</li>
+        </ul>
+      </div>
+
+      <div class="job-box reveal">
+        <h2>Senior Systems Engineer Position</h2>
+        <p>
+          Senior Systems Engineer positions on the Joint Live, Virtual, Constructive (JLVC) project and the Joint Training Tool (JTT) project teams. JLVC is a mature HLA and DIS federation of 40+ distinct applications developed and supported by the Joint Staff, the Services, and various Governmental agencies. JTT is a modern web-based tool that allows operational planning and training to support military exercises for Joint Staff.
+        </p>
+        <ul>
+          <li>Full-time salary</li>
+          <li>Full benefits package</li>
+          <li>Remote (~10 trips/year to Suffolk, VA or various DoD Training sites)</li>
+          <li>Competitive pay</li>
+          <li>Requires Bachelor’s degree in CS, EE, IT, or similar</li>
+          <li>20+ years of relevant experience</li>
+          <li>Current Security Clearance is desired, Eligibility is minimum requirement</li>
+          <li>Highly motivated, Logical thinking and problem-solving skills</li>
+          <li>Fluent in Agile Development and DSEEP</li>
+          <li>Able to design configuration management strategies</li>
+          <li>Capable of designing enterprise software development lifecycles</li>
+          <li>Design, document, and implement software documentation, data flow, and interdependencies of large, complex federation, preferably JLVC experience</li>
+          <li>Be part of a team environment with open communication</li>
+          <li>Focus on problem solving and innovative thinking</li>
+          <li>Lead and participate in requirements, bug, maintenance, user story, testing and research</li>
+        </ul>
+
+        <h4>Desired Capabilities</h4>
+        <ul>
+          <li>Proficient with Atlassian Jira and Confluence</li>
+          <li>Deep understanding of Simulation Protocols: IEEE 1516.2010 HLA, RPR 3.0, DIS v6,7</li>
+          <li>Operating Systems: Linux (RHEL), Windows, Security+ for one</li>
+          <li>Demonstrated knowledge of real-time and distributed simulation</li>
+          <li>Basic Programming/Scripting skills</li>
+        </ul>
+      </div>
+
+      <div class="job-box reveal">
+  <h2>Junior Software Development Position</h2>
+  <ul>
+    <li>Full-time salary</li>
+    <li>Full benefits package</li>
+    <li>Remote (near Suffolk complex)</li>
+    <li>Competitive pay</li>
+    <li>Bachelor’s degree in Computer Science or similar</li>
+    <li>0-3 years of relevant experience</li>
+    <li>Must be a U.S. citizen and eligible to obtain a security clearance at the secret level</li>
+    <li>Highly motivated</li>
+    <li>Logical thinking and problem-solving skills</li>
+    <li>Must show proficiency in one modern programming language</li>
+  </ul>
+</div>
+
+<div class="job-box reveal">
+  <h2>Internship Position</h2>
+  <ul>
+    <li>Part-time hourly</li>
+    <li>Remote (near Suffolk complex)</li>
+    <li>Designed for seniors who are on track to obtain a Bachelor’s degree in Computer Science or similar</li>
+    <li>Flexible for students who are taking classes</li>
+    <li>Opportunity to turn into full-time</li>
+    <li>0-3 years of relevant experience</li>
+    <li>Must be a U.S. citizen and eligible to obtain a security clearance at the secret level</li>
+    <li>Highly motivated</li>
+    <li>Logical thinking and problem-solving skills</li>
+    <li>Must show proficiency in one modern programming language</li>
+  </ul>
+</div>
+
+<div class="job-box reveal">
+  <h2>How to Apply</h2>
+  <p>
+    Send a copy of your resume to <a href="mailto:careers@capetechsolutions.com">careers@capetechsolutions.com</a> or take a look at our opportunities on Handshake.
+  </p>
+
+  <p class="text-muted" style="font-size: 0.9em;">
+    CAPE Technology Solutions is an equal opportunity employer and will not allow discrimination based upon age, ethnicity, ancestry, gender, national origin, disability, race, size, religion, sexual orientation, socioeconomic background, or any other status prohibited by applicable law.
+  </p>
+</div>
+
+
+    </main>
+
+    <footer class="custom-footer text-white py-5 mt-auto">
+      <div class="container">
+        <div class="row align-items-center justify-content-between g-4">
+          <!-- Social Buttons (Left) -->
+          <div class="col-md-4 text-md-start text-center">
+            <a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" class="btn btn-outline-light rounded-circle social-btn me-2">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:youremail@example.com" class="btn btn-outline-light rounded-circle social-btn">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+          </div>
+
+          <!-- Newsletter Signup (Right) -->
+          <div class="col-md-8">
+            <form class="d-flex flex-column flex-sm-row justify-content-md-end gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+              <input type="email" class="form-control w-auto" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-danger">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <hr class="my-4" style="background-color: #444;" />
+
+        <div class="text-center">
+          <p class="mb-1">&copy; 2025 Cape Technology Solutions. All rights reserved.</p>
+          <p class="mb-0">
+            <a href="#" class="text-decoration-none me-3">Privacy Policy</a>
+            <a href="#" class="text-decoration-none">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scroll Reveal JS -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target); // Animate once per element
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach(elem => {
+      observer.observe(elem);
+    });
+  </script>
+</body>
+</html>

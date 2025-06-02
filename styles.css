@@ -1,0 +1,103 @@
+/* styles.css */
+
+/* Global image styling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header Styling */
+.custom-header {
+  background-color: black; /* Deep red */
+}
+
+.custom-header .nav-link {
+  color: #fff;
+}
+
+.custom-header .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Logo styling */
+.logo-img,
+.logo-button img {
+  width: 100px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Make logo look like a clickable button */
+.logo-button:hover img {
+  transform: scale(1.05); /* slight zoom on hover */
+  cursor: pointer;
+}
+
+/* Company name styling */
+.company-name {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Footer Styling */
+.custom-footer {
+  background-color: #000; /* Black */
+  color: #fff;
+}
+
+.custom-footer a {
+  color: #ff4c4c; /* Bright red links */
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Image Container */
+.hero-image-container {
+  background: transparent;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0); /* transparent overlay */
+}
+
+/* Centered logo inside hero */
+.logo-img-centered {
+  display: block;
+  margin: 0 auto;
+  max-width: 350px; /* Bigger logo */
+}
+
+/* Social Buttons */
+.social-btn {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  border: 2px solid #fff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-btn:hover {
+  background-color: #ff4c4c;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Main content gradient */
+.main-content {
+  background: linear-gradient(to bottom right, #c00000, #000000);
+  min-height: calc(100vh - 160px); /* Adjust height for header/footer */
+  color: #fff;
+}
