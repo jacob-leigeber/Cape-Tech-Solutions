@@ -1,60 +1,174 @@
 /* styles.css */
 
-/* Global image styling */
-img {
-  max-width: 100%;
-  height: auto;
+/* Global reset and base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Use gradient background from second block */
+  background: linear-gradient(135deg, #7a192b 0%, #000000 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #ff2a2a; /* From first block for text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInBody 1s ease-in-out;
 }
 
-/* Header Styling */
-.custom-header {
-  background-color: black; /* Deep red */
+/* Fade in animation */
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.custom-header .nav-link {
-  color: #fff;
+/* Slide up animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.custom-header .nav-link:hover {
-  text-decoration: underline;
+/* Pulse animation for headings */
+@keyframes pulseText {
+  from {
+    color: #7a192b;
+    transform: scale(1);
+  }
+  to {
+    color: #ff4c4c;
+    transform: scale(1.03);
+  }
 }
 
-/* Logo styling */
-.logo-img,
-.logo-button img {
-  width: 100px;
-  height: auto;
+/* Header styles */
+header {
+  background: #111;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 15px #ff2a2a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo image */
+.logo-img {
+  height: 45px;
+  filter: drop-shadow(0 0 3px #ff2a2a);
   transition: transform 0.2s ease;
 }
 
-/* Make logo look like a clickable button */
-.logo-button:hover img {
-  transform: scale(1.05); /* slight zoom on hover */
+.logo-button:hover .logo-img {
+  transform: scale(1.05);
   cursor: pointer;
 }
 
-/* Company name styling */
-.company-name {
-  font-size: 1.75rem;
-  font-weight: bold;
+/* Navigation links */
+nav .nav-link {
+  color: #ff2a2a;
+  font-weight: 600;
+  transition: color 0.3s;
+  margin-left: 1.5rem;
+}
+
+nav .nav-link:hover {
   color: #fff;
-}
-
-/* Footer Styling */
-.custom-footer {
-  background-color: #000; /* Black */
-  color: #fff;
-}
-
-.custom-footer a {
-  color: #ff4c4c; /* Bright red links */
-}
-
-.custom-footer a:hover {
   text-decoration: underline;
 }
 
-/* Hero Image Container */
+/* Hero section */
+.hero {
+  background: #111;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  border-top: 4px solid #ff2a2a;
+  border-bottom: 4px solid #ff2a2a;
+  box-shadow: 0 0 30px #ff2a2a66 inset;
+  animation: slideUp 1.2s ease-out;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #ff2a2a;
+  text-shadow: 0 0 15px #ff2a2a88;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 0 auto;
+  color: #eee;
+  text-shadow: 0 0 5px #ff2a2a44;
+}
+
+/* Section base styling */
+.section {
+  padding: 3rem 2rem;
+  background: #111;
+}
+
+.section-title {
+  color: #ff2a2a;
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 10px #ff2a2a88;
+}
+
+/* Card styling */
+.card-custom {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 0 10px #ff2a2a99;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff2a2acc;
+}
+
+.card-custom h4 {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ff2a2a;
+  text-shadow: 0 0 5px #ff2a2aaa;
+}
+
+.card-custom p {
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+/* Footer styles */
+footer {
+  background: linear-gradient(135deg, #7a192b 0%, #000000 100%);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.7);
+  animation: fadeInFooter 1.5s ease-in-out forwards;
+  box-shadow: 0 -4px 15px #ff2a2a88 inset; /* from first block */
+}
+
+/* Hero image container (from original styles) */
 .hero-image-container {
   background: transparent;
   height: 450px;
@@ -67,14 +181,14 @@ img {
 .hero-overlay {
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0); /* transparent overlay */
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* Centered logo inside hero */
 .logo-img-centered {
   display: block;
   margin: 0 auto;
-  max-width: 350px; /* Bigger logo */
+  max-width: 350px;
 }
 
 /* Social Buttons */
@@ -86,6 +200,8 @@ img {
   align-items: center;
   font-size: 1.25rem;
   border: 2px solid #fff;
+  border-radius: 50%;
+  margin: 0 0.5rem;
   transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -98,6 +214,104 @@ img {
 /* Main content gradient */
 .main-content {
   background: linear-gradient(to bottom right, #c00000, #000000);
-  min-height: calc(100vh - 160px); /* Adjust height for header/footer */
+  min-height: calc(100vh - 160px);
+  padding: 2rem;
   color: #fff;
+}
+
+/* Page container for flex layout and animation */
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  animation: slideUp 1.2s ease-out;
+}
+
+/* Job box styles */
+.job-box {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+/* Job box heading pulse */
+.job-box h2 {
+  animation: pulseText 2s ease-in-out infinite alternate;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid system */
+.row.g-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.col-md-6.col-lg-4 {
+  flex: 1 1 calc(33.33% - 1rem);
+  display: flex;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Button styles */
+.button-primary {
+  background-color: #ff4c4c;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #e00000;
+}
+
+/* Hover glow effect */
+.hover-glow {
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #ff2a2a;
+}
+
+.hover-glow:hover {
+  background: #ff2a2a;
+  color: #000;
+  box-shadow: 0 0 10px #ff2a2a, 0 0 20px #ff2a2a88;
+  border-color: #ff2a2a;
 }
