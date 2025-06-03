@@ -168,15 +168,16 @@
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="images/CapeLogo.png" alt="CAPE Technology Logo" class="logo-img" />
+    <a href="index.html" class="d-flex align-items-center gap-3 text-decoration-none">
+      <img src="images/CapeLogo.png" alt="CAPE Logo" class="logo-img" />
+      <h1 class="m-0" style="color:#ff2a2a;">CAPE Technology Solutions</h1>
     </a>
     <nav>
       <ul class="nav">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="careers.html" class="nav-link">Careers</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="whatwedo.html">What We Do</a></li>
+        <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -281,8 +282,33 @@
 </section>
 
 
-  <footer>
-    &copy; 2025 CAPE Technology Solutions. All rights reserved.
-  </footer>
+  <footer class="mt-auto">
+  <div class="container py-4">
+    <div class="row justify-content-center text-center text-light">
+      <div class="col-md-4 mb-4">
+        <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Connect With Us</h5>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <a href="https://www.linkedin.com/company/cape-technology-solutions" target="_blank" class="btn btn-sm border border-danger text-danger hover-glow">
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="mailto:info@capetech.com" class="btn btn-sm border border-danger text-danger hover-glow">
+            <i class="bi bi-envelope-fill"></i> Email Us
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Newsletter</h5>
+        <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
+          <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-sm btn-danger text-white shadow-sm">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="border-danger opacity-50" />
+    <p class="mb-0 text-center" style="color: #ff2a2a;">&copy; 2025 CAPE Technology Solutions. All rights reserved.</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CAPE Technology Solutions - Home</title>
+  <title>Contact Us - CAPE Technology Solutions</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
+    /* Include the exact same styles from your index.html file */
     html, body {
       height: 100%;
       margin: 0; padding: 0;
@@ -45,67 +46,42 @@
       color: #fff;
     }
 
-    .hero {
-      background: #111;
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      border-top: 4px solid #ff2a2a;
-      border-bottom: 4px solid #ff2a2a;
-      box-shadow: 0 0 30px #ff2a2a66 inset;
-      animation: slideUp 1.2s ease-out;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      color: #ff2a2a;
-      text-shadow: 0 0 15px #ff2a2a88;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto;
-      color: #eee;
-      text-shadow: 0 0 5px #ff2a2a44;
-    }
-
     .section {
       padding: 3rem 2rem;
       background: #111;
     }
+
     .section-title {
       color: #ff2a2a;
       font-size: 2.25rem;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       text-shadow: 0 0 10px #ff2a2a88;
     }
 
-    .card-custom {
-      background: #1a1a1a;
-      color: #fff;
-      border-radius: 1rem;
-      padding: 1.8rem 1.5rem;
-      box-shadow: 0 0 10px #ff2a2a99;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .card-custom:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff2a2acc;
-    }
-    .card-custom h4 {
-      font-weight: 700;
-      margin-bottom: 0.8rem;
+    .form-control,
+    .form-label {
       color: #ff2a2a;
-      text-shadow: 0 0 5px #ff2a2aaa;
     }
-    .card-custom p {
-      color: #ddd;
-      font-size: 0.95rem;
+
+    .form-control {
+      background-color: #1a1a1a;
+      border: 1px solid #ff2a2a;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 10px #ff2a2a;
+      border-color: #ff2a2a;
+    }
+
+    .btn-danger {
+      background-color: #ff2a2a;
+      border: none;
+    }
+
+    .btn-danger:hover {
+      background-color: #e60000;
+      box-shadow: 0 0 10px #ff2a2a;
     }
 
     footer {
@@ -117,27 +93,16 @@
       box-shadow: 0 -4px 15px #ff2a2a88 inset;
     }
 
-    .row.g-4 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .col-md-6.col-lg-4 {
-      flex: 1 1 calc(33.33% - 1rem);
-      display: flex;
-    }
-
     .hover-glow {
-  transition: all 0.3s ease-in-out;
-  background: transparent;
-}
-.hover-glow:hover {
-  background: #ff2a2a;
-  color: #000;
-  box-shadow: 0 0 10px #ff2a2a, 0 0 20px #ff2a2a88;
-  border-color: #ff2a2a;
-}
-
+      transition: all 0.3s ease-in-out;
+      background: transparent;
+    }
+    .hover-glow:hover {
+      background: #ff2a2a;
+      color: #000;
+      box-shadow: 0 0 10px #ff2a2a, 0 0 20px #ff2a2a88;
+      border-color: #ff2a2a;
+    }
   </style>
 </head>
 <body>
@@ -149,72 +114,76 @@
     <nav>
       <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="whatwedo.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Engineering Innovation for the Future</h1>
-    <p>At CAPE Technology Solutions, we architect high-impact systems for joint defense, simulation, and enterprise-level software. Join us as we shape tomorrow's technology—today.</p>
-  </section>
+        <section class="flex-grow-1 d-flex justify-content-center align-items-center text-center" style="min-height: calc(100vh - 150px); padding: 2rem;">
+        <div class="w-100" style="max-width: 700px; border: 2px solid #ff2a2a; padding: 2rem; border-radius: 8px;">
+          <h2 class="section-title">Interested in a CAPE Solution?</h2>
+          <p class="text-light mb-4">
+            Perhaps you'd like to be part of a CAPE Solution?<br>
+            Send a note telling us what interests you.
+          </p>
 
-  <section class="section container">
-    <h2 class="section-title">Our Core Capabilities</h2>
-    <div class="row g-4">
-      <!-- Repeat cards -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom">
-          <h4>Software Engineering</h4>
-          <p>Development of full-stack enterprise applications focused on modern web technologies, including the Joint Training Tool (JTT) and future exercise support software.</p>
+          <form class="row g-3 text-light">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First *</label>
+              <input type="text" class="form-control bg-dark text-white border-danger" id="firstName" required>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last *</label>
+              <input type="text" class="form-control bg-dark text-white border-danger" id="lastName" required>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Email *</label>
+              <input type="email" class="form-control bg-dark text-white border-danger" id="email" required>
+            </div>
+            <div class="col-12">
+              <label for="comments" class="form-label">Comment *</label>
+              <textarea class="form-control bg-dark text-white border-danger" id="comments" rows="4" required></textarea>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-danger hover-glow px-4">Send It</button>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom">
-          <h4>Defense Simulation</h4>
-          <p>Managing the Joint Live Virtual Constructive (JLVC) federation and supporting other Modeling & Simulation (M&S) federations worldwide for large-scale military exercises.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom">
-          <h4>Data Configuration Management</h4>
-          <p>Providing data configuration and managing databases that supply exercise-specific data to support realistic and effective training exercises.</p>
-        </div>
-      </div>
-      <!-- Add more cards as needed -->
-    </div>
-  </section>
+        </section>
+
+
+
+
 
   <footer class="mt-auto">
-  <div class="container py-4">
-    <div class="row justify-content-center text-center text-light">
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Connect With Us</h5>
-        <div class="d-flex justify-content-center gap-3 mt-3">
-          <a href="https://www.linkedin.com/company/cape-technology-solutions" target="_blank" class="btn btn-sm border border-danger text-danger hover-glow">
-            <i class="bi bi-linkedin"></i> LinkedIn
-          </a>
-          <a href="mailto:info@capetech.com" class="btn btn-sm border border-danger text-danger hover-glow">
-            <i class="bi bi-envelope-fill"></i> Email Us
-          </a>
+    <div class="container py-4">
+      <div class="row justify-content-center text-center text-light">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Connect With Us</h5>
+          <div class="d-flex justify-content-center gap-3 mt-3">
+            <a href="https://www.linkedin.com/company/cape-technology-solutions" target="_blank" class="btn btn-sm border border-danger text-danger hover-glow">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:info@capetech.com" class="btn btn-sm border border-danger text-danger hover-glow">
+              <i class="bi bi-envelope-fill"></i> Email Us
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Newsletter</h5>
+          <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
+            <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-sm btn-danger text-white shadow-sm">Subscribe</button>
+          </form>
         </div>
       </div>
 
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase" style="color: #ff2a2a; text-shadow: 0 0 5px #ff2a2a99;">Newsletter</h5>
-        <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
-          <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
-          <button type="submit" class="btn btn-sm btn-danger text-white shadow-sm">Subscribe</button>
-        </form>
-      </div>
+      <hr class="border-danger opacity-50" />
+      <p class="mb-0 text-center" style="color: #ff2a2a;">&copy; 2025 CAPE Technology Solutions. All rights reserved.</p>
     </div>
-
-    <hr class="border-danger opacity-50" />
-    <p class="mb-0 text-center" style="color: #ff2a2a;">&copy; 2025 CAPE Technology Solutions. All rights reserved.</p>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>

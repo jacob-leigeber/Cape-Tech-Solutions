@@ -315,3 +315,43 @@ footer {
   box-shadow: 0 0 10px #ff2a2a, 0 0 20px #ff2a2a88;
   border-color: #ff2a2a;
 }
+
+header {
+  background: #111;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 15px #ff2a2a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  height: 45px;
+  filter: drop-shadow(0 0 3px #ff2a2a);
+}
+
+nav .nav-link {
+  color: #ff2a2a;
+  font-weight: 600;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+nav .nav-link:hover {
+  color: #fff;
+}
+
+.dropdown-menu {
+  background: #111;
+  border: 1px solid #ff2a2a;
+}
+
+.dropdown-item {
+  color: #ff2a2a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #ff2a2a;
+  color: #000;
+}
