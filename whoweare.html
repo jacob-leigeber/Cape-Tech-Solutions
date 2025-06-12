@@ -8,11 +8,412 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <style>
+    /* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* General body styling */
+body {
+  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
+  color: #4b5e6b;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.light-mode {
+  background: linear-gradient(180deg, #f8f9fa 0%, #e0e7ff 100%);
+  color: #4b5e6b;
+}
+
+/* Sticky header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #2c3e50 0%, #1a252f 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+
+.light-mode header {
+  background: linear-gradient(90deg, #f8f9fa 0%, #e0e7ff 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-title {
+  color: #ff3a5a;
+  text-shadow: 0 0 4px rgba(255, 58, 90, 0.4);
+}
+
+.nav-link {
+  color: #a0b0c0;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #ff3a5a;
+  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
+}
+
+.dropdown-menu-dark {
+  background: #2c3e50;
+  border: 1px solid #ff3a5a;
+}
+
+.light-mode .dropdown-menu-dark {
+  background: #e9ecef;
+  border: 1px solid #ff3a5a;
+}
+
+.dropdown-item {
+  color: #a0b0c0;
+}
+
+.light-mode .dropdown-item {
+  color: #4b5e6b;
+}
+
+.dropdown-item:hover {
+  background: #ff3a5a;
+  color: white;
+}
+
+/* Parallax hero section */
+.parallax {
+  background-image: url('images/hero-bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  background: linear-gradient(45deg, rgba(255, 58, 90, 0.7), rgba(75, 94, 107, 0.7));
+  padding: 3rem;
+  border-radius: 15px;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(255, 58, 90, 0.3);
+}
+
+.light-mode .hero-content {
+  background: linear-gradient(45deg, rgba(255, 58, 90, 0.7), rgba(184, 193, 255, 0.7));
+  color: #4b5e6b;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
+}
+
+.light-mode .hero h1 {
+  color: #4b5e6b;
+  text-shadow: 0 0 6px rgba(255, 58, 90, 0.3);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #a0b0c0;
+}
+
+.light-mode .hero p {
+  color: #4b5e6b;
+}
+
+/* Buttons */
+.cta-button, .btn-primary, .btn-sm, .btn-red, .handshake-button {
+  background: #b8c1ff;
+  color: #4b5e6b;
+  border: none;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover, .btn-primary:hover, .btn-sm:hover, .btn-red:hover, .handshake-button:hover {
+  background: #ff3a5a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 58, 90, 0.6);
+}
+
+/* Card styling */
+.card-custom {
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  color: #a0b0c0;
+  border: 2px solid #ff3a5a;
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light-mode .card-custom {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
+  color: #4b5e6b;
+  border: 2px solid #ff3a5a;
+}
+
+.card-custom:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(255, 58, 90, 0.4);
+}
+
+.card-custom h4 {
+  color: #ff3a5a;
+  font-weight: 700;
+}
+
+.light-mode .card-custom h4 {
+  color: #ff3a5a;
+}
+
+.card-highlight {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: #ff3a5a;
+}
+
+/* Crew section (commented out) */
+.crew-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.crew-highlight {
+  color: #b8c1ff;
+}
+
+/* Section styling */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 3rem;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  color: #ff3a5a;
+  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+}
+
+/* Handshake section */
+.handshake-section {
+  background: linear-gradient(90deg, #181c20 0%, #232b33 100%);
+  border-radius: 24px;
+  padding: 2.5rem 1rem 2rem 1rem;
+  margin-bottom: 3rem;
+}
+
+.light-mode .handshake-section {
+  background: linear-gradient(90deg, #e0e7ff 0%, #f8f9fa 100%);
+}
+
+.handshake-text {
+  color: #a0b0c0;
+}
+
+.light-mode .handshake-text {
+  color: #4b5e6b;
+}
+
+/* Testimonials carousel (for index.html) */
+.testimonials-section .carousel-item {
+  padding: 1.5rem;
+}
+
+.testimonials-section .card-custom {
+  margin: auto;
+  max-width: 500px;
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  border: 2px solid #ff3a5a;
+}
+
+.light-mode .testimonials-section .card-custom {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
+}
+
+/* Stats section (for index.html) */
+.stats-section h3 {
+  font-size: 3.5rem;
+  color: #ff3a5a;
+  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
+  margin-bottom: 0.5rem;
+  transition: text-shadow 0.5s ease;
+}
+
+.stats-section h3.visible {
+  text-shadow: 0 0 12px rgba(255, 58, 90, 0.7);
+}
+
+.stats-section p {
+  font-size: 1.2rem;
+  color: #a0b0c0;
+}
+
+.light-mode .stats-section p {
+  color: #4b5e6b;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
+  padding: 2rem 0;
+}
+
+.light-mode footer {
+  background: linear-gradient(180deg, #e0e7ff 0%, #f8f9fa 100%);
+}
+
+.footer-heading {
+  color: #ff3a5a;
+  text-shadow: 0 0 6px rgba(255, 58, 90, 0.4);
+}
+
+.footer-links a {
+  background: #b8c1ff;
+  color: #4b5e6b;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-links a:hover {
+  background: #ff3a5a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
+}
+
+.footer-divider {
+  border-color: #ff3a5a;
+}
+
+.footer-text {
+  color: #a0b0c0;
+}
+
+.light-mode .footer-text {
+  color: #4b5e6b;
+}
+
+.footer-link {
+  color: #a0b0c0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.light-mode .footer-link {
+  color: #4b5e6b;
+}
+
+.footer-link:hover {
+  color: #ff3a5a;
+  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  margin-left: 1rem;
+  border-radius: 20px;
+  border: none;
+  background: #b8c1ff;
+  color: #4b5e6b;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: #ff3a5a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
+}
+
+/* Back-to-top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 10px 15px;
+  background: #ff3a5a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: #b8c1ff;
+  box-shadow: 0 0 10px rgba(184, 193, 255, 0.6);
+}
+
+/* Form inputs */
+.form-control {
+  background: #1a252f;
+  color: #a0b0c0;
+  border-color: #ff3a5a;
+}
+
+.light-mode .form-control {
+  background: #e0e7ff;
+  color: #4b5e6b;
+}
+
+.form-control:focus {
+  border-color: #ff3a5a;
+  box-shadow: 0 0 8px rgba(255, 58, 90, 0.4);
+}
+
+/* Modal (for index.html) */
+.modal-content {
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  color: #a0b0c0;
+  border: 2px solid #ff3a5a;
+}
+
+.light-mode .modal-content {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
+  color: #4b5e6b;
+}
+
+.modal-header, .modal-body {
+  border-color: #ff3a5a;
+}
+  </style>
 </head>
 <body>
   <header class="d-flex align-items-center justify-content-between">
     <a href="index.html" class="d-flex align-items-center gap-3 text-decoration-none">
-      <img src="images/CapeLogo.png" alt="CAPE Logo" class="logo-img" />
+      <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
       <h1 class="m-0 logo-title">CAPE Technology Solutions</h1>
     </a>
     <nav aria-label="Main navigation">
@@ -35,11 +436,13 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Who We Are</h1>
-    <p>
-      CAPE Technology Solutions is a small business defense contractor founded in 2018 and based in the Hampton Roads area. We are dedicated to supporting our clients and delivering innovative solutions with a focus on excellence and integrity.
-    </p>
+  <section class="hero parallax">
+    <div class="hero-content">
+      <h1>Who We Are</h1>
+      <p>
+        CAPE Technology Solutions is a small business defense contractor founded in 2018 and based in the Hampton Roads area. We are dedicated to supporting our clients and delivering innovative solutions with a focus on excellence and integrity.
+      </p>
+    </div>
   </section>
 
   <section class="section container" aria-labelledby="who-we-are-title">
@@ -56,7 +459,7 @@
             <li><strong>Family Culture:</strong> We operate as a close family with diverse backgrounds and skill sets</li>
             <li><strong>Customer Commitment:</strong> Providing innovative solutions and best value to our customers</li>
           </ul>
-          <p style="margin-top:1.5rem; font-weight:600; color:#ff3a5a;">
+          <p class="card-highlight">
             Combining Creative, Analytical, and Practical Intelligence.
           </p>
         </div>
@@ -64,36 +467,38 @@
     </div>
   </section>
 
-  <!-- Our Crew Section -->
+  <!-- Our Crew Section commented out -->
+  <!--
   <section class="section container" aria-labelledby="our-crew-title">
     <h2 class="section-title" id="our-crew-title">Our Crew</h2>
     <div class="row g-4 justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="card-custom text-center">
-          <img src="images/crew1.jpg" alt="Crew Member 1" style="width:100px;height:100px;object-fit:cover;margin-bottom:1rem;">
+          <img src="images/crew1.jpg" alt="Crew Member 1" class="crew-image">
           <h4>Jane Doe</h4>
-          <p>Lead Software Engineer<br><span style="color:#b8c1ff;">Innovative, analytical, and always ready for a challenge.</span></p>
+          <p>Lead Software Engineer<br><span class="crew-highlight">Innovative, analytical, and always ready for a challenge.</span></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="card-custom text-center">
-          <img src="images/crew2.jpg" alt="Crew Member 2" style="width:100px;height:100px;object-fit:cover;margin-bottom:1rem;">
+          <img src="images/crew2.jpg" alt="Crew Member 2" class="crew-image">
           <h4>John Smith</h4>
-          <p>Systems Architect<br><span style="color:#b8c1ff;">Brings practical intelligence and creative solutions to every project.</span></p>
+          <p>Systems Architect<br><span class="crew-highlight">Brings practical intelligence and creative solutions to every project.</span></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="card-custom text-center">
-          <img src="images/crew3.jpg" alt="Crew Member 3" style="width:100px;height:100px;object-fit:cover;margin-bottom:1rem;">
+          <img src="images/crew3.jpg" alt="Crew Member 3" class="crew-image">
           <h4>Alex Lee</h4>
-          <p>Simulation Specialist<br><span style="color:#b8c1ff;">Expert in defense simulation and global exercise support.</span></p>
+          <p>Simulation Specialist<br><span class="crew-highlight">Expert in defense simulation and global exercise support.</span></p>
         </div>
       </div>
-      <!-- Add more crew members as needed -->
     </div>
   </section>
+  -->
 
-  <!-- Testimonials Section -->
+  <!-- Testimonials Section commented out -->
+  <!--
   <section class="section container testimonials-section" aria-labelledby="testimonials-title">
     <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
     <div class="row g-4">
@@ -117,43 +522,104 @@
       </div>
     </div>
   </section>
+  -->
+
+  <section class="handshake-section text-center">
+    <h3 class="section-title">Find Us On Handshake</h3>
+    <p class="handshake-text mb-3">
+      Looking for more opportunities or want to apply through your university? Visit our company profile on Handshake!
+    </p>
+    <a href="https://app.joinhandshake.com/e/687439/jobs" target="_blank" class="btn btn-red hover-glow handshake-button px-4">
+      Go to Handshake
+    </a>
+  </section>
 
   <footer aria-label="Site footer" class="mt-auto">
     <div class="container py-4">
       <div class="row justify-content-center text-center">
         <div class="col-md-4 mb-4">
-          <h5 class="text-uppercase">Connect With Us</h5>
+          <h5 class="text-uppercase footer-heading">Connect With Us</h5>
           <div class="d-flex justify-content-center gap-3 mt-3 footer-links">
             <a href="https://www.linkedin.com/company/cape-technology-solutions-llc/" target="_blank" class="btn btn-sm hover-glow">
               <i class="bi bi-linkedin"></i> LinkedIn
             </a>
-            <a href="contact.html" class="btn btn-sm hover-glow">
+            <a href="mailto:info@capetech.com" class="btn btn-sm hover-glow">
               <i class="bi bi-envelope-fill"></i> Email Us
             </a>
           </div>
         </div>
+
         <div class="col-md-4 mb-4">
-          <h5 class="text-uppercase">Newsletter</h5>
-          <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="alert('Thanks for subscribing!'); return false;">
-            <input type="email" class="form-control form-control-sm" style="background: #4b5e6b; border-color: #b8c1ff; color: #a0b0c0;" placeholder="Enter your email" required>
-            <button type="submit" class="btn btn-sm hover-glow">Submit</button>
+          <h5 class="text-uppercase footer-heading">Newsletter</h5>
+          <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
+            <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-sm hover-glow">Subscribe</button>
           </form>
         </div>
       </div>
-      <hr />
-      <button id="theme-toggle" aria-label="Toggle dark/light mode"
-        style="margin-left:1rem; border-radius:20px; border:none; background:#b8c1ff; color:#4b5e6b; padding:0.5rem 1rem; font-weight:600; cursor:pointer; margin-bottom:1rem;">
-        Toggle Theme
-      </button>
-      <p class="mb-0 text-center trademark">© 2025 CAPE Technology Solutions. All rights reserved.</p>
+
+      <button id="theme-toggle" aria-label="Toggle between dark and light mode" class="theme-toggle">Toggle Theme</button>
+      <hr class="footer-divider" />
+      <p class="mb-0 text-center footer-text">
+        © 2025 CAPE Technology Solutions. All rights reserved. |
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      </p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script>
-    document.getElementById('theme-toggle').onclick = function() {
-      document.body.classList.toggle('light-mode');
+    // Theme toggle with local storage
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light-mode');
+      toggleButton.textContent = 'Dark Mode';
+    } else {
+      toggleButton.textContent = 'Light Mode';
+    }
+
+    toggleButton.onclick = function() {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+        toggleButton.textContent = 'Dark Mode';
+      } else {
+        localStorage.setItem('theme', 'dark');
+        toggleButton.textContent = 'Light Mode';
+      }
     };
+
+    // Back-to-top button
+    window.onscroll = function() {
+      const backToTop = document.getElementById('back-to-top');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    };
+
+    document.getElementById('back-to-top').onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Section animations
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>

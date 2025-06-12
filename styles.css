@@ -539,3 +539,8 @@ nav .nav-link:focus,
     font-size: 0.95rem;
   }
 }
+
+.handshake-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}

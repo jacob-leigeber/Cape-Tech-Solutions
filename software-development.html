@@ -54,47 +54,58 @@
         </div>
         <div class="row">
           <div class="col-md-6 mb-4">
-            <h3 class="h5" style="color:#ff3a5a;">Our Approach</h3>
-            <p>
-              We use agile methodologies and modern DevOps practices to deliver scalable, secure, and maintainable software. Our team collaborates closely with clients to ensure solutions are tailored to real-world needs and can adapt to evolving requirements.
-            </p>
+            <div class="card-custom hover-glow h-100">
+              <h3 class="h5" style="color:#ff3a5a;">Our Approach</h3>
+              <p>
+                We use agile methodologies and modern DevOps practices to deliver scalable, secure, and maintainable software. Our team collaborates closely with clients to ensure solutions are tailored to real-world needs and can adapt to evolving requirements.
+              </p>
+            </div>
           </div>
           <div class="col-md-6 mb-4">
-            <h3 class="h5" style="color:#ff3a5a;">Technologies We Use</h3>
-            <ul>
-              <li>ASP.NET Core, C#, and .NET</li>
-              <li>JavaScript, TypeScript, React, Angular</li>
-              <li>SQL Server, PostgreSQL, MongoDB</li>
-              <li>Docker, Kubernetes, Azure, AWS</li>
-              <li>Automated testing and CI/CD pipelines</li>
-            </ul>
+            <div class="card-custom hover-glow h-100">
+              <h3 class="h5" style="color:#ff3a5a;">Technologies We Use</h3>
+              <ul>
+                <li>ASP.NET Core, C#, and .NET</li>
+                <li>JavaScript, TypeScript, React, Angular</li>
+                <li>SQL Server, PostgreSQL, MongoDB</li>
+                <li>Docker, Kubernetes, Azure, AWS</li>
+                <li>Automated testing and CI/CD pipelines</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-4">
-            <h3 class="h5" style="color:#ff3a5a;">Featured Project: Joint Training Tool (JTT)</h3>
-            <p>
-              The Joint Training Tool (JTT) is a web-based application designed to streamline and enhance military training exercises. It integrates scheduling, resource management, and real-time collaboration features, supporting both local and global operations.
-            </p>
+            <div class="card-custom hover-glow h-100">
+              <h3 class="h5" style="color:#ff3a5a;">Featured Project: Joint Training Tool (JTT)</h3>
+              <p>
+                The Joint Training Tool (JTT) is a web-based application designed to streamline and enhance military training exercises. It integrates scheduling, resource management, and real-time collaboration features, supporting both local and global operations.
+              </p>
+            </div>
           </div>
           <div class="col-md-6 mb-4">
-            <h3 class="h5" style="color:#ff3a5a;">Why Choose CAPE?</h3>
-            <ul>
-              <li>Proven track record with defense and enterprise clients</li>
-              <li>Experienced, multidisciplinary team</li>
-              <li>Commitment to quality, security, and innovation</li>
-              <li>Responsive support and ongoing maintenance</li>
-            </ul>
+            <div class="card-custom hover-glow h-100">
+              <h3 class="h5" style="color:#ff3a5a;">Why Choose CAPE?</h3>
+              <ul>
+                <li>Proven track record with defense and enterprise clients</li>
+                <li>Experienced, multidisciplinary team</li>
+                <li>Commitment to quality, security, and innovation</li>
+                <li>Responsive support and ongoing maintenance</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="text-center mt-4">
-          <a href="contact.html" class="btn btn-red hover-glow px-4">Contact Us About Software Solutions</a>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-custom hover-glow text-center mt-2">
+              <a href="contact.html" class="btn btn-red hover-glow px-4">Contact Us About Software Solutions</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <footer class="mt-auto">
+<footer aria-label="Site footer" class="mt-auto">
     <div class="container py-4">
       <div class="row justify-content-center text-center">
         <div class="col-md-4 mb-4">
@@ -112,18 +123,20 @@
         <div class="col-md-4 mb-4">
           <h5 class="text-uppercase" style="color: #ff3a5a; text-shadow: 0 0 6px rgba(255, 58, 90, 0.4);">Newsletter</h5>
           <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
-            <input type="email" class="form-control form-control-sm" style="background: #4b5e6b; border-color: #b8c1ff; color: #a0b0c0;" placeholder="Enter your email" required>
+            <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
             <button type="submit" class="btn btn-sm hover-glow">Subscribe</button>
           </form>
         </div>
       </div>
 
+        <button id="theme-toggle" aria-label="Toggle dark/light mode" style="margin-left:1rem; border-radius:20px; border:none; background:#b8c1ff; color:#4b5e6b; padding:0.5rem 1rem; font-weight:600; cursor:pointer;">
+    Toggle Theme
+  </button>
       <hr />
-      <button id="theme-toggle" aria-label="Toggle dark/light mode"
-        style="margin-left:1rem; border-radius:20px; border:none; background:#b8c1ff; color:#4b5e6b; padding:0.5rem 1rem; font-weight:600; cursor:pointer; margin-bottom:1rem;">
-        Toggle Theme
-      </button>
-      <p class="mb-0 text-center" style="color: #a0b0c0;">© 2025 CAPE Technology Solutions. All rights reserved.</p>
+      <p class="mb-0 text-center" style="color: #a0b0c0;">
+  © 2025 CAPE Technology Solutions. All rights reserved. |
+  <a href="privacy.html" style="color:#4b5e6b;">Privacy Policy</a>
+</p>
     </div>
   </footer>
 
