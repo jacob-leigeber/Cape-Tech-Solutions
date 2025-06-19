@@ -8,380 +8,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
-  <style>
-  /* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* General body styling */
-body {
-  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
-  color: #4b5e6b;
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.light-mode {
-  background: linear-gradient(180deg, #f8f9fa 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-}
-
-/* Sticky header */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(90deg, #2c3e50 0%, #1a252f 100%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  padding: 1rem 2rem;
-}
-
-.light-mode header {
-  background: linear-gradient(90deg, #f8f9fa 0%, #e0e7ff 100%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo-title {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.4);
-}
-
-.nav-link {
-  color: #a0b0c0;
-  font-weight: 600;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-}
-
-.dropdown-menu-dark {
-  background: #2c3e50;
-  border: 1px solid #ff3a5a;
-}
-
-.light-mode .dropdown-menu-dark {
-  background: #e9ecef;
-  border: 1px solid #ff3a5a;
-}
-
-.dropdown-item {
-  color: #a0b0c0;
-}
-
-.light-mode .dropdown-item {
-  color: #4b5e6b;
-}
-
-.dropdown-item:hover {
-  background: #ff3a5a;
-  color: white;
-}
-
-/* Parallax hero section */
-.parallax {
-  background-image: url('images/hero-bg.jpg'); /* Replace with a high-quality background image */
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.hero-content {
-  background: linear-gradient(135deg, rgba(255, 58, 90, 0.7), rgba(75, 94, 107, 0.7));
-  padding: 3rem;
-  border-radius: 15px;
-  max-width: 900px;
-  box-shadow: 0 0 20px rgba(255, 58, 90, 0.3);
-}
-
-.light-mode .hero-content {
-  background: linear-gradient(135deg, rgba(255, 58, 90, 0.7), rgba(184, 193, 255, 0.7));
-  color: #4b5e6b;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
-}
-
-.light-mode .hero h1 {
-  color: #4b5e6b;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.3);
-}
-
-.hero p {
-  font-size: 1.3rem;
-  color: #a0b0c0;
-}
-
-.light-mode .hero p {
-  color: #4b5e6b;
-}
-
-/* Buttons */
-.cta-button, .btn-primary, .btn-sm {
-  background: #b8c1ff;
-  color: #4b5e6b;
-  border: none;
-  font-weight: 600;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover, .btn-primary:hover, .btn-sm:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-.hover-glow {
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 15px rgba(255, 58, 90, 0.6);
-}
-
-/* Card styling */
-.card-custom {
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  color: #a0b0c0;
-  border: 2px solid #ff3a5a;
-  border-radius: 15px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.light-mode .card-custom {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-  border: 2px solid #ff3a5a;
-}
-
-.card-custom:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(255, 58, 90, 0.4);
-}
-
-.card-custom h4 {
-  color: #ff3a5a;
-  font-weight: 700;
-}
-
-.light-mode .card-custom h4 {
-  color: #ff3a5a;
-}
-
-/* Section styling */
-.section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  background: linear-gradient(180deg, rgba(44, 62, 80, 0.9), rgba(26, 37, 47, 0.9));
-  border-radius: 15px;
-  padding: 3rem;
-  margin-bottom: 3rem;
-}
-
-.light-mode .section {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(224, 231, 255, 0.9));
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-title {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  font-size: 2.5rem;
-}
-
-/* Testimonials carousel */
-.testimonials-section .carousel-item {
-  padding: 1.5rem;
-}
-
-.testimonials-section .card-custom {
-  margin: auto;
-  max-width: 500px;
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  border: 2px solid #ff3a5a;
-}
-
-.light-mode .testimonials-section .card-custom {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-}
-
-/* Stats section */
-.stats-section h3 {
-  font-size: 3.5rem;
-  color: #ff3a5a;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
-  margin-bottom: 0.5rem;
-  transition: text-shadow 0.5s ease;
-}
-
-.stats-section h3.visible {
-  text-shadow: 0 0 12px rgba(255, 58, 90, 0.7);
-}
-
-.stats-section p {
-  font-size: 1.2rem;
-  color: #a0b0c0;
-}
-
-.light-mode .stats-section p {
-  color: #4b5e6b;
-}
-
-/* Footer */
-footer {
-  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
-  padding: 2rem 0;
-}
-
-.light-mode footer {
-  background: linear-gradient(180deg, #e0e7ff 0%, #f8f9fa 100%);
-}
-
-.footer-heading {
-  color: #ff3a5a;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.4);
-}
-
-.footer-links a {
-  background: #b8c1ff;
-  color: #4b5e6b;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.footer-links a:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-.footer-divider {
-  border-color: #ff3a5a;
-}
-
-.footer-text {
-  color: #a0b0c0;
-}
-
-.light-mode .footer-text {
-  color: #4b5e6b;
-}
-
-.footer-link {
-  color: #a0b0c0;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.light-mode .footer-link {
-  color: #4b5e6b;
-}
-
-.footer-link:hover {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  margin-left: 1rem;
-  border-radius: 20px;
-  border: none;
-  background: #b8c1ff;
-  color: #4b5e6b;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.theme-toggle:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-/* Back-to-top button */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  padding: 10px 15px;
-  background: #ff3a5a;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.back-to-top:hover {
-  background: #b8c1ff;
-  box-shadow: 0 0 10px rgba(184, 193, 255, 0.6);
-}
-
-/* Modal */
-.modal-content {
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  color: #a0b0c0;
-  border: 2px solid #ff3a5a;
-}
-
-.light-mode .modal-content {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-}
-
-.modal-header, .modal-body {
-  border-color: #ff3a5a;
-}
-
-/* Form inputs */
-.form-control {
-  background: #1a252f;
-  color: #a0b0c0;
-  border-color: #ff3a5a;
-}
-
-.light-mode .form-control {
-  background: #e0e7ff;
-  color: #4b5e6b;
-}
-
-.form-control:focus {
-  border-color: #ff3a5a;
-  box-shadow: 0 0 8px rgba(255, 58, 90, 0.4);
-}
-</style>
 </head>
 <body>
-  <header class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="d-flex align-items-center gap-3 text-decoration-none">
-      <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
-      <h1 class="m-0 logo-title">CAPE Technology Solutions</h1>
-    </a>
-    <nav aria-label="Main navigation">
+<header class="d-flex align-items-center justify-content-between">
+  <a href="index.html" class="d-flex align-items-center text-decoration-none">
+    <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
+    <span class="ms-2 fw-bold" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; color: red;">CAPE Technology Solutions</span>
+  </a>
+  <nav class="navbar navbar-expand-md" aria-label="Main navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav ms-auto">
         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="whoweare.html">Who We Are</a></li>
@@ -389,7 +27,7 @@ footer {
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             What We Do
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="software-development.html">Software Development</a></li>
             <li><a class="dropdown-item" href="defense-simulation.html">Defense Simulation</a></li>
             <li><a class="dropdown-item" href="data-configuration.html">Data Configuration Management</a></li>
@@ -397,11 +35,12 @@ footer {
         </li>
         <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="#core-capabilities">Core Capabilities</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
+<main class="has-fixed-header">
   <section class="hero parallax">
     <div class="hero-content">
       <h1>The CAPE Solution</h1>
@@ -441,8 +80,8 @@ footer {
   <section id="core-capabilities" class="section container">
     <h2 class="section-title">Our Core Capabilities</h2>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-4 d-flex">
+        <div class="card-custom hover-glow h-100 w-100">
           <div class="mb-3">
             <img src="images/CapePic5.png" alt="Software Development" style="width: 100%; max-width: 18rem; height: 15rem; object-fit: cover; border-radius: 12px;">
           </div>
@@ -450,8 +89,8 @@ footer {
           <p>Development of full-stack enterprise applications focused on modern web technologies, including the Joint Training Tool (JTT) and future exercise support software.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-4 d-flex">
+        <div class="card-custom hover-glow h-100 w-100">
           <div class="mb-3">
             <img src="images/CapePic6.jpg" alt="Defense Simulation" style="width: 100%; max-width: 18rem; height: 15rem; object-fit: cover; border-radius: 12px;">
           </div>
@@ -459,8 +98,8 @@ footer {
           <p>Managing the Joint Live Virtual Constructive (JLVC) federation and supporting other Modeling & Simulation (M&S) federations worldwide for large-scale military exercises.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-4 d-flex">
+        <div class="card-custom hover-glow h-100 w-100">
           <div class="mb-3">
             <img src="images/CapePic7.jpg" alt="Data Configuration Management" style="width: 100%; max-width: 18rem; height: 15rem; object-fit: cover; border-radius: 12px;">
           </div>
@@ -474,8 +113,8 @@ footer {
   <section id="why-choose-cape" class="section container">
     <h2 class="section-title">Why Choose CAPE?</h2>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card-custom text-center h-100 w-100 d-flex flex-column">
           <div class="mb-3">
             <img src="images/CapePic4.png" alt="Mission Critical" style="width: 18rem; height: 15rem;">
           </div>
@@ -483,8 +122,8 @@ footer {
           <p>Our solutions directly support national defense, military readiness, and homeland security with unmatched precision and urgency.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card-custom text-center h-100 w-100 d-flex flex-column">
           <div class="mb-3">
             <img src="images/CapePic1.png" alt="Software Engineering" style="width: 18rem; height: 15rem;">
           </div>
@@ -492,8 +131,8 @@ footer {
           <p>We specialize in complex architectures, full-stack development, and secure DevSecOps pipelines tailored for military and government use.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card-custom text-center h-100 w-100 d-flex flex-column">
           <div class="mb-3">
             <img src="images/CapePic2.jpg" alt="Expert Talent" style="width: 18rem; height: 15rem;">
           </div>
@@ -504,82 +143,16 @@ footer {
     </div>
   </section>
 
-  <section id="stats" class="section container stats-section text-center">
-    <h2 class="section-title">Our Impact</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h3 class="counter" data-target="10">0</h3>
-        <p>Years in Business</p>
-      </div>
-      <div class="col-md-4">
-        <h3 class="counter" data-target="50">0</h3>
-        <p>Projects Completed</p>
-      </div>
-      <div class="col-md-4">
-        <h3 class="counter" data-target="100">0</h3>
-        <p>Clients Served</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="leadership" class="section container">
-    <h2 class="section-title">Meet Our Leadership</h2>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/leadership1.jpg" class="img-fluid rounded-circle mb-3" alt="John Doe, Chief Executive Officer" style="width: 120px; height: 120px; object-fit: cover;" />
-          <h4>John Doe</h4>
-          <p>Chief Executive Officer – Visionary strategist driving innovation and growth across defense and tech sectors for 20+ years.</p>
+  <section class="section container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 d-flex">
+        <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+          <h2 class="section-title mb-3">CAPE Leadership</h2>
+          <p>
+            CAPE Leadership is comprised of 3x Army Veterans with a combined 70+ years of experience, both in and out of uniform, supporting Modeling and Simulation Software Development and Engineering. Their focus is on the people of CAPE by implementing work/life balance while maintaining a high level of proficiency. It’s the cornerstone to how the company is run: <strong>“Lead People; Manage Things.”</strong> Never confuse the two.
+          </p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/leadership2.jpg" class="img-fluid rounded-circle mb-3" alt="John Doe, Chief Technology Officer" style="width: 120px; height: 120px; object-fit: cover;" />
-          <h4>John Doe</h4>
-          <p>Chief Technology Officer – Veteran software architect leading CAPE’s cutting-edge development initiatives with precision and agility.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/leadership3.jpg" class="img-fluid rounded-circle mb-3" alt="John Doe, Director of Simulation Systems" style="width: 120px; height: 120px; object-fit: cover;" />
-          <h4>John Doe</h4>
-          <p>Director of Simulation Systems – Expert in military M&S with deep knowledge in joint training architecture and global federations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimonials" class="section container testimonials-section" aria-labelledby="testimonials-title">
-    <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
-    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="card-custom text-center">
-            <p>"CAPE delivered exactly what we needed for our simulation project—on time and above expectations."</p>
-            <h4>- DoD Program Manager</h4>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="card-custom text-center">
-            <p>"Their technical expertise and professionalism are unmatched."</p>
-            <h4>- Senior Systems Engineer</h4>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="card-custom text-center">
-            <p>"We trust CAPE for our most critical software needs."</p>
-            <h4>- Government Client</h4>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </section>
 
@@ -616,47 +189,24 @@ footer {
     </div>
   </footer>
 
-  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
-    <i class="bi bi-arrow-up"></i>
-  </button>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script>
     // Theme toggle with local storage
     const toggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light-mode');
-      toggleButton.textContent = 'Dark Mode';
-    } else {
-      toggleButton.textContent = 'Light Mode';
-    }
-
     toggleButton.onclick = function() {
-      body.classList.toggle('light-mode');
-      if (body.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
-        toggleButton.textContent = 'Dark Mode';
-      } else {
-        localStorage.setItem('theme', 'dark');
-        toggleButton.textContent = 'Light Mode';
-      }
+      document.documentElement.setAttribute(
+        'data-theme',
+        document.documentElement.getAttribute('data-theme') === 'dark' ? '' : 'dark'
+      );
+      toggleButton.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light Mode' : 'Dark Mode';
+      localStorage.setItem('theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
     };
-
-    // Back-to-top button
-    window.onscroll = function() {
-      const backToTop = document.getElementById('back-to-top');
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    };
-
-    document.getElementById('back-to-top').onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggleButton.textContent = 'Light Mode';
+    } else {
+      toggleButton.textContent = 'Dark Mode';
+    }
 
     // Section animations
     const sections = document.querySelectorAll('.section');
@@ -667,34 +217,7 @@ footer {
         }
       });
     }, { threshold: 0.1 });
-
     sections.forEach(section => observer.observe(section));
-
-    // Stats counter
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const target = parseInt(counter.getAttribute('data-target'));
-          let count = 0;
-          const increment = target / 100;
-          const updateCounter = () => {
-            count += increment;
-            if (count < target) {
-              counter.textContent = Math.ceil(count);
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target;
-            }
-          };
-          updateCounter();
-          counterObserver.unobserve(counter);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
   </script>
 </body>
 </html>

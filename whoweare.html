@@ -8,531 +8,226 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
-  <style>
-    /* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* General body styling */
-body {
-  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
-  color: #4b5e6b;
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.light-mode {
-  background: linear-gradient(180deg, #f8f9fa 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-}
-
-/* Sticky header */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(90deg, #2c3e50 0%, #1a252f 100%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem;
-}
-
-.light-mode header {
-  background: linear-gradient(90deg, #f8f9fa 0%, #e0e7ff 100%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo-title {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.4);
-}
-
-.nav-link {
-  color: #a0b0c0;
-  font-weight: 600;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-}
-
-.dropdown-menu-dark {
-  background: #2c3e50;
-  border: 1px solid #ff3a5a;
-}
-
-.light-mode .dropdown-menu-dark {
-  background: #e9ecef;
-  border: 1px solid #ff3a5a;
-}
-
-.dropdown-item {
-  color: #a0b0c0;
-}
-
-.light-mode .dropdown-item {
-  color: #4b5e6b;
-}
-
-.dropdown-item:hover {
-  background: #ff3a5a;
-  color: white;
-}
-
-/* Parallax hero section */
-.parallax {
-  background-image: url('images/hero-bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.hero-content {
-  background: linear-gradient(45deg, rgba(255, 58, 90, 0.7), rgba(75, 94, 107, 0.7));
-  padding: 3rem;
-  border-radius: 15px;
-  max-width: 900px;
-  box-shadow: 0 0 20px rgba(255, 58, 90, 0.3);
-}
-
-.light-mode .hero-content {
-  background: linear-gradient(45deg, rgba(255, 58, 90, 0.7), rgba(184, 193, 255, 0.7));
-  color: #4b5e6b;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
-}
-
-.light-mode .hero h1 {
-  color: #4b5e6b;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.3);
-}
-
-.hero p {
-  font-size: 1.3rem;
-  color: #a0b0c0;
-}
-
-.light-mode .hero p {
-  color: #4b5e6b;
-}
-
-/* Buttons */
-.cta-button, .btn-primary, .btn-sm, .btn-red, .handshake-button {
-  background: #b8c1ff;
-  color: #4b5e6b;
-  border: none;
-  font-weight: 600;
-  border-radius: 20px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover, .btn-primary:hover, .btn-sm:hover, .btn-red:hover, .handshake-button:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-.hover-glow {
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 15px rgba(255, 58, 90, 0.6);
-}
-
-/* Card styling */
-.card-custom {
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  color: #a0b0c0;
-  border: 2px solid #ff3a5a;
-  border-radius: 15px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.light-mode .card-custom {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-  border: 2px solid #ff3a5a;
-}
-
-.card-custom:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(255, 58, 90, 0.4);
-}
-
-.card-custom h4 {
-  color: #ff3a5a;
-  font-weight: 700;
-}
-
-.light-mode .card-custom h4 {
-  color: #ff3a5a;
-}
-
-.card-highlight {
-  margin-top: 1.5rem;
-  font-weight: 600;
-  color: #ff3a5a;
-}
-
-/* Crew section (commented out) */
-.crew-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-.crew-highlight {
-  color: #b8c1ff;
-}
-
-/* Section styling */
-.section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  margin-bottom: 3rem;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-title {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  font-size: 2.5rem;
-}
-
-/* Handshake section */
-.handshake-section {
-  background: linear-gradient(90deg, #181c20 0%, #232b33 100%);
-  border-radius: 24px;
-  padding: 2.5rem 1rem 2rem 1rem;
-  margin-bottom: 3rem;
-}
-
-.light-mode .handshake-section {
-  background: linear-gradient(90deg, #e0e7ff 0%, #f8f9fa 100%);
-}
-
-.handshake-text {
-  color: #a0b0c0;
-}
-
-.light-mode .handshake-text {
-  color: #4b5e6b;
-}
-
-/* Testimonials carousel (for index.html) */
-.testimonials-section .carousel-item {
-  padding: 1.5rem;
-}
-
-.testimonials-section .card-custom {
-  margin: auto;
-  max-width: 500px;
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  border: 2px solid #ff3a5a;
-}
-
-.light-mode .testimonials-section .card-custom {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-}
-
-/* Stats section (for index.html) */
-.stats-section h3 {
-  font-size: 3.5rem;
-  color: #ff3a5a;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.5);
-  margin-bottom: 0.5rem;
-  transition: text-shadow 0.5s ease;
-}
-
-.stats-section h3.visible {
-  text-shadow: 0 0 12px rgba(255, 58, 90, 0.7);
-}
-
-.stats-section p {
-  font-size: 1.2rem;
-  color: #a0b0c0;
-}
-
-.light-mode .stats-section p {
-  color: #4b5e6b;
-}
-
-/* Footer */
-footer {
-  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
-  padding: 2rem 0;
-}
-
-.light-mode footer {
-  background: linear-gradient(180deg, #e0e7ff 0%, #f8f9fa 100%);
-}
-
-.footer-heading {
-  color: #ff3a5a;
-  text-shadow: 0 0 6px rgba(255, 58, 90, 0.4);
-}
-
-.footer-links a {
-  background: #b8c1ff;
-  color: #4b5e6b;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.footer-links a:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-.footer-divider {
-  border-color: #ff3a5a;
-}
-
-.footer-text {
-  color: #a0b0c0;
-}
-
-.light-mode .footer-text {
-  color: #4b5e6b;
-}
-
-.footer-link {
-  color: #a0b0c0;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.light-mode .footer-link {
-  color: #4b5e6b;
-}
-
-.footer-link:hover {
-  color: #ff3a5a;
-  text-shadow: 0 0 4px rgba(255, 58, 90, 0.3);
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  margin-left: 1rem;
-  border-radius: 20px;
-  border: none;
-  background: #b8c1ff;
-  color: #4b5e6b;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.theme-toggle:hover {
-  background: #ff3a5a;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 58, 90, 0.5);
-}
-
-/* Back-to-top button */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  padding: 10px 15px;
-  background: #ff3a5a;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.back-to-top:hover {
-  background: #b8c1ff;
-  box-shadow: 0 0 10px rgba(184, 193, 255, 0.6);
-}
-
-/* Form inputs */
-.form-control {
-  background: #1a252f;
-  color: #a0b0c0;
-  border-color: #ff3a5a;
-}
-
-.light-mode .form-control {
-  background: #e0e7ff;
-  color: #4b5e6b;
-}
-
-.form-control:focus {
-  border-color: #ff3a5a;
-  box-shadow: 0 0 8px rgba(255, 58, 90, 0.4);
-}
-
-/* Modal (for index.html) */
-.modal-content {
-  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-  color: #a0b0c0;
-  border: 2px solid #ff3a5a;
-}
-
-.light-mode .modal-content {
-  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 100%);
-  color: #4b5e6b;
-}
-
-.modal-header, .modal-body {
-  border-color: #ff3a5a;
-}
-  </style>
 </head>
 <body>
-  <header class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="d-flex align-items-center gap-3 text-decoration-none">
+  <header>
+    <a href="index.html" class="d-flex align-items-center text-decoration-none">
       <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
-      <h1 class="m-0 logo-title">CAPE Technology Solutions</h1>
     </a>
-    <nav aria-label="Main navigation">
-      <ul class="nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="whoweare.html">Who We Are</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            What We Do
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="software-development.html">Software Development</a></li>
-            <li><a class="dropdown-item" href="defense-simulation.html">Defense Simulation</a></li>
-            <li><a class="dropdown-item" href="data-configuration.html">Data Configuration Management</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-md" aria-label="Main navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="whoweare.html">Who We Are</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              What We Do
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="software-development.html">Software Development</a></li>
+              <li><a class="dropdown-item" href="defense-simulation.html">Defense Simulation</a></li>
+              <li><a class="dropdown-item" href="data-configuration.html">Data Configuration Management</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
+  <main class="has-fixed-header">
+    <section class="hero parallax">
+      <div class="hero-content">
+        <h1>Who We Are</h1>
+        <p>
+          CAPE Technology Solutions is a team of creative, analytical, and practical professionals dedicated to delivering innovative solutions for complex challenges. Our diverse backgrounds and expertise allow us to approach problems from multiple perspectives, ensuring the best outcomes for our clients and partners.
+        </p>
+        <button type="button" class="cta-button hover-glow" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Our Team</button>
+      </div>
+    </section>
 
-  <section class="hero parallax">
-    <div class="hero-content">
-      <h1>Who We Are</h1>
-      <p>
-        CAPE Technology Solutions is a small business defense contractor founded in 2018 and based in the Hampton Roads area. We are dedicated to supporting our clients and delivering innovative solutions with a focus on excellence and integrity.
-      </p>
+    <!-- CAPE Leadership (add mt-5 for spacing just like index.html) -->
+    <section class="container mt-5 mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 d-flex">
+          <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+            <h2 class="section-title mb-3">CAPE Leadership</h2>
+            <p>
+              CAPE Leadership is comprised of 3x Army Veterans with a combined 70+ years of experience, both in and out of uniform, supporting Modeling and Simulation Software Development and Engineering. Their focus is on the people of CAPE by implementing work/life balance while maintaining a high level of proficiency. It’s the cornerstone to how the company is run: <strong>“Lead People; Manage Things.”</strong> Never confuse the two.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Focus -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 d-flex">
+          <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+            <h2 class="section-title mb-3">Our Mission & Focus</h2>
+            <ul>
+              <li><em>“The whole is greater than the sum of its parts.”</em></li>
+              <li>Leverage company talent, passionate perseverance, and impassioned work ethic to provide the best, most realistic staff training experiences possible—preventing current and future leaders from making critical errors that cost lives.</li>
+              <li>Impact, self-worth, and respect are important. The business of CAPE is not about money or ego. It’s about doing the right thing when it’s hard. We’re about the mission and the people on the Team. Those are the touchstones that are judged before business decisions and money. Not always the case in this industry.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Endstate -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 d-flex">
+          <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+            <h2 class="section-title mb-3">Endstate</h2>
+            <p>
+              CAPE is a place where teammates pursue happiness with the opportunity to grow, adapt, and succeed based on their merits, reputation, and artfully crafted skills. It’s that simple.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Are We Different? -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 d-flex">
+          <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+            <h2 class="section-title mb-4 text-center" style="color:#ff3a5a;">Why Are We Different?</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-person-check-fill fs-2 text-danger"></i>
+                  <div>
+                    <strong>Direct access to decision makers</strong>
+                    <p class="mb-0 small text-muted">Your ideas and feedback reach the people who shape the company.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-diagram-3-fill fs-2 text-danger"></i>
+                  <div>
+                    <strong>Flat C2 structure</strong>
+                    <p class="mb-0 small text-muted">No voice is ignored—everyone has a seat at the table.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-lightbulb-fill fs-2 text-danger"></i>
+                  <div>
+                    <strong>Influence the future</strong>
+                    <p class="mb-0 small text-muted">Shape decisions, work, and outcomes that matter.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-currency-dollar fs-2 text-danger"></i>
+                  <div>
+                    <strong>Competitive salaries</strong>
+                    <p class="mb-0 small text-muted">Fair pay for hard work, with a focus on balance and respect.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-graph-up-arrow fs-2 text-danger"></i>
+                  <div>
+                    <strong>Impactful work</strong>
+                    <p class="mb-0 small text-muted">See real-time results and contribute to something bigger than yourself.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas & Projects -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 d-flex">
+          <div class="card-custom hover-glow p-4 h-100 w-100 d-flex flex-column">
+            <h2 class="section-title mb-3">Areas & Projects</h2>
+            <ul>
+              <li><strong>JLVC:</strong> Joint Live, Virtual, Constructive federation for integrated training.</li>
+              <li><strong>JLVC-MOD:</strong> Modernization of JLVC capabilities.</li>
+              <li><strong>Project Tripoli:</strong> (Description as allowed by legal/GOV/HII guidance.)</li>
+              <li><strong>JWED:</strong> (Description as allowed by legal/GOV/HII guidance.)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teammate Testimonials
+    <section>
+      <div class="card-custom hover-glow p-4">
+        <h2 class="section-title mb-4 text-center" style="color:#ff3a5a;">Teammate Testimonials</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10 mx-auto">
+            <p class="text-center mb-4">
+              <em>Why did they choose CAPE? Why do they stay? Reference the “Whole” again.</em>
+            </p>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <blockquote class="blockquote border-start border-4 ps-3 shadow-sm h-100">
+                  <i class="bi bi-chat-quote-fill text-danger fs-3 mb-2"></i>
+                  <p class="mb-1">"At CAPE, my voice matters and my work has real impact. The leadership truly cares about the team."</p>
+                  <footer class="blockquote-footer">A CAPE Teammate</footer>
+                </blockquote>
+              </div>
+              <div class="col-md-6">
+                <blockquote class="blockquote border-start border-4 ps-3 shadow-sm h-100">
+                  <i class="bi bi-chat-quote-fill text-danger fs-3 mb-2"></i>
+                  <p class="mb-1">"The culture here is about growth and respect. I feel valued and challenged every day."</p>
+                  <footer class="blockquote-footer">Another CAPE Teammate</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="event.preventDefault(); alert('Form submitted!');">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary hover-glow">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <section class="section container" aria-labelledby="who-we-are-title">
-    <h2 class="section-title" id="who-we-are-title">Our Story & Values</h2>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="card-custom">
-          <ul>
-            <li><strong>Founded:</strong> 2018</li>
-            <li><strong>Location:</strong> Hampton Roads area</li>
-            <li><strong>Primary Support:</strong> Joint Staff J7 in Suffolk, VA</li>
-            <li><strong>Global Reach:</strong> Supporting large scale military exercises worldwide</li>
-            <li><strong>Employee Focused:</strong> We value our employees and recognize their hard work and accomplishments</li>
-            <li><strong>Family Culture:</strong> We operate as a close family with diverse backgrounds and skill sets</li>
-            <li><strong>Customer Commitment:</strong> Providing innovative solutions and best value to our customers</li>
-          </ul>
-          <p class="card-highlight">
-            Combining Creative, Analytical, and Practical Intelligence.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Crew Section commented out -->
-  <!--
-  <section class="section container" aria-labelledby="our-crew-title">
-    <h2 class="section-title" id="our-crew-title">Our Crew</h2>
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/crew1.jpg" alt="Crew Member 1" class="crew-image">
-          <h4>Jane Doe</h4>
-          <p>Lead Software Engineer<br><span class="crew-highlight">Innovative, analytical, and always ready for a challenge.</span></p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/crew2.jpg" alt="Crew Member 2" class="crew-image">
-          <h4>John Smith</h4>
-          <p>Systems Architect<br><span class="crew-highlight">Brings practical intelligence and creative solutions to every project.</span></p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <img src="images/crew3.jpg" alt="Crew Member 3" class="crew-image">
-          <h4>Alex Lee</h4>
-          <p>Simulation Specialist<br><span class="crew-highlight">Expert in defense simulation and global exercise support.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- Testimonials Section commented out -->
-  <!--
-  <section class="section container testimonials-section" aria-labelledby="testimonials-title">
-    <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <p>"CAPE delivered exactly what we needed for our simulation project—on time and above expectations."</p>
-          <h4>- DoD Program Manager</h4>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <p>"Their technical expertise and professionalism are unmatched."</p>
-          <h4>- Senior Systems Engineer</h4>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom text-center">
-          <p>"We trust CAPE for our most critical software needs."</p>
-          <h4>- Government Client</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <section class="handshake-section text-center">
-    <h3 class="section-title">Find Us On Handshake</h3>
-    <p class="handshake-text mb-3">
-      Looking for more opportunities or want to apply through your university? Visit our company profile on Handshake!
-    </p>
-    <a href="https://app.joinhandshake.com/e/687439/jobs" target="_blank" class="btn btn-red hover-glow handshake-button px-4">
-      Go to Handshake
-    </a>
-  </section>
+  </div>
 
   <footer aria-label="Site footer" class="mt-auto">
     <div class="container py-4">
@@ -543,12 +238,11 @@ footer {
             <a href="https://www.linkedin.com/company/cape-technology-solutions-llc/" target="_blank" class="btn btn-sm hover-glow">
               <i class="bi bi-linkedin"></i> LinkedIn
             </a>
-            <a href="mailto:info@capetech.com" class="btn btn-sm hover-glow">
+            <a href="contact.html" class="btn btn-sm hover-glow">
               <i class="bi bi-envelope-fill"></i> Email Us
             </a>
           </div>
         </div>
-
         <div class="col-md-4 mb-4">
           <h5 class="text-uppercase footer-heading">Newsletter</h5>
           <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
@@ -557,7 +251,6 @@ footer {
           </form>
         </div>
       </div>
-
       <button id="theme-toggle" aria-label="Toggle between dark and light mode" class="theme-toggle">Toggle Theme</button>
       <hr class="footer-divider" />
       <p class="mb-0 text-center footer-text">
@@ -566,49 +259,23 @@ footer {
       </p>
     </div>
   </footer>
-
-  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
-    <i class="bi bi-arrow-up"></i>
-  </button>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script>
-    // Theme toggle with local storage
     const toggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light-mode');
-      toggleButton.textContent = 'Dark Mode';
-    } else {
-      toggleButton.textContent = 'Light Mode';
-    }
-
     toggleButton.onclick = function() {
-      body.classList.toggle('light-mode');
-      if (body.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
-        toggleButton.textContent = 'Dark Mode';
-      } else {
-        localStorage.setItem('theme', 'dark');
-        toggleButton.textContent = 'Light Mode';
-      }
+      document.documentElement.setAttribute(
+        'data-theme',
+        document.documentElement.getAttribute('data-theme') === 'dark' ? '' : 'dark'
+      );
+      toggleButton.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light Mode' : 'Dark Mode';
+      localStorage.setItem('theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
     };
-
-    // Back-to-top button
-    window.onscroll = function() {
-      const backToTop = document.getElementById('back-to-top');
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    };
-
-    document.getElementById('back-to-top').onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggleButton.textContent = 'Light Mode';
+    } else {
+      toggleButton.textContent = 'Dark Mode';
+    }
     // Section animations
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
@@ -618,7 +285,6 @@ footer {
         }
       });
     }, { threshold: 0.1 });
-
     sections.forEach(section => observer.observe(section));
   </script>
 </body>
