@@ -1,0 +1,311 @@
+/**
+ * CAPE Technology Solutions - Accessibility Enhancement Styles
+ * Supporting improved user experience for all users
+ */
+
+/* Skip Navigation Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Enhanced Focus Indicators */
+.nav-link:focus,
+.btn:focus,
+.dropdown-toggle:focus,
+.learn-more:focus,
+a:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* High contrast focus for buttons */
+.btn-neon:focus,
+.btn-primary:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px #0066cc;
+}
+
+/* Theme toggle focus enhancement */
+#theme-toggle:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 3px;
+}
+
+/* Dropdown menu accessibility */
+.dropdown-menu {
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-item:focus {
+  background-color: #0066cc;
+  color: white;
+  outline: none;
+}
+
+/* Social icons accessibility */
+.social-icons a:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* Enhanced button states */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:disabled:focus {
+  outline: 2px solid #999;
+}
+
+/* Improved text readability */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.visually-hidden-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hero {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-link,
+  .btn,
+  .learn-more {
+    border: 2px solid;
+  }
+  
+  .hero-content h1,
+  .hero-content p {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+}
+
+/* Mobile accessibility improvements */
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  .nav-link,
+  .btn,
+  .learn-more {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Disable parallax for better performance and accessibility */
+  .hero {
+    transform: none !important;
+    background-attachment: scroll !important;
+  }
+  
+  /* Better spacing for mobile navigation */
+  .navbar-nav .nav-item {
+    margin: 0.25rem 0;
+  }
+  
+  /* Improved dropdown on mobile */
+  .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  /* Skip link positioning for mobile */
+  .skip-link:focus {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+  }
+}
+
+/* Dark theme accessibility adjustments */
+[data-theme="dark"] .skip-link {
+  background: #ffffff;
+  color: #000000;
+}
+
+[data-theme="dark"] .skip-link:focus {
+  outline-color: #000000;
+}
+
+[data-theme="dark"] .nav-link:focus,
+[data-theme="dark"] .btn:focus,
+[data-theme="dark"] .dropdown-toggle:focus,
+[data-theme="dark"] .learn-more:focus,
+[data-theme="dark"] a:focus {
+  outline-color: #66b3ff;
+}
+
+[data-theme="dark"] .dropdown-item:focus {
+  background-color: #66b3ff;
+  color: #000;
+}
+
+/* Loading states for better UX */
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error states */
+.error {
+  border: 2px solid #dc3545;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.error:focus {
+  outline-color: #dc3545;
+}
+
+/* Success states */
+.success {
+  border: 2px solid #28a745;
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.success:focus {
+  outline-color: #28a745;
+}
+
+/* Print styles for accessibility */
+@media print {
+  .skip-link,
+  .navbar,
+  .btn-neon,
+  #theme-toggle {
+    display: none !important;
+  }
+  
+  .hero-content h1,
+  .section-title {
+    color: #000 !important;
+    break-after: avoid;
+  }
+  
+  .leidos-box {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+}
+
+/* Better text spacing for readability */
+.card-body p,
+.hero-content p {
+  line-height: 1.6;
+  word-spacing: 0.1em;
+}
+
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Ensure adequate color contrast */
+.bg-light .section-title,
+.bg-light .card-body h3 {
+  color: #212529;
+}
+
+/* Better link distinction */
+a:not(.btn):not(.nav-link):not(.dropdown-item) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+  text-decoration-thickness: 3px;
+}
+
+/* Focus trap for modals/dropdowns */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap:focus-within {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
