@@ -1,59 +1,682 @@
-// index.js
+/**
+ * CAPE Technology Solutions - Professional Defense Contractor JavaScript
+ * Enhanced interactions and functionality for mission-critical presentation
+ */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Newsletter form submission handler
-  const newsletterForm = document.querySelector('form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+// =============================================================================
+// UTILITY FUNCTIONS
+// =============================================================================
+
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  }
+};
+
+// =============================================================================
+// THEME MANAGEMENT
+// =============================================================================
+
+class ThemeManager {
+  constructor() {
+    this.currentTheme = localStorage.getItem('cape-theme') || 'light';
+    this.toggleBtn = document.getElementById('theme-toggle');
+    this.init();
+  }
+
+  init() {
+    this.applyTheme(this.currentTheme);
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    if (this.toggleBtn) {
+      this.toggleBtn.addEventListener('click', () => this.toggleTheme());
+    }
+  }
+
+  toggleTheme() {
+    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+    this.applyTheme(this.currentTheme);
+    localStorage.setItem('cape-theme', this.currentTheme);
+  }
+
+  applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    if (this.toggleBtn) {
+      const icon = this.toggleBtn.querySelector('i');
+      if (icon) {
+        icon.className = theme === 'light' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HEADER SCROLL EFFECTS
+// =============================================================================
+
+class HeaderManager {
+  constructor() {
+    this.header = document.querySelector('.site-header');
+    this.lastScrollY = window.scrollY;
+    this.init();
+  }
+
+  init() {
+    if (!this.header) return;
+    this.setupScrollListener();
+  }
+
+  setupScrollListener() {
+    const handleScroll = throttle(() => {
+      const currentScrollY = window.scrollY;
+      
+      // Add/remove scrolled class for styling
+      if (currentScrollY > 100) {
+        this.header.classList.add('scrolled');
+      } else {
+        this.header.classList.remove('scrolled');
+      }
+
+      // Hide/show header on scroll
+      if (currentScrollY > this.lastScrollY && currentScrollY > 300) {
+        this.header.style.transform = 'translateY(-100%)';
+      } else {
+        this.header.style.transform = 'translateY(0)';
+      }
+
+      this.lastScrollY = currentScrollY;
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+}
+
+// =============================================================================
+// SMOOTH SCROLLING
+// =============================================================================
+
+class SmoothScrollManager {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.setupSmoothScrolling();
+  }
+
+  setupSmoothScrolling() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+
       e.preventDefault();
-      alert('Thanks for signing up!');
-      newsletterForm.reset();
+      
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+      const classificationHeight = document.querySelector('.classification-banner')?.offsetHeight || 0;
+      const offset = headerHeight + classificationHeight + 20;
+
+      window.scrollTo({
+        top: target.offsetTop - offset,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+// =============================================================================
+// INTERSECTION OBSERVER ANIMATIONS
+// =============================================================================
+
+class AnimationManager {
+  constructor() {
+    this.observer = null;
+    this.init();
+  }
+
+  init() {
+    this.setupIntersectionObserver();
+    this.observeElements();
+  }
+
+  setupIntersectionObserver() {
+    const options = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          // Stagger animation for capability cards
+          if (entry.target.classList.contains('capability-card')) {
+            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100;
+            entry.target.style.animationDelay = `${delay}ms`;
+          }
+        }
+      });
+    }, options);
+  }
+
+  observeElements() {
+    const elementsToAnimate = [
+      '.capability-card',
+      '.trust-stat',
+      '.cert-card',
+      '.leadership-card',
+      '.section-header'
+    ];
+
+    elementsToAnimate.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        this.observer?.observe(el);
+      });
+    });
+  }
+}
+
+// =============================================================================
+// HERO TECH GRID INTERACTIONS
+// =============================================================================
+
+class TechGridManager {
+  constructor() {
+    this.techCards = document.querySelectorAll('.tech-card');
+    this.init();
+  }
+
+  init() {
+    if (this.techCards.length === 0) return;
+    this.setupTechCardRotation();
+    this.setupTechCardInteractions();
+  }
+
+  setupTechCardRotation() {
+    let currentIndex = 0;
+    
+    const rotateTechCards = () => {
+      this.techCards.forEach(card => card.classList.remove('active'));
+      this.techCards[currentIndex].classList.add('active');
+      currentIndex = (currentIndex + 1) % this.techCards.length;
+    };
+
+    // Initial rotation
+    rotateTechCards();
+    
+    // Auto-rotate every 3 seconds
+    setInterval(rotateTechCards, 3000);
+  }
+
+  setupTechCardInteractions() {
+    this.techCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        this.techCards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+    });
+  }
+}
+
+// =============================================================================
+// TYPING ANIMATION FOR HERO TITLE
+// =============================================================================
+
+class TypingAnimation {
+  constructor(element, text, speed = 100) {
+    this.element = element;
+    this.text = text;
+    this.speed = speed;
+    this.index = 0;
+  }
+
+  start() {
+    if (!this.element) return;
+    
+    this.element.innerHTML = '';
+    const typeChar = () => {
+      if (this.index < this.text.length) {
+        this.element.innerHTML += this.text.charAt(this.index);
+        this.index++;
+        setTimeout(typeChar, this.speed);
+      }
+    };
+    
+    setTimeout(typeChar, 500); // Delay start
+  }
+}
+
+// =============================================================================
+// COUNTER ANIMATIONS
+// =============================================================================
+
+class CounterAnimation {
+  constructor() {
+    this.counters = document.querySelectorAll('.stat-number');
+    this.init();
+  }
+
+  init() {
+    if (this.counters.length === 0) return;
+    this.setupCounterObserver();
+  }
+
+  setupCounterObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    this.counters.forEach(counter => {
+      observer.observe(counter);
     });
   }
 
-  // Future custom JS can go here
-});
+  animateCounter(element) {
+    const target = element.textContent;
+    const isNumber = /^\d+$/.test(target);
+    
+    if (!isNumber) return;
 
-const toggleButton = document.getElementById('theme-toggle');
-toggleButton.onclick = function() {
-  const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : 'dark';
-  document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  toggleButton.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
-  // Update particle colors on theme change
-  const newParticleColors = newTheme === 'dark' ? ['#ffffff', '#00d4ff'] : ['#ff3a5a', '#000000'];
-  particlesJS("particles", {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 900 } },
-      color: { value: newParticleColors },
-      shape: { type: "circle" },
-      opacity: { value: 0.6, random: true },
-      size: { value: 2.5, random: true },
-      line_linked: { enable: false },
-      move: { enable: true, speed: 2 }
-    },
-    interactivity: {
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" }
+    const finalNumber = parseInt(target);
+    const duration = 2000;
+    const startTime = performance.now();
+
+    const updateCounter = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const current = Math.floor(progress * finalNumber);
+      element.textContent = current + (target.includes('+') ? '+' : '');
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target; // Ensure final value is correct
       }
-    }
-  });
-};
-if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.setAttribute('data-theme', 'dark');
-  toggleButton.textContent = 'Light Mode';
-} else {
-  toggleButton.textContent = 'Dark Mode';
+    };
+
+    requestAnimationFrame(updateCounter);
+  }
 }
 
-// Section animations
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// =============================================================================
+// PARALLAX EFFECTS
+// =============================================================================
+
+class ParallaxManager {
+  constructor() {
+    this.elements = document.querySelectorAll('[data-parallax]');
+    this.init();
+  }
+
+  init() {
+    if (this.elements.length === 0) return;
+    
+    // Check if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
     }
-  });
-}, { threshold: 0.1 });
-sections.forEach(section => observer.observe(section));
+
+    this.setupParallaxListener();
+  }
+
+  setupParallaxListener() {
+    const handleScroll = throttle(() => {
+      const scrolled = window.pageYOffset;
+      
+      this.elements.forEach(element => {
+        const rate = scrolled * (element.dataset.parallax || 0.5);
+        element.style.transform = `translateY(${rate}px)`;
+      });
+    }, 16); // ~60fps
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+}
+
+// =============================================================================
+// FORM ENHANCEMENTS
+// =============================================================================
+
+class FormManager {
+  constructor() {
+    this.forms = document.querySelectorAll('form');
+    this.init();
+  }
+
+  init() {
+    this.setupFormValidation();
+    this.setupFormInteractions();
+  }
+
+  setupFormValidation() {
+    this.forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        if (!this.validateForm(form)) {
+          e.preventDefault();
+        }
+      });
+    });
+  }
+
+  setupFormInteractions() {
+    // Enhanced input focus effects
+    document.querySelectorAll('input, textarea').forEach(input => {
+      input.addEventListener('focus', () => {
+        input.parentElement?.classList.add('focused');
+      });
+
+      input.addEventListener('blur', () => {
+        if (!input.value) {
+          input.parentElement?.classList.remove('focused');
+        }
+      });
+    });
+  }
+
+  validateForm(form) {
+    let isValid = true;
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        this.showFieldError(input, 'This field is required');
+        isValid = false;
+      } else if (input.type === 'email' && !this.isValidEmail(input.value)) {
+        this.showFieldError(input, 'Please enter a valid email address');
+        isValid = false;
+      } else {
+        this.clearFieldError(input);
+      }
+    });
+
+    return isValid;
+  }
+
+  isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  showFieldError(input, message) {
+    input.classList.add('error');
+    let errorElement = input.parentElement?.querySelector('.error-message');
+    
+    if (!errorElement) {
+      errorElement = document.createElement('div');
+      errorElement.className = 'error-message';
+      input.parentElement?.appendChild(errorElement);
+    }
+    
+    errorElement.textContent = message;
+  }
+
+  clearFieldError(input) {
+    input.classList.remove('error');
+    const errorElement = input.parentElement?.querySelector('.error-message');
+    if (errorElement) {
+      errorElement.remove();
+    }
+  }
+}
+
+// =============================================================================
+// PERFORMANCE MONITORING
+// =============================================================================
+
+class PerformanceMonitor {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.logPerformanceMetrics();
+    this.setupErrorHandling();
+  }
+
+  logPerformanceMetrics() {
+    if ('performance' in window) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Page Load Performance:', {
+            domContentLoaded: Math.round(perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart),
+            loadComplete: Math.round(perfData.loadEventEnd - perfData.loadEventStart),
+            totalTime: Math.round(perfData.loadEventEnd - perfData.fetchStart)
+          });
+        }, 1000);
+      });
+    }
+  }
+
+  setupErrorHandling() {
+    window.addEventListener('error', (e) => {
+      console.error('JavaScript Error:', {
+        message: e.message,
+        filename: e.filename,
+        lineno: e.lineno,
+        colno: e.colno
+      });
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+      console.error('Unhandled Promise Rejection:', e.reason);
+    });
+  }
+}
+
+// =============================================================================
+// ACCESSIBILITY ENHANCEMENTS
+// =============================================================================
+
+class AccessibilityManager {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.setupKeyboardNavigation();
+    this.setupFocusManagement();
+    this.setupReducedMotion();
+  }
+
+  setupKeyboardNavigation() {
+    // Enhanced keyboard navigation for dropdowns
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const openDropdown = document.querySelector('.dropdown-menu.show');
+        if (openDropdown) {
+          const toggle = document.querySelector('[data-bs-toggle="dropdown"][aria-expanded="true"]');
+          if (toggle) {
+            toggle.click();
+            toggle.focus();
+          }
+        }
+      }
+    });
+  }
+
+  setupFocusManagement() {
+    // Ensure focus is visible for keyboard users
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-nav');
+      }
+    });
+
+    document.addEventListener('mousedown', () => {
+      document.body.classList.remove('keyboard-nav');
+    });
+  }
+
+  setupReducedMotion() {
+    // Respect user's motion preferences
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.setProperty('--transition-fast', '0ms');
+      document.documentElement.style.setProperty('--transition-normal', '0ms');
+      document.documentElement.style.setProperty('--transition-slow', '0ms');
+    }
+  }
+}
+
+// =============================================================================
+// INITIALIZATION
+// =============================================================================
+
+class CapeApp {
+  constructor() {
+    this.managers = [];
+    this.init();
+  }
+
+  init() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.initializeManagers());
+    } else {
+      this.initializeManagers();
+    }
+  }
+
+  initializeManagers() {
+    try {
+      // Core functionality
+      this.managers.push(new ThemeManager());
+      this.managers.push(new HeaderManager());
+      this.managers.push(new SmoothScrollManager());
+      this.managers.push(new AnimationManager());
+      
+      // Interactive elements
+      this.managers.push(new TechGridManager());
+      this.managers.push(new CounterAnimation());
+      this.managers.push(new FormManager());
+      
+      // Enhanced features
+      this.managers.push(new ParallaxManager());
+      this.managers.push(new AccessibilityManager());
+      this.managers.push(new PerformanceMonitor());
+
+      // Initialize typing animation for hero title
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const originalText = heroTitle.innerHTML;
+        new TypingAnimation(heroTitle, originalText, 50).start();
+      }
+
+      console.log('🛡️ CAPE Technology Solutions - All systems initialized');
+      
+    } catch (error) {
+      console.error('Initialization error:', error);
+    }
+  }
+
+  // Public method to get manager instances
+  getManager(managerName) {
+    return this.managers.find(manager => 
+      manager.constructor.name === managerName
+    );
+  }
+}
+
+// =============================================================================
+// GLOBAL UTILITIES
+// =============================================================================
+
+// Expose useful utilities globally
+window.CapeUtils = {
+  debounce,
+  throttle,
+  
+  // Smooth scroll to element
+  scrollTo: (selector, offset = 0) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      const top = element.offsetTop - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  },
+
+  // Show notification (could be used for form submissions, etc.)
+  notify: (message, type = 'info') => {
+    console.log(`${type.toUpperCase()}: ${message}`);
+    // Could be extended to show actual toast notifications
+  },
+
+  // Format numbers for display
+  formatNumber: (num) => {
+    return new Intl.NumberFormat().format(num);
+  }
+};
+
+// =============================================================================
+// START APPLICATION
+// =============================================================================
+
+// Initialize the application
+const capeApp = new CapeApp();
+
+// Make app instance available globally for debugging
+window.CapeApp = capeApp;
+
+// Add some additional CSS classes via JavaScript for animations
+const style = document.createElement('style');
+style.textContent = `
+  .animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .keyboard-nav *:focus {
+    outline: 2px solid var(--blue-accent) !important;
+    outline-offset: 2px !important;
+  }
+  
+  .error {
+    border-color: var(--red-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+  }
+  
+  .error-message {
+    color: var(--red-primary);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-1);
+  }
+  
+  .site-header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px var(--shadow-medium);
+  }
+`;
+
+document.head.appendChild(style);
