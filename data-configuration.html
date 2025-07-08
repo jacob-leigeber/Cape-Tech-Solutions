@@ -2,127 +2,667 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Configuration - CAPE Technology Solutions</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Essential SEO Meta Tags -->
+  <title>Data Management - CAPE Technology Solutions | Enterprise Data Configuration</title>
+  <meta name="description" content="Enterprise data configuration management for defense applications. JTDS support, exercise data management, and full-lifecycle data governance for mission-critical operations." />
+  <meta name="keywords" content="data configuration management, JTDS support, defense data management, exercise data, government data security, data lifecycle management" />
+  <meta name="author" content="CAPE Technology Solutions" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Data Management - CAPE Technology Solutions" />
+  <meta property="og:description" content="Enterprise data configuration management for defense applications and mission-critical operations." />
+  <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
+  <meta property="og:url" content="https://capetechsolutions.com/data-configuration.html" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Performance Optimizations -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Professional Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
 </head>
+
 <body>
-  <div id="particles"></div>
-  <header class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="d-flex align-items-center text-decoration-none">
-      <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
-      <span class="ms-2 fw-bold text-nowrap" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; color: red;">CAPE Technology Solutions</span>
-    </a>
-    <nav class="navbar navbar-expand-md" aria-label="Main navigation">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="whoweare.html">Who We Are</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              What We Do
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="software-development.html">Software Development</a></li>
-              <li><a class="dropdown-item" href="defense-simulation.html">Defense Simulation</a></li>
-              <li><a class="dropdown-item active" href="data-configuration.html">Data Configuration Management</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo & Brand -->
+        <a class="navbar-brand" href="index.html">
+          <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
+          <div class="brand-text">
+            <span class="brand-name">CAPE Technology Solutions</span>
+            <span class="brand-tagline">Mission-Critical Innovation</span>
+          </div>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                Capabilities
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="software-development.html">
+                  <i class="bi bi-code-square"></i>
+                  <div>
+                    <strong>Software Engineering</strong>
+                    <small>Full-stack enterprise solutions</small>
+                  </div>
+                </a></li>
+                <li><a class="dropdown-item" href="defense-simulation.html">
+                  <i class="bi bi-diagram-3"></i>
+                  <div>
+                    <strong>Defense Simulation</strong>
+                    <small>JLVC federation management</small>
+                  </div>
+                </a></li>
+                <li><a class="dropdown-item active" href="data-configuration.html">
+                  <i class="bi bi-database"></i>
+                  <div>
+                    <strong>Data Management</strong>
+                    <small>Configuration & analytics</small>
+                  </div>
+                </a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="whoweare.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="careers.html">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cta-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <i class="bi bi-sun-fill"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
-  <main class="has-fixed-header">
-    <section class="hero parallax">
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="capability-hero-section">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container">
-        <div class="hero-content">
-          <h1>Data Configuration Management</h1>
-          <p class="lead text-center mx-auto">Ensuring data integrity, traceability, and lifecycle management for complex systems.</p>
+        <div class="row align-items-center min-vh-75">
+          <div class="col-lg-8 mx-auto text-center">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <span class="badge-icon">💾</span>
+                <span>Core Capability</span>
+              </div>
+              <h1 class="hero-title">
+                Enterprise <span class="text-primary">Data Management</span>
+                for Defense Operations
+              </h1>
+              <p class="hero-description">
+                Ensuring data integrity, traceability, and lifecycle management for mission-critical 
+                defense systems. From JTDS support to exercise-specific data delivery, our data 
+                management expertise powers reliable training and operational readiness.
+              </p>
+              <div class="capability-stats">
+                <div class="stat-item">
+                  <span class="stat-number">24/7</span>
+                  <span class="stat-label">Data Availability</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Data Integrity</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">1000s</span>
+                  <span class="stat-label">Exercises Supported</span>
+                </div>
+              </div>
+              <div class="hero-actions">
+                <a href="#solutions" class="btn btn-primary btn-lg">
+                  <i class="bi bi-database"></i>
+                  Explore Solutions
+                </a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">
+                  <i class="bi bi-chat-text"></i>
+                  Discuss Requirements
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card-custom hover-glow mb-4">
-            <ul>
-              <li>Data configuration management of government data</li>
-              <li>Support the Joint Training Data Services (JTDS) and exercise planners</li>
-              <li>Supply exercise-specific data to support exercise training</li>
-              <li>Manage databases that stimulate exercise training</li>
-              <li>Data configuration management across the full data lifecycle</li>
-            </ul>
+    <!-- Core Solutions Section -->
+    <section id="solutions" class="core-solutions-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-hdd-stack"></i>
+            <span>Data Solutions</span>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <div class="card-custom hover-glow h-100">
-                <h4>Our Data Services</h4>
-                <p>
-                  CAPE Technology Solutions specializes in blending Creative, Analytical, and Practical expertise to manage and safeguard critical government data for training and simulation. We ensure that all data is accurate, accessible, and compliant with DoD standards throughout its lifecycle.
+          <h2 class="section-title">Mission-Critical Data Management</h2>
+          <p class="section-description">
+            Comprehensive data configuration management ensuring accuracy, accessibility, 
+            and compliance across the full data lifecycle
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="solution-card featured">
+              <div class="solution-icon">
+                <i class="bi bi-server"></i>
+              </div>
+              <div class="solution-content">
+                <h3>Joint Training Data Services (JTDS)</h3>
+                <p class="solution-description">
+                  Supporting JTDS infrastructure and exercise planners with comprehensive data 
+                  management services that ensure reliable, accurate, and timely data delivery 
+                  for critical training operations.
                 </p>
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Real-time data synchronization</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Exercise planner support</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Multi-domain data integration</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Automated quality assurance</span>
+                  </div>
+                </div>
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Apache Kafka</span>
+                    <span class="tech-tag">Elasticsearch</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="card-custom hover-glow h-100">
-                <h4>Supporting Exercises & Planners</h4>
-                <p>
-                  Our team supports the Joint Training Data Services (JTDS) and exercise planners by delivering timely, exercise-specific data and managing databases that drive realistic training environments.
+          </div>
+
+          <div class="col-lg-6">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+              <div class="solution-content">
+                <h3>Government Data Configuration</h3>
+                <p class="solution-description">
+                  Specialized configuration management of sensitive government data with 
+                  full lifecycle support, security compliance, and traceability throughout 
+                  the data management process.
                 </p>
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>DoD compliance framework</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Full lifecycle management</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Audit trail maintenance</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Classification-aware handling</span>
+                  </div>
+                </div>
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Git/GitLab</span>
+                    <span class="tech-tag">Ansible</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Kubernetes</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card-custom hover-glow text-center">
-                <a href="contact.html" class="btn btn-red hover-glow px-4">Contact Us About Data Management</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Lifecycle Section -->
+    <section class="technical-approach-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="approach-content">
+              <div class="section-badge">
+                <i class="bi bi-arrow-repeat"></i>
+                <span>Data Lifecycle</span>
               </div>
+              <h2 class="section-title">End-to-End Data Management</h2>
+              <p class="section-description">
+                Comprehensive data lifecycle management ensuring integrity, security, and 
+                accessibility from initial creation through final archival or disposal.
+              </p>
+              
+              <div class="methodology-points">
+                <div class="method-item">
+                  <div class="method-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="method-content">
+                    <h4>Security & Compliance</h4>
+                    <p>DoD-standard security controls and compliance monitoring throughout the data lifecycle</p>
+                  </div>
+                </div>
+                
+                <div class="method-item">
+                  <div class="method-icon">
+                    <i class="bi bi-graph-up"></i>
+                  </div>
+                  <div class="method-content">
+                    <h4>Quality Assurance</h4>
+                    <p>Automated validation and quality control processes ensuring data accuracy and reliability</p>
+                  </div>
+                </div>
+                
+                <div class="method-item">
+                  <div class="method-icon">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div class="method-content">
+                    <h4>Version Control</h4>
+                    <p>Complete change tracking and version management with rollback capabilities</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="process-visualization">
+              <div class="process-step" data-step="1">
+                <div class="step-icon">
+                  <i class="bi bi-plus-circle"></i>
+                </div>
+                <h5>Data Creation</h5>
+                <p>Secure ingestion and initial validation of source data</p>
+              </div>
+              
+              <div class="process-step" data-step="2">
+                <div class="step-icon">
+                  <i class="bi bi-gear"></i>
+                </div>
+                <h5>Configuration</h5>
+                <p>Structured configuration with metadata and classification tagging</p>
+              </div>
+              
+              <div class="process-step" data-step="3">
+                <div class="step-icon">
+                  <i class="bi bi-check-square"></i>
+                </div>
+                <h5>Validation</h5>
+                <p>Automated quality assurance and compliance verification</p>
+              </div>
+              
+              <div class="process-step" data-step="4">
+                <div class="step-icon">
+                  <i class="bi bi-share"></i>
+                </div>
+                <h5>Distribution</h5>
+                <p>Secure delivery to authorized systems and stakeholders</p>
+              </div>
+              
+              <div class="process-step" data-step="5">
+                <div class="step-icon">
+                  <i class="bi bi-arrow-clockwise"></i>
+                </div>
+                <h5>Maintenance</h5>
+                <p>Ongoing updates, monitoring, and lifecycle management</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Support Section -->
+    <section class="why-choose-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-bullseye"></i>
+            <span>Exercise Support</span>
+          </div>
+          <h2 class="section-title">Mission-Ready Exercise Data</h2>
+          <p class="section-description">
+            Providing exercise-specific data and database management that powers realistic 
+            training environments for military and defense operations
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="advantage-item">
+              <div class="advantage-icon">
+                <i class="bi bi-calendar-event"></i>
+              </div>
+              <div class="advantage-content">
+                <h4>Exercise Planning</h4>
+                <p>Comprehensive data support for exercise planners including scenario data, participant information, and resource allocation.</p>
+                <ul class="capability-list">
+                  <li>Scenario-specific datasets</li>
+                  <li>Real-time data updates</li>
+                  <li>Multi-classification support</li>
+                  <li>Custom data formatting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="advantage-item">
+              <div class="advantage-icon">
+                <i class="bi bi-database-gear"></i>
+              </div>
+              <div class="advantage-content">
+                <h4>Database Management</h4>
+                <p>Managing databases that stimulate and drive exercise training scenarios with real-time updates and monitoring.</p>
+                <ul class="capability-list">
+                  <li>High-availability databases</li>
+                  <li>Automated backup systems</li>
+                  <li>Performance optimization</li>
+                  <li>Disaster recovery planning</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="advantage-item">
+              <div class="advantage-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <div class="advantage-content">
+                <h4>Secure Data Delivery</h4>
+                <p>Secure, timely delivery of exercise-specific data with appropriate classification handling and access controls.</p>
+                <ul class="capability-list">
+                  <li>Classification-aware delivery</li>
+                  <li>Encrypted data transmission</li>
+                  <li>Access control management</li>
+                  <li>Audit trail logging</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Capabilities Section -->
+    <section class="technology-stack-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-cpu"></i>
+            <span>Technical Excellence</span>
+          </div>
+          <h2 class="section-title">Advanced Data Technologies</h2>
+          <p class="section-description">
+            Leveraging cutting-edge technologies and industry best practices for enterprise-grade data management
+          </p>
+        </div>
+
+        <div class="tech-categories">
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="tech-category">
+                <div class="category-icon">
+                  <i class="bi bi-hdd-stack"></i>
+                </div>
+                <h4>Database Systems</h4>
+                <div class="tech-list">
+                  <span class="tech-item">PostgreSQL</span>
+                  <span class="tech-item">MongoDB</span>
+                  <span class="tech-item">CockroachDB</span>
+                  <span class="tech-item">SQLite</span>
+                  <span class="tech-item">OrientDB</span>
+                  <span class="tech-item">Redis</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="tech-category">
+                <div class="category-icon">
+                  <i class="bi bi-diagram-2"></i>
+                </div>
+                <h4>Data Processing</h4>
+                <div class="tech-list">
+                  <span class="tech-item">Apache Kafka</span>
+                  <span class="tech-item">Elasticsearch</span>
+                  <span class="tech-item">Apache Spark</span>
+                  <span class="tech-item">ETL Pipelines</span>
+                  <span class="tech-item">Stream Processing</span>
+                  <span class="tech-item">Data Validation</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="tech-category">
+                <div class="category-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h4>Security & Compliance</h4>
+                <div class="tech-list">
+                  <span class="tech-item">FISMA Controls</span>
+                  <span class="tech-item">NIST Framework</span>
+                  <span class="tech-item">Data Encryption</span>
+                  <span class="tech-item">Access Controls</span>
+                  <span class="tech-item">Audit Logging</span>
+                  <span class="tech-item">Classification Tags</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="tech-category">
+                <div class="category-icon">
+                  <i class="bi bi-cloud-arrow-up"></i>
+                </div>
+                <h4>Infrastructure</h4>
+                <div class="tech-list">
+                  <span class="tech-item">Docker</span>
+                  <span class="tech-item">Kubernetes</span>
+                  <span class="tech-item">Ansible</span>
+                  <span class="tech-item">Git/GitLab</span>
+                  <span class="tech-item">CI/CD Pipelines</span>
+                  <span class="tech-item">Monitoring</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Standards -->
+        <div class="specialized-tech mt-5">
+          <h3 class="text-center mb-4">Defense Data Standards</h3>
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <div class="spec-tech-card">
+                <i class="bi bi-file-earmark-ruled"></i>
+                <h5>DoD Data Standards</h5>
+                <p>Compliance with DoD 8320.02 data management standards and DoDI 8320.07 implementation guidelines</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="spec-tech-card">
+                <i class="bi bi-diagram-3"></i>
+                <h5>Interoperability</h5>
+                <p>Data format standardization ensuring seamless integration across defense systems and platforms</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="spec-tech-card">
+                <i class="bi bi-shield-fill-check"></i>
+                <h5>Security Classifications</h5>
+                <p>Proper handling of UNCLASSIFIED through SECRET data with appropriate marking and protection</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h2 class="cta-title">Secure Your Data Management Requirements</h2>
+            <p class="cta-description">
+              Partner with CAPE Technology Solutions for enterprise-grade data management that 
+              ensures mission success. Our proven expertise in government data handling, JTDS 
+              support, and exercise data management delivers the reliability your operations demand.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="bi bi-database"></i>
+                Discuss Data Needs
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer aria-label="Site footer" class="mt-auto">
-    <div class="container py-4">
-      <div class="row justify-content-center text-center">
-        <div class="col-md-4 mb-4">
-          <h5 class="text-uppercase footer-heading">Connect With Us</h5>
-          <div class="d-flex justify-content-center gap-3 mt-3 footer-links">
-            <a href="https://www.linkedin.com/company/cape-technology-solutions-llc/" target="_blank" class="btn btn-sm hover-glow">
-              <i class="bi bi-linkedin"></i> LinkedIn
-            </a>
-            <a href="contact.html" class="btn btn-sm hover-glow">
-              <i class="bi bi-envelope-fill"></i> Email Us
-            </a>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo" />
+              <h4>CAPE Technology Solutions</h4>
+              <p>Mission-critical defense technology solutions for national security and military readiness.</p>
+              <div class="security-notice">
+                <i class="bi bi-shield-check"></i>
+                <span>All personnel maintain active security clearances</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Capabilities</h5>
+              <ul>
+                <li><a href="software-development.html">Software Engineering</a></li>
+                <li><a href="defense-simulation.html">Defense Simulation</a></li>
+                <li><a href="data-configuration.html" class="active">Data Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="whoweare.html">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Resources</h5>
+              <ul>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">White Papers</a></li>
+                <li><a href="#">Capabilities Brief</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Connect</h5>
+              <div class="social-links">
+                <a href="https://linkedin.com/company/cape-technology-solutions" aria-label="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="mailto:info@capetechsolutions.com" aria-label="Email">
+                  <i class="bi bi-envelope"></i>
+                </a>
+              </div>
+              <div class="contact-info">
+                <p><i class="bi bi-telephone"></i> +1 (123) 456-7890</p>
+                <p><i class="bi bi-envelope"></i> info@capetechsolutions.com</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <h5 class="text-uppercase footer-heading">Newsletter</h5>
-          <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
-            <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
-            <button type="submit" class="btn btn-sm hover-glow">Subscribe</button>
-          </form>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="copyright">
+              © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="footer-links">
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Security</a>
+            </div>
+          </div>
         </div>
       </div>
-      <button id="theme-toggle" aria-label="Toggle between dark and light mode" class="theme-toggle">Toggle Theme</button>
-      <hr class="footer-divider" />
-      <p class="mb-0 text-center footer-text">
-        © 2025 CAPE Technology Solutions. All rights reserved. |
-        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-      </p>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Scripts -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
 </body>
 </html>
