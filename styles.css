@@ -43,6 +43,8 @@
   
   /* Typography Scale */
   --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-hero: 'Rajdhani', 'Orbitron', 'Exo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-headings: 'Rajdhani', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', monospace;
   
   --font-size-xs: 0.75rem;
@@ -391,13 +393,18 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-2xl);
   margin-bottom: var(--space-6);
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);
   font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .badge-icon {
@@ -405,11 +412,34 @@ a:hover {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, var(--font-size-6xl));
-  font-weight: 800;
+  font-family: var(--font-family-hero);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: var(--space-6);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 
+    0 0 10px rgba(49, 130, 206, 0.5),
+    0 0 20px rgba(49, 130, 206, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+  animation: heroGlow 4s ease-in-out infinite alternate;
+}
+
+.hero-title::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(49, 130, 206, 0.2) 0%, rgba(30, 58, 95, 0.2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(2px);
 }
 
 .text-primary {
@@ -417,11 +447,14 @@ a:hover {
 }
 
 .hero-description {
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.7;
   margin-bottom: var(--space-8);
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 650px;
+  letter-spacing: 0.01em;
 }
 
 .hero-stats {
@@ -577,11 +610,14 @@ a:hover {
 }
 
 .section-title {
+  font-family: var(--font-family-headings);
   font-size: clamp(2rem, 4vw, var(--font-size-4xl));
-  font-weight: 800;
+  font-weight: 700;
   color: var(--navy-primary);
   margin-bottom: var(--space-4);
   line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .section-description {
@@ -674,10 +710,13 @@ a:hover {
 }
 
 .card-title {
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-2xl);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--navy-primary);
   margin-bottom: var(--space-3);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .card-description {
@@ -871,10 +910,13 @@ a:hover {
 }
 
 .leadership-text h3 {
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-2xl);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--navy-primary);
   margin-bottom: var(--space-4);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .leadership-text p {
@@ -924,9 +966,12 @@ a:hover {
 }
 
 .cta-title {
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-3xl);
   font-weight: 700;
   margin-bottom: var(--space-4);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .cta-description {
@@ -1094,6 +1139,29 @@ a:hover {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes heroGlow {
+  0% {
+    text-shadow: 
+      0 0 10px rgba(49, 130, 206, 0.5),
+      0 0 20px rgba(49, 130, 206, 0.3),
+      2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 15px rgba(49, 130, 206, 0.7),
+      0 0 30px rgba(49, 130, 206, 0.4),
+      0 0 40px rgba(49, 130, 206, 0.2),
+      2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 
+      0 0 20px rgba(49, 130, 206, 0.8),
+      0 0 35px rgba(49, 130, 206, 0.5),
+      0 0 50px rgba(49, 130, 206, 0.3),
+      2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
 

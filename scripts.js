@@ -588,12 +588,8 @@ class CapeApp {
       this.managers.push(new AccessibilityManager());
       this.managers.push(new PerformanceMonitor());
 
-      // Initialize typing animation for hero title
-      const heroTitle = document.querySelector('.hero-title');
-      if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        new TypingAnimation(heroTitle, originalText, 50).start();
-      }
+      // Hero title is now immediately visible for maximum impact
+      console.log('Hero optimized for professional defense contractor presentation');
 
       console.log('🛡️ CAPE Technology Solutions - All systems initialized');
       
