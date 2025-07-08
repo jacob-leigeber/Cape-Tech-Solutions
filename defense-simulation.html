@@ -2,132 +2,774 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Defense Simulation - CAPE Technology Solutions</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Essential SEO Meta Tags -->
+  <title>Defense Simulation - CAPE Technology Solutions | JLVC Federation Management</title>
+  <meta name="description" content="Advanced defense simulation solutions including JLVC federation management, high-fidelity training environments, and interoperable simulation systems for military readiness." />
+  <meta name="keywords" content="defense simulation, JLVC federation, military training simulation, virtual constructive simulation, joint exercises, DoD simulation standards" />
+  <meta name="author" content="CAPE Technology Solutions" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Defense Simulation - CAPE Technology Solutions" />
+  <meta property="og:description" content="Advanced defense simulation solutions for mission-critical training and joint exercises." />
+  <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
+  <meta property="og:url" content="https://capetechsolutions.com/defense-simulation.html" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Performance Optimizations -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Professional Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
 </head>
+
 <body>
-  <div id="particles"></div>
-  <header class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="d-flex align-items-center text-decoration-none">
-      <img src="images/CapeLogo.png" alt="CAPE Technology Solutions Logo" class="logo-img" />
-      <span class="ms-2 fw-bold text-nowrap" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; color: red;">CAPE Technology Solutions</span>
-    </a>
-    <nav class="navbar navbar-expand-md" aria-label="Main navigation">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="whoweare.html">Who We Are</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              What We Do
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="software-development.html">Software Development</a></li>
-              <li><a class="dropdown-item active" href="defense-simulation.html">Defense Simulation</a></li>
-              <li><a class="dropdown-item" href="data-configuration.html">Data Configuration Management</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
+  <!-- Security Classification Banner -->
+  <div class="classification-banner">
+    <div class="container-fluid">
+      <span class="classification-text">UNCLASSIFIED</span>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo & Brand -->
+        <a class="navbar-brand" href="index.html">
+          <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
+          <div class="brand-text">
+            <span class="brand-name">CAPE Technology Solutions</span>
+            <span class="brand-tagline">Mission-Critical Innovation</span>
+          </div>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                Capabilities
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="software-development.html">
+                  <i class="bi bi-code-square"></i>
+                  <div>
+                    <strong>Software Engineering</strong>
+                    <small>Full-stack enterprise solutions</small>
+                  </div>
+                </a></li>
+                <li><a class="dropdown-item active" href="defense-simulation.html">
+                  <i class="bi bi-diagram-3"></i>
+                  <div>
+                    <strong>Defense Simulation</strong>
+                    <small>JLVC federation management</small>
+                  </div>
+                </a></li>
+                <li><a class="dropdown-item" href="data-configuration.html">
+                  <i class="bi bi-database"></i>
+                  <div>
+                    <strong>Data Management</strong>
+                    <small>Configuration & analytics</small>
+                  </div>
+                </a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="whoweare.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="careers.html">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cta-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <i class="bi bi-sun-fill"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
-  <main class="has-fixed-header">
-    <section class="hero parallax">
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="capability-hero-section">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container">
-        <div class="hero-content">
-          <h1>Defense Simulation</h1>
-          <p class="lead text-center mx-auto">Delivering advanced simulation solutions for mission-critical defense training.</p>
+        <div class="row align-items-center min-vh-75">
+          <div class="col-lg-8 mx-auto text-center">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <span class="badge-icon">🎯</span>
+                <span>Core Capability</span>
+              </div>
+              <h1 class="hero-title">
+                Advanced <span class="text-primary">Defense Simulation</span>
+                for Mission Readiness
+              </h1>
+              <p class="hero-description">
+                Delivering high-fidelity simulation environments that replicate complex operational 
+                scenarios. Our JLVC federation expertise and cutting-edge simulation technologies 
+                enable realistic training that prevents critical errors and saves lives.
+              </p>
+              <div class="capability-stats">
+                <div class="stat-item">
+                  <span class="stat-number">40+</span>
+                  <span class="stat-label">JLVC Applications</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">1000s</span>
+                  <span class="stat-label">Training Scenarios</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">24/7</span>
+                  <span class="stat-label">Mission Support</span>
+                </div>
+              </div>
+              <div class="hero-actions">
+                <a href="#solutions" class="btn btn-primary btn-lg">
+                  <i class="bi bi-diagram-3"></i>
+                  Explore Capabilities
+                </a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">
+                  <i class="bi bi-chat-text"></i>
+                  Discuss Requirements
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card-custom hover-glow mb-4">
-            <ul>
-              <li>Development of high-fidelity simulation environments</li>
-              <li>Support for joint and coalition training exercises</li>
-              <li>Integration with real-time data and C4ISR systems</li>
-              <li>Customizable scenarios for mission rehearsal</li>
-              <li>Compliance with DoD simulation standards</li>
-            </ul>
+    <!-- JLVC Federation Section -->
+    <section id="solutions" class="jlvc-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-diagram-3-fill"></i>
+            <span>Flagship Capability</span>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <div class="card-custom hover-glow h-100">
-                <h4>Our Simulation Expertise</h4>
-                <p>
-                  CAPE Technology Solutions designs and deploys simulation systems that replicate complex operational environments, enabling realistic training for defense personnel.
+          <h2 class="section-title">Joint Live, Virtual, Constructive (JLVC) Federation</h2>
+          <p class="section-description">
+            Managing a mature federation of 40+ distinct applications for integrated military 
+            training scenarios supporting Joint Staff operations and multi-domain exercises
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="jlvc-content">
+              <div class="jlvc-overview">
+                <h3>JLVC Federation Excellence</h3>
+                <p class="lead">
+                  CAPE Technology Solutions maintains and operates one of the most comprehensive 
+                  JLVC federations in the defense industry, enabling seamless integration of 
+                  live, virtual, and constructive training environments.
                 </p>
               </div>
+              
+              <div class="jlvc-features">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="bi bi-diagram-3"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Multi-Domain Integration</h4>
+                    <p>Seamless integration across land, air, sea, space, and cyber domains for comprehensive training</p>
+                  </div>
+                </div>
+                
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="bi bi-globe-americas"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Global Exercise Support</h4>
+                    <p>Supporting joint and coalition exercises worldwide with distributed simulation capabilities</p>
+                  </div>
+                </div>
+                
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>DoD Standards Compliance</h4>
+                    <p>Full compliance with DoD simulation standards and interoperability requirements</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="card-custom hover-glow h-100">
-                <h4>Key Capabilities</h4>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="jlvc-visualization">
+              <div class="federation-diagram">
+                <div class="central-hub">
+                  <div class="hub-icon">
+                    <i class="bi bi-cpu"></i>
+                  </div>
+                  <h5>JLVC Federation Core</h5>
+                  <span>40+ Applications</span>
+                </div>
+                
+                <div class="federation-nodes">
+                  <div class="node live">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Live</span>
+                  </div>
+                  <div class="node virtual">
+                    <i class="bi bi-display"></i>
+                    <span>Virtual</span>
+                  </div>
+                  <div class="node constructive">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Constructive</span>
+                  </div>
+                </div>
+                
+                <div class="connection-lines">
+                  <div class="connection"></div>
+                  <div class="connection"></div>
+                  <div class="connection"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Capabilities Section -->
+    <section class="simulation-capabilities-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-gear-wide-connected"></i>
+            <span>Core Capabilities</span>
+          </div>
+          <h2 class="section-title">Comprehensive Simulation Solutions</h2>
+          <p class="section-description">
+            End-to-end simulation services from high-fidelity environment development 
+            to real-time exercise execution and analysis
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-eye"></i>
+              </div>
+              <h4>High-Fidelity Environments</h4>
+              <p>Development of ultra-realistic simulation environments that accurately replicate complex operational scenarios and conditions.</p>
+              <div class="capability-features">
                 <ul>
-                  <li>Virtual and constructive simulation</li>
-                  <li>Interoperability with existing platforms</li>
-                  <li>Scalable architectures for large-scale exercises</li>
-                  <li>Advanced visualization and analytics</li>
+                  <li>Terrain and weather modeling</li>
+                  <li>Physics-based simulations</li>
+                  <li>Real-time environmental effects</li>
+                  <li>Multi-spectral sensor modeling</li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card-custom hover-glow text-center mt-2">
-                <a href="contact.html" class="btn btn-red hover-glow px-4">Contact Us About Simulation Solutions</a>
+
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-people-fill"></i>
               </div>
+              <h4>Joint & Coalition Training</h4>
+              <p>Supporting complex multi-service and international coalition exercises with interoperable simulation systems.</p>
+              <div class="capability-features">
+                <ul>
+                  <li>Multi-national interoperability</li>
+                  <li>Cross-service integration</li>
+                  <li>Coalition exercise support</li>
+                  <li>Standardized protocols</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h4>Real-Time Integration</h4>
+              <p>Seamless integration with live C4ISR systems and real-time data feeds for dynamic training scenarios.</p>
+              <div class="capability-features">
+                <ul>
+                  <li>Live data integration</li>
+                  <li>Real-time communication</li>
+                  <li>Dynamic scenario adaptation</li>
+                  <li>Performance monitoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-sliders"></i>
+              </div>
+              <h4>Customizable Scenarios</h4>
+              <p>Flexible scenario development and customization for mission-specific rehearsal and training requirements.</p>
+              <div class="capability-features">
+                <ul>
+                  <li>Mission-specific scenarios</li>
+                  <li>Adaptive difficulty levels</li>
+                  <li>Custom threat modeling</li>
+                  <li>Configurable parameters</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4>DoD Compliance</h4>
+              <p>Full adherence to Department of Defense simulation standards and security requirements.</p>
+              <div class="capability-features">
+                <ul>
+                  <li>FISMA compliance</li>
+                  <li>Security clearance requirements</li>
+                  <li>Data classification handling</li>
+                  <li>Audit trail maintenance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <i class="bi bi-arrows-fullscreen"></i>
+              </div>
+              <h4>Scalable Architecture</h4>
+              <p>Highly scalable simulation architectures supporting exercises from small unit training to large-scale joint operations.</p>
+              <div class="capability-features">
+                <ul>
+                  <li>Distributed processing</li>
+                  <li>Cloud-native scaling</li>
+                  <li>Load balancing</li>
+                  <li>Performance optimization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Innovation Section -->
+    <section class="technical-innovation-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="innovation-content">
+              <div class="section-badge">
+                <i class="bi bi-cpu"></i>
+                <span>Technical Innovation</span>
+              </div>
+              <h2 class="section-title">Advanced Visualization & Analytics</h2>
+              <p class="section-description">
+                Cutting-edge visualization technologies and advanced analytics provide 
+                immersive training experiences and actionable insights for performance improvement.
+              </p>
+              
+              <div class="innovation-features">
+                <div class="innovation-item">
+                  <div class="innovation-icon">
+                    <i class="bi bi-eye-fill"></i>
+                  </div>
+                  <div class="innovation-text">
+                    <h4>Immersive Visualization</h4>
+                    <p>High-resolution 3D environments with VR/AR capabilities for realistic training experiences</p>
+                  </div>
+                </div>
+                
+                <div class="innovation-item">
+                  <div class="innovation-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                  </div>
+                  <div class="innovation-text">
+                    <h4>Performance Analytics</h4>
+                    <p>Real-time performance monitoring and post-exercise analysis with AI-powered insights</p>
+                  </div>
+                </div>
+                
+                <div class="innovation-item">
+                  <div class="innovation-icon">
+                    <i class="bi bi-lightning-charge"></i>
+                  </div>
+                  <div class="innovation-text">
+                    <h4>Real-Time Processing</h4>
+                    <p>Ultra-low latency processing enabling real-time decision making and response</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="technology-stack">
+              <h3 class="text-center mb-4">Simulation Technologies</h3>
+              <div class="tech-categories">
+                <div class="tech-category">
+                  <h5><i class="bi bi-display"></i> Visualization</h5>
+                  <div class="tech-tags">
+                    <span class="tech-tag">Unity 3D</span>
+                    <span class="tech-tag">Unreal Engine</span>
+                    <span class="tech-tag">OpenGL</span>
+                    <span class="tech-tag">WebGL</span>
+                  </div>
+                </div>
+                
+                <div class="tech-category">
+                  <h5><i class="bi bi-diagram-2"></i> Simulation Engines</h5>
+                  <div class="tech-tags">
+                    <span class="tech-tag">VBS</span>
+                    <span class="tech-tag">OneSAF</span>
+                    <span class="tech-tag">JSAF</span>
+                    <span class="tech-tag">Custom Engines</span>
+                  </div>
+                </div>
+                
+                <div class="tech-category">
+                  <h5><i class="bi bi-network-widescreen"></i> Networking</h5>
+                  <div class="tech-tags">
+                    <span class="tech-tag">DIS/HLA</span>
+                    <span class="tech-tag">TCP/UDP</span>
+                    <span class="tech-tag">WebRTC</span>
+                    <span class="tech-tag">Custom Protocols</span>
+                  </div>
+                </div>
+                
+                <div class="tech-category">
+                  <h5><i class="bi bi-bar-chart"></i> Analytics</h5>
+                  <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Elasticsearch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interoperability Section -->
+    <section class="interoperability-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-share"></i>
+            <span>Interoperability</span>
+          </div>
+          <h2 class="section-title">Seamless System Integration</h2>
+          <p class="section-description">
+            Advanced interoperability solutions ensuring seamless integration with existing 
+            defense platforms and legacy systems
+          </p>
+        </div>
+
+        <div class="interoperability-grid">
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="integration-card">
+                <div class="integration-icon">
+                  <i class="bi bi-diagram-3"></i>
+                </div>
+                <h4>Platform Integration</h4>
+                <p>Seamless integration with existing simulation platforms and training systems</p>
+                <div class="integration-list">
+                  <ul>
+                    <li>Legacy system support</li>
+                    <li>Modern API integration</li>
+                    <li>Custom adapters</li>
+                    <li>Protocol translation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="integration-card">
+                <div class="integration-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <h4>Global Standards</h4>
+                <p>Compliance with international simulation and training standards</p>
+                <div class="integration-list">
+                  <ul>
+                    <li>IEEE standards</li>
+                    <li>NATO STANAG</li>
+                    <li>SISO standards</li>
+                    <li>DoD architectures</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="integration-card">
+                <div class="integration-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h4>Security Compliance</h4>
+                <p>Secure integration maintaining classification boundaries and access controls</p>
+                <div class="integration-list">
+                  <ul>
+                    <li>Multi-level security</li>
+                    <li>Encryption standards</li>
+                    <li>Access controls</li>
+                    <li>Audit compliance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="integration-card">
+                <div class="integration-icon">
+                  <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <h4>Real-Time Sync</h4>
+                <p>Real-time synchronization across distributed simulation environments</p>
+                <div class="integration-list">
+                  <ul>
+                    <li>Time synchronization</li>
+                    <li>State management</li>
+                    <li>Event coordination</li>
+                    <li>Fault tolerance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Impact Section -->
+    <section class="mission-impact-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-target"></i>
+            <span>Mission Impact</span>
+          </div>
+          <h2 class="section-title">Training That Saves Lives</h2>
+          <p class="section-description">
+            Our simulation solutions prevent critical errors by providing realistic training 
+            environments where mistakes become learning opportunities, not casualties
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="impact-metric">
+              <div class="metric-value">40+</div>
+              <div class="metric-label">JLVC Applications</div>
+              <div class="metric-description">Integrated simulation applications supporting comprehensive training scenarios</div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="impact-metric">
+              <div class="metric-value">1000s</div>
+              <div class="metric-label">Military Leaders Trained</div>
+              <div class="metric-description">Service members trained in realistic environments preventing real-world errors</div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="impact-metric">
+              <div class="metric-value">24/7</div>
+              <div class="metric-label">Operational Support</div>
+              <div class="metric-description">Round-the-clock simulation support for global training and exercise operations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-statement">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <blockquote class="mission-quote">
+                <i class="bi bi-quote"></i>
+                <p>
+                  "Every realistic training scenario we deliver is a potential life saved in 
+                  real operations. Our simulation expertise prevents critical errors that 
+                  could cost lives in actual missions."
+                </p>
+                <cite>— CAPE Simulation Team</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="simulation-cta-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div class="cta-content">
+              <h2 class="cta-title">Transform Your Training with Advanced Simulation</h2>
+              <p class="cta-description">
+                Partner with CAPE Technology Solutions to deploy cutting-edge simulation 
+                technologies that enhance training effectiveness and operational readiness. 
+                Our proven JLVC expertise and comprehensive simulation capabilities deliver 
+                the realistic training your mission demands.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="bi bi-diagram-3"></i>
+                Discuss Simulation Needs
+              </a>
+              <a href="careers.html" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-people"></i>
+                Join Our Team
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer aria-label="Site footer" class="mt-auto">
-    <div class="container-fluid py-4">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase footer-heading">Connect With Us</h5>
-            <div class="d-flex justify-content-center gap-3 mt-3 footer-links">
-              <a href="https://www.linkedin.com/company/cape-technology-solutions-llc/" target="_blank" class="btn btn-sm hover-glow">
-                <i class="bi bi-linkedin"></i> LinkedIn
-              </a>
-              <a href="contact.html" class="btn btn-sm hover-glow">
-                <i class="bi bi-envelope-fill"></i> Email Us
-              </a>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo" />
+              <h4>CAPE Technology Solutions</h4>
+              <p>Mission-critical defense technology solutions for national security and military readiness.</p>
+              <div class="security-notice">
+                <i class="bi bi-shield-check"></i>
+                <span>All personnel maintain active security clearances</span>
+              </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase footer-heading">Newsletter</h5>
-            <form class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3" onsubmit="event.preventDefault(); alert('Thanks for signing up!');">
-              <input type="email" class="form-control form-control-sm bg-dark text-white border-danger" placeholder="Enter your email" required>
-              <button type="submit" class="btn btn-sm hover-glow">Subscribe</button>
-            </form>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Capabilities</h5>
+              <ul>
+                <li><a href="software-development.html">Software Engineering</a></li>
+                <li><a href="defense-simulation.html" class="active">Defense Simulation</a></li>
+                <li><a href="data-configuration.html">Data Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="whoweare.html">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Resources</h5>
+              <ul>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">White Papers</a></li>
+                <li><a href="#">Capabilities Brief</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="footer-column">
+              <h5>Connect</h5>
+              <div class="social-links">
+                <a href="https://linkedin.com/company/cape-technology-solutions" aria-label="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="mailto:info@capetechsolutions.com" aria-label="Email">
+                  <i class="bi bi-envelope"></i>
+                </a>
+              </div>
+              <div class="contact-info">
+                <p><i class="bi bi-telephone"></i> +1 (123) 456-7890</p>
+                <p><i class="bi bi-envelope"></i> info@capetechsolutions.com</p>
+              </div>
+            </div>
           </div>
         </div>
-        <button id="theme-toggle" aria-label="Toggle between dark and light mode" class="theme-toggle">Toggle Theme</button>
-        <hr class="footer-divider" />
-        <p class="mb-0 text-center footer-text">
-          © 2025 CAPE Technology Solutions. All rights reserved. |
-          <a href="privacy.html" class="footer-link">Privacy Policy</a>
-        </p>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="copyright">
+              © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="footer-links">
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Security</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Classification Footer -->
+  <div class="classification-banner bottom">
+    <div class="container-fluid">
+      <span class="classification-text">UNCLASSIFIED</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
 </body>
 </html>
