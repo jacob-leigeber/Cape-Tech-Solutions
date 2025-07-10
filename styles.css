@@ -1172,13 +1172,12 @@ a:hover {
 .careers-hero-section {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* Remove flex centering, let Bootstrap handle it */
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .min-vh-75 {
