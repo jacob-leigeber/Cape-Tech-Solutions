@@ -460,7 +460,9 @@ a:hover {
 .hero-stats {
   display: flex;
   gap: var(--space-8);
+  justify-content: center;
   margin-bottom: var(--space-8);
+  flex-wrap: wrap;
 }
 
 .stat-item {
