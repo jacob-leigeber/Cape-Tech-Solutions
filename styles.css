@@ -353,14 +353,11 @@ a:hover {
 .hero-section, .careers-hero-section, .capability-hero-section {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .hero-background, .hero-bg-image { z-index: 1; }
@@ -368,16 +365,14 @@ a:hover {
 .container { z-index: 3; position: relative; }
 
 .hero-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  text-align: center;
   color: var(--white);
-  position: relative;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
 }
 
 .hero-badge {
