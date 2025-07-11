@@ -350,9 +350,13 @@ a:hover {
    HERO SECTION
    ============================================================================= */
 
-.hero-section {
+.hero-section, .careers-hero-section, .capability-hero-section {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
@@ -393,7 +397,10 @@ a:hover {
 }
 
 .hero-content {
-  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   z-index: 3;
   animation: fadeInUp 1s ease-out;
 }
