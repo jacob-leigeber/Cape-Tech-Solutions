@@ -2055,12 +2055,20 @@ a:hover {
 
 .capability-hero-section {
   position: relative;
-  min-height: 75vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
+}
+
+.capability-hero-section .container {
+  position: relative;
+  z-index: 3;
 }
 
 .capability-stats {
