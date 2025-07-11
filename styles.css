@@ -354,57 +354,30 @@ a:hover {
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.hero-background {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-bg-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
-  opacity: 0.9;
-  z-index: 2;
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
+.hero-background, .hero-bg-image { z-index: 1; }
+.hero-overlay { z-index: 2; }
+.container { z-index: 3; position: relative; }
 
 .hero-content {
-  position: relative;
-  z-index: 3;
-  color: var(--white);
-  text-align: center;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  animation: fadeInUp 1s ease-out;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-badge {
