@@ -2423,3 +2423,13 @@ a:hover {
     border: 1px solid var(--black);
   }
 }
+
+/* === HERO SECTION UNIFORMITY ACROSS ALL PAGES === */
+.hero-section,
+.capability-hero-section,
+.careers-hero-section,
+.contact-hero-section,
+.privacy-hero-section {
+  min-height: 100vh !important;
+  justify-content: center;
+}
