@@ -2303,6 +2303,77 @@ a:hover {
   color: var(--white);
 }
 
+/* === UNIFORM SECTION & CARD STYLING === */
+.main-section {
+  padding: var(--space-24) 0;
+  background: var(--background-light);
+}
+
+.section-padding {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.card-uniform {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  padding: var(--space-8);
+  transition: all var(--transition-normal);
+  height: 100%;
+}
+
+.card-uniform:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--shadow-medium);
+  border-color: var(--navy-primary);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--navy-primary);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
+}
+
+/* Refactor card classes to inherit from .card-uniform */
+.capability-card,
+.solution-card,
+.benefit-card,
+.info-card,
+.metric-card,
+.position-card {
+  composes: card-uniform;
+}
+
 /* =============================================================================
    RESPONSIVE DESIGN
    ============================================================================= */
