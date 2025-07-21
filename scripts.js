@@ -202,13 +202,13 @@ class HeaderManager {
 
       e.preventDefault();
       
-      // Add fade out effect with longer duration and smoother easing
+      // Add subtle fade out effect
       document.body.classList.add('page-transitioning', 'fade-out');
       
-      // Navigate after transition with longer delay for smoother effect
+      // Navigate after transition with shorter delay
       setTimeout(() => {
         window.location.href = link.href;
-      }, 500); // Increased from 300ms to 500ms
+      }, 300); // Much shorter delay for smoother feel
     });
   }
 }
@@ -750,17 +750,32 @@ window.CapeApp = capeApp;
 const style = document.createElement('style');
 style.textContent = `
   .animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.4s ease-out forwards;
   }
   
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  .page-transitioning.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-5px);
     }
   }
   
@@ -828,27 +843,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove loading state with smooth transition
   const loader = document.querySelector('.page-loader');
   if (loader) {
-    loader.style.transition = 'opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)';
+    loader.style.transition = 'opacity 0.3s ease-out';
     loader.style.opacity = '0';
     setTimeout(() => {
       loader.style.display = 'none';
-    }, 400);
+    }, 300);
   }
   
-  // Add fade-in animation to main content sections
+  // Add subtle fade-in animation to main content sections
   const mainSections = document.querySelectorAll('main, .hero-section, .capabilities-section, .gallery-section, .trust-section, .leadership-section, .cta-section, .site-footer');
   
   mainSections.forEach((section, index) => {
-    // Set initial state
+    // Set initial state - much more subtle
     section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
+    section.style.transform = 'translateY(10px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     
-    // Stagger the animations
+    // Stagger the animations with shorter delays
     setTimeout(() => {
       section.style.opacity = '1';
       section.style.transform = 'translateY(0)';
-    }, 200 + (index * 100));
+    }, 100 + (index * 50));
   });
   
   // Initialize intersection observer for scroll animations
@@ -860,8 +875,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add staggered animation delay for better visual flow
-        const delay = Math.random() * 200;
+        // Add subtle animation delay
+        const delay = Math.random() * 100;
         setTimeout(() => {
           entry.target.classList.add('animate-in');
         }, delay);
