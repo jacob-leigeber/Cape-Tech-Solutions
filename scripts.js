@@ -809,45 +809,7 @@ setTimeout(() => {
   }, 600); // Increased from 400ms to 600ms for smoother transition
 }, 10);
 
-// Handle browser navigation (back/forward buttons)
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    // Page was loaded from cache (back/forward navigation)
-    scrollToTop();
-  }
-});
-
-// Handle page visibility changes
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    // Page became visible again
-    scrollToTop();
-  }
-});
-
-// Ensure every page loads at the top
-function scrollToTop() {
-  window.scrollTo({ 
-    top: 0, 
-    behavior: 'smooth' 
-  });
-}
-
-// Add page refresh animation on load
-window.addEventListener('load', () => {
-  // Scroll to top first
-  scrollToTop();
-  
-  // Add a subtle page refresh animation
-  document.body.classList.add('page-refresh');
-  
-  // Remove the class after animation completes
-  setTimeout(() => {
-    document.body.classList.remove('page-refresh');
-  }, 1000);
-});
-
-// Add smooth page refresh animations
+// Add page load animation
 document.addEventListener('DOMContentLoaded', () => {
   // Remove loading state with smooth transition
   const loader = document.querySelector('.page-loader');
@@ -859,26 +821,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
   
-  // Scroll to top smoothly
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  
-  // Add fade-in animation to main content sections
-  const mainSections = document.querySelectorAll('main, .hero-section, .capabilities-section, .gallery-section, .trust-section, .leadership-section, .cta-section, .site-footer');
-  
-  mainSections.forEach((section, index) => {
-    // Set initial state
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
+  // Add fade-in animation to main content with better timing
+  const mainContent = document.querySelector('main, .hero-section, .capabilities-section');
+  if (mainContent) {
+    mainContent.style.opacity = '0';
+    mainContent.style.transform = 'translateY(30px) scale(0.98)';
+    mainContent.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
     
-    // Stagger the animations
+    // Delay the animation slightly for smoother effect
     setTimeout(() => {
-      section.style.opacity = '1';
-      section.style.transform = 'translateY(0)';
-    }, 200 + (index * 100));
-  });
+      mainContent.style.opacity = '1';
+      mainContent.style.transform = 'translateY(0) scale(1)';
+    }, 200);
+  }
   
-  // Initialize intersection observer for scroll animations
+  // Initialize intersection observer for animations with better timing
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
