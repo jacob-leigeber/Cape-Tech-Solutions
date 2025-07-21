@@ -866,38 +866,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200 + (index * 150)); // Longer delays between sections
   });
   
-  // Initialize intersection observer for scroll animations with better timing
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px' // Increased margin for earlier triggering
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add more gradual animation delay with better distribution
-        const baseDelay = 100;
-        const randomDelay = Math.random() * 150;
-        const totalDelay = baseDelay + randomDelay;
-        
-        setTimeout(() => {
-          entry.target.classList.add('animate-in');
-        }, totalDelay);
-      }
-    });
-  }, observerOptions);
-  
-  // Observe elements for animation with better grouping
-  const animatedElements = document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item');
-  
-  // Add staggered delays to scroll animations with better distribution
-  animatedElements.forEach((el, index) => {
-    // Add initial delay based on element position and type
-    const elementType = el.className.split(' ')[0];
-    const typeDelay = elementType.includes('card') ? index * 30 : index * 20;
-    el.style.transitionDelay = `${typeDelay}ms`;
-    observer.observe(el);
-  });
+  // Removed scroll animations - content appears naturally when scrolling
 });
 
 // Handle browser navigation (back/forward buttons) to ensure scroll to top
