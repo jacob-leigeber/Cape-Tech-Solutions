@@ -129,7 +129,7 @@ class ThemeManager {
     // Remove transition class after animation
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
-    }, 300);
+    }, 400); // matches your --theme-transition duration
   }
 
   getCurrentTheme() {
@@ -734,10 +734,39 @@ style.textContent = `
     margin-top: var(--space-1);
   }
   
+  /* Make header fully black even on scroll, regardless of theme */
   .site-header.scrolled {
-    background: rgba(255, 255, 255, 0.98);
+    background: #0f1419 !important;
     box-shadow: 0 2px 20px var(--shadow-medium);
+    border-bottom: 1px solid var(--border-color);
+  }
+  [data-theme="dark"] .site-header,
+  [data-theme="dark"] .site-header.scrolled {
+    background: #0f1419 !important;
+    color: var(--text-white) !important;
+    border-bottom: 1px solid var(--border-color);
   }
 `;
 
 document.head.appendChild(style);
+
+// Fade in on page load
+document.documentElement.classList.add('theme-transitioning');
+setTimeout(() => {
+  document.documentElement.classList.add('theme-fade-in');
+  setTimeout(() => {
+    document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
+  }, 400); // match your transition duration
+}, 10);
+
+// Also do this when toggling theme
+function fadeThemeTransition() {
+  document.documentElement.classList.add('theme-transitioning');
+  setTimeout(() => {
+    document.documentElement.classList.add('theme-fade-in');
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
+    }, 400);
+  }, 10);
+}
+// Call fadeThemeTransition() after theme toggle

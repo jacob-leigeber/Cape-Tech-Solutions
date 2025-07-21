@@ -140,6 +140,41 @@
     opacity var(--theme-transition);
 }
 
+.theme-transitioning .site-header {
+  transition: background-color var(--theme-transition), color var(--theme-transition), border-color var(--theme-transition);
+}
+
+.theme-transitioning .main-section,
+.theme-transitioning .section-padding,
+.theme-transitioning .capabilities-section,
+.theme-transitioning .benefits-section,
+.theme-transitioning .positions-section,
+.theme-transitioning .core-solutions-section,
+.theme-transitioning .team-gallery-section,
+.theme-transitioning .mission-section,
+.theme-transitioning .gallery-section,
+.theme-transitioning .contact-form-section,
+.theme-transitioning .additional-contact-section,
+.theme-transitioning .privacy-content {
+  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+}
+
+.theme-transitioning.theme-fade-in .site-header,
+.theme-transitioning.theme-fade-in .main-section,
+.theme-transitioning.theme-fade-in .section-padding,
+.theme-transitioning.theme-fade-in .capabilities-section,
+.theme-transitioning.theme-fade-in .benefits-section,
+.theme-transitioning.theme-fade-in .positions-section,
+.theme-transitioning.theme-fade-in .core-solutions-section,
+.theme-transitioning.theme-fade-in .team-gallery-section,
+.theme-transitioning.theme-fade-in .mission-section,
+.theme-transitioning.theme-fade-in .gallery-section,
+.theme-transitioning.theme-fade-in .contact-form-section,
+.theme-transitioning.theme-fade-in .additional-contact-section,
+.theme-transitioning.theme-fade-in .privacy-content {
+  opacity: 1;
+}
+
 /* =============================================================================
    DARK THEME COMPONENT STYLES
    ============================================================================= */
@@ -743,27 +778,46 @@
 }
 
 [data-theme="dark"] .metric-icon {
-  color: var(--navy-primary);
+  color: var(--blue-accent, #3182ce) !important;
 }
 
 [data-theme="dark"] .benefit-icon {
-  color: var(--navy-primary);
+  color: var(--blue-accent, #3182ce) !important;
 }
 
-[data-theme="dark"] .position-icon {
-  color: var(--navy-primary);
+[data-theme="dark"] .contact-icon {
+  color: var(--blue-accent, #3182ce) !important;
 }
 
 [data-theme="dark"] .info-icon {
-  color: var(--navy-primary);
+  color: var(--blue-accent, #3182ce) !important;
+}
+
+[data-theme="dark"] .category-icon {
+  color: var(--blue-accent, #3182ce) !important;
+}
+
+[data-theme="dark"] .step-icon {
+  color: var(--blue-accent, #3182ce) !important;
+}
+
+[data-theme="dark"] .method-icon {
+  color: var(--blue-accent, #3182ce) !important;
+}
+
+[data-theme="dark"] .advantage-icon {
+  color: var(--blue-accent, #3182ce) !important;
 }
 
 [data-theme="dark"] .leadership-icon {
-  color: var(--navy-primary);
+  color: var(--blue-accent, #3182ce) !important;
 }
 
-[data-theme="dark"] .value-item i {
-  color: var(--navy-primary);
+[data-theme="dark"] .metric-icon i,
+[data-theme="dark"] .benefit-icon i,
+[data-theme="dark"] .contact-icon i,
+[data-theme="dark"] .info-icon i {
+  color: var(--blue-accent, #3182ce) !important;
 }
 
 /* Dark theme focus states for better accessibility */
@@ -956,12 +1010,18 @@
 }
 
 [data-theme="dark"] .process-step {
-  background: rgba(45, 55, 72, 0.5);
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+  position: relative;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px var(--shadow-light);
 }
 
 [data-theme="dark"] .process-step:hover {
-  background: rgba(45, 55, 72, 0.8);
+  background: rgba(74, 144, 226, 0.1);
   border-color: var(--navy-primary);
 }
 
@@ -1786,7 +1846,7 @@ a:hover {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9; /* or 4/3, or whatever you prefer */
   cursor: pointer;
   transition: all var(--transition-normal);
   box-shadow: 0 8px 25px var(--shadow-light);
@@ -1803,10 +1863,11 @@ a:hover {
 }
 
 .gallery-item img {
+  max-height: 320px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  object-position: center;
+  display: block;
 }
 
 .gallery-item:hover img {
@@ -2842,7 +2903,6 @@ a:hover {
 .info-card ul {
   list-style: none;
   padding: 0;
-  text-align: left;
 }
 
 .info-card ul li {
@@ -2864,7 +2924,7 @@ a:hover {
 }
 
 .info-card ul li strong {
-  color: var(--navy-primary);
+  color: var(--blue-accent, #3182ce) !important;
 }
 
 /* =============================================================================
@@ -2903,11 +2963,6 @@ a:hover {
 .compliance-item i {
   font-size: var(--font-size-lg);
   color: var(--red-primary);
-}
-
-.privacy-content-section {
-  padding: var(--space-20) 0;
-  background: var(--background-light);
 }
 
 .toc-sidebar {
@@ -3164,7 +3219,7 @@ a:hover {
 }
 
 .process-step:hover {
-  transform: translateX(8px);
+  background: rgba(74, 144, 226, 0.1);
   border-color: var(--navy-primary);
 }
 
@@ -3237,19 +3292,18 @@ a:hover {
 }
 
 .tech-item {
-  background: var(--background-light);
+  background: rgba(74, 144, 226, 0.1);
   color: var(--navy-primary);
+  border: 1px solid var(--navy-primary);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-lg);
   font-size: var(--font-size-sm);
   font-weight: 500;
-  border: 1px solid var(--border-color);
   transition: all var(--transition-fast);
 }
 
 .tech-item:hover {
-  background: var(--navy-primary);
-  color: var(--white);
+  background: rgba(74, 144, 226, 0.2);
 }
 
 .specialized-tech {
@@ -3258,7 +3312,7 @@ a:hover {
 }
 
 .spec-tech-card {
-  background: var(--background-light);
+  background: rgba(45, 55, 72, 0.5);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   text-align: center;
@@ -3267,7 +3321,7 @@ a:hover {
 }
 
 .spec-tech-card:hover {
-  background: var(--navy-primary);
+  background: rgba(45, 55, 72, 0.8);
   color: var(--white);
   transform: translateY(-4px);
 }
@@ -3418,10 +3472,11 @@ a:hover {
 }
 
 .team-item img {
+  max-height: 320px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  object-position: center;
+  display: block;
 }
 
 .team-item:hover img {
@@ -3474,6 +3529,7 @@ a:hover {
 
 .mission-text {
   font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: var(--space-6);
@@ -3696,4 +3752,67 @@ a:hover {
   height: 220px;
   object-fit: cover;
   object-position: center;
+  display: block;    
+}
+
+@media (max-width: 767.98px) {
+  .gallery-item img {
+    max-height: 180px;
+  }
+}
+
+[data-theme="dark"] .benefits-section,
+[data-theme="dark"] .positions-section,
+[data-theme="dark"] .core-solutions-section,
+[data-theme="dark"] .team-gallery-section,
+[data-theme="dark"] .mission-section,
+[data-theme="dark"] .gallery-section,
+[data-theme="dark"] .contact-form-section,
+[data-theme="dark"] .additional-contact-section,
+[data-theme="dark"] .privacy-content,
+[data-theme="dark"] .capabilities-section,
+[data-theme="dark"] .main-section,
+[data-theme="dark"] .section-padding {
+  background: var(--background-dark) !important;
+  color: var(--text-white) !important;
+}
+
+[data-theme="dark"] .benefit-card,
+[data-theme="dark"] .position-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .highlight-item,
+[data-theme="dark"] .capability-card,
+[data-theme="dark"] .metric-card,
+[data-theme="dark"] .team-item,
+[data-theme="dark"] .gallery-item,
+[data-theme="dark"] .form-container,
+[data-theme="dark"] .privacy-content,
+[data-theme="dark"] .toc-sidebar {
+  background: rgba(45, 55, 72, 0.85) !important;
+  color: var(--text-white) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .benefit-card h4,
+[data-theme="dark"] .position-title h3,
+[data-theme="dark"] .solution-content h3,
+[data-theme="dark"] .info-card h4,
+[data-theme="dark"] .section-title {
+  color: var(--text-white) !important;
+}
+
+[data-theme="dark"] .card-description,
+[data-theme="dark"] .benefit-card p,
+[data-theme="dark"] .position-description p,
+[data-theme="dark"] .solution-content p,
+[data-theme="dark"] .info-card p,
+[data-theme="dark"] .section-description {
+  color: var(--text-secondary) !important;
+}
+
+.site-header,
+[data-theme="dark"] .site-header {
+  transition: background-color var(--theme-transition), color var(--theme-transition), border-color var(--theme-transition);
 }
