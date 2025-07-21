@@ -98,33 +98,38 @@
 
 /* Dark Theme Variables */
 [data-theme="dark"] {
-  /* Background Colors */
-  --background-light: var(--background-dark);
+  --background-light: #1a202c;
   --background-dark: #0f1419;
-  
-  /* Text Colors */
-  --text-primary: var(--text-white);
+  --text-primary: #e2e8f0;
   --text-secondary: #a0aec0;
   --text-light: #718096;
-  --text-white: #ffffff;
-  
-  /* Border and Shadow Colors */
   --border-color: #2d3748;
-  --shadow-light: rgba(255, 255, 255, 0.05);
-  --shadow-medium: rgba(255, 255, 255, 0.1);
-  --shadow-dark: rgba(255, 255, 255, 0.15);
-  
-  /* Component Colors */
-  --navy-primary: #4a90e2;
-  --navy-dark: #2d4f7a;
-  --navy-light: #3182ce;
-  --gray-primary: #a0aec0;
-  --gray-light: #718096;
-  --gray-lighter: #2d3748;
-  --gray-dark: #1a202c;
-  
-  /* Overlay Colors */
-  --overlay-dark: rgba(15, 20, 25, 0.9);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.4);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* =============================================================================
+   PAGE TRANSITIONS
+   ============================================================================= */
+
+.page-transitioning {
+  overflow: hidden;
+}
+
+.page-transitioning.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 /* =============================================================================
@@ -132,47 +137,93 @@
    ============================================================================= */
 
 .theme-transitioning * {
-  transition: 
-    background-color var(--theme-transition),
-    color var(--theme-transition),
-    border-color var(--theme-transition),
-    box-shadow var(--theme-transition),
-    opacity var(--theme-transition);
+  transition: none !important;
 }
 
 .theme-transitioning .site-header {
-  transition: background-color var(--theme-transition), color var(--theme-transition), border-color var(--theme-transition);
+  transition: background-color var(--theme-transition), 
+              color var(--theme-transition), 
+              border-color var(--theme-transition) !important;
 }
 
 .theme-transitioning .main-section,
-.theme-transitioning .section-padding,
+.theme-transitioning .hero-section,
 .theme-transitioning .capabilities-section,
-.theme-transitioning .benefits-section,
-.theme-transitioning .positions-section,
-.theme-transitioning .core-solutions-section,
-.theme-transitioning .team-gallery-section,
-.theme-transitioning .mission-section,
 .theme-transitioning .gallery-section,
-.theme-transitioning .contact-form-section,
-.theme-transitioning .additional-contact-section,
-.theme-transitioning .privacy-content {
-  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+.theme-transitioning .trust-section,
+.theme-transitioning .leadership-section,
+.theme-transitioning .cta-section,
+.theme-transitioning .site-footer {
+  transition: background-color var(--theme-transition), 
+              color var(--theme-transition) !important;
+}
+
+.theme-transitioning .capability-card,
+.theme-transitioning .gallery-item,
+.theme-transitioning .cert-card,
+.theme-transitioning .leadership-card,
+.theme-transitioning .benefit-card,
+.theme-transitioning .position-card,
+.theme-transitioning .contact-card,
+.theme-transitioning .info-card,
+.theme-transitioning .solution-card,
+.theme-transitioning .method-item,
+.theme-transitioning .process-step,
+.theme-transitioning .tech-category,
+.theme-transitioning .spec-tech-card,
+.theme-transitioning .advantage-item,
+.theme-transitioning .metric-card,
+.theme-transitioning .team-item,
+.theme-transitioning .value-item {
+  transition: background-color var(--theme-transition), 
+              border-color var(--theme-transition), 
+              color var(--theme-transition) !important;
 }
 
 .theme-transitioning.theme-fade-in .site-header,
 .theme-transitioning.theme-fade-in .main-section,
-.theme-transitioning.theme-fade-in .section-padding,
+.theme-transitioning.theme-fade-in .hero-section,
 .theme-transitioning.theme-fade-in .capabilities-section,
-.theme-transitioning.theme-fade-in .benefits-section,
-.theme-transitioning.theme-fade-in .positions-section,
-.theme-transitioning.theme-fade-in .core-solutions-section,
-.theme-transitioning.theme-fade-in .team-gallery-section,
-.theme-transitioning.theme-fade-in .mission-section,
 .theme-transitioning.theme-fade-in .gallery-section,
-.theme-transitioning.theme-fade-in .contact-form-section,
-.theme-transitioning.theme-fade-in .additional-contact-section,
-.theme-transitioning.theme-fade-in .privacy-content {
-  opacity: 1;
+.theme-transitioning.theme-fade-in .trust-section,
+.theme-transitioning.theme-fade-in .leadership-section,
+.theme-transitioning.theme-fade-in .cta-section,
+.theme-transitioning.theme-fade-in .site-footer {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================================================
+   PAGE TRANSITIONS
+   ============================================================================= */
+
+.page-transitioning {
+  overflow: hidden;
+}
+
+.page-transitioning.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 /* =============================================================================
@@ -1140,18 +1191,17 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 body {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--background-light);
+  line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -3816,3 +3866,105 @@ a:hover {
 [data-theme="dark"] .site-header {
   transition: background-color var(--theme-transition), color var(--theme-transition), border-color var(--theme-transition);
 }
+
+/* =============================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================================================= */
+
+/* Optimize animations for better performance */
+.site-header,
+.capability-card,
+.gallery-item,
+.cert-card,
+.leadership-card,
+.benefit-card,
+.position-card,
+.contact-card,
+.info-card,
+.solution-card,
+.method-item,
+.process-step,
+.tech-category,
+.spec-tech-card,
+.advantage-item,
+.metric-card,
+.team-item,
+.value-item {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth transitions for interactive elements */
+.nav-link,
+.btn,
+.card-link,
+.dropdown-item {
+  transition: all var(--transition-fast);
+}
+
+/* Optimize scroll performance */
+.site-header {
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+}
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
+/* =============================================================================
+   LOADING ANIMATIONS
+   ============================================================================= */
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.page-loader::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--navy-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =============================================================================
+   ANIMATION CLASSES
+   ============================================================================= */
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================================================= */

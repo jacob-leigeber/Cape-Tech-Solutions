@@ -145,12 +145,14 @@ class HeaderManager {
   constructor() {
     this.header = document.querySelector('.site-header');
     this.lastScrollY = window.scrollY;
+    this.isScrolled = false;
     this.init();
   }
 
   init() {
     if (!this.header) return;
     this.setupScrollListener();
+    this.setupPageTransitionListener();
   }
 
   setupScrollListener() {
@@ -159,15 +161,26 @@ class HeaderManager {
       
       // Add/remove scrolled class for styling
       if (currentScrollY > 100) {
-        this.header.classList.add('scrolled');
+        if (!this.isScrolled) {
+          this.header.classList.add('scrolled');
+          this.isScrolled = true;
+        }
       } else {
-        this.header.classList.remove('scrolled');
+        if (this.isScrolled) {
+          this.header.classList.remove('scrolled');
+          this.isScrolled = false;
+        }
       }
 
-      // Hide/show header on scroll
-      if (currentScrollY > this.lastScrollY && currentScrollY > 300) {
-        this.header.style.transform = 'translateY(-100%)';
+      // Hide/show header on scroll (only on desktop)
+      if (window.innerWidth > 768) {
+        if (currentScrollY > this.lastScrollY && currentScrollY > 300) {
+          this.header.style.transform = 'translateY(-100%)';
+        } else {
+          this.header.style.transform = 'translateY(0)';
+        }
       } else {
+        // Always show header on mobile
         this.header.style.transform = 'translateY(0)';
       }
 
@@ -175,6 +188,28 @@ class HeaderManager {
     }, 100);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+
+  setupPageTransitionListener() {
+    // Add page transition effects
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href$=".html"]');
+      if (!link) return;
+
+      // Don't apply transition to external links or same page links
+      if (link.hostname !== window.location.hostname || 
+          link.href === window.location.href) return;
+
+      e.preventDefault();
+      
+      // Add fade out effect
+      document.body.classList.add('page-transitioning', 'fade-out');
+      
+      // Navigate after transition
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 300);
+    });
   }
 }
 
@@ -734,16 +769,31 @@ style.textContent = `
     margin-top: var(--space-1);
   }
   
-  /* Make header fully black even on scroll, regardless of theme */
+  /* Consistent header styling across themes */
+  .site-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-normal), 
+                box-shadow var(--transition-normal),
+                transform var(--transition-normal);
+  }
+  
   .site-header.scrolled {
-    background: #0f1419 !important;
+    background: rgba(255, 255, 255, 0.98) !important;
     box-shadow: 0 2px 20px var(--shadow-medium);
     border-bottom: 1px solid var(--border-color);
   }
-  [data-theme="dark"] .site-header,
+  
+  [data-theme="dark"] .site-header {
+    background: rgba(15, 20, 25, 0.95);
+    color: var(--text-white);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
   [data-theme="dark"] .site-header.scrolled {
-    background: #0f1419 !important;
-    color: var(--text-white) !important;
+    background: rgba(15, 20, 25, 0.98) !important;
+    box-shadow: 0 2px 20px var(--shadow-medium);
     border-bottom: 1px solid var(--border-color);
   }
 `;
@@ -758,6 +808,50 @@ setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
   }, 400); // match your transition duration
 }, 10);
+
+// Add page load animation
+document.addEventListener('DOMContentLoaded', () => {
+  // Remove loading state
+  const loader = document.querySelector('.page-loader');
+  if (loader) {
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 300);
+  }
+  
+  // Add fade-in animation to main content
+  const mainContent = document.querySelector('main, .hero-section, .capabilities-section');
+  if (mainContent) {
+    mainContent.style.opacity = '0';
+    mainContent.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+      mainContent.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      mainContent.style.opacity = '1';
+      mainContent.style.transform = 'translateY(0)';
+    }, 100);
+  }
+  
+  // Initialize intersection observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements for animation
+  document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item').forEach(el => {
+    observer.observe(el);
+  });
+});
 
 // Also do this when toggling theme
 function fadeThemeTransition() {
