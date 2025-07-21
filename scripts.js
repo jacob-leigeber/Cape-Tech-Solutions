@@ -750,17 +750,15 @@ window.CapeApp = capeApp;
 const style = document.createElement('style');
 style.textContent = `
   .animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
   }
   
-  @keyframes fadeInUp {
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(5px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
   
@@ -866,7 +864,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200 + (index * 150)); // Longer delays between sections
   });
   
-  // Removed scroll animations - content appears naturally when scrolling
+  // Add subtle scroll animations - just gentle fade-in
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Simple fade-in without movement
+        entry.target.style.opacity = '0';
+        entry.target.style.transition = 'opacity 0.4s ease-out';
+        
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+        }, 50);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for subtle scroll animations
+  const animatedElements = document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item');
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
 });
 
 // Handle browser navigation (back/forward buttons) to ensure scroll to top
