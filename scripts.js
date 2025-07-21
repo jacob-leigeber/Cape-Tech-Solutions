@@ -126,10 +126,10 @@ class ThemeManager {
       metaThemeColor.setAttribute('content', theme === 'light' ? '#1e3a5f' : '#0f1419');
     }
     
-    // Remove transition class after animation
+    // Remove transition class after animation completes
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
-    }, 400); // matches your --theme-transition duration
+    }, 200); // Much faster - reduced from 400ms to 200ms
   }
 
   getCurrentTheme() {
@@ -830,7 +830,7 @@ setTimeout(() => {
   document.documentElement.classList.add('theme-fade-in');
   setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-  }, 600); // Increased from 400ms to 600ms for smoother transition
+  }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
 }, 10);
 
 // Add smooth page load animations and scroll to top
@@ -915,7 +915,7 @@ function fadeThemeTransition() {
     document.documentElement.classList.add('theme-fade-in');
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-    }, 600); // Increased from 400ms to 600ms for smoother transition
+    }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle

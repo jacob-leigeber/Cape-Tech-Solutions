@@ -85,7 +85,7 @@
   --transition-slow: 0.5s ease;
   
   /* Theme Transition */
-  --theme-transition: 0.3s ease;
+  --theme-transition: 0.15s ease;
   
   /* Z-index Scale */
   --z-dropdown: 1000;
@@ -137,7 +137,9 @@
    ============================================================================= */
 
 .theme-transitioning * {
-  transition: none !important;
+  transition: background-color var(--theme-transition),
+              border-color var(--theme-transition),
+              color 0.1s ease !important;
 }
 
 .theme-transitioning .site-header {
@@ -146,39 +148,39 @@
               border-color var(--theme-transition) !important;
 }
 
-.theme-transitioning .main-section,
-.theme-transitioning .hero-section,
-.theme-transitioning .capabilities-section,
-.theme-transitioning .gallery-section,
-.theme-transitioning .trust-section,
-.theme-transitioning .leadership-section,
-.theme-transitioning .cta-section,
-.theme-transitioning .site-footer {
-  transition: background-color var(--theme-transition), 
-              color var(--theme-transition) !important;
-}
+  .theme-transitioning .main-section,
+  .theme-transitioning .hero-section,
+  .theme-transitioning .capabilities-section,
+  .theme-transitioning .gallery-section,
+  .theme-transitioning .trust-section,
+  .theme-transitioning .leadership-section,
+  .theme-transitioning .cta-section,
+  .theme-transitioning .site-footer {
+    transition: background-color var(--theme-transition), 
+                color 0.1s ease !important;
+  }
 
-.theme-transitioning .capability-card,
-.theme-transitioning .gallery-item,
-.theme-transitioning .cert-card,
-.theme-transitioning .leadership-card,
-.theme-transitioning .benefit-card,
-.theme-transitioning .position-card,
-.theme-transitioning .contact-card,
-.theme-transitioning .info-card,
-.theme-transitioning .solution-card,
-.theme-transitioning .method-item,
-.theme-transitioning .process-step,
-.theme-transitioning .tech-category,
-.theme-transitioning .spec-tech-card,
-.theme-transitioning .advantage-item,
-.theme-transitioning .metric-card,
-.theme-transitioning .team-item,
-.theme-transitioning .value-item {
-  transition: background-color var(--theme-transition), 
-              border-color var(--theme-transition), 
-              color var(--theme-transition) !important;
-}
+  .theme-transitioning .capability-card,
+  .theme-transitioning .gallery-item,
+  .theme-transitioning .cert-card,
+  .theme-transitioning .leadership-card,
+  .theme-transitioning .benefit-card,
+  .theme-transitioning .position-card,
+  .theme-transitioning .contact-card,
+  .theme-transitioning .info-card,
+  .theme-transitioning .solution-card,
+  .theme-transitioning .method-item,
+  .theme-transitioning .process-step,
+  .theme-transitioning .tech-category,
+  .theme-transitioning .spec-tech-card,
+  .theme-transitioning .advantage-item,
+  .theme-transitioning .metric-card,
+  .theme-transitioning .team-item,
+  .theme-transitioning .value-item {
+    transition: background-color var(--theme-transition), 
+                border-color var(--theme-transition), 
+                color 0.1s ease !important;
+  }
 
 .theme-transitioning.theme-fade-in .site-header,
 .theme-transitioning.theme-fade-in .main-section,
