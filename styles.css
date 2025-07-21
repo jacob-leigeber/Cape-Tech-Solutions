@@ -118,7 +118,7 @@
 }
 
 .page-transitioning.fade-out {
-  animation: fadeOut 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  animation: fadeOut 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes fadeOut {
@@ -126,9 +126,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-15px) scale(0.98);
+  }
   100% {
     opacity: 0;
-    transform: translateY(-30px) scale(0.98);
+    transform: translateY(-40px) scale(0.95);
   }
 }
 
@@ -189,13 +193,17 @@
 .theme-transitioning.theme-fade-in .leadership-section,
 .theme-transitioning.theme-fade-in .cta-section,
 .theme-transitioning.theme-fade-in .site-footer {
-  animation: fadeIn 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  animation: fadeIn 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px) scale(0.98);
+    transform: translateY(30px) scale(0.95);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(10px) scale(0.98);
   }
   100% {
     opacity: 1;
@@ -2447,6 +2455,22 @@
 }
 
 /* =============================================================================
+   INITIAL PAGE LOAD STYLES
+   ============================================================================= */
+
+/* Ensure smooth initial page load */
+body {
+  opacity: 0;
+  animation: pageLoad 0.1s ease-out forwards;
+}
+
+@keyframes pageLoad {
+  to {
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
    PERFORMANCE OPTIMIZATIONS
    ============================================================================= */
 
@@ -2548,13 +2572,17 @@
    ============================================================================= */
 
 .animate-in {
-  animation: fadeInUp 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  animation: fadeInUp 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transform: translateY(60px) scale(0.92);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(20px) scale(0.96);
   }
   100% {
     opacity: 1;

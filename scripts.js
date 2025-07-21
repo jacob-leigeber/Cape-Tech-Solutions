@@ -208,7 +208,7 @@ class HeaderManager {
       // Navigate after transition with longer delay for smoother effect
       setTimeout(() => {
         window.location.href = link.href;
-      }, 500); // Increased from 300ms to 500ms
+      }, 800); // Increased to match the new animation duration
     });
   }
 }
@@ -806,46 +806,47 @@ setTimeout(() => {
   document.documentElement.classList.add('theme-fade-in');
   setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-  }, 600); // Increased from 400ms to 600ms for smoother transition
+  }, 1000); // Increased to match the new animation duration
 }, 10);
 
-// Add page load animation
+// Add page load animation with improved smoothness
 document.addEventListener('DOMContentLoaded', () => {
-  // Remove loading state with smooth transition
+  // Remove loading state with smoother transition
   const loader = document.querySelector('.page-loader');
   if (loader) {
-    loader.style.transition = 'opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)';
+    loader.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0.0, 0.2, 1)';
     loader.style.opacity = '0';
     setTimeout(() => {
       loader.style.display = 'none';
-    }, 400);
+    }, 600);
   }
   
-  // Add fade-in animation to main content with better timing
+  // Add fade-in animation to main content with much better timing
   const mainContent = document.querySelector('main, .hero-section, .capabilities-section');
   if (mainContent) {
+    // Set initial state
     mainContent.style.opacity = '0';
-    mainContent.style.transform = 'translateY(30px) scale(0.98)';
-    mainContent.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
+    mainContent.style.transform = 'translateY(40px) scale(0.96)';
+    mainContent.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)';
     
-    // Delay the animation slightly for smoother effect
+    // Delay the animation for smoother effect
     setTimeout(() => {
       mainContent.style.opacity = '1';
       mainContent.style.transform = 'translateY(0) scale(1)';
-    }, 200);
+    }, 300);
   }
   
-  // Initialize intersection observer for animations with better timing
+  // Initialize intersection observer for scroll animations with better timing
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
   };
   
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         // Add staggered animation delay for better visual flow
-        const delay = Math.random() * 200;
+        const delay = index * 100; // Stagger by 100ms per element
         setTimeout(() => {
           entry.target.classList.add('animate-in');
         }, delay);
@@ -853,8 +854,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
   
-  // Observe elements for animation
-  document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item').forEach(el => {
+  // Observe elements for animation with better selection
+  const animatedElements = document.querySelectorAll(`
+    .capability-card, 
+    .gallery-item, 
+    .cert-card, 
+    .leadership-card, 
+    .benefit-card, 
+    .position-card, 
+    .contact-card, 
+    .info-card, 
+    .solution-card, 
+    .method-item, 
+    .process-step, 
+    .tech-category, 
+    .spec-tech-card, 
+    .advantage-item, 
+    .metric-card, 
+    .team-item, 
+    .value-item,
+    .hero-content,
+    .section-header,
+    .trust-stat,
+    .hero-stats
+  `);
+  
+  animatedElements.forEach(el => {
     observer.observe(el);
   });
 });
@@ -866,7 +891,7 @@ function fadeThemeTransition() {
     document.documentElement.classList.add('theme-fade-in');
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-    }, 600); // Increased from 400ms to 600ms for smoother transition
+    }, 1000); // Increased to match the new animation duration
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle
