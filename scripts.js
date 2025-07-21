@@ -753,6 +753,17 @@ style.textContent = `
     animation: fadeInUp 0.6s ease-out forwards;
   }
   
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .keyboard-nav *:focus {
     outline: 2px solid var(--blue-accent) !important;
     outline-offset: 2px !important;
@@ -809,8 +820,11 @@ setTimeout(() => {
   }, 600); // Increased from 400ms to 600ms for smoother transition
 }, 10);
 
-// Add page load animation
+// Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to top immediately
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
   // Remove loading state with smooth transition
   const loader = document.querySelector('.page-loader');
   if (loader) {
@@ -821,21 +835,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
   
-  // Add fade-in animation to main content with better timing
-  const mainContent = document.querySelector('main, .hero-section, .capabilities-section');
-  if (mainContent) {
-    mainContent.style.opacity = '0';
-    mainContent.style.transform = 'translateY(30px) scale(0.98)';
-    mainContent.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
-    
-    // Delay the animation slightly for smoother effect
-    setTimeout(() => {
-      mainContent.style.opacity = '1';
-      mainContent.style.transform = 'translateY(0) scale(1)';
-    }, 200);
-  }
+  // Add fade-in animation to main content sections
+  const mainSections = document.querySelectorAll('main, .hero-section, .capabilities-section, .gallery-section, .trust-section, .leadership-section, .cta-section, .site-footer');
   
-  // Initialize intersection observer for animations with better timing
+  mainSections.forEach((section, index) => {
+    // Set initial state
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
+    
+    // Stagger the animations
+    setTimeout(() => {
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+    }, 200 + (index * 100));
+  });
+  
+  // Initialize intersection observer for scroll animations
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -857,6 +873,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item').forEach(el => {
     observer.observe(el);
   });
+});
+
+// Handle browser navigation (back/forward buttons) to ensure scroll to top
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    // Page was loaded from cache (back/forward navigation)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    // Page became visible again
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 });
 
 // Also do this when toggling theme
