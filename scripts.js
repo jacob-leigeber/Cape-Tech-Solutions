@@ -750,13 +750,13 @@ window.CapeApp = capeApp;
 const style = document.createElement('style');
 style.textContent = `
   .animate-in {
-    animation: fadeInUp 0.4s ease-out forwards;
+    animation: fadeInUp 0.6s ease-out forwards;
   }
   
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(5px);
     }
     to {
       opacity: 1;
@@ -850,42 +850,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
   
-  // Add subtle fade-in animation to main content sections
+  // Add gradual fade-in animation to main content sections
   const mainSections = document.querySelectorAll('main, .hero-section, .capabilities-section, .gallery-section, .trust-section, .leadership-section, .cta-section, .site-footer');
   
   mainSections.forEach((section, index) => {
-    // Set initial state - much more subtle
+    // Set initial state - very subtle
     section.style.opacity = '0';
-    section.style.transform = 'translateY(10px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    section.style.transform = 'translateY(5px)';
+    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
     
-    // Stagger the animations with shorter delays
+    // Much more gradual stagger - longer delays between sections
     setTimeout(() => {
       section.style.opacity = '1';
       section.style.transform = 'translateY(0)';
-    }, 100 + (index * 50));
+    }, 200 + (index * 150)); // Longer delays between sections
   });
   
-  // Initialize intersection observer for scroll animations
+  // Initialize intersection observer for scroll animations with better timing
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px' // Increased margin for earlier triggering
   };
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add subtle animation delay
-        const delay = Math.random() * 100;
+        // Add more gradual animation delay with better distribution
+        const baseDelay = 100;
+        const randomDelay = Math.random() * 150;
+        const totalDelay = baseDelay + randomDelay;
+        
         setTimeout(() => {
           entry.target.classList.add('animate-in');
-        }, delay);
+        }, totalDelay);
       }
     });
   }, observerOptions);
   
-  // Observe elements for animation
-  document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item').forEach(el => {
+  // Observe elements for animation with better grouping
+  const animatedElements = document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item');
+  
+  // Add staggered delays to scroll animations with better distribution
+  animatedElements.forEach((el, index) => {
+    // Add initial delay based on element position and type
+    const elementType = el.className.split(' ')[0];
+    const typeDelay = elementType.includes('card') ? index * 30 : index * 20;
+    el.style.transitionDelay = `${typeDelay}ms`;
     observer.observe(el);
   });
 });
