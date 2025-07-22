@@ -126,10 +126,10 @@ class ThemeManager {
       metaThemeColor.setAttribute('content', theme === 'light' ? '#1e3a5f' : '#0f1419');
     }
     
-    // Remove transition class after animation
+    // Remove transition class after animation completes
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
-    }, 400); // matches your --theme-transition duration
+    }, 200); // Much faster - reduced from 400ms to 200ms
   }
 
   getCurrentTheme() {
@@ -145,36 +145,71 @@ class HeaderManager {
   constructor() {
     this.header = document.querySelector('.site-header');
     this.lastScrollY = window.scrollY;
+    this.isScrolled = false;
     this.init();
   }
 
   init() {
     if (!this.header) return;
     this.setupScrollListener();
+    this.setupPageTransitionListener();
   }
 
   setupScrollListener() {
     const handleScroll = throttle(() => {
       const currentScrollY = window.scrollY;
       
-      // Add/remove scrolled class for styling
+      // Add/remove scrolled class for styling with smooth transitions
       if (currentScrollY > 100) {
-        this.header.classList.add('scrolled');
+        if (!this.isScrolled) {
+          this.header.classList.add('scrolled');
+          this.isScrolled = true;
+        }
       } else {
-        this.header.classList.remove('scrolled');
+        if (this.isScrolled) {
+          this.header.classList.remove('scrolled');
+          this.isScrolled = false;
+        }
       }
 
-      // Hide/show header on scroll
-      if (currentScrollY > this.lastScrollY && currentScrollY > 300) {
-        this.header.style.transform = 'translateY(-100%)';
+      // Hide/show header on scroll (only on desktop) with smoother transitions
+      if (window.innerWidth > 768) {
+        if (currentScrollY > this.lastScrollY && currentScrollY > 300) {
+          this.header.style.transform = 'translateY(-100%)';
+        } else {
+          this.header.style.transform = 'translateY(0)';
+        }
       } else {
+        // Always show header on mobile
         this.header.style.transform = 'translateY(0)';
       }
 
       this.lastScrollY = currentScrollY;
-    }, 100);
+    }, 50); // Reduced throttle time for smoother response
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+
+  setupPageTransitionListener() {
+    // Add page transition effects
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href$=".html"]');
+      if (!link) return;
+
+      // Don't apply transition to external links or same page links
+      if (link.hostname !== window.location.hostname || 
+          link.href === window.location.href) return;
+
+      e.preventDefault();
+      
+      // Add subtle fade out effect
+      document.body.classList.add('page-transitioning', 'fade-out');
+      
+      // Navigate after transition with shorter delay
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 300); // Much shorter delay for smoother feel
+    });
   }
 }
 
@@ -715,7 +750,31 @@ window.CapeApp = capeApp;
 const style = document.createElement('style');
 style.textContent = `
   .animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .page-transitioning.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
   }
   
   .keyboard-nav *:focus {
@@ -734,16 +793,31 @@ style.textContent = `
     margin-top: var(--space-1);
   }
   
-  /* Make header fully black even on scroll, regardless of theme */
+  /* Consistent header styling across themes */
+  .site-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                box-shadow 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
   .site-header.scrolled {
-    background: #0f1419 !important;
+    background: rgba(255, 255, 255, 0.98) !important;
     box-shadow: 0 2px 20px var(--shadow-medium);
     border-bottom: 1px solid var(--border-color);
   }
-  [data-theme="dark"] .site-header,
+  
+  [data-theme="dark"] .site-header {
+    background: rgba(15, 20, 25, 0.95);
+    color: var(--text-white);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
   [data-theme="dark"] .site-header.scrolled {
-    background: #0f1419 !important;
-    color: var(--text-white) !important;
+    background: rgba(15, 20, 25, 0.98) !important;
+    box-shadow: 0 2px 20px var(--shadow-medium);
     border-bottom: 1px solid var(--border-color);
   }
 `;
@@ -756,8 +830,83 @@ setTimeout(() => {
   document.documentElement.classList.add('theme-fade-in');
   setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-  }, 400); // match your transition duration
+  }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
 }, 10);
+
+// Add smooth page load animations and scroll to top
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to top immediately
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // Remove loading state with smooth transition
+  const loader = document.querySelector('.page-loader');
+  if (loader) {
+    loader.style.transition = 'opacity 0.3s ease-out';
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 300);
+  }
+  
+  // Add gradual fade-in animation to main content sections
+  const mainSections = document.querySelectorAll('main, .hero-section, .capabilities-section, .gallery-section, .trust-section, .leadership-section, .cta-section, .site-footer');
+  
+  mainSections.forEach((section, index) => {
+    // Set initial state - very subtle
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(5px)';
+    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    
+    // Much more gradual stagger - longer delays between sections
+    setTimeout(() => {
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+    }, 200 + (index * 150)); // Longer delays between sections
+  });
+  
+  // Add subtle scroll animations - just gentle fade-in
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Simple fade-in without movement
+        entry.target.style.opacity = '0';
+        entry.target.style.transition = 'opacity 0.4s ease-out';
+        
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+        }, 50);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for subtle scroll animations
+  const animatedElements = document.querySelectorAll('.capability-card, .gallery-item, .cert-card, .leadership-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item');
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+
+// Handle browser navigation (back/forward buttons) to ensure scroll to top
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    // Page was loaded from cache (back/forward navigation)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    // Page became visible again
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
 
 // Also do this when toggling theme
 function fadeThemeTransition() {
@@ -766,7 +915,7 @@ function fadeThemeTransition() {
     document.documentElement.classList.add('theme-fade-in');
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
-    }, 400);
+    }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle
