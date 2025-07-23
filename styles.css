@@ -1915,11 +1915,13 @@ a:hover {
 }
 
 .gallery-item img {
-  max-height: 320px;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .gallery-item:hover img {
@@ -3517,7 +3519,7 @@ a:hover {
   cursor: pointer;
   transition: all var(--transition-normal);
   box-shadow: 0 8px 25px var(--shadow-light);
-  min-height: 280px;
+  height: 280px;
   background: var(--background-light);
 }
 
@@ -3537,6 +3539,8 @@ a:hover {
   object-position: center;
   display: block;
   transition: transform var(--transition-normal);
+  margin: 0;
+  padding: 0;
 }
 
 .team-item:hover img {
