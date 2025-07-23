@@ -3441,6 +3441,11 @@ a:hover {
   text-align: center;
   transition: all var(--transition-normal);
   box-shadow: 0 4px 12px var(--shadow-light);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .metric-card:hover {
