@@ -3505,11 +3505,11 @@ a:hover {
 }
 
 .team-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-8);
   margin-top: var(--space-12);
-  align-items: start;
+  justify-content: center;
 }
 
 .team-item {
@@ -3521,9 +3521,11 @@ a:hover {
   transition: all var(--transition-normal);
   box-shadow: 0 8px 25px var(--shadow-light);
   height: 280px;
+  width: 300px;
   background: var(--background-light);
   margin: 0;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .team-item:hover {
