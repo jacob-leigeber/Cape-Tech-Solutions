@@ -1424,14 +1424,14 @@ a:hover {
    HERO SECTION
    ============================================================================= */
 
-.hero-section, .careers-hero-section, .capability-hero-section {
+.hero-section, .careers-hero-section, .capability-hero-section, .privacy-hero-section, .contact-hero-section {
   position: relative;
   min-height: 100vh;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .hero-background {
@@ -2342,8 +2342,8 @@ a:hover {
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .min-vh-75 {
@@ -2673,12 +2673,14 @@ a:hover {
 
 .contact-hero-section {
   position: relative;
-  min-height: 75vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .contact-highlights {
@@ -2987,12 +2989,14 @@ a:hover {
 
 .privacy-hero-section {
   position: relative;
-  min-height: 60vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .compliance-badges {
@@ -3132,8 +3136,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
