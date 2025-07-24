@@ -926,9 +926,3 @@ function fadeThemeTransition() {
 }
 // Call fadeThemeTransition() after theme toggle
 
-// Debug: Force dark mode for testing (remove this after testing)
-setTimeout(() => {
-  console.log('Debug: Forcing dark mode for testing...');
-  document.documentElement.setAttribute('data-theme', 'dark');
-  console.log('data-theme set to:', document.documentElement.getAttribute('data-theme'));
-}, 1000);
