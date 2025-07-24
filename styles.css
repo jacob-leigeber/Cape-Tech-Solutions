@@ -964,22 +964,27 @@
   outline-offset: 2px;
 }
 
-/* Dark theme scrollbar styling */
-[data-theme="dark"] ::-webkit-scrollbar {
+/* Scrollbar styling for both themes */
+::-webkit-scrollbar {
   width: 12px;
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: var(--background-dark);
+::-webkit-scrollbar-track {
+  background: var(--background-light);
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 6px;
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: var(--navy-primary);
+}
+
+/* Dark theme scrollbar styling */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--background-dark);
 }
 
 /* Dark theme selection styling */
