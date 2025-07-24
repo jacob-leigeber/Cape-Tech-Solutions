@@ -4348,7 +4348,7 @@ a:hover {
   will-change: transform, box-shadow;
 }
 
-/* Enhanced hover effects */
+/* Simple hover effects */
 .nav-link:hover,
 .btn:hover,
 .card-link:hover,
@@ -4371,8 +4371,8 @@ a:hover {
 .metric-card:hover,
 .team-item:hover,
 .value-item:hover {
-  transform: translateY(-4px) translateZ(0);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Smooth focus animations */
@@ -4564,84 +4564,10 @@ textarea:focus {
 }
 
 /* =============================================================================
-   SMOOTH SCROLL ANIMATIONS
+   SMOOTH SCROLL BEHAVIOR
    ============================================================================= */
-
-/* Subtle scroll animations - only opacity changes */
-.scroll-animate {
-  transition: opacity var(--transition-normal);
-}
 
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
-}
-
-/* Performance optimizations for scroll animations */
-.scroll-animate {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-/* Enhanced scroll-triggered animations */
-@keyframes slideInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animation classes for scroll triggers */
-.animate-slide-up {
-  animation: slideInFromBottom var(--transition-spring) ease-out;
-}
-
-.animate-slide-left {
-  animation: slideInFromLeft var(--transition-spring) ease-out;
-}
-
-.animate-slide-right {
-  animation: slideInFromRight var(--transition-spring) ease-out;
-}
-
-.animate-scale-in {
-  animation: scaleIn var(--transition-spring) ease-out;
 }

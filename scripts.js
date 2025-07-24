@@ -271,50 +271,26 @@ class AnimationManager {
 
   init() {
     this.setupIntersectionObserver();
-    this.setupScrollAnimations();
     this.observeElements();
     this.setupStaggerAnimations();
-    this.setupInitialAnimations();
-    this.setupSmoothScrollBehavior();
   }
 
   setupIntersectionObserver() {
     const options = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -50px 0px'
     };
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
-          this.animateElement(entry.target);
           this.animatedElements.add(entry.target);
         }
       });
     }, options);
   }
 
-  setupScrollAnimations() {
-    // Simple, subtle scroll-triggered animations
-    const scrollOptions = {
-      threshold: [0, 0.5, 1],
-      rootMargin: '0px 0px -50px 0px'
-    };
 
-    this.scrollObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const element = entry.target;
-        const ratio = entry.intersectionRatio;
-        
-        // Only apply subtle opacity changes
-        if (ratio > 0.5) {
-          element.style.opacity = '1';
-        } else {
-          element.style.opacity = ratio;
-        }
-      });
-    }, scrollOptions);
-  }
 
   animateElement(element) {
     // Remove any existing animation classes
@@ -372,112 +348,29 @@ class AnimationManager {
   }
 
   setupStaggerAnimations() {
-    // Setup staggered animations for grid elements
-    const gridSelectors = [
-      '.capability-card',
-      '.benefit-card',
-      '.position-card',
-      '.contact-card',
-      '.info-card',
-      '.solution-card',
-      '.method-item',
-      '.process-step',
-      '.tech-category',
-      '.spec-tech-card',
-      '.advantage-item',
-      '.metric-card',
-      '.team-item',
-      '.value-item'
-    ];
-
-    gridSelectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach((element, index) => {
-        element.dataset.staggerDelay = index * 100;
-      });
-    });
+    // No animations, just tracking
   }
 
   observeElements() {
-    const elementsToAnimate = [
-      '.capability-card',
-      '.trust-stat',
-      '.cert-card',
-      '.leadership-card',
+    // Only observe a few key elements for tracking, no animations
+    const elementsToTrack = [
       '.section-header',
+      '.capability-card',
       '.benefit-card',
       '.position-card',
       '.contact-card',
       '.info-card',
-      '.solution-card',
-      '.method-item',
-      '.process-step',
-      '.tech-category',
-      '.spec-tech-card',
-      '.advantage-item',
-      '.metric-card',
-      '.team-item',
-      '.value-item',
-      '.gallery-item',
-      '.hero-stats .stat-item',
-      '.hero-actions',
-      '.cta-actions',
-      '.footer-content',
-      '.section-title',
-      '.section-description',
-      '.card-title',
-      '.card-description',
-      '.hero-description',
-      '.cta-title',
-      '.cta-description',
-      '.position-title',
-      '.position-description',
-      '.contact-info',
-      '.form-container',
-      '.toc-sidebar',
-      '.content-section',
-      '.compliance-item',
-      '.tech-item',
-      '.feature-item',
-      '.benefit-item',
-      '.requirements-list li',
-      '.tech-tag',
-      '.clearance-badge',
-      '.type-badge',
-      '.location-badge',
-      '.salary-range',
-      '.experience',
-      '.highlight-item',
-      '.social-links a',
-      '.footer-column',
-      '.copyright',
-      '.footer-links a'
+      '.solution-card'
     ];
 
-    elementsToAnimate.forEach(selector => {
+    elementsToTrack.forEach(selector => {
       document.querySelectorAll(selector).forEach(el => {
-        // Only observe elements, don't set initial states
         this.observer?.observe(el);
-        this.scrollObserver?.observe(el);
       });
     });
   }
 
-  setupInitialAnimations() {
-    // Only add subtle animations for hero elements
-    const heroElements = document.querySelectorAll('.hero-title, .hero-description, .hero-stats, .hero-actions');
-    heroElements.forEach((element, index) => {
-      element.style.transition = 'opacity var(--transition-normal)';
-      setTimeout(() => {
-        element.style.opacity = '1';
-      }, index * 100);
-    });
-  }
 
-  setupSmoothScrollBehavior() {
-    // Enable smooth scrolling for the entire page
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }
 }
 
 // =============================================================================
