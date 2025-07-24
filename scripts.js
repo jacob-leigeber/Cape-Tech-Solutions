@@ -510,6 +510,58 @@ class FormManager {
         }
       });
     });
+
+    // Character counter for message field
+    const messageField = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+    
+    if (messageField && charCount) {
+      messageField.addEventListener('input', () => {
+        const currentLength = messageField.value.length;
+        charCount.textContent = currentLength;
+        
+        // Change color when approaching limit
+        if (currentLength > 1800) {
+          charCount.style.color = '#dc3545';
+        } else if (currentLength > 1500) {
+          charCount.style.color = '#ffc107';
+        } else {
+          charCount.style.color = 'inherit';
+        }
+      });
+    }
+
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        const submitBtn = contactForm.querySelector('#submitBtn');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
+        submitBtn.disabled = true;
+        
+        // Reset button after a delay (form will redirect)
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 5000);
+      });
+    }
+
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      const successMessage = document.getElementById('successMessage');
+      if (successMessage) {
+        successMessage.style.display = 'block';
+        // Hide after 10 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 10000);
+      }
+    }
   }
 
   validateForm(form) {
