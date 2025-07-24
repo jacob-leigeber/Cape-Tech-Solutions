@@ -573,13 +573,16 @@
 }
 
 [data-theme="dark"] .tech-tag {
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(74, 144, 226, 0.15);
   color: var(--navy-primary);
   border: 1px solid var(--navy-primary);
+  box-shadow: 0 1px 4px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .tech-tag:hover {
-  background: rgba(74, 144, 226, 0.2);
+  background: rgba(74, 144, 226, 0.25);
+  border-color: var(--navy-light);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
 }
 
 [data-theme="dark"] .benefit-item {
@@ -598,13 +601,15 @@
 
 /* Contact Page Dark Theme */
 [data-theme="dark"] .contact-card {
-  background: rgba(45, 55, 72, 0.5);
+  background: rgba(45, 55, 72, 0.6);
   border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .contact-card:hover {
   background: rgba(45, 55, 72, 0.8);
   border-color: var(--navy-primary);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .contact-info h4 {
@@ -617,15 +622,18 @@
 
 [data-theme="dark"] .contact-link {
   color: var(--navy-primary);
+  text-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
 [data-theme="dark"] .contact-link:hover {
   color: var(--navy-light);
+  text-shadow: 0 0 12px rgba(74, 144, 226, 0.5);
 }
 
 [data-theme="dark"] .form-container {
-  background: rgba(45, 55, 72, 0.5);
+  background: rgba(45, 55, 72, 0.6);
   border: 1px solid var(--border-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .form-header {
@@ -644,7 +652,8 @@
 
 [data-theme="dark"] .form-control:focus {
   border-color: var(--navy-primary);
-  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.4);
+  background: rgba(26, 32, 44, 0.9);
 }
 
 [data-theme="dark"] .form-control::placeholder {
@@ -668,8 +677,9 @@
 }
 
 [data-theme="dark"] .disclaimer-box {
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(74, 144, 226, 0.15);
   border: 1px solid var(--navy-primary);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .disclaimer-box i {
@@ -685,13 +695,15 @@
   background: var(--navy-primary);
   border-color: var(--navy-primary);
   color: var(--text-white);
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
 }
 
 [data-theme="dark"] .btn-primary:hover {
   background: var(--navy-dark);
   border-color: var(--navy-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--shadow-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 58, 95, 0.4);
+  color: var(--text-white);
 }
 
 [data-theme="dark"] .btn-outline-primary {
@@ -706,16 +718,19 @@
 
 [data-theme="dark"] .card-link {
   color: var(--navy-primary);
+  text-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
 [data-theme="dark"] .card-link:hover {
   color: var(--navy-light);
+  text-shadow: 0 0 12px rgba(74, 144, 226, 0.5);
 }
 
 [data-theme="dark"] .section-badge {
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(74, 144, 226, 0.2);
   color: var(--navy-primary);
   border: 1px solid var(--navy-primary);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .classification,
@@ -738,9 +753,10 @@
 }
 
 [data-theme="dark"] .type-badge {
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(74, 144, 226, 0.2);
   color: var(--navy-primary);
   border: 1px solid var(--navy-primary);
+  box-shadow: 0 1px 4px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .location-badge {
@@ -758,13 +774,15 @@
 }
 
 [data-theme="dark"] .highlight-item {
-  background: rgba(45, 55, 72, 0.5);
+  background: rgba(45, 55, 72, 0.6);
   border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .highlight-item:hover {
   background: rgba(45, 55, 72, 0.8);
   border-color: var(--navy-primary);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
 }
 
 [data-theme="dark"] .highlight-item span {
