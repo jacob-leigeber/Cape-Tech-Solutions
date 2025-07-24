@@ -4135,27 +4135,37 @@ a:hover {
 }
 
 [data-theme="dark"] .benefit-card {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  /* Preserve background image but enhance overlay for better text visibility */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 [data-theme="dark"] .benefit-card:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: var(--text-white) !important;
+  border-color: var(--navy-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .benefit-card .benefit-overlay {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .benefit-card:hover .benefit-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
 }
 
 [data-theme="dark"] .benefit-card h4 {
   color: var(--text-white) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 [data-theme="dark"] .benefit-card p {
-  color: rgba(255, 255, 255, 0.8) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
 
-[data-theme="dark"] .benefit-icon {
+[data-theme="dark"] .benefit-card .benefit-icon {
   color: var(--navy-primary) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 [data-theme="dark"] .position-card {
