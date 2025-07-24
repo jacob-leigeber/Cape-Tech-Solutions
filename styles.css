@@ -142,14 +142,30 @@
    ENHANCED SMOOTH ANIMATIONS
    ============================================================================= */
 
-/* Global smooth transitions for all interactive elements */
-* {
+/* Only apply transitions to specific interactive elements */
+.nav-link,
+.btn,
+.card-link,
+.dropdown-item,
+.tech-card,
+.gallery-item,
+.trust-stat,
+.cert-card,
+.leadership-card,
+.benefit-card,
+.position-card,
+.contact-card,
+.info-card,
+.solution-card,
+.method-item,
+.process-step,
+.tech-category,
+.spec-tech-card,
+.advantage-item,
+.metric-card,
+.team-item,
+.value-item {
   transition: all var(--transition-normal);
-}
-
-/* Exclude specific elements from global transition */
-body, html, img, svg, canvas, video, iframe {
-  transition: none;
 }
 
 /* Enhanced theme transitions */
@@ -4551,75 +4567,9 @@ textarea:focus {
    SMOOTH SCROLL ANIMATIONS
    ============================================================================= */
 
-/* Initial state for scroll animations */
+/* Subtle scroll animations - only opacity changes */
 .scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all var(--transition-spring);
-}
-
-/* Section visibility animations */
-.section-visible .scroll-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger animations for grid elements */
-.scroll-animate[data-stagger-delay] {
-  transition-delay: calc(var(--stagger-delay, 0ms));
-}
-
-/* Enhanced scroll animations for specific elements */
-.hero-title.scroll-animate,
-.hero-description.scroll-animate,
-.hero-stats.scroll-animate,
-.hero-actions.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 200ms);
-}
-
-.section-header.scroll-animate {
-  transition-delay: 100ms;
-}
-
-.capability-card.scroll-animate,
-.benefit-card.scroll-animate,
-.position-card.scroll-animate,
-.solution-card.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 100ms);
-}
-
-.trust-stat.scroll-animate,
-.metric-card.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 150ms);
-}
-
-.leadership-card.scroll-animate,
-.team-item.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 120ms);
-}
-
-.gallery-item.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 80ms);
-}
-
-.process-step.scroll-animate,
-.method-item.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 200ms);
-}
-
-.tech-category.scroll-animate,
-.spec-tech-card.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 100ms);
-}
-
-.contact-card.scroll-animate,
-.info-card.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 120ms);
-}
-
-.value-item.scroll-animate,
-.advantage-item.scroll-animate {
-  transition-delay: calc(var(--index, 0) * 80ms);
+  transition: opacity var(--transition-normal);
 }
 
 /* Smooth scroll behavior */

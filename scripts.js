@@ -295,104 +295,22 @@ class AnimationManager {
   }
 
   setupScrollAnimations() {
-    // Enhanced scroll-triggered animations with smooth transitions
+    // Simple, subtle scroll-triggered animations
     const scrollOptions = {
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-      rootMargin: '0px 0px -100px 0px'
+      threshold: [0, 0.5, 1],
+      rootMargin: '0px 0px -50px 0px'
     };
 
     this.scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const element = entry.target;
         const ratio = entry.intersectionRatio;
-        const isIntersecting = entry.isIntersecting;
         
-        // Apply smooth scroll-based animations
-        if (element.classList.contains('parallax-element')) {
-          element.style.transform = `translateY(${ratio * 30}px)`;
-          element.style.opacity = 0.7 + (ratio * 0.3);
-        }
-        
-        if (element.classList.contains('fade-in-element')) {
+        // Only apply subtle opacity changes
+        if (ratio > 0.5) {
+          element.style.opacity = '1';
+        } else {
           element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 20}px)`;
-        }
-        
-        // Enhanced section animations
-        if (element.classList.contains('section-header')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 15}px)`;
-        }
-        
-        // Card animations with stagger effect
-        if (element.classList.contains('capability-card') || 
-            element.classList.contains('benefit-card') ||
-            element.classList.contains('position-card') ||
-            element.classList.contains('solution-card')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 25}px) scale(${0.95 + ratio * 0.05})`;
-        }
-        
-        // Stats and metrics animations
-        if (element.classList.contains('trust-stat') || 
-            element.classList.contains('metric-card')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 15}px) scale(${0.9 + ratio * 0.1})`;
-        }
-        
-        // Leadership and team animations
-        if (element.classList.contains('leadership-card') || 
-            element.classList.contains('team-item')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 20}px)`;
-        }
-        
-        // Gallery and image animations
-        if (element.classList.contains('gallery-item')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 30}px) scale(${0.9 + ratio * 0.1})`;
-        }
-        
-        // Process and method animations
-        if (element.classList.contains('process-step') || 
-            element.classList.contains('method-item')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateX(${(1 - ratio) * 40}px)`;
-        }
-        
-        // Tech category animations
-        if (element.classList.contains('tech-category') || 
-            element.classList.contains('spec-tech-card')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 20}px) scale(${0.95 + ratio * 0.05})`;
-        }
-        
-        // Contact and info card animations
-        if (element.classList.contains('contact-card') || 
-            element.classList.contains('info-card')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 15}px)`;
-        }
-        
-        // Value and advantage animations
-        if (element.classList.contains('value-item') || 
-            element.classList.contains('advantage-item')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 10}px)`;
-        }
-        
-        // Hero elements animations
-        if (element.classList.contains('hero-stats') || 
-            element.classList.contains('hero-actions') ||
-            element.classList.contains('cta-actions')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 15}px)`;
-        }
-        
-        // Footer animations
-        if (element.classList.contains('footer-content')) {
-          element.style.opacity = ratio;
-          element.style.transform = `translateY(${(1 - ratio) * 10}px)`;
         }
       });
     }, scrollOptions);
@@ -538,11 +456,7 @@ class AnimationManager {
 
     elementsToAnimate.forEach(selector => {
       document.querySelectorAll(selector).forEach(el => {
-        // Set initial state for smooth animations
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all var(--transition-spring)';
-        
+        // Only observe elements, don't set initial states
         this.observer?.observe(el);
         this.scrollObserver?.observe(el);
       });
@@ -550,51 +464,19 @@ class AnimationManager {
   }
 
   setupInitialAnimations() {
-    // Animate hero elements immediately on page load
+    // Only add subtle animations for hero elements
     const heroElements = document.querySelectorAll('.hero-title, .hero-description, .hero-stats, .hero-actions');
     heroElements.forEach((element, index) => {
+      element.style.transition = 'opacity var(--transition-normal)';
       setTimeout(() => {
         element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }, index * 200);
-    });
-
-    // Animate above-the-fold elements
-    const aboveFoldElements = document.querySelectorAll('.section-header, .capability-card, .trust-stat');
-    aboveFoldElements.forEach((element, index) => {
-      setTimeout(() => {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }, 1000 + (index * 100));
+      }, index * 100);
     });
   }
 
   setupSmoothScrollBehavior() {
     // Enable smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Add scroll-triggered animations for sections
-    const sections = document.querySelectorAll('section, .section');
-    sections.forEach(section => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            section.classList.add('section-visible');
-            
-            // Animate child elements with stagger
-            const animatedChildren = section.querySelectorAll('.capability-card, .benefit-card, .position-card, .contact-card, .info-card, .solution-card, .method-item, .process-step, .tech-category, .spec-tech-card, .advantage-item, .metric-card, .team-item, .value-item');
-            animatedChildren.forEach((child, index) => {
-              setTimeout(() => {
-                child.style.opacity = '1';
-                child.style.transform = 'translateY(0)';
-              }, index * 50);
-            });
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      observer.observe(section);
-    });
   }
 }
 
