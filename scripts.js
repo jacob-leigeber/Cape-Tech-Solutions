@@ -490,8 +490,12 @@ class FormManager {
   setupFormValidation() {
     this.forms.forEach(form => {
       form.addEventListener('submit', (e) => {
+        console.log('FormManager: Form submission detected');
         if (!this.validateForm(form)) {
+          console.log('FormManager: Validation failed - preventing submission');
           e.preventDefault();
+        } else {
+          console.log('FormManager: Validation passed - allowing submission');
         }
       });
     });
@@ -516,11 +520,16 @@ class FormManager {
     let isValid = true;
     const inputs = form.querySelectorAll('input[required], textarea[required]');
     
+    console.log('FormManager: Validating form with', inputs.length, 'required fields');
+    
     inputs.forEach(input => {
+      console.log('FormManager: Checking field', input.name, 'with value:', input.value);
       if (!input.value.trim()) {
+        console.log('FormManager: Field', input.name, 'is empty');
         this.showFieldError(input, 'This field is required');
         isValid = false;
       } else if (input.type === 'email' && !this.isValidEmail(input.value)) {
+        console.log('FormManager: Field', input.name, 'has invalid email');
         this.showFieldError(input, 'Please enter a valid email address');
         isValid = false;
       } else {
@@ -528,6 +537,7 @@ class FormManager {
       }
     });
 
+    console.log('FormManager: Form validation result:', isValid);
     return isValid;
   }
 

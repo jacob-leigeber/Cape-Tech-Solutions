@@ -522,6 +522,35 @@
       });
     }
 
+    // Debug form submission
+    const contactForm = document.querySelector('.professional-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        console.log('Form submission attempted');
+        console.log('Form action:', this.action);
+        console.log('Form method:', this.method);
+        
+        // Check if form is valid
+        const requiredFields = this.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            console.log('Missing required field:', field.name);
+            isValid = false;
+          }
+        });
+        
+        if (!isValid) {
+          console.log('Form validation failed - preventing submission');
+          e.preventDefault();
+          return;
+        }
+        
+        console.log('Form is valid - allowing submission');
+      });
+    }
+
     // Check for success parameter in URL
     if (window.location.search.includes('success=true')) {
       // Show success message
