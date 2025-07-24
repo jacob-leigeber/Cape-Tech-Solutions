@@ -1629,12 +1629,6 @@ a:hover {
   display: flex;
   gap: var(--space-12);
   margin-bottom: var(--space-8);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .stat-item {
@@ -1647,10 +1641,7 @@ a:hover {
   transition: all var(--transition-normal);
 }
 
-.stat-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
+
 
 .stat-number {
   font-size: var(--font-size-5xl);
