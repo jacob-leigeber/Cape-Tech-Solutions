@@ -264,32 +264,139 @@ class SmoothScrollManager {
 class AnimationManager {
   constructor() {
     this.observer = null;
+    this.scrollObserver = null;
+    this.animatedElements = new Set();
     this.init();
   }
 
   init() {
     this.setupIntersectionObserver();
+    this.setupScrollAnimations();
     this.observeElements();
+    this.setupStaggerAnimations();
   }
 
   setupIntersectionObserver() {
     const options = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          // Stagger animation for capability cards
-          if (entry.target.classList.contains('capability-card')) {
-            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100;
-            entry.target.style.animationDelay = `${delay}ms`;
-          }
+        if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
+          this.animateElement(entry.target);
+          this.animatedElements.add(entry.target);
         }
       });
     }, options);
+  }
+
+  setupScrollAnimations() {
+    // Smooth scroll-triggered animations
+    const scrollOptions = {
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    this.scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const element = entry.target;
+        const ratio = entry.intersectionRatio;
+        
+        // Apply scroll-based animations
+        if (element.classList.contains('parallax-element')) {
+          element.style.transform = `translateY(${ratio * 50}px)`;
+        }
+        
+        if (element.classList.contains('fade-in-element')) {
+          element.style.opacity = ratio;
+          element.style.transform = `translateY(${(1 - ratio) * 30}px)`;
+        }
+      });
+    }, scrollOptions);
+  }
+
+  animateElement(element) {
+    // Remove any existing animation classes
+    element.classList.remove('animate-in', 'animate-slide-up', 'animate-fade-in', 'animate-scale-in');
+    
+    // Add base animation class
+    element.classList.add('animate-in');
+    
+    // Determine animation type based on element class or data attribute
+    const animationType = element.dataset.animation || this.getAnimationType(element);
+    
+    switch (animationType) {
+      case 'slide-up':
+        element.classList.add('animate-slide-up');
+        break;
+      case 'fade-in':
+        element.classList.add('animate-fade-in');
+        break;
+      case 'scale-in':
+        element.classList.add('animate-scale-in');
+        break;
+      case 'slide-in-left':
+        element.classList.add('animate-slide-in-left');
+        break;
+      case 'slide-in-right':
+        element.classList.add('animate-slide-in-right');
+        break;
+      default:
+        element.classList.add('animate-fade-in');
+    }
+  }
+
+  getAnimationType(element) {
+    // Determine animation type based on element class
+    if (element.classList.contains('capability-card')) return 'slide-up';
+    if (element.classList.contains('trust-stat')) return 'scale-in';
+    if (element.classList.contains('cert-card')) return 'fade-in';
+    if (element.classList.contains('leadership-card')) return 'slide-up';
+    if (element.classList.contains('section-header')) return 'fade-in';
+    if (element.classList.contains('benefit-card')) return 'slide-up';
+    if (element.classList.contains('position-card')) return 'slide-up';
+    if (element.classList.contains('contact-card')) return 'fade-in';
+    if (element.classList.contains('info-card')) return 'slide-up';
+    if (element.classList.contains('solution-card')) return 'slide-up';
+    if (element.classList.contains('method-item')) return 'slide-in-left';
+    if (element.classList.contains('process-step')) return 'slide-in-right';
+    if (element.classList.contains('tech-category')) return 'scale-in';
+    if (element.classList.contains('spec-tech-card')) return 'fade-in';
+    if (element.classList.contains('advantage-item')) return 'slide-up';
+    if (element.classList.contains('metric-card')) return 'scale-in';
+    if (element.classList.contains('team-item')) return 'fade-in';
+    if (element.classList.contains('value-item')) return 'slide-up';
+    
+    return 'fade-in';
+  }
+
+  setupStaggerAnimations() {
+    // Setup staggered animations for grid elements
+    const gridSelectors = [
+      '.capability-card',
+      '.benefit-card',
+      '.position-card',
+      '.contact-card',
+      '.info-card',
+      '.solution-card',
+      '.method-item',
+      '.process-step',
+      '.tech-category',
+      '.spec-tech-card',
+      '.advantage-item',
+      '.metric-card',
+      '.team-item',
+      '.value-item'
+    ];
+
+    gridSelectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((element, index) => {
+        element.dataset.staggerDelay = index * 100;
+      });
+    });
   }
 
   observeElements() {
@@ -298,12 +405,31 @@ class AnimationManager {
       '.trust-stat',
       '.cert-card',
       '.leadership-card',
-      '.section-header'
+      '.section-header',
+      '.benefit-card',
+      '.position-card',
+      '.contact-card',
+      '.info-card',
+      '.solution-card',
+      '.method-item',
+      '.process-step',
+      '.tech-category',
+      '.spec-tech-card',
+      '.advantage-item',
+      '.metric-card',
+      '.team-item',
+      '.value-item',
+      '.gallery-item',
+      '.hero-stats .stat-item',
+      '.hero-actions',
+      '.cta-actions',
+      '.footer-content'
     ];
 
     elementsToAnimate.forEach(selector => {
       document.querySelectorAll(selector).forEach(el => {
         this.observer?.observe(el);
+        this.scrollObserver?.observe(el);
       });
     });
   }
