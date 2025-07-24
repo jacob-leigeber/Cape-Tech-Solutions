@@ -20,7 +20,7 @@
   /* Accent Colors */
   --red-primary: #dc3545;
   --red-dark: #c82333;
-  --blue-accent: #3182ce;
+  --blue-accent: var(--navy-primary);
   --green-success: #38a169;
   --orange-warning: #dd6b20;
   
@@ -869,46 +869,46 @@
 }
 
 [data-theme="dark"] .metric-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .benefit-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .contact-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .info-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .category-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .step-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .method-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .advantage-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .leadership-icon {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 [data-theme="dark"] .metric-icon i,
 [data-theme="dark"] .benefit-icon i,
 [data-theme="dark"] .contact-icon i,
 [data-theme="dark"] .info-icon i {
-  color: var(--blue-accent, #3182ce) !important;
+  color: var(--navy-primary) !important;
 }
 
 /* Dark theme focus states for better accessibility */
