@@ -1502,7 +1502,7 @@ a:hover {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: var(--space-6);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--white);
   text-shadow: 
@@ -1628,11 +1628,21 @@ a:hover {
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: none;
   position: relative;
   overflow: hidden;
+  transform: translateY(0);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
 }
 
 .btn-lg {
@@ -1720,7 +1730,7 @@ a:hover {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -2841,8 +2851,10 @@ a:hover {
 
 .professional-form .form-control:focus {
   border-color: var(--navy-primary);
-  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.15);
   outline: none;
+  transform: translateY(-1px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .professional-form .form-control:invalid {
@@ -3642,6 +3654,11 @@ a:hover {
     flex-direction: column;
   }
   
+  .hero-actions .btn {
+    min-height: 48px;
+    padding: var(--space-4) var(--space-6);
+  }
+  
   .tech-grid {
     grid-template-columns: 1fr;
   }
@@ -3662,6 +3679,11 @@ a:hover {
   
   .cta-actions {
     flex-direction: column;
+  }
+  
+  .cta-actions .btn {
+    min-height: 48px;
+    padding: var(--space-4) var(--space-6);
   }
   
   .brand-text {
@@ -3705,6 +3727,14 @@ a:hover {
   .team-overlay {
     transform: translateY(0);
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
   }
 }
 
@@ -3752,6 +3782,17 @@ a:hover {
 
 .btn:focus-visible {
   outline-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--navy-primary);
+  outline-offset: 2px;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
 }
 
 /* Print styles */
