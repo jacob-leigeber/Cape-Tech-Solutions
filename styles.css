@@ -387,6 +387,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Specific dark mode styles for trust section */
+[data-theme="dark"] .trust-section .section-title {
+  color: var(--text-white) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .trust-section .section-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
 [data-theme="dark"] .gallery-item {
   background: rgba(45, 55, 72, 0.5);
   border: 1px solid var(--border-color);
@@ -410,35 +421,38 @@
 }
 
 [data-theme="dark"] .trust-stat {
-  background: rgba(45, 55, 72, 0.5);
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .trust-stat:hover {
-  background: rgba(45, 55, 72, 0.8);
-  border-color: var(--navy-primary);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--text-white);
 }
 
 [data-theme="dark"] .trust-stat strong {
-  color: var(--navy-primary);
+  color: var(--text-white) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 [data-theme="dark"] .trust-stat span {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 [data-theme="dark"] .cert-card {
-  background: rgba(45, 55, 72, 0.5);
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .cert-card:hover {
-  background: rgba(45, 55, 72, 0.8);
-  border-color: var(--navy-primary);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--text-white);
 }
 
 [data-theme="dark"] .cert-card span {
-  color: var(--text-secondary);
+  color: var(--text-white) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 [data-theme="dark"] .leadership-card {
