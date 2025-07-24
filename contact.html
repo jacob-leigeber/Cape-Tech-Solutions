@@ -172,9 +172,9 @@
                 </p>
               </div>
 
-              <form class="professional-form" action="https://formsubmit.co/e7ce5902fa36f78c8a14f3c97d4e5a64" method="POST">
+              <form class="professional-form" action="https://formsubmit.co/info@capetechsolutions.com" method="POST">
                 <!-- Hidden FormSubmit Configuration -->
-                <input type="hidden" name="_next" value="https://capetechsolutions.com/contact.html?success=true">
+                <input type="hidden" name="_next" value="contact.html?success=true">
                 <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
                 <input type="hidden" name="_template" value="box">
                 <input type="hidden" name="_captcha" value="false">
@@ -522,34 +522,7 @@
       });
     }
 
-    // Debug form submission
-    const contactForm = document.querySelector('.professional-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        console.log('Form submission attempted');
-        console.log('Form action:', this.action);
-        console.log('Form method:', this.method);
-        
-        // Check if form is valid
-        const requiredFields = this.querySelectorAll('[required]');
-        let isValid = true;
-        
-        requiredFields.forEach(field => {
-          if (!field.value.trim()) {
-            console.log('Missing required field:', field.name);
-            isValid = false;
-          }
-        });
-        
-        if (!isValid) {
-          console.log('Form validation failed - preventing submission');
-          e.preventDefault();
-          return;
-        }
-        
-        console.log('Form is valid - allowing submission');
-      });
-    }
+
 
     // Check for success parameter in URL
     if (window.location.search.includes('success=true')) {
