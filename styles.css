@@ -4083,3 +4083,42 @@ a:hover {
 /* =============================================================================
    PERFORMANCE OPTIMIZATIONS
    ============================================================================= */
+
+/* =============================================================================
+   GOOGLE FORM EMBED STYLING
+   ============================================================================= */
+
+.google-form-container {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: 0 10px 40px var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.form-embed-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--background-light);
+}
+
+.form-embed-wrapper iframe {
+  border: none;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+[data-theme="dark"] .google-form-container {
+  background: rgba(45, 55, 72, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .form-embed-wrapper {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .form-embed-wrapper iframe {
+  background: var(--background-dark);
+}
