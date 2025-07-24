@@ -59,6 +59,7 @@ class ThemeManager {
   }
 
   init() {
+    console.log('ThemeManager initializing with theme:', this.currentTheme); // Debug log
     this.applyTheme(this.currentTheme);
     this.setupEventListeners();
     this.setupSystemThemeListener();
@@ -95,11 +96,16 @@ class ThemeManager {
   }
 
   applyTheme(theme) {
+    console.log('Applying theme:', theme); // Debug log
+    
     // Add transition class for smooth theme switching
     document.documentElement.classList.add('theme-transitioning');
     
     // Set the theme attribute
     document.documentElement.setAttribute('data-theme', theme);
+    
+    // Debug: Check if attribute was set
+    console.log('data-theme attribute:', document.documentElement.getAttribute('data-theme'));
     
     // Update toggle button
     if (this.toggleBtn) {
@@ -919,3 +925,10 @@ function fadeThemeTransition() {
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle
+
+// Debug: Force dark mode for testing (remove this after testing)
+setTimeout(() => {
+  console.log('Debug: Forcing dark mode for testing...');
+  document.documentElement.setAttribute('data-theme', 'dark');
+  console.log('data-theme set to:', document.documentElement.getAttribute('data-theme'));
+}, 1000);
