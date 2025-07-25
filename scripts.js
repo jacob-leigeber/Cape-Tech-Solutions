@@ -947,19 +947,16 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Apply initial theme immediately to prevent flash
-const savedTheme = localStorage.getItem('cape-theme');
-const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-document.documentElement.setAttribute('data-theme', initialTheme);
+// const savedTheme = localStorage.getItem('cape-theme');
+// const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+// const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+// document.documentElement.setAttribute('data-theme', initialTheme);
 
 // Also set the page loader background immediately to match theme
 const loader = document.querySelector('.page-loader');
 if (loader) {
-  if (initialTheme === 'dark') {
-    loader.style.background = 'var(--background-dark)';
-  } else {
-    loader.style.background = 'var(--background-light)';
-  }
+  // Always use light theme for now to prevent flashing
+  loader.style.background = 'var(--background-light)';
   
   // Fade in the loader smoothly
   setTimeout(() => {
