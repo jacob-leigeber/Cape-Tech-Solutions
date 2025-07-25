@@ -59,6 +59,7 @@ class ThemeManager {
   }
 
   init() {
+    console.log('ThemeManager initializing with theme:', this.currentTheme); // Debug log
     this.applyTheme(this.currentTheme);
     this.setupEventListeners();
     this.setupSystemThemeListener();
@@ -95,11 +96,16 @@ class ThemeManager {
   }
 
   applyTheme(theme) {
+    console.log('Applying theme:', theme); // Debug log
+    
     // Add transition class for smooth theme switching
     document.documentElement.classList.add('theme-transitioning');
     
     // Set the theme attribute
     document.documentElement.setAttribute('data-theme', theme);
+    
+    // Debug: Check if attribute was set
+    console.log('data-theme attribute:', document.documentElement.getAttribute('data-theme'));
     
     // Update toggle button
     if (this.toggleBtn) {
@@ -258,12 +264,15 @@ class SmoothScrollManager {
 class AnimationManager {
   constructor() {
     this.observer = null;
+    this.scrollObserver = null;
+    this.animatedElements = new Set();
     this.init();
   }
 
   init() {
     this.setupIntersectionObserver();
     this.observeElements();
+    this.setupStaggerAnimations();
   }
 
   setupIntersectionObserver() {
@@ -274,33 +283,94 @@ class AnimationManager {
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          // Stagger animation for capability cards
-          if (entry.target.classList.contains('capability-card')) {
-            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100;
-            entry.target.style.animationDelay = `${delay}ms`;
-          }
+        if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
+          this.animatedElements.add(entry.target);
         }
       });
     }, options);
   }
 
+
+
+  animateElement(element) {
+    // Remove any existing animation classes
+    element.classList.remove('animate-in', 'animate-slide-up', 'animate-fade-in', 'animate-scale-in');
+    
+    // Add base animation class
+    element.classList.add('animate-in');
+    
+    // Determine animation type based on element class or data attribute
+    const animationType = element.dataset.animation || this.getAnimationType(element);
+    
+    switch (animationType) {
+      case 'slide-up':
+        element.classList.add('animate-slide-up');
+        break;
+      case 'fade-in':
+        element.classList.add('animate-fade-in');
+        break;
+      case 'scale-in':
+        element.classList.add('animate-scale-in');
+        break;
+      case 'slide-in-left':
+        element.classList.add('animate-slide-in-left');
+        break;
+      case 'slide-in-right':
+        element.classList.add('animate-slide-in-right');
+        break;
+      default:
+        element.classList.add('animate-fade-in');
+    }
+  }
+
+  getAnimationType(element) {
+    // Determine animation type based on element class
+    if (element.classList.contains('capability-card')) return 'slide-up';
+    if (element.classList.contains('trust-stat')) return 'scale-in';
+    if (element.classList.contains('cert-card')) return 'fade-in';
+    if (element.classList.contains('leadership-card')) return 'slide-up';
+    if (element.classList.contains('section-header')) return 'fade-in';
+    if (element.classList.contains('benefit-card')) return 'slide-up';
+    if (element.classList.contains('position-card')) return 'slide-up';
+    if (element.classList.contains('contact-card')) return 'fade-in';
+    if (element.classList.contains('info-card')) return 'slide-up';
+    if (element.classList.contains('solution-card')) return 'slide-up';
+    if (element.classList.contains('method-item')) return 'slide-in-left';
+    if (element.classList.contains('process-step')) return 'slide-in-right';
+    if (element.classList.contains('tech-category')) return 'scale-in';
+    if (element.classList.contains('spec-tech-card')) return 'fade-in';
+    if (element.classList.contains('advantage-item')) return 'slide-up';
+    if (element.classList.contains('metric-card')) return 'scale-in';
+    if (element.classList.contains('team-item')) return 'fade-in';
+    if (element.classList.contains('value-item')) return 'slide-up';
+    
+    return 'fade-in';
+  }
+
+  setupStaggerAnimations() {
+    // No animations, just tracking
+  }
+
   observeElements() {
-    const elementsToAnimate = [
+    // Only observe a few key elements for tracking, no animations
+    const elementsToTrack = [
+      '.section-header',
       '.capability-card',
-      '.trust-stat',
-      '.cert-card',
-      '.leadership-card',
-      '.section-header'
+      '.benefit-card',
+      '.position-card',
+      '.contact-card',
+      '.info-card',
+      '.solution-card'
     ];
 
-    elementsToAnimate.forEach(selector => {
+    elementsToTrack.forEach(selector => {
       document.querySelectorAll(selector).forEach(el => {
         this.observer?.observe(el);
       });
     });
   }
+
+
 }
 
 // =============================================================================
@@ -504,6 +574,58 @@ class FormManager {
         }
       });
     });
+
+    // Character counter for message field
+    const messageField = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+    
+    if (messageField && charCount) {
+      messageField.addEventListener('input', () => {
+        const currentLength = messageField.value.length;
+        charCount.textContent = currentLength;
+        
+        // Change color when approaching limit
+        if (currentLength > 1800) {
+          charCount.style.color = '#dc3545';
+        } else if (currentLength > 1500) {
+          charCount.style.color = '#ffc107';
+        } else {
+          charCount.style.color = 'inherit';
+        }
+      });
+    }
+
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        const submitBtn = contactForm.querySelector('#submitBtn');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
+        submitBtn.disabled = true;
+        
+        // Reset button after a delay (form will redirect)
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 5000);
+      });
+    }
+
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      const successMessage = document.getElementById('successMessage');
+      if (successMessage) {
+        successMessage.style.display = 'block';
+        // Hide after 10 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 10000);
+      }
+    }
   }
 
   validateForm(form) {

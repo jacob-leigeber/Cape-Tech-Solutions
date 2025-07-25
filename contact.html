@@ -172,112 +172,152 @@
                 </p>
               </div>
 
-              <form class="professional-form" action="https://formsubmit.co/e7ce5902fa36f78c8a14f3c97d4e5a64" method="POST">
-                <!-- Hidden FormSubmit Configuration -->
-                <input type="hidden" name="_next" value="https://capetechsolutions.com/contact.html?success=true">
-                <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_captcha" value="false">
-
+              <!-- Contact Form -->
+              <form id="contactForm" class="contact-form" action="https://formsubmit.co/jdleigeber@crimson.ua.edu" method="POST">
+                <!-- Honeypot field to prevent spam -->
+                <input type="text" name="_honey" style="display:none">
+                
+                <!-- Redirect after submission -->
+                <input type="hidden" name="_next" value="contact.html?success=true">
+                
+                <!-- Subject line for emails -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission - CAPE Technology Solutions">
+                
                 <div class="row g-4">
+                  <!-- Name Field -->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="firstName" class="form-label">
-                        <i class="bi bi-person"></i>
-                        First Name <span class="required">*</span>
+                      <label for="name" class="form-label">
+                        <i class="bi bi-person me-2"></i>Full Name *
                       </label>
-                      <input type="text" class="form-control" id="firstName" name="First_Name" placeholder="Enter your first name" required>
-                      <div class="form-feedback"></div>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="Enter your full name"
+                        maxlength="100">
+                      <div class="invalid-feedback">Please provide your full name.</div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="lastName" class="form-label">
-                        <i class="bi bi-person"></i>
-                        Last Name <span class="required">*</span>
-                      </label>
-                      <input type="text" class="form-control" id="lastName" name="Last_Name" placeholder="Enter your last name" required>
-                      <div class="form-feedback"></div>
-                    </div>
-                  </div>
+
+                  <!-- Email Field -->
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="email" class="form-label">
-                        <i class="bi bi-envelope"></i>
-                        Email Address <span class="required">*</span>
+                        <i class="bi bi-envelope me-2"></i>Email Address *
                       </label>
-                      <input type="email" class="form-control" id="email" name="Email" placeholder="your.email@organization.com" required>
-                      <div class="form-feedback"></div>
+                      <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="your.email@company.com"
+                        maxlength="100">
+                      <div class="invalid-feedback">Please provide a valid email address.</div>
                     </div>
                   </div>
+
+                  <!-- Phone Field -->
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="phone" class="form-label">
-                        <i class="bi bi-telephone"></i>
-                        Phone Number
+                        <i class="bi bi-telephone me-2"></i>Phone Number
                       </label>
-                      <input type="tel" class="form-control" id="phone" name="Phone" placeholder="+1 (555) 123-4567">
-                      <div class="form-feedback"></div>
+                      <input 
+                        type="tel" 
+                        class="form-control" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="(555) 123-4567"
+                        maxlength="20">
                     </div>
                   </div>
+
+                  <!-- Company Field -->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="organization" class="form-label">
-                        <i class="bi bi-building"></i>
-                        Organization <span class="required">*</span>
+                      <label for="company" class="form-label">
+                        <i class="bi bi-building me-2"></i>Company/Organization
                       </label>
-                      <input type="text" class="form-control" id="organization" name="Organization" placeholder="Department/Agency/Company" required>
-                      <div class="form-feedback"></div>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="company" 
+                        name="company" 
+                        placeholder="Your company name"
+                        maxlength="100">
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inquiry-type" class="form-label">
-                        <i class="bi bi-tag"></i>
-                        Inquiry Type <span class="required">*</span>
-                      </label>
-                      <select class="form-control" id="inquiry-type" name="Inquiry_Type" required>
-                        <option value="">Select inquiry type</option>
-                        <option value="Partnership Opportunity">Partnership Opportunity</option>
-                        <option value="Software Development">Software Development</option>
-                        <option value="Defense Simulation">Defense Simulation</option>
-                        <option value="Data Management">Data Management</option>
-                        <option value="Teaming Arrangement">Teaming Arrangement</option>
-                        <option value="Career Opportunity">Career Opportunity</option>
-                        <option value="General Information">General Information</option>
-                      </select>
-                      <div class="form-feedback"></div>
-                    </div>
-                  </div>
+
+                  <!-- Inquiry Type Field -->
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="clearance" class="form-label">
-                        <i class="bi bi-shield-check"></i>
-                        Security Clearance Level
+                      <label for="inquiryType" class="form-label">
+                        <i class="bi bi-list-check me-2"></i>Inquiry Type *
                       </label>
-                      <select class="form-control" id="clearance" name="Security_Clearance">
-                        <option value="">Select clearance level (if applicable)</option>
-                        <option value="None">No Clearance</option>
-                        <option value="Public Trust">Public Trust</option>
-                        <option value="Confidential">Confidential</option>
-                        <option value="Secret">Secret</option>
-                        <option value="Top Secret">Top Secret</option>
-                        <option value="TS/SCI">TS/SCI</option>
+                      <select class="form-select" id="inquiryType" name="inquiryType" required>
+                        <option value="">Select an inquiry type</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Project Consultation">Project Consultation</option>
+                        <option value="Service Request">Service Request</option>
+                        <option value="Partnership Opportunity">Partnership Opportunity</option>
+                        <option value="Career Opportunity">Career Opportunity</option>
+                        <option value="Other">Other</option>
                       </select>
-                      <div class="form-feedback"></div>
+                      <div class="invalid-feedback">Please select an inquiry type.</div>
                     </div>
                   </div>
+
+                  <!-- Message Field -->
                   <div class="col-12">
                     <div class="form-group">
                       <label for="message" class="form-label">
-                        <i class="bi bi-chat-text"></i>
-                        Message <span class="required">*</span>
+                        <i class="bi bi-chat-text me-2"></i>Message *
                       </label>
-                      <textarea class="form-control" id="message" name="Message" rows="6" placeholder="Please describe your mission requirements, partnership interests, or how CAPE Technology Solutions can support your objectives..." required></textarea>
-                      <div class="form-feedback"></div>
-                      <small class="character-count">0 / 1000 characters</small>
+                      <textarea 
+                        class="form-control" 
+                        id="message" 
+                        name="message" 
+                        rows="6" 
+                        required 
+                        placeholder="Tell us about your mission-critical requirements, project details, or how we can help you achieve your objectives..."
+                        maxlength="2000"></textarea>
+                      <div class="form-text">
+                        <span id="charCount">0</span>/2000 characters
+                      </div>
+                      <div class="invalid-feedback">Please provide a detailed message.</div>
                     </div>
                   </div>
+
+                  <!-- Submit Button -->
+                  <div class="col-12">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">
+                        <i class="bi bi-send me-2"></i>
+                        Send Secure Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Success Message (hidden by default) -->
+              <div id="successMessage" class="alert alert-success mt-4" style="display: none;">
+                <i class="bi bi-check-circle me-2"></i>
+                <strong>Message Sent Successfully!</strong> We'll get back to you within 24 hours.
+              </div>
+
+              <!-- Error Message (hidden by default) -->
+              <div id="errorMessage" class="alert alert-danger mt-4" style="display: none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                <strong>Error Sending Message</strong> Please try again or contact us directly.
+              </div>
+
+                <!-- Security Notice -->
+                <div class="row g-4">
                   <div class="col-12">
                     <div class="form-disclaimer">
                       <div class="disclaimer-box">
@@ -289,20 +329,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-12">
-                    <div class="form-actions">
-                      <button type="submit" class="btn btn-primary btn-lg">
-                        <i class="bi bi-send"></i>
-                        Send Secure Message
-                      </button>
-                      <button type="reset" class="btn btn-outline-secondary btn-lg">
-                        <i class="bi bi-arrow-clockwise"></i>
-                        Reset Form
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -338,24 +365,7 @@
           <div class="col-lg-3 col-md-6">
             <img src="images/CapePic10.jpg" alt="Elite defense team" class="img-fluid rounded" loading="lazy">
           </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic11.jpg" alt="Advanced operations team" class="img-fluid rounded" loading="lazy">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic12.jpg" alt="Mission-critical team" class="img-fluid rounded" loading="lazy">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic13.jpg" alt="Technical excellence team" class="img-fluid rounded" loading="lazy">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic14.jpg" alt="Innovation team" class="img-fluid rounded" loading="lazy">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic15.jpg" alt="Strategic operations team" class="img-fluid rounded" loading="lazy">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <img src="images/CapePic16.jpg" alt="Elite capabilities team" class="img-fluid rounded" loading="lazy">
-          </div>
+
         </div>
       </div>
     </section>
@@ -500,24 +510,9 @@
   
   <!-- Contact Form Enhancement Script -->
   <script>
-    // Character counter for message field
-    const messageField = document.getElementById('message');
-    const charCounter = document.querySelector('.character-count');
-    
-    if (messageField && charCounter) {
-      messageField.addEventListener('input', function() {
-        const count = this.value.length;
-        charCounter.textContent = `${count} / 1000 characters`;
-        
-        if (count > 800) {
-          charCounter.style.color = 'var(--orange-warning)';
-        } else if (count > 950) {
-          charCounter.style.color = 'var(--red-primary)';
-        } else {
-          charCounter.style.color = 'var(--text-light)';
-        }
-      });
-    }
+    // Google Forms integration - no character counter needed
+
+
 
     // Check for success parameter in URL
     if (window.location.search.includes('success=true')) {
