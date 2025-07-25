@@ -952,6 +952,21 @@ const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color
 const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
 document.documentElement.setAttribute('data-theme', initialTheme);
 
+// Also set the page loader background immediately to match theme
+const loader = document.querySelector('.page-loader');
+if (loader) {
+  if (initialTheme === 'dark') {
+    loader.style.background = 'var(--background-dark)';
+  } else {
+    loader.style.background = 'var(--background-light)';
+  }
+  
+  // Fade in the loader smoothly
+  setTimeout(() => {
+    loader.style.opacity = '1';
+  }, 50);
+}
+
 // Fade in on page load
 document.documentElement.classList.add('theme-transitioning');
 setTimeout(() => {
@@ -963,23 +978,12 @@ setTimeout(() => {
 
 // Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
-  // Ensure theme is applied before handling loader
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  console.log('DOMContentLoaded - Current theme:', currentTheme);
-  
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'smooth' });
   
   // Remove loading state with smooth transition
   const loader = document.querySelector('.page-loader');
   if (loader) {
-    // Ensure loader background matches current theme
-    if (currentTheme === 'dark') {
-      loader.style.background = 'var(--background-dark)';
-    } else {
-      loader.style.background = 'var(--background-light)';
-    }
-    
     loader.style.transition = 'opacity 0.3s ease-out';
     loader.style.opacity = '0';
     setTimeout(() => {
