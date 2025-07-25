@@ -946,25 +946,14 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Apply initial theme immediately to prevent flash
-const savedTheme = localStorage.getItem('cape-theme');
-const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
 // Hide the page content until theme is applied
 document.body.style.visibility = 'hidden';
-
-// Apply theme immediately
-document.documentElement.setAttribute('data-theme', initialTheme);
 
 // Also set the page loader background immediately to match theme
 const loader = document.querySelector('.page-loader');
 if (loader) {
-  if (initialTheme === 'dark') {
-    loader.style.background = 'var(--background-dark)';
-  } else {
-    loader.style.background = 'var(--background-light)';
-  }
+  // Always use light theme for loader to prevent flash
+  loader.style.background = 'var(--background-light)';
   
   // Fade in the loader smoothly
   setTimeout(() => {
@@ -972,7 +961,7 @@ if (loader) {
   }, 50);
 }
 
-// Show page content after theme is applied
+// Show page content after a brief delay
 setTimeout(() => {
   document.body.style.visibility = 'visible';
 }, 100);
