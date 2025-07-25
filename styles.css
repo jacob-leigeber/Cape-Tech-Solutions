@@ -2688,12 +2688,14 @@ a:hover {
 
 .contact-hero-section {
   position: relative;
-  min-height: 75vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: var(--navy-primary);
   color: var(--white);
   overflow: hidden;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .contact-highlights {
