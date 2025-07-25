@@ -33,36 +33,25 @@ const throttle = (func, limit) => {
 };
 
 // =============================================================================
-// THEME MANAGEMENT
+// THEME MANAGEMENT - DISABLED TO PREVENT FLASHING
 // =============================================================================
 
 class ThemeManager {
   constructor() {
-    this.currentTheme = this.getInitialTheme();
+    // Force light theme only
+    this.currentTheme = 'light';
     this.toggleBtn = document.getElementById('theme-toggle');
     this.init();
   }
 
   getInitialTheme() {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem('cape-theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    
     return 'light';
   }
 
   init() {
-    console.log('ThemeManager initializing with theme:', this.currentTheme); // Debug log
-    this.applyTheme(this.currentTheme);
+    console.log('ThemeManager initializing with light theme only');
+    this.applyTheme('light');
     this.setupEventListeners();
-    this.setupSystemThemeListener();
   }
 
   setupEventListeners() {
@@ -72,74 +61,31 @@ class ThemeManager {
   }
 
   setupSystemThemeListener() {
-    // Listen for system theme changes
-    if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // Only auto-switch if user hasn't manually set a preference
-        if (!localStorage.getItem('cape-theme')) {
-          this.currentTheme = e.matches ? 'dark' : 'light';
-          this.applyTheme(this.currentTheme);
-        }
-      });
-    }
+    // Disabled to prevent flashing
   }
 
   toggleTheme() {
-    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    this.applyTheme(this.currentTheme);
-    localStorage.setItem('cape-theme', this.currentTheme);
-    
-    // Dispatch custom event for other components
-    window.dispatchEvent(new CustomEvent('themeChanged', { 
-      detail: { theme: this.currentTheme } 
-    }));
+    // Disabled to prevent flashing
+    console.log('Theme toggle disabled to prevent flashing');
   }
 
   applyTheme(theme) {
-    console.log('Applying theme:', theme); // Debug log
+    console.log('Applying light theme only:', theme);
     
-    // Add transition class for smooth theme switching
-    document.documentElement.classList.add('theme-transitioning');
+    // Force light theme
+    document.documentElement.setAttribute('data-theme', 'light');
     
-    // Set the theme attribute
-    document.documentElement.setAttribute('data-theme', theme);
-    
-    // Debug: Check if attribute was set
-    console.log('data-theme attribute:', document.documentElement.getAttribute('data-theme'));
-    
-    // Update toggle button
+    // Update toggle button to show disabled state
     if (this.toggleBtn) {
       const icon = this.toggleBtn.querySelector('i');
       if (icon) {
-        icon.className = theme === 'light' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+        icon.className = 'bi bi-moon-fill';
       }
-      
-      // Update button text/tooltip
-      const buttonText = this.toggleBtn.querySelector('span');
-      if (buttonText) {
-        buttonText.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
-      }
-      
-      // Update aria-label for accessibility
-      this.toggleBtn.setAttribute('aria-label', 
-        theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
-      );
     }
-    
-    // Update meta theme-color for mobile browsers
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'light' ? '#1e3a5f' : '#0f1419');
-    }
-    
-    // Remove transition class after animation completes
-    setTimeout(() => {
-      document.documentElement.classList.remove('theme-transitioning');
-    }, 200); // Much faster - reduced from 400ms to 200ms
   }
 
   getCurrentTheme() {
-    return this.currentTheme;
+    return 'light';
   }
 }
 
