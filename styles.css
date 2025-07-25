@@ -271,7 +271,7 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .navbar-brand {
+/* [data-theme="dark"] .navbar-brand {
   color: var(--text-white);
 }
 
@@ -4082,39 +4082,7 @@ a:hover {
    LOADING ANIMATIONS
    ============================================================================= */
 
-.page-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--background-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-/* [data-theme="dark"] .page-loader {
-  background: var(--background-dark);
-} */
-
-.page-loader::after {
-  content: '';
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--border-color);
-  border-top: 3px solid var(--navy-primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* Page loader removed to prevent flashing */
 
 /* =============================================================================
    ANIMATION CLASSES
