@@ -946,6 +946,12 @@ style.textContent = `
 
 document.head.appendChild(style);
 
+// Apply initial theme immediately to prevent flash
+const savedTheme = localStorage.getItem('cape-theme');
+const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', initialTheme);
+
 // Fade in on page load
 document.documentElement.classList.add('theme-transitioning');
 setTimeout(() => {
@@ -957,12 +963,23 @@ setTimeout(() => {
 
 // Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
+  // Ensure theme is applied before handling loader
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  console.log('DOMContentLoaded - Current theme:', currentTheme);
+  
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'smooth' });
   
   // Remove loading state with smooth transition
   const loader = document.querySelector('.page-loader');
   if (loader) {
+    // Ensure loader background matches current theme
+    if (currentTheme === 'dark') {
+      loader.style.background = 'var(--background-dark)';
+    } else {
+      loader.style.background = 'var(--background-light)';
+    }
+    
     loader.style.transition = 'opacity 0.3s ease-out';
     loader.style.opacity = '0';
     setTimeout(() => {
