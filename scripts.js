@@ -4,24 +4,24 @@
  */
 
 // Apply theme IMMEDIATELY before anything else loads
-(function() {
-  const savedTheme = localStorage.getItem('cape-theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-  
-  // Apply theme before DOM is ready
-  document.documentElement.setAttribute('data-theme', initialTheme);
-  
-  // Also set page loader background immediately
-  const loader = document.querySelector('.page-loader');
-  if (loader) {
-    if (initialTheme === 'dark') {
-      loader.style.background = 'var(--background-dark)';
-    } else {
-      loader.style.background = 'var(--background-light)';
-    }
-  }
-})();
+// (function() {
+//   const savedTheme = localStorage.getItem('cape-theme');
+//   const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+//   const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+//   
+//   // Apply theme before DOM is ready
+//   document.documentElement.setAttribute('data-theme', initialTheme);
+//   
+//   // Also set page loader background immediately
+//   const loader = document.querySelector('.page-loader');
+//   if (loader) {
+//     if (initialTheme === 'dark') {
+//       loader.style.background = 'var(--background-dark)';
+//     } else {
+//       loader.style.background = 'var(--background-light)';
+//     }
+//   }
+// })();
 
 // =============================================================================
 // UTILITY FUNCTIONS
@@ -53,112 +53,112 @@ const throttle = (func, limit) => {
 };
 
 // =============================================================================
-// THEME MANAGEMENT - FIXED TO PREVENT FLASHING
+// THEME MANAGEMENT - DISABLED TO PREVENT FLASHING
 // =============================================================================
 
-class ThemeManager {
-  constructor() {
-    this.currentTheme = this.getInitialTheme();
-    this.toggleBtn = document.getElementById('theme-toggle');
-    this.init();
-  }
+// class ThemeManager {
+//   constructor() {
+//     this.currentTheme = this.getInitialTheme();
+//     this.toggleBtn = document.getElementById('theme-toggle');
+//     this.init();
+//   }
 
-  getInitialTheme() {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem('cape-theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    
-    return 'light';
-  }
+//   getInitialTheme() {
+//     // Check localStorage first
+//     const savedTheme = localStorage.getItem('cape-theme');
+//     if (savedTheme) {
+//       return savedTheme;
+//     }
+//     
+//     // Check system preference
+//     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+//       return 'dark';
+//     }
+//     
+//     return 'light';
+//   }
 
-  init() {
-    console.log('ThemeManager initializing with theme:', this.currentTheme);
-    this.applyTheme(this.currentTheme);
-    this.setupEventListeners();
-    this.setupSystemThemeListener();
-  }
+//   init() {
+//     console.log('ThemeManager initializing with theme:', this.currentTheme);
+//     this.applyTheme(this.currentTheme);
+//     this.setupEventListeners();
+//     this.setupSystemThemeListener();
+//   }
 
-  setupEventListeners() {
-    if (this.toggleBtn) {
-      this.toggleBtn.addEventListener('click', () => this.toggleTheme());
-    }
-  }
+//   setupEventListeners() {
+//     if (this.toggleBtn) {
+//       this.toggleBtn.addEventListener('click', () => this.toggleTheme());
+//     }
+//   }
 
-  setupSystemThemeListener() {
-    // Listen for system theme changes
-    if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // Only auto-switch if user hasn't manually set a preference
-        if (!localStorage.getItem('cape-theme')) {
-          this.currentTheme = e.matches ? 'dark' : 'light';
-          this.applyTheme(this.currentTheme);
-        }
-      });
-    }
-  }
+//   setupSystemThemeListener() {
+//     // Listen for system theme changes
+//     if (window.matchMedia) {
+//       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+//         // Only auto-switch if user hasn't manually set a preference
+//         if (!localStorage.getItem('cape-theme')) {
+//           this.currentTheme = e.matches ? 'dark' : 'light';
+//           this.applyTheme(this.currentTheme);
+//         }
+//       });
+//     }
+//   }
 
-  toggleTheme() {
-    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    this.applyTheme(this.currentTheme);
-    localStorage.setItem('cape-theme', this.currentTheme);
-    
-    // Dispatch custom event for other components
-    window.dispatchEvent(new CustomEvent('themeChanged', { 
-      detail: { theme: this.currentTheme } 
-    }));
-  }
+//   toggleTheme() {
+//     this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+//     this.applyTheme(this.currentTheme);
+//     localStorage.setItem('cape-theme', this.currentTheme);
+//     
+//     // Dispatch custom event for other components
+//     window.dispatchEvent(new CustomEvent('themeChanged', { 
+//       detail: { theme: this.currentTheme } 
+//     }));
+//   }
 
-  applyTheme(theme) {
-    console.log('Applying theme:', theme);
-    
-    // Add transition class for smooth theme switching
-    document.documentElement.classList.add('theme-transitioning');
-    
-    // Set the theme attribute
-    document.documentElement.setAttribute('data-theme', theme);
-    
-    // Update toggle button
-    if (this.toggleBtn) {
-      const icon = this.toggleBtn.querySelector('i');
-      if (icon) {
-        icon.className = theme === 'light' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
-      }
-      
-      // Update button text/tooltip
-      const buttonText = this.toggleBtn.querySelector('span');
-      if (buttonText) {
-        buttonText.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
-      }
-      
-      // Update aria-label for accessibility
-      this.toggleBtn.setAttribute('aria-label', 
-        theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
-      );
-    }
-    
-    // Update meta theme-color for mobile browsers
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'light' ? '#1e3a5f' : '#0f1419');
-    }
-    
-    // Remove transition class after animation completes
-    setTimeout(() => {
-      document.documentElement.classList.remove('theme-transitioning');
-    }, 200);
-  }
+//   applyTheme(theme) {
+//     console.log('Applying theme:', theme);
+//     
+//     // Add transition class for smooth theme switching
+//     document.documentElement.classList.add('theme-transitioning');
+//     
+//     // Set the theme attribute
+//     document.documentElement.setAttribute('data-theme', theme);
+//     
+//     // Update toggle button
+//     if (this.toggleBtn) {
+//       const icon = this.toggleBtn.querySelector('i');
+//       if (icon) {
+//       icon.className = theme === 'light' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+//       }
+//       
+//       // Update button text/tooltip
+//       const buttonText = this.toggleBtn.querySelector('span');
+//       if (buttonText) {
+//         buttonText.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+//       }
+//       
+//       // Update aria-label for accessibility
+//       const this.toggleBtn.setAttribute('aria-label', 
+//         theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+//       );
+//     }
+//     
+//     // Update meta theme-color for mobile browsers
+//     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+//     if (metaThemeColor) {
+//       metaThemeColor.setAttribute('content', theme === 'light' ? '#1e3a5f' : '#0f1419');
+//     }
+//     
+//     // Remove transition class after animation completes
+//     setTimeout(() => {
+//       document.documentElement.classList.remove('theme-transitioning');
+//     }, 200);
+//   }
 
-  getCurrentTheme() {
-    return this.currentTheme;
-  }
-}
+//   getCurrentTheme() {
+//     return this.currentTheme;
+//   }
+// }
 
 // =============================================================================
 // HEADER SCROLL EFFECTS
@@ -812,7 +812,7 @@ class CapeApp {
   initializeManagers() {
     try {
       // Core functionality
-      this.managers.push(new ThemeManager());
+      // this.managers.push(new ThemeManager());
       this.managers.push(new HeaderManager());
       this.managers.push(new SmoothScrollManager());
       this.managers.push(new AnimationManager());

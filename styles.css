@@ -99,7 +99,7 @@
 }
 
 /* Dark Theme Variables */
-[data-theme="dark"] {
+/* [data-theme="dark"] {
   --background-light: #1a202c;
   --background-dark: #0f1419;
   --text-primary: #e2e8f0;
@@ -113,7 +113,7 @@
   --navy-primary: #4a90e2;
   --navy-light: #6ba3e8;
   --navy-dark: #2d5a8a;
-}
+} */
 
 /* =============================================================================
    PAGE TRANSITIONS
@@ -266,7 +266,7 @@
    DARK THEME COMPONENT STYLES
    ============================================================================= */
 
-[data-theme="dark"] .site-header {
+/* [data-theme="dark"] .site-header {
   background: rgba(15, 20, 25, 0.95);
   border-bottom: 1px solid var(--border-color);
 }
@@ -365,6 +365,7 @@
   background: rgba(45, 55, 72, 0.5);
   border: 1px solid var(--border-color);
   color: var(--text-white);
+} */
 }
 
 [data-theme="dark"] .tech-card:hover {
@@ -4096,9 +4097,9 @@ a:hover {
   opacity: 0;
 }
 
-[data-theme="dark"] .page-loader {
+/* [data-theme="dark"] .page-loader {
   background: var(--background-dark);
-}
+} */
 
 .page-loader::after {
   content: '';
