@@ -1196,6 +1196,11 @@ html {
   line-height: 1.6;
 }
 
+/* Hide content until theme is applied */
+html:not([data-theme]) {
+  visibility: hidden;
+}
+
 body {
   font-family: var(--font-family-primary);
   color: var(--text-primary);
@@ -1204,6 +1209,16 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent flash by hiding until theme is applied */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Show body when theme is ready */
+body.theme-ready {
+  opacity: 1;
+  visibility: visible;
 }
 
 img {

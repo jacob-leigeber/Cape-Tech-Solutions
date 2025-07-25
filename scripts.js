@@ -208,7 +208,7 @@ class HeaderManager {
       // Navigate after transition with shorter delay
       setTimeout(() => {
         window.location.href = link.href;
-      }, 300); // Much shorter delay for smoother feel
+      }, 150); // Much shorter delay for smoother feel
     });
   }
 }
@@ -835,6 +835,9 @@ setTimeout(() => {
 
 // Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
+  // Add theme-ready class to show content
+  document.body.classList.add('theme-ready');
+  
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'smooth' });
   
