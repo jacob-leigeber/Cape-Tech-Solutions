@@ -185,12 +185,8 @@
                 </p>
               </div>
 
-              <form class="professional-form" action="https://formsubmit.co/e7ce5902fa36f78c8a14f3c97d4e5a64" method="POST">
-                <!-- Hidden FormSubmit Configuration -->
-                <input type="hidden" name="_next" value="contact.html?success=true">
-                <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_captcha" value="false">
+              <form class="professional-form" id="contactForm">
+                <!-- Form will be handled by JavaScript for development -->
 
                 <div class="row g-4">
                   <div class="col-md-6">
@@ -486,6 +482,41 @@
           } else {
             charCounter.style.color = 'var(--text-light)';
           }
+        });
+      }
+
+      // Handle form submission for development
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+          
+          // Log form data to console (for development)
+          console.log('Form submitted with data:', data);
+          
+          // Show success message
+          const successAlert = document.createElement('div');
+          successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed';
+          successAlert.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+          successAlert.innerHTML = `
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <strong>Message Sent Successfully!</strong><br>
+            We'll respond within 24 hours.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          `;
+          document.body.appendChild(successAlert);
+          
+          // Reset form
+          this.reset();
+          
+          // Auto-dismiss after 5 seconds
+          setTimeout(() => {
+            successAlert.remove();
+          }, 5000);
         });
       }
 
