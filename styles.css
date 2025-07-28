@@ -4114,3 +4114,119 @@ a:hover {
 /* =============================================================================
    PERFORMANCE OPTIMIZATIONS
    ============================================================================= */
+
+/* =============================================================================
+   BOOTSTRAP ICONS FALLBACK & ENHANCEMENT
+   ============================================================================= */
+
+/* Ensure Bootstrap Icons are properly loaded and displayed */
+.bi {
+  display: inline-block;
+  font-family: "bootstrap-icons" !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fallback for when Bootstrap Icons font fails to load */
+.bi::before {
+  content: attr(data-icon);
+}
+
+/* Ensure icon containers are visible */
+.solution-icon,
+.method-icon,
+.step-icon,
+.category-icon,
+.advantage-icon,
+.metric-icon,
+.benefit-icon,
+.contact-icon,
+.info-icon,
+.leadership-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+/* Enhanced icon visibility */
+.solution-icon i,
+.method-icon i,
+.step-icon i,
+.category-icon i,
+.advantage-icon i,
+.metric-icon i,
+.benefit-icon i,
+.contact-icon i,
+.info-icon i,
+.leadership-icon i {
+  font-size: inherit;
+  color: inherit;
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+/* Ensure icons are visible in all contexts */
+.feature-item i,
+.dropdown-item i,
+.nav-link i,
+.btn i {
+  display: inline-block !important;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Additional icon visibility enhancements */
+.bi {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure icon containers have proper dimensions */
+.solution-icon,
+.method-icon,
+.step-icon,
+.category-icon,
+.advantage-icon,
+.metric-icon,
+.benefit-icon,
+.contact-icon,
+.info-icon,
+.leadership-icon {
+  position: relative;
+  overflow: visible;
+}
+
+/* Fallback for icon loading issues */
+.bi:not([class*="bi-"]) {
+  content: "📌";
+  font-family: inherit;
+}
+
+/* Ensure icons in navigation are visible */
+.navbar-nav .bi,
+.dropdown-menu .bi {
+  display: inline-block !important;
+  width: auto;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+/* Icon size consistency */
+.bi {
+  font-size: 1em;
+  line-height: 1;
+}
+
+/* Ensure icons in buttons are properly aligned */
+.btn .bi {
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
