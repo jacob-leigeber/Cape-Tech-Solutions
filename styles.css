@@ -2803,8 +2803,8 @@ a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--navy-primary);
-  color: var(--white);
+  background: var(--background-light);
+  color: var(--text-primary);
   overflow: hidden;
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -2835,7 +2835,7 @@ a:hover {
 
 .highlight-item span {
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
 .contact-methods {
@@ -2894,7 +2894,7 @@ a:hover {
 }
 
 .contact-info p {
-  color: var(--white);
+  color: var(--text-secondary);
   margin-bottom: var(--space-2);
   font-size: var(--font-size-sm);
 }
