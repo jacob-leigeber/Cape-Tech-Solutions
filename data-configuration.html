@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+// Apply theme immediately to prevent any flash
+(function() {
+  const savedTheme = localStorage.getItem('cape-theme');
+  const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initialTheme = savedTheme || systemTheme;
+  document.documentElement.setAttribute('data-theme', initialTheme);
+})();
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +44,7 @@
 
 <body>
   <!-- Page Loader -->
+  <div class="page-loader"></div>
 
   <!-- Header & Navigation -->
   <header class="site-header">
@@ -113,7 +123,7 @@
     <!-- Hero Section -->
     <section class="capability-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
       <div class="hero-background">
-        <img src="images/CapePic1.jpg" alt="Data management team" class="hero-bg-image">
+        <img src="images/CapePic3.jpg" alt="Data management team" class="hero-bg-image">
         <div class="hero-overlay"></div>
       </div>
       <div class="container position-relative z-2">
@@ -271,7 +281,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <div class="approach-content">
+            <div class="info-card p-4 mb-4 approach-content">
               <div class="section-badge">
                 <i class="bi bi-arrow-repeat"></i>
                 <span>Data Lifecycle</span>
@@ -366,7 +376,7 @@
     <!-- Exercise Support Section -->
     <section class="why-choose-section">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center info-card p-4 mb-4">
           <div class="section-badge">
             <i class="bi bi-bullseye"></i>
             <span>Exercise Support</span>
@@ -380,14 +390,14 @@
 
         <div class="row g-4">
           <div class="col-lg-4">
-            <div class="advantage-item">
-              <div class="advantage-icon">
+            <div class="info-card p-4 h-100 d-flex flex-column">
+              <div class="advantage-icon mb-3">
                 <i class="bi bi-calendar-event"></i>
               </div>
-              <div class="advantage-content">
-                <h4>Exercise Planning</h4>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Exercise Planning</h4>
                 <p>Comprehensive data support for exercise planners including scenario data, participant information, and resource allocation.</p>
-                <ul class="capability-list">
+                <ul class="capability-list mb-0">
                   <li>Scenario-specific datasets</li>
                   <li>Real-time data updates</li>
                   <li>Multi-classification support</li>
@@ -398,14 +408,14 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="advantage-item">
-              <div class="advantage-icon">
+            <div class="info-card p-4 h-100 d-flex flex-column">
+              <div class="advantage-icon mb-3">
                 <i class="bi bi-database-gear"></i>
               </div>
-              <div class="advantage-content">
-                <h4>Database Management</h4>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Database Management</h4>
                 <p>Managing databases that stimulate and drive exercise training scenarios with real-time updates and monitoring.</p>
-                <ul class="capability-list">
+                <ul class="capability-list mb-0">
                   <li>High-availability databases</li>
                   <li>Automated backup systems</li>
                   <li>Performance optimization</li>
@@ -416,14 +426,14 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="advantage-item">
-              <div class="advantage-icon">
+            <div class="info-card p-4 h-100 d-flex flex-column">
+              <div class="advantage-icon mb-3">
                 <i class="bi bi-shield-lock"></i>
               </div>
-              <div class="advantage-content">
-                <h4>Secure Data Delivery</h4>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Secure Data Delivery</h4>
                 <p>Secure, timely delivery of exercise-specific data with appropriate classification handling and access controls.</p>
-                <ul class="capability-list">
+                <ul class="capability-list mb-0">
                   <li>Classification-aware delivery</li>
                   <li>Encrypted data transmission</li>
                   <li>Access control management</li>
@@ -439,7 +449,7 @@
     <!-- Technical Capabilities Section -->
     <section class="technology-stack-section">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center info-card p-4 mb-4">
           <div class="section-badge">
             <i class="bi bi-cpu"></i>
             <span>Technical Excellence</span>
@@ -645,7 +655,7 @@
               © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
             </p>
             <div class="footer-links d-flex justify-content-center gap-3">
-              <a href="#">Privacy Policy</a>
+              <a href="privacy.html">Privacy Policy</a>
               <a href="#">Terms of Service</a>
               <a href="#">Security</a>
             </div>

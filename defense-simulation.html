@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+// Apply theme immediately to prevent any flash
+(function() {
+  const savedTheme = localStorage.getItem('cape-theme');
+  const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initialTheme = savedTheme || systemTheme;
+  document.documentElement.setAttribute('data-theme', initialTheme);
+})();
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +44,7 @@
 
 <body>
   <!-- Page Loader -->
+  <div class="page-loader"></div>
   
   <!-- Header & Navigation -->
   <header class="site-header">
@@ -113,7 +123,7 @@
     <!-- Hero Section -->
     <section class="capability-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
       <div class="hero-background">
-        <img src="images/CapePic7.jpg" alt="Defense simulation team" class="hero-bg-image">
+        <img src="images/CapePic5.jpg" alt="Defense simulation team" class="hero-bg-image">
         <div class="hero-overlay"></div>
       </div>
       <div class="container position-relative z-2">
@@ -270,7 +280,7 @@
     <!-- Simulation Capabilities Section -->
     <section class="why-choose-section">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center info-card p-4 mb-4">
           <div class="section-badge">
             <i class="bi bi-gear-wide-connected"></i>
             <span>Core Capabilities</span>
@@ -285,14 +295,14 @@
         <div class="row g-4">
           <div class="col-lg-6">
             <div class="advantages-list">
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-people-fill"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>Joint & Coalition Training</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">Joint & Coalition Training</h4>
                   <p>Supporting complex multi-service and international coalition exercises with interoperable simulation systems.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>Multi-national interoperability</li>
                     <li>Cross-service integration</li>
                     <li>Coalition exercise support</li>
@@ -301,14 +311,14 @@
                 </div>
               </div>
 
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-arrow-repeat"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>Real-Time Integration</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">Real-Time Integration</h4>
                   <p>Seamless integration with live C4ISR systems and real-time data feeds for dynamic training scenarios.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>Live data integration</li>
                     <li>Real-time communication</li>
                     <li>Dynamic scenario adaptation</li>
@@ -317,14 +327,14 @@
                 </div>
               </div>
 
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-sliders"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>Customizable Scenarios</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">Customizable Scenarios</h4>
                   <p>Flexible scenario development and customization for mission-specific rehearsal and training requirements.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>Mission-specific scenarios</li>
                     <li>Adaptive difficulty levels</li>
                     <li>Custom threat modeling</li>
@@ -337,14 +347,14 @@
 
           <div class="col-lg-6">
             <div class="advantages-list">
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-shield-check"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>DoD Compliance</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">DoD Compliance</h4>
                   <p>Full adherence to Department of Defense simulation standards and security requirements.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>FISMA compliance</li>
                     <li>Security clearance requirements</li>
                     <li>Data classification handling</li>
@@ -353,14 +363,14 @@
                 </div>
               </div>
 
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-arrows-fullscreen"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>Scalable Architecture</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">Scalable Architecture</h4>
                   <p>Highly scalable simulation architectures supporting exercises from small unit training to large-scale joint operations.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>Distributed processing</li>
                     <li>Cloud-native scaling</li>
                     <li>Load balancing</li>
@@ -369,14 +379,14 @@
                 </div>
               </div>
 
-              <div class="advantage-item">
-                <div class="advantage-icon">
+              <div class="info-card p-4 h-100 d-flex flex-column mb-4">
+                <div class="advantage-icon mb-3">
                   <i class="bi bi-eye-fill"></i>
                 </div>
-                <div class="advantage-content">
-                  <h4>Advanced Visualization</h4>
+                <div class="advantage-content flex-grow-1">
+                  <h4 class="mb-2">Advanced Visualization</h4>
                   <p>Cutting-edge visualization technologies providing immersive training experiences and actionable insights.</p>
-                  <ul class="capability-list">
+                  <ul class="capability-list mb-0">
                     <li>High-resolution 3D environments</li>
                     <li>VR/AR capabilities</li>
                     <li>Real-time performance analytics</li>
@@ -653,7 +663,7 @@
               © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
             </p>
             <div class="footer-links d-flex justify-content-center gap-3">
-              <a href="#">Privacy Policy</a>
+              <a href="privacy.html">Privacy Policy</a>
               <a href="#">Terms of Service</a>
               <a href="#">Security</a>
             </div>

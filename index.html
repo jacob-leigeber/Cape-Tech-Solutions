@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+// Apply theme immediately to prevent any flash
+(function() {
+  const savedTheme = localStorage.getItem('cape-theme');
+  const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initialTheme = savedTheme || systemTheme;
+  document.documentElement.setAttribute('data-theme', initialTheme);
+})();
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -64,6 +73,7 @@
 
 <body>
   <!-- Page Loader -->
+  <div class="page-loader"></div>
   
   <!-- Header & Navigation -->
   <header class="site-header">
@@ -676,7 +686,7 @@
               © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
             </p>
             <div class="footer-links d-flex justify-content-center gap-3">
-              <a href="#">Privacy Policy</a>
+              <a href="privacy.html">Privacy Policy</a>
               <a href="#">Terms of Service</a>
               <a href="#">Security</a>
             </div>

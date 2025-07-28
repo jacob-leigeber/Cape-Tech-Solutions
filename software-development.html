@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+// Apply theme immediately to prevent any flash
+(function() {
+  const savedTheme = localStorage.getItem('cape-theme');
+  const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initialTheme = savedTheme || systemTheme;
+  document.documentElement.setAttribute('data-theme', initialTheme);
+})();
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,13 +43,7 @@
 
 <body>
   <!-- Page Loader -->
-  
-  <!-- Security Classification Banner -->
-  <div class="classification-banner">
-    <div class="container-fluid">
-      <span class="classification-text">UNCLASSIFIED</span>
-    </div>
-  </div>
+  <div class="page-loader"></div>
 
   <!-- Header & Navigation -->
   <header class="site-header">
@@ -119,6 +122,7 @@
     <!-- Hero Section -->
     <section class="capability-hero-section main-section section-padding d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
       <div class="hero-background">
+        <img src="images/CapePic11.jpg" alt="Software development team" class="hero-bg-image">
         <div class="hero-overlay"></div>
       </div>
       <div class="container position-relative z-2">
@@ -486,54 +490,63 @@
     </section>
 
     <!-- Why Choose CAPE Section -->
-    <section class="why-choose-section">
+    <section class="why-choose-section py-5">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="advantages-grid">
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="bi bi-shield-check"></i>
-                </div>
-                <div class="advantage-content">
-                  <h4>Proven Defense Experience</h4>
-                  <p>Deep understanding of defense requirements, security protocols, and mission-critical operations</p>
-                </div>
+        <div class="section-header text-center info-card p-4 mb-5 mx-auto" style="max-width: 700px;">
+          <div class="section-badge mb-2">
+            <i class="bi bi-star-fill"></i>
+            <span>Why Choose CAPE</span>
+          </div>
+          <h2 class="section-title mb-3">Why Choose CAPE Technology Solutions?</h2>
+          <p class="section-description">
+            Trusted by defense organizations for our expertise, security, and commitment to mission success.
+          </p>
+        </div>
+        <div class="row justify-content-center g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
+              <div class="advantage-icon mb-3">
+                <i class="bi bi-shield-check fs-2"></i>
               </div>
-              
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="bi bi-people"></i>
-                </div>
-                <div class="advantage-content">
-                  <h4>Cleared Professional Team</h4>
-                  <p>100% security-cleared engineers with extensive experience in defense technology projects</p>
-                </div>
-              </div>
-              
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="bi bi-gear"></i>
-                </div>
-                <div class="advantage-content">
-                  <h4>Enterprise-Grade Quality</h4>
-                  <p>Rigorous testing, security validation, and compliance with defense industry standards</p>
-                </div>
-              </div>
-              
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="bi bi-headset"></i>
-                </div>
-                <div class="advantage-content">
-                  <h4>24/7 Mission Support</h4>
-                  <p>Continuous support and maintenance ensuring system availability for critical operations</p>
-                </div>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Proven Defense Experience</h4>
+                <p>Deep understanding of defense requirements, security protocols, and mission-critical operations.</p>
               </div>
             </div>
           </div>
-          
-
+          <div class="col-md-6 col-lg-3">
+            <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
+              <div class="advantage-icon mb-3">
+                <i class="bi bi-people fs-2"></i>
+              </div>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Cleared Professional Team</h4>
+                <p>100% security-cleared engineers with extensive experience in defense technology projects.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
+              <div class="advantage-icon mb-3">
+                <i class="bi bi-gear fs-2"></i>
+              </div>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">Enterprise-Grade Quality</h4>
+                <p>Rigorous testing, security validation, and compliance with defense industry standards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
+              <div class="advantage-icon mb-3">
+                <i class="bi bi-headset fs-2"></i>
+              </div>
+              <div class="advantage-content flex-grow-1">
+                <h4 class="mb-2">24/7 Mission Support</h4>
+                <p>Continuous support and maintenance ensuring system availability for critical operations.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -684,7 +697,7 @@
               © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
             </p>
             <div class="footer-links d-flex justify-content-center gap-3">
-              <a href="#">Privacy Policy</a>
+              <a href="privacy.html">Privacy Policy</a>
               <a href="#">Terms of Service</a>
               <a href="#">Security</a>
             </div>
