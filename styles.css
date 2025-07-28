@@ -96,7 +96,7 @@
   --z-tooltip: 1070;
 }
 
-/* Dark Theme Variables */
+/* Dark Theme Variables - DISABLED
 [data-theme="dark"] {
   --background-light: #1a202c;
   --background-dark: #0f1419;
@@ -107,7 +107,10 @@
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
   --shadow-dark: rgba(0, 0, 0, 0.6);
+  --white: #1a202c;
+  --text-white: #e2e8f0;
 }
+*/
 
 /* =============================================================================
    PAGE TRANSITIONS
@@ -133,9 +136,10 @@
 }
 
 /* =============================================================================
-   THEME TRANSITIONS
+   THEME TRANSITIONS - DISABLED
    ============================================================================= */
 
+/*
 .theme-transitioning * {
   transition: background-color var(--theme-transition),
               border-color var(--theme-transition),
@@ -204,6 +208,7 @@
     transform: translateY(0);
   }
 }
+*/
 
 /* =============================================================================
    PAGE TRANSITIONS
@@ -229,9 +234,10 @@
 }
 
 /* =============================================================================
-   DARK THEME COMPONENT STYLES
+   DARK THEME COMPONENT STYLES - DISABLED
    ============================================================================= */
 
+/*
 [data-theme="dark"] .site-header {
   background: rgba(15, 20, 25, 0.95);
   border-bottom: 1px solid var(--border-color);
@@ -1178,6 +1184,104 @@
   border: 1px solid var(--border-color);
 }
 
+/* Dark theme styles for sections that were missing them */
+[data-theme="dark"] .main-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .capabilities-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .gallery-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .trust-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .leadership-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .careers-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .benefits-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .positions-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .application-cta-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .contact-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .contact-form-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .additional-contact-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .privacy-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .privacy-content {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .capability-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .core-solutions-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .technical-approach-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .process-visualization {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .technology-stack-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .specialized-tech {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .why-choose-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .metrics-showcase {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .team-gallery-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .mission-section {
+  background: var(--background-light);
+}
+*/
+
 /* =============================================================================
    RESET & BASE STYLES
    ============================================================================= */
@@ -1196,10 +1300,12 @@ html {
   line-height: 1.6;
 }
 
-/* Hide content until theme is applied */
+/* DISABLED - Hide content until theme is applied */
+/*
 html:not([data-theme]) {
   visibility: hidden;
 }
+*/
 
 body {
   font-family: var(--font-family-primary);
@@ -1209,17 +1315,21 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Prevent flash by hiding until theme is applied */
+  /* DISABLED - Prevent flash by hiding until theme is applied */
+  /*
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  */
 }
 
-/* Show body when theme is ready */
+/* DISABLED - Show body when theme is ready */
+/*
 body.theme-ready {
   opacity: 1;
   visibility: visible;
 }
+*/
 
 img {
   max-width: 100%;
@@ -1414,6 +1524,7 @@ a:hover {
   font-size: var(--font-size-xs);
 }
 
+/* DISABLED - Theme toggle button
 .theme-toggle-btn {
   background: none;
   border: 1px solid var(--border-color);
@@ -1434,6 +1545,7 @@ a:hover {
   color: var(--navy-primary);
   border-color: var(--navy-primary);
 }
+*/
 
 /* =============================================================================
    HERO SECTION
@@ -1552,7 +1664,7 @@ a:hover {
   font-weight: 400;
   line-height: 1.7;
   margin-bottom: var(--space-8);
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--white);
   max-width: 650px;
   letter-spacing: 0.01em;
 }
@@ -1579,7 +1691,7 @@ a:hover {
 
 .stat-label {
   font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
   margin-top: var(--space-1);
 }
 
@@ -1731,7 +1843,7 @@ a:hover {
    ============================================================================= */
 
 .capability-card {
-  background: var(--white);
+  background: var(--background-light);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -1989,7 +2101,7 @@ a:hover {
 }
 
 .trust-section .section-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 .trust-stats {
@@ -2017,7 +2129,7 @@ a:hover {
 }
 
 .trust-stat span {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
 }
 
 .certifications-grid {
@@ -2067,7 +2179,7 @@ a:hover {
 }
 
 .leadership-card {
-  background: var(--white);
+  background: var(--background-light);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-10);
@@ -2157,7 +2269,7 @@ a:hover {
 
 .cta-description {
   font-size: var(--font-size-lg);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
 }
 
 .cta-actions {
@@ -2196,7 +2308,7 @@ a:hover {
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
   line-height: 1.6;
   margin-bottom: var(--space-4);
 }
@@ -2226,7 +2338,7 @@ a:hover {
 }
 
 .footer-column ul li a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -2263,7 +2375,7 @@ a:hover {
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   font-size: var(--font-size-sm);
 }
 
@@ -2277,7 +2389,7 @@ a:hover {
 }
 
 .copyright {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
   font-size: var(--font-size-sm);
 }
 
@@ -2287,7 +2399,7 @@ a:hover {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
   font-size: var(--font-size-sm);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -2679,7 +2791,7 @@ a:hover {
 }
 
 .application-cta-section .cta-description {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
 }
 
 /* =============================================================================
@@ -2723,7 +2835,7 @@ a:hover {
 
 .highlight-item span {
   font-weight: 500;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .contact-methods {
@@ -2782,7 +2894,7 @@ a:hover {
 }
 
 .contact-info p {
-  color: var(--text-secondary);
+  color: var(--white);
   margin-bottom: var(--space-2);
   font-size: var(--font-size-sm);
 }
