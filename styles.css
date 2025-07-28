@@ -1664,7 +1664,7 @@ a:hover {
   font-weight: 400;
   line-height: 1.7;
   margin-bottom: var(--space-8);
-  color: var(--text-primary);
+  color: var(--white);
   max-width: 650px;
   letter-spacing: 0.01em;
 }
@@ -1691,7 +1691,7 @@ a:hover {
 
 .stat-label {
   font-size: var(--font-size-sm);
-  color: var(--text-secondary);
+  color: var(--white);
   margin-top: var(--space-1);
 }
 
@@ -2129,7 +2129,7 @@ a:hover {
 }
 
 .trust-stat span {
-  color: var(--text-secondary);
+  color: var(--white);
 }
 
 .certifications-grid {
@@ -2269,7 +2269,7 @@ a:hover {
 
 .cta-description {
   font-size: var(--font-size-lg);
-  color: var(--text-secondary);
+  color: var(--white);
 }
 
 .cta-actions {
@@ -2308,7 +2308,7 @@ a:hover {
 }
 
 .footer-brand p {
-  color: var(--text-secondary);
+  color: var(--white);
   line-height: 1.6;
   margin-bottom: var(--space-4);
 }
@@ -2338,7 +2338,7 @@ a:hover {
 }
 
 .footer-column ul li a {
-  color: var(--text-secondary);
+  color: var(--white);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -2389,7 +2389,7 @@ a:hover {
 }
 
 .copyright {
-  color: var(--text-secondary);
+  color: var(--white);
   font-size: var(--font-size-sm);
 }
 
@@ -2399,7 +2399,7 @@ a:hover {
 }
 
 .footer-links a {
-  color: var(--text-secondary);
+  color: var(--white);
   font-size: var(--font-size-sm);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -2791,7 +2791,7 @@ a:hover {
 }
 
 .application-cta-section .cta-description {
-  color: var(--text-secondary);
+  color: var(--white);
 }
 
 /* =============================================================================
@@ -2894,7 +2894,7 @@ a:hover {
 }
 
 .contact-info p {
-  color: var(--text-secondary);
+  color: var(--white);
   margin-bottom: var(--space-2);
   font-size: var(--font-size-sm);
 }
