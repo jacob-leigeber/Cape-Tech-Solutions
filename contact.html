@@ -134,8 +134,9 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Fix the hero badge icon -->
               <div class="hero-badge mb-4">
-                <span class="badge-icon">🤝</span>
+                <i class="bi bi-handshake"></i>
                 <span>Partnership Inquiry</span>
               </div>
               <h1 class="hero-title mb-4">
@@ -147,17 +148,18 @@
                 Solutions to discuss your mission-critical requirements and discover how our cleared 
                 team can deliver the solutions you need.
               </p>
+              <!-- Fix the missing icons in the contact highlights section -->
               <div class="contact-highlights d-flex flex-wrap justify-content-center gap-4 mb-5">
                 <div class="highlight-item d-flex flex-column align-items-center">
-                  <i class="bi bi-shield-check mb-2"></i>
+                  <i class="bi bi-grid-3x3-gap-fill mb-2"></i>
                   <span>100% Cleared Personnel</span>
                 </div>
                 <div class="highlight-item d-flex flex-column align-items-center">
-                  <i class="bi bi-clock mb-2"></i>
+                  <i class="bi bi-clock-fill mb-2"></i>
                   <span>24/7 Mission Support</span>
                 </div>
                 <div class="highlight-item d-flex flex-column align-items-center">
-                  <i class="bi bi-award mb-2"></i>
+                  <i class="bi bi-award-fill mb-2"></i>
                   <span>DoD Compliance Ready</span>
                 </div>
               </div>
@@ -175,7 +177,7 @@
             <div class="form-container">
               <div class="form-header">
                 <div class="section-badge">
-                  <i class="bi bi-shield-lock"></i>
+                  <i class="bi bi-shield-lock-fill"></i>
                   <span>Secure Communication</span>
                 </div>
                 <h2 class="section-title">Start Your Partnership Journey</h2>
@@ -185,7 +187,7 @@
                 </p>
               </div>
 
-              <form class="professional-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+              <form class="professional-form" id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
                 <!-- Hidden FormSubmit Configuration -->
                 <input type="hidden" name="_next" value="./contact.html?success=true">
                 <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
@@ -195,8 +197,9 @@
                 <div class="row g-4">
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="firstName" class="form-label">
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-person-fill"></i>
                         First Name <span class="required">*</span>
                       </label>
                       <input type="text" class="form-control" id="firstName" name="First_Name" placeholder="Enter your first name" required>
@@ -205,8 +208,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="lastName" class="form-label">
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-person-fill"></i>
                         Last Name <span class="required">*</span>
                       </label>
                       <input type="text" class="form-control" id="lastName" name="Last_Name" placeholder="Enter your last name" required>
@@ -215,8 +219,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="email" class="form-label">
-                        <i class="bi bi-envelope"></i>
+                        <i class="bi bi-envelope-fill"></i>
                         Email Address <span class="required">*</span>
                       </label>
                       <input type="email" class="form-control" id="email" name="Email" placeholder="your.email@organization.com" required>
@@ -225,8 +230,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="phone" class="form-label">
-                        <i class="bi bi-telephone"></i>
+                        <i class="bi bi-telephone-fill"></i>
                         Phone Number
                       </label>
                       <input type="tel" class="form-control" id="phone" name="Phone" placeholder="+1 (555) 123-4567">
@@ -235,8 +241,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="organization" class="form-label">
-                        <i class="bi bi-building"></i>
+                        <i class="bi bi-building-fill"></i>
                         Organization <span class="required">*</span>
                       </label>
                       <input type="text" class="form-control" id="organization" name="Organization" placeholder="Department/Agency/Company" required>
@@ -245,8 +252,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="inquiry-type" class="form-label">
-                        <i class="bi bi-tag"></i>
+                        <i class="bi bi-tags-fill"></i>
                         Inquiry Type <span class="required">*</span>
                       </label>
                       <select class="form-control" id="inquiry-type" name="Inquiry_Type" required>
@@ -264,8 +272,9 @@
                   </div>
                   <div class="col-12">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="clearance" class="form-label">
-                        <i class="bi bi-shield-check"></i>
+                        <i class="bi bi-shield-check-fill"></i>
                         Security Clearance Level
                       </label>
                       <select class="form-control" id="clearance" name="Security_Clearance">
@@ -282,8 +291,9 @@
                   </div>
                   <div class="col-12">
                     <div class="form-group">
+                      <!-- Fix form field icons -->
                       <label for="message" class="form-label">
-                        <i class="bi bi-chat-text"></i>
+                        <i class="bi bi-chat-text-fill"></i>
                         Message <span class="required">*</span>
                       </label>
                       <textarea class="form-control" id="message" name="Message" rows="6" placeholder="Please describe your mission requirements, partnership interests, or how CAPE Technology Solutions can support your objectives..." required></textarea>
@@ -304,8 +314,9 @@
                   </div>
                   <div class="col-12">
                     <div class="form-actions">
+                      <!-- Fix button icons -->
                       <button type="submit" class="btn btn-primary btn-lg">
-                        <i class="bi bi-send"></i>
+                        <i class="bi bi-send-fill"></i>
                         Send Secure Message
                       </button>
                       <button type="reset" class="btn btn-outline-secondary btn-lg">
@@ -481,7 +492,8 @@
       });
     }
 
-    // Form submission handler
+    // Remove or comment out this entire function
+    /*
     function handleFormSubmit(event) {
       event.preventDefault();
       
@@ -525,6 +537,7 @@
         
       }, 1500); // Simulate network delay
     }
+    */
 
     // Check for success parameter in URL
     if (window.location.search.includes('success=true')) {
