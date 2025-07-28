@@ -96,7 +96,7 @@
   --z-tooltip: 1070;
 }
 
-/* Dark Theme Variables */
+/* Dark Theme Variables - DISABLED
 [data-theme="dark"] {
   --background-light: #1a202c;
   --background-dark: #0f1419;
@@ -110,6 +110,7 @@
   --white: #1a202c;
   --text-white: #e2e8f0;
 }
+*/
 
 /* =============================================================================
    PAGE TRANSITIONS
@@ -135,9 +136,10 @@
 }
 
 /* =============================================================================
-   THEME TRANSITIONS
+   THEME TRANSITIONS - DISABLED
    ============================================================================= */
 
+/*
 .theme-transitioning * {
   transition: background-color var(--theme-transition),
               border-color var(--theme-transition),
@@ -206,6 +208,7 @@
     transform: translateY(0);
   }
 }
+*/
 
 /* =============================================================================
    PAGE TRANSITIONS
@@ -231,9 +234,10 @@
 }
 
 /* =============================================================================
-   DARK THEME COMPONENT STYLES
+   DARK THEME COMPONENT STYLES - DISABLED
    ============================================================================= */
 
+/*
 [data-theme="dark"] .site-header {
   background: rgba(15, 20, 25, 0.95);
   border-bottom: 1px solid var(--border-color);
@@ -1276,6 +1280,7 @@
 [data-theme="dark"] .mission-section {
   background: var(--background-light);
 }
+*/
 
 /* =============================================================================
    RESET & BASE STYLES
@@ -1295,10 +1300,12 @@ html {
   line-height: 1.6;
 }
 
-/* Hide content until theme is applied */
+/* DISABLED - Hide content until theme is applied */
+/*
 html:not([data-theme]) {
   visibility: hidden;
 }
+*/
 
 body {
   font-family: var(--font-family-primary);
@@ -1308,17 +1315,21 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Prevent flash by hiding until theme is applied */
+  /* DISABLED - Prevent flash by hiding until theme is applied */
+  /*
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  */
 }
 
-/* Show body when theme is ready */
+/* DISABLED - Show body when theme is ready */
+/*
 body.theme-ready {
   opacity: 1;
   visibility: visible;
 }
+*/
 
 img {
   max-width: 100%;
@@ -1513,6 +1524,7 @@ a:hover {
   font-size: var(--font-size-xs);
 }
 
+/* DISABLED - Theme toggle button
 .theme-toggle-btn {
   background: none;
   border: 1px solid var(--border-color);
@@ -1533,6 +1545,7 @@ a:hover {
   color: var(--navy-primary);
   border-color: var(--navy-primary);
 }
+*/
 
 /* =============================================================================
    HERO SECTION

@@ -33,9 +33,10 @@ const throttle = (func, limit) => {
 };
 
 // =============================================================================
-// THEME MANAGEMENT
+// THEME MANAGEMENT - DISABLED
 // =============================================================================
 
+/*
 class ThemeManager {
   constructor() {
     this.currentTheme = this.getInitialTheme();
@@ -131,6 +132,7 @@ class ThemeManager {
       document.documentElement.classList.remove('theme-transitioning');
     }, 200); // Much faster - reduced from 400ms to 200ms
   }
+*/
 
   getCurrentTheme() {
     return this.currentTheme;
@@ -673,7 +675,7 @@ class CapeApp {
   initializeManagers() {
     try {
       // Core functionality
-      this.managers.push(new ThemeManager());
+      // this.managers.push(new ThemeManager()); // DISABLED - Theme management
       this.managers.push(new HeaderManager());
       this.managers.push(new SmoothScrollManager());
       this.managers.push(new AnimationManager());
@@ -911,6 +913,8 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+// DISABLED - Theme transition function
+/*
 // Also do this when toggling theme
 function fadeThemeTransition() {
   document.documentElement.classList.add('theme-transitioning');
@@ -922,3 +926,4 @@ function fadeThemeTransition() {
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle
+*/
