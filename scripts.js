@@ -134,9 +134,11 @@ class ThemeManager {
   }
 */
 
+  /*
   getCurrentTheme() {
     return this.currentTheme;
   }
+  */
 }
 
 // =============================================================================
@@ -826,7 +828,8 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Fade in on page load
+// DISABLED - Fade in on page load
+/*
 document.documentElement.classList.add('theme-transitioning');
 setTimeout(() => {
   document.documentElement.classList.add('theme-fade-in');
@@ -834,11 +837,12 @@ setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
   }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
 }, 10);
+*/
 
 // Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
-  // Add theme-ready class to show content
-  document.body.classList.add('theme-ready');
+  // DISABLED - Add theme-ready class to show content
+  // document.body.classList.add('theme-ready');
   
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'smooth' });
