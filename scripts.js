@@ -4,6 +4,190 @@
  */
 
 // =============================================================================
+// BOOTSTRAP ICONS FALLBACK MECHANISM
+// =============================================================================
+
+class IconFallbackManager {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.checkIconFont();
+    this.setupIconFallbacks();
+  }
+
+  checkIconFont() {
+    // Check if Bootstrap Icons font is loaded
+    const testIcon = document.createElement('i');
+    testIcon.className = 'bi bi-check';
+    testIcon.style.position = 'absolute';
+    testIcon.style.left = '-9999px';
+    testIcon.style.fontSize = '1px';
+    document.body.appendChild(testIcon);
+    
+    // Wait a bit for font to load, then check
+    setTimeout(() => {
+      const isLoaded = testIcon.offsetWidth > 0;
+      if (!isLoaded) {
+        console.warn('Bootstrap Icons font not loaded, using fallbacks');
+        this.enableFallbacks();
+      }
+      document.body.removeChild(testIcon);
+    }, 1000);
+  }
+
+  setupIconFallbacks() {
+    // Add fallback text for important icons
+    const iconFallbacks = {
+      'bi-code-square': '💻',
+      'bi-diagram-3': '📊',
+      'bi-database': '🗄️',
+      'bi-check-circle': '✅',
+      'bi-gear': '⚙️',
+      'bi-shield-check': '🛡️',
+      'bi-lock': '🔒',
+      'bi-award': '🏆',
+      'bi-star': '⭐',
+      'bi-envelope': '📧',
+      'bi-telephone': '📞',
+      'bi-linkedin': '💼',
+      'bi-lightning': '⚡',
+      'bi-people': '👥',
+      'bi-graph-up': '📈',
+      'bi-eye': '👁️',
+      'bi-pencil': '✏️',
+      'bi-trash': '🗑️',
+      'bi-download': '⬇️',
+      'bi-bell': '🔔',
+      'bi-person-badge': '👤',
+      'bi-shield-exclamation': '⚠️',
+      'bi-building': '🏢',
+      'bi-diagram-3-fill': '📊',
+      'bi-network-widescreen': '🌐',
+      'bi-hdd-stack': '💾',
+      'bi-database-gear': '⚙️',
+      'bi-gear-wide-connected': '🔗',
+      'bi-arrow-repeat': '🔄',
+      'bi-clock-history': '⏰',
+      'bi-plus-circle': '➕',
+      'bi-check-square': '☑️',
+      'bi-share': '📤',
+      'bi-arrow-clockwise': '🔄',
+      'bi-bullseye': '🎯',
+      'bi-calendar-event': '📅',
+      'bi-shield-lock': '🔐',
+      'bi-cpu': '🖥️',
+      'bi-diagram-2': '📈',
+      'bi-cloud-arrow-up': '☁️',
+      'bi-file-earmark-ruled': '📋',
+      'bi-shield-fill-check': '🛡️',
+      'bi-info-circle': 'ℹ️',
+      'bi-list-ul': '📋',
+      'bi-clipboard-data': '📋',
+      'bi-exclamation-triangle': '⚠️',
+      'bi-chat-text': '💬',
+      'bi-graph-up': '📈',
+      'bi-share': '📤',
+      'bi-x-circle': '❌',
+      'bi-shield-lock': '🔐',
+      'bi-clipboard-check': '📋',
+      'bi-person-check': '👤',
+      'bi-arrow-repeat': '🔄',
+      'bi-sun-fill': '☀️'
+    };
+
+    // Apply fallbacks to icons that might not be visible
+    Object.keys(iconFallbacks).forEach(iconClass => {
+      const icons = document.querySelectorAll(`.${iconClass}`);
+      icons.forEach(icon => {
+        if (!icon.textContent.trim()) {
+          icon.setAttribute('data-icon', iconFallbacks[iconClass]);
+          icon.style.fontFamily = 'inherit';
+        }
+      });
+    });
+  }
+
+  enableFallbacks() {
+    // Replace Bootstrap Icons with emoji fallbacks for critical icons
+    const criticalIcons = document.querySelectorAll('.bi');
+    criticalIcons.forEach(icon => {
+      const classes = icon.className.split(' ');
+      const iconClass = classes.find(cls => cls.startsWith('bi-'));
+      if (iconClass) {
+        const fallback = this.getFallbackForIcon(iconClass);
+        if (fallback) {
+          icon.textContent = fallback;
+          icon.style.fontFamily = 'inherit';
+        }
+      }
+    });
+  }
+
+  getFallbackForIcon(iconClass) {
+    const fallbacks = {
+      'bi-code-square': '💻',
+      'bi-diagram-3': '📊',
+      'bi-database': '🗄️',
+      'bi-check-circle': '✅',
+      'bi-gear': '⚙️',
+      'bi-shield-check': '🛡️',
+      'bi-lock': '🔒',
+      'bi-award': '🏆',
+      'bi-star': '⭐',
+      'bi-envelope': '📧',
+      'bi-telephone': '📞',
+      'bi-linkedin': '💼',
+      'bi-lightning': '⚡',
+      'bi-people': '👥',
+      'bi-graph-up': '📈',
+      'bi-eye': '👁️',
+      'bi-pencil': '✏️',
+      'bi-trash': '🗑️',
+      'bi-download': '⬇️',
+      'bi-bell': '🔔',
+      'bi-person-badge': '👤',
+      'bi-shield-exclamation': '⚠️',
+      'bi-building': '🏢',
+      'bi-diagram-3-fill': '📊',
+      'bi-network-widescreen': '🌐',
+      'bi-hdd-stack': '💾',
+      'bi-database-gear': '⚙️',
+      'bi-gear-wide-connected': '🔗',
+      'bi-arrow-repeat': '🔄',
+      'bi-clock-history': '⏰',
+      'bi-plus-circle': '➕',
+      'bi-check-square': '☑️',
+      'bi-share': '📤',
+      'bi-arrow-clockwise': '🔄',
+      'bi-bullseye': '🎯',
+      'bi-calendar-event': '📅',
+      'bi-shield-lock': '🔐',
+      'bi-cpu': '🖥️',
+      'bi-diagram-2': '📈',
+      'bi-cloud-arrow-up': '☁️',
+      'bi-file-earmark-ruled': '📋',
+      'bi-shield-fill-check': '🛡️',
+      'bi-info-circle': 'ℹ️',
+      'bi-list-ul': '📋',
+      'bi-clipboard-data': '📋',
+      'bi-exclamation-triangle': '⚠️',
+      'bi-chat-text': '💬',
+      'bi-graph-up': '📈',
+      'bi-share': '📤',
+      'bi-x-circle': '❌',
+      'bi-shield-lock': '🔐',
+      'bi-clipboard-check': '📋',
+      'bi-person-check': '👤',
+      'bi-arrow-repeat': '🔄',
+      'bi-sun-fill': '☀️'
+    };
+    return fallbacks[iconClass] || '📌';
+  }
+}
+
+// =============================================================================
 // UTILITY FUNCTIONS
 // =============================================================================
 
@@ -684,6 +868,7 @@ class CapeApp {
       this.managers.push(new ParallaxManager());
       this.managers.push(new AccessibilityManager());
       this.managers.push(new PerformanceMonitor());
+      this.managers.push(new IconFallbackManager()); // Add IconFallbackManager
 
       // Hero title is now immediately visible for maximum impact
       console.log('Hero optimized for professional defense contractor presentation');
