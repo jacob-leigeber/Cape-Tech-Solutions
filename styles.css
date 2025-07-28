@@ -28,7 +28,7 @@
   --white: #ffffff;
   --black: #000000;
   --background-light: #f8fafc;
-  --background-dark: #1a202c;
+  --background-dark: #f8fafc;
   --text-primary: #2d3748;
   --text-secondary: #4a5568;
   --text-light: #718096;
@@ -1554,8 +1554,8 @@ a:hover {
 .hero-section, .careers-hero-section, .capability-hero-section {
   position: relative;
   min-height: 100vh;
-  background: var(--navy-primary);
-  color: var(--white);
+  background: var(--background-light);
+  color: var(--text-primary);
   overflow: hidden;
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -1631,11 +1631,11 @@ a:hover {
   margin-bottom: var(--space-6);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--text-primary);
   text-shadow: 
-    0 0 10px rgba(49, 130, 206, 0.5),
-    0 0 20px rgba(49, 130, 206, 0.3),
-    2px 2px 4px rgba(0, 0, 0, 0.5);
+    0 0 10px rgba(49, 130, 206, 0.3),
+    0 0 20px rgba(49, 130, 206, 0.2),
+    1px 1px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
   animation: heroGlow 4s ease-in-out infinite alternate;
@@ -1664,7 +1664,7 @@ a:hover {
   font-weight: 400;
   line-height: 1.7;
   margin-bottom: var(--space-8);
-  color: var(--white);
+  color: var(--text-secondary);
   max-width: 650px;
   letter-spacing: 0.01em;
 }
@@ -1691,7 +1691,7 @@ a:hover {
 
 .stat-label {
   font-size: var(--font-size-sm);
-  color: var(--white);
+  color: var(--text-secondary);
   margin-top: var(--space-1);
 }
 
@@ -2283,8 +2283,8 @@ a:hover {
    ============================================================================= */
 
 .site-footer {
-  background: var(--navy-dark);
-  color: var(--white);
+  background: var(--background-light);
+  color: var(--text-primary);
   padding: var(--space-16) 0 var(--space-8);
 }
 
@@ -2308,7 +2308,7 @@ a:hover {
 }
 
 .footer-brand p {
-  color: var(--white);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--space-4);
 }
@@ -2326,7 +2326,7 @@ a:hover {
   font-size: var(--font-size-lg);
   font-weight: 600;
   margin-bottom: var(--space-4);
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .footer-column ul {
@@ -2338,13 +2338,13 @@ a:hover {
 }
 
 .footer-column ul li a {
-  color: var(--white);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer-column ul li a:hover {
-  color: var(--white);
+  color: var(--navy-primary);
 }
 
 .social-links {
@@ -2356,12 +2356,12 @@ a:hover {
 .social-links a {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 58, 95, 0.1);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--text-secondary);
   transition: all var(--transition-fast);
 }
 
