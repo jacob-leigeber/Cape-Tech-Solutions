@@ -107,6 +107,8 @@
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
   --shadow-dark: rgba(0, 0, 0, 0.6);
+  --white: #1a202c;
+  --text-white: #e2e8f0;
 }
 
 /* =============================================================================
@@ -1178,6 +1180,103 @@
   border: 1px solid var(--border-color);
 }
 
+/* Dark theme styles for sections that were missing them */
+[data-theme="dark"] .main-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .capabilities-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .gallery-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .trust-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .leadership-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .careers-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .benefits-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .positions-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .application-cta-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .contact-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .contact-form-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .additional-contact-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .privacy-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .privacy-content {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .capability-hero-section {
+  background: var(--background-dark);
+}
+
+[data-theme="dark"] .core-solutions-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .technical-approach-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .process-visualization {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .technology-stack-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .specialized-tech {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .why-choose-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .metrics-showcase {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .team-gallery-section {
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .mission-section {
+  background: var(--background-light);
+}
+
 /* =============================================================================
    RESET & BASE STYLES
    ============================================================================= */
@@ -1731,7 +1830,7 @@ a:hover {
    ============================================================================= */
 
 .capability-card {
-  background: var(--white);
+  background: var(--background-light);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -2067,7 +2166,7 @@ a:hover {
 }
 
 .leadership-card {
-  background: var(--white);
+  background: var(--background-light);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-10);
