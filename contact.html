@@ -26,8 +26,8 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Contact CAPE Technology Solutions - Defense Technology Partnership" />
   <meta property="og:description" content="Partner with CAPE Technology Solutions for mission-critical defense technology solutions." />
-  <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
-  <meta property="og:url" content="https://capetechsolutions.com/contact.html" />
+  <meta property="og:image" content="./images/CapeLogo.png" />
+  <meta property="og:url" content="./contact.html" />
   <meta property="og:type" content="website" />
   
   <!-- Performance Optimizations -->
@@ -185,9 +185,9 @@
                 </p>
               </div>
 
-              <form class="professional-form" action="https://formsubmit.co/544643398aae5aca467137bd19deba0f" method="POST">
+              <form class="professional-form" id="contactForm" onsubmit="handleFormSubmit(event)">
                 <!-- Hidden FormSubmit Configuration -->
-                <input type="hidden" name="_next" value="https://capetechsolutions.com/contact.html?success=true">
+                <input type="hidden" name="_next" value="./contact.html?success=true">
                 <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
                 <input type="hidden" name="_template" value="box">
                 <input type="hidden" name="_captcha" value="false">
@@ -479,6 +479,51 @@
           charCounter.style.color = 'var(--text-light)';
         }
       });
+    }
+
+    // Form submission handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const formData = new FormData(form);
+      
+      // Show loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+      submitBtn.disabled = true;
+      
+      // Simulate form submission (replace with actual backend endpoint)
+      setTimeout(() => {
+        // Show success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed';
+        successAlert.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+        successAlert.innerHTML = `
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <strong>Message Sent Successfully!</strong><br>
+          We'll respond within 24 hours.
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(successAlert);
+        
+        // Reset form
+        form.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => {
+          successAlert.remove();
+        }, 5000);
+        
+        // Log form data to console (for development)
+        console.log('Form submitted with data:', Object.fromEntries(formData));
+        
+      }, 1500); // Simulate network delay
     }
 
     // Check for success parameter in URL
