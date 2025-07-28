@@ -33,9 +33,10 @@ const throttle = (func, limit) => {
 };
 
 // =============================================================================
-// THEME MANAGEMENT
+// THEME MANAGEMENT - DISABLED
 // =============================================================================
 
+/*
 class ThemeManager {
   constructor() {
     this.currentTheme = this.getInitialTheme();
@@ -131,10 +132,13 @@ class ThemeManager {
       document.documentElement.classList.remove('theme-transitioning');
     }, 200); // Much faster - reduced from 400ms to 200ms
   }
+*/
 
+  /*
   getCurrentTheme() {
     return this.currentTheme;
   }
+  */
 }
 
 // =============================================================================
@@ -673,7 +677,7 @@ class CapeApp {
   initializeManagers() {
     try {
       // Core functionality
-      this.managers.push(new ThemeManager());
+      // this.managers.push(new ThemeManager()); // DISABLED - Theme management
       this.managers.push(new HeaderManager());
       this.managers.push(new SmoothScrollManager());
       this.managers.push(new AnimationManager());
@@ -824,7 +828,8 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Fade in on page load
+// DISABLED - Fade in on page load
+/*
 document.documentElement.classList.add('theme-transitioning');
 setTimeout(() => {
   document.documentElement.classList.add('theme-fade-in');
@@ -832,11 +837,12 @@ setTimeout(() => {
     document.documentElement.classList.remove('theme-transitioning', 'theme-fade-in');
   }, 200); // Much faster - reduced from 600ms to 200ms for more responsive text
 }, 10);
+*/
 
 // Add smooth page load animations and scroll to top
 document.addEventListener('DOMContentLoaded', () => {
-  // Add theme-ready class to show content
-  document.body.classList.add('theme-ready');
+  // DISABLED - Add theme-ready class to show content
+  // document.body.classList.add('theme-ready');
   
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -911,6 +917,8 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+// DISABLED - Theme transition function
+/*
 // Also do this when toggling theme
 function fadeThemeTransition() {
   document.documentElement.classList.add('theme-transitioning');
@@ -922,3 +930,4 @@ function fadeThemeTransition() {
   }, 10);
 }
 // Call fadeThemeTransition() after theme toggle
+*/
