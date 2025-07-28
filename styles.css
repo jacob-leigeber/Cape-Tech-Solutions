@@ -2822,9 +2822,9 @@ a:hover {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 58, 95, 0.1);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(30, 58, 95, 0.2);
   backdrop-filter: blur(10px);
 }
 
@@ -2835,7 +2835,7 @@ a:hover {
 
 .highlight-item span {
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .contact-methods {
