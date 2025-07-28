@@ -187,7 +187,7 @@
 
               <form class="professional-form" action="https://formsubmit.co/544643398aae5aca467137bd19deba0f" method="POST">
                 <!-- Hidden FormSubmit Configuration -->
-                <input type="hidden" name="_next" value="https://capetechsolutions.com/contact.html?success=true">
+                <input type="hidden" name="_next" value="contact.html?success=true">
                 <input type="hidden" name="_subject" value="New Mission Partnership Inquiry">
                 <input type="hidden" name="_template" value="box">
                 <input type="hidden" name="_captcha" value="false">
@@ -462,43 +462,54 @@
   
   <!-- Contact Form Enhancement Script -->
   <script>
-    // Character counter for message field
-    const messageField = document.getElementById('message');
-    const charCounter = document.querySelector('.character-count');
-    
-    if (messageField && charCounter) {
-      messageField.addEventListener('input', function() {
-        const count = this.value.length;
-        charCounter.textContent = `${count} / 1000 characters`;
-        
-        if (count > 800) {
-          charCounter.style.color = 'var(--orange-warning)';
-        } else if (count > 950) {
-          charCounter.style.color = 'var(--red-primary)';
-        } else {
-          charCounter.style.color = 'var(--text-light)';
-        }
-      });
-    }
-
-    // Check for success parameter in URL
-    if (window.location.search.includes('success=true')) {
-      // Show success message
-      const successAlert = document.createElement('div');
-      successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed';
-      successAlert.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
-      successAlert.innerHTML = `
-        <i class="bi bi-check-circle-fill me-2"></i>
-        <strong>Message Sent Successfully!</strong><br>
-        We'll respond within 24 hours.
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      document.body.appendChild(successAlert);
+    // Error handling wrapper
+    try {
+      // Set current year in footer with error handling
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
       
-      // Auto-dismiss after 5 seconds
-      setTimeout(() => {
-        successAlert.remove();
-      }, 5000);
+      // Character counter for message field
+      const messageField = document.getElementById('message');
+      const charCounter = document.querySelector('.character-count');
+      
+      if (messageField && charCounter) {
+        messageField.addEventListener('input', function() {
+          const count = this.value.length;
+          charCounter.textContent = `${count} / 1000 characters`;
+          
+          if (count > 800) {
+            charCounter.style.color = 'var(--orange-warning)';
+          } else if (count > 950) {
+            charCounter.style.color = 'var(--red-primary)';
+          } else {
+            charCounter.style.color = 'var(--text-light)';
+          }
+        });
+      }
+
+      // Check for success parameter in URL
+      if (window.location.search.includes('success=true')) {
+        // Show success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed';
+        successAlert.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+        successAlert.innerHTML = `
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <strong>Message Sent Successfully!</strong><br>
+          We'll respond within 24 hours.
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(successAlert);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => {
+          successAlert.remove();
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Contact page script error:', error);
     }
   </script>
 </body>
