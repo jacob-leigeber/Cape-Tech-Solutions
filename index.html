@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+<!-- 
+  DISABLED - Theme initialization script
+  This was originally designed to prevent flash of unstyled content (FOUC) when switching themes
+  Currently disabled as the dark theme functionality has been removed from the site
+-->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -12,11 +17,14 @@
 </script>
 -->
 <head>
+  <!-- Basic HTML5 meta tags for proper document structure -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme color for mobile browsers - matches our primary navy color -->
   <meta name="theme-color" content="#1e3a5f" />
   
   <!-- Essential SEO Meta Tags -->
+  <!-- These tags are critical for search engine optimization and social media sharing -->
   <title>CAPE Technology Solutions - Advanced Defense Technology & Mission-Critical Solutions</title>
   <meta name="description" content="CAPE Technology Solutions delivers mission-critical software engineering, defense simulation, and data management solutions for national security and military readiness. Trusted by DoD agencies worldwide." />
   <meta name="keywords" content="defense contractor, military simulation, DoD software, DevSecOps, JLVC federation, defense technology, national security, military readiness" />
@@ -24,6 +32,7 @@
   <meta name="robots" content="index, follow" />
   
   <!-- Open Graph Meta Tags -->
+  <!-- These tags control how the page appears when shared on social media platforms -->
   <meta property="og:title" content="CAPE Technology Solutions - Advanced Defense Technology" />
   <meta property="og:description" content="Mission-critical defense technology solutions for national security and military readiness." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
@@ -31,19 +40,30 @@
   <meta property="og:type" content="website" />
   
   <!-- Performance Optimizations -->
+  <!-- DNS prefetching and preconnect hints to speed up external resource loading -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
   <!-- Professional Typography -->
+  <!-- Multiple font families loaded for different use cases:
+       - Inter: Primary body text and UI elements
+       - Rajdhani: Headings and display text
+       - Orbitron: Technical/defense aesthetic elements
+       - Exo 2: Alternative heading font
+       - JetBrains Mono: Code and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
   <!-- Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid system and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography throughout the site -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom stylesheet with all our defense contractor styling -->
   <link href="styles.css" rel="stylesheet" />
   
   <!-- Structured Data -->
+  <!-- JSON-LD structured data for search engines to better understand our organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,13 +95,16 @@
 
 <body>
   <!-- Page Loader -->
+  <!-- Loading spinner that shows while the page is initializing -->
   <div class="page-loader"></div>
   
   <!-- Header & Navigation -->
+  <!-- Fixed header with navigation menu and company branding -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <!-- Logo & Brand -->
+        <!-- Company logo and branding that links back to homepage -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -91,17 +114,20 @@
         </a>
 
         <!-- Mobile Toggle -->
+        <!-- Hamburger menu button for mobile navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Navigation Menu -->
+        <!-- Main navigation with dropdown for capabilities -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item dropdown">
+              <!-- Dropdown menu for our three main service areas -->
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
@@ -138,7 +164,9 @@
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
-            <!-- DISABLED - Theme toggle button
+            <!-- DISABLED - Theme toggle button -->
+            <!-- Originally allowed users to switch between light and dark themes -->
+            <!--
             <li class="nav-item">
               <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
                 <i class="bi bi-sun-fill"></i>
@@ -154,10 +182,13 @@
   <!-- Main Content -->
   <main>
     <!-- Hero Section -->
+    <!-- Full-screen hero section with background video/image and main value proposition -->
     <section class="hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background elements including image, overlay, and video -->
       <div class="hero-background">
         <img src="images/CapePic1.jpg" alt="Defense technology team" class="hero-bg-image">
         <div class="hero-overlay"></div>
+        <!-- Background video for enhanced visual impact -->
         <video class="hero-video" autoplay muted loop>
           <source src="videos/defense-hero.mp4" type="video/mp4">
         </video>
@@ -166,19 +197,23 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge to establish credibility -->
               <div class="hero-badge mb-4">
                 <span class="badge-icon">🛡️</span>
                 <span>Trusted Defense Partner</span>
               </div>
+              <!-- Main headline with animated text effect -->
               <h1 class="hero-title mb-4" data-text="Advancing National Security Through Mission-Critical Technology">
                 Advancing <span class="text-primary">National Security</span> 
                 Through Mission-Critical Technology
               </h1>
+              <!-- Value proposition and company description -->
               <p class="hero-description mb-5">
                 CAPE Technology Solutions delivers cutting-edge software engineering, defense simulation, 
                 and data management solutions that ensure mission success for the U.S. Department of Defense 
                 and allied nations worldwide.
               </p>
+              <!-- Key statistics to build credibility -->
               <div class="hero-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">70+</span>
@@ -193,6 +228,7 @@
                   <span class="stat-label">Mission Support</span>
                 </div>
               </div>
+              <!-- Call-to-action buttons -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
                 <a href="contact.html" class="btn btn-primary btn-lg">
                   <i class="bi bi-shield-check"></i>
@@ -210,8 +246,10 @@
     </section>
 
     <!-- Capabilities Section -->
+    <!-- Showcase of our three main service areas with detailed information -->
     <section id="capabilities" class="capabilities-section">
       <div class="container">
+        <!-- Section header with badge, title, and description -->
         <div class="section-header">
           <div class="section-badge">
             <i class="bi bi-gear"></i>
@@ -225,7 +263,7 @@
         </div>
 
         <div class="row g-4">
-          <!-- Software Engineering -->
+          <!-- Software Engineering Capability Card -->
           <div class="col-lg-4">
             <div class="capability-card">
               <img src="images/CapePic2.jpg" alt="Software Engineering Team" class="img-fluid rounded-top mb-3 capability-img" />
@@ -233,6 +271,7 @@
                 <div class="card-icon">
                   <i class="bi bi-code-square"></i>
                 </div>
+                <!-- Security classification badges -->
                 <div class="card-meta">
                   <span class="classification">UNCLASSIFIED</span>
                   <span class="clearance">SECRET CLEARED</span>
@@ -244,12 +283,14 @@
                   Advanced full-stack development with DevSecOps integration, delivering secure, 
                   scalable applications like the Joint Training Tool (JTT) for mission-critical operations.
                 </p>
+                <!-- Key features list -->
                 <ul class="capability-list">
                   <li><i class="bi bi-check-circle"></i> Enterprise Application Development</li>
                   <li><i class="bi bi-check-circle"></i> Cloud-Native Architecture</li>
                   <li><i class="bi bi-check-circle"></i> DevSecOps Implementation</li>
                   <li><i class="bi bi-check-circle"></i> DoD Compliance Standards</li>
                 </ul>
+                <!-- Performance metrics -->
                 <div class="card-metrics">
                   <div class="metric">
                     <span class="metric-value">99.9%</span>
@@ -269,7 +310,7 @@
             </div>
           </div>
 
-          <!-- Defense Simulation -->
+          <!-- Defense Simulation Capability Card (Featured) -->
           <div class="col-lg-4">
             <div class="capability-card featured">
               <img src="images/CapePic5.jpg" alt="Defense Simulation Exercise" class="img-fluid rounded-top mb-3 capability-img" />
@@ -313,7 +354,7 @@
             </div>
           </div>
 
-          <!-- Data Management -->
+          <!-- Data Management Capability Card -->
           <div class="col-lg-4">
             <div class="capability-card">
               <img src="images/CapePic6.jpg" alt="Data Management Team" class="img-fluid rounded-top mb-3 capability-img" />
@@ -361,6 +402,7 @@
     </section>
 
     <!-- Image Gallery Section -->
+    <!-- Visual showcase of our team and mission in action -->
     <section class="gallery-section">
       <div class="container">
         <div class="section-header text-center">
@@ -374,7 +416,9 @@
           </p>
         </div>
         
+        <!-- Responsive image grid with hover effects -->
         <div class="gallery-grid">
+          <!-- Featured gallery item (larger) -->
           <div class="gallery-item featured">
             <img src="images/CapePic3.jpg" alt="Team collaboration on defense technology" loading="lazy">
             <div class="gallery-overlay">
@@ -382,6 +426,7 @@
               <p>Elite professionals working on mission-critical systems</p>
             </div>
           </div>
+          <!-- Additional gallery items with overlay text -->
           <div class="gallery-item">
             <img src="images/CapePic4.jpg" alt="Advanced technology workspace" loading="lazy">
             <div class="gallery-overlay">
@@ -471,6 +516,7 @@
     </section>
 
     <!-- Trust Indicators Section -->
+    <!-- Builds credibility through certifications and compliance -->
     <section class="trust-section">
       <div class="container">
         <div class="row align-items-center">
@@ -485,6 +531,7 @@
                 Our commitment to excellence is validated through rigorous certifications, 
                 security clearances, and successful mission outcomes.
               </p>
+              <!-- Trust statistics -->
               <div class="trust-stats">
                 <div class="trust-stat">
                   <i class="bi bi-shield-check"></i>
@@ -511,6 +558,7 @@
             </div>
           </div>
           <div class="col-lg-6">
+            <!-- Certification badges grid -->
             <div class="certifications-grid">
               <div class="cert-card">
                 <i class="bi bi-shield-shaded"></i>
@@ -543,6 +591,7 @@
     </section>
 
     <!-- Leadership Section -->
+    <!-- Highlights our veteran leadership and company values -->
     <section class="leadership-section">
       <div class="container">
         <div class="section-header text-center">
@@ -569,9 +618,11 @@
                 Their focus is on the people of CAPE by implementing work/life balance while maintaining a high level 
                 of proficiency. It's the cornerstone to how the company is run:
               </p>
+              <!-- Leadership philosophy quote -->
               <blockquote class="leadership-quote">
                 "Lead People; Manage Things. Never confuse the two."
               </blockquote>
+              <!-- Core values -->
               <div class="leadership-values">
                 <div class="value-item">
                   <i class="bi bi-bullseye"></i>
@@ -593,6 +644,7 @@
     </section>
 
     <!-- CTA Section -->
+    <!-- Final call-to-action to encourage contact -->
     <section class="cta-section">
       <div class="container">
         <div class="row align-items-center">
@@ -623,6 +675,7 @@
   </main>
 
   <!-- Footer -->
+  <!-- Site footer with company info, navigation links, and contact details -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
@@ -633,6 +686,7 @@
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
               <h4 class="mb-2">CAPE Technology Solutions</h4>
               <p class="mb-3">Mission-critical defense technology solutions for national security and military readiness.</p>
+              <!-- Security notice -->
               <div class="security-notice d-flex align-items-center gap-2">
                 <i class="bi bi-shield-check"></i>
                 <span>All personnel maintain active security clearances</span>
@@ -642,6 +696,7 @@
           <!-- Right: Links and contact, grouped in one column for desktop, stacked for mobile -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -652,6 +707,7 @@
                   </ul>
                 </div>
               </div>
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -662,9 +718,11 @@
                   </ul>
                 </div>
               </div>
+              <!-- Contact and social links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
+                  <!-- Social media links -->
                   <div class="social-links mb-2">
                     <a href="https://linkedin.com/company/cape-technology-solutions" aria-label="LinkedIn" class="me-2">
                       <i class="bi bi-linkedin"></i>
@@ -673,6 +731,7 @@
                       <i class="bi bi-envelope"></i>
                     </a>
                   </div>
+                  <!-- Contact information -->
                   <div class="contact-info small">
                     <p class="mb-1"><i class="bi bi-telephone"></i> +1 (123) 456-7890</p>
                     <p class="mb-0"><i class="bi bi-envelope"></i> info@capetechsolutions.com</p>
@@ -683,6 +742,7 @@
           </div>
         </div>
       </div>
+      <!-- Footer bottom with copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
@@ -701,8 +761,11 @@
   </footer>
 
   <!-- Scripts -->
+  <!-- Dynamic year update for copyright -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- Bootstrap JavaScript for interactive components -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for enhanced functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>
