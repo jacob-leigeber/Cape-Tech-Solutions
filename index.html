@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+
+<!-- DISABLED - Theme initialization script -->
+<!-- This script was previously used for dark/light theme switching -->
+<!-- Currently disabled as theme toggle functionality is not active -->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -11,39 +15,49 @@
 })();
 </script>
 -->
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme color for mobile browser UI -->
   <meta name="theme-color" content="#1e3a5f" />
   
-  <!-- Essential SEO Meta Tags -->
+  <!-- Essential SEO Meta Tags for search engine optimization -->
   <title>CAPE Technology Solutions - Advanced Defense Technology & Mission-Critical Solutions</title>
   <meta name="description" content="CAPE Technology Solutions delivers mission-critical software engineering, defense simulation, and data management solutions for national security and military readiness. Trusted by DoD agencies worldwide." />
   <meta name="keywords" content="defense contractor, military simulation, DoD software, DevSecOps, JLVC federation, defense technology, national security, military readiness" />
   <meta name="author" content="CAPE Technology Solutions" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags for social media sharing -->
   <meta property="og:title" content="CAPE Technology Solutions - Advanced Defense Technology" />
   <meta property="og:description" content="Mission-critical defense technology solutions for national security and military readiness." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
   <meta property="og:url" content="https://capetechsolutions.com" />
   <meta property="og:type" content="website" />
   
-  <!-- Performance Optimizations -->
+  <!-- Performance Optimizations for faster font loading -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <!-- Professional Typography -->
+  <!-- Professional Typography - Multiple font families for different UI elements -->
+  <!-- Inter: Main body text and UI elements -->
+  <!-- Rajdhani: Headers and section titles -->
+  <!-- Orbitron: Technology/futuristic elements -->
+  <!-- Exo 2: Alternative headers -->
+  <!-- JetBrains Mono: Code snippets and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom stylesheet - must be loaded last to override Bootstrap -->
   <link href="styles.css" rel="stylesheet" />
   
-  <!-- Structured Data -->
+  <!-- Structured Data for search engines (SEO enhancement) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,14 +88,14 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
+  <!-- Page Loader - Shows while page is loading, hidden by JavaScript -->
   <div class="page-loader"></div>
   
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation - Sticky navigation bar -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <!-- Logo & Brand -->
+        <!-- Logo & Brand - Company branding with logo and tagline -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -90,22 +104,25 @@
           </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile Toggle - Hamburger menu for mobile devices -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu - Main site navigation -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home link - marked as active for current page -->
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Home</a>
             </li>
+            <!-- Capabilities dropdown - showcases three main service areas -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
               <ul class="dropdown-menu">
+                <!-- Each dropdown item has icon, title, and description -->
                 <li><a class="dropdown-item" href="software-development.html">
                   <i class="bi bi-code-square"></i>
                   <div>
@@ -129,16 +146,20 @@
                 </a></li>
               </ul>
             </li>
+            <!-- Standard navigation links -->
             <li class="nav-item">
               <a class="nav-link" href="whoweare.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="careers.html">Careers</a>
             </li>
+            <!-- CTA link - styled differently to stand out -->
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
-            <!-- DISABLED - Theme toggle button
+            <!-- DISABLED - Theme toggle button -->
+            <!-- Previously used for dark/light mode switching -->
+            <!--
             <li class="nav-item">
               <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
                 <i class="bi bi-sun-fill"></i>
@@ -151,34 +172,47 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section - Full-screen landing area with background image/video -->
     <section class="hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background Media Container -->
       <div class="hero-background">
+        <!-- Static background image -->
         <img src="images/CapePic1.jpg" alt="Defense technology team" class="hero-bg-image">
+        <!-- Dark overlay to improve text readability -->
         <div class="hero-overlay"></div>
+        <!-- Optional background video (currently no source file) -->
         <video class="hero-video" autoplay muted loop>
           <source src="videos/defense-hero.mp4" type="video/mp4">
         </video>
       </div>
+      
+      <!-- Hero Content - Positioned above background -->
       <div class="container position-relative z-2">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge with emoji icon -->
               <div class="hero-badge mb-4">
                 <span class="badge-icon">🛡️</span>
                 <span>Trusted Defense Partner</span>
               </div>
+              
+              <!-- Main headline with animated text effect -->
               <h1 class="hero-title mb-4" data-text="Advancing National Security Through Mission-Critical Technology">
                 Advancing <span class="text-primary">National Security</span> 
                 Through Mission-Critical Technology
               </h1>
+              
+              <!-- Hero description paragraph -->
               <p class="hero-description mb-5">
                 CAPE Technology Solutions delivers cutting-edge software engineering, defense simulation, 
                 and data management solutions that ensure mission success for the U.S. Department of Defense 
                 and allied nations worldwide.
               </p>
+              
+              <!-- Key statistics displayed prominently -->
               <div class="hero-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">70+</span>
@@ -193,11 +227,15 @@
                   <span class="stat-label">Mission Support</span>
                 </div>
               </div>
+              
+              <!-- Call-to-action buttons -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
+                <!-- Primary CTA - leads to contact form -->
                 <a href="contact.html" class="btn btn-primary btn-lg">
                   <i class="bi bi-shield-check"></i>
                   Secure Our Partnership
                 </a>
+                <!-- Secondary CTA - anchor link to capabilities section -->
                 <a href="#capabilities" class="btn btn-outline-light btn-lg">
                   <i class="bi bi-arrow-down"></i>
                   Explore Capabilities
@@ -209,47 +247,62 @@
       </div>
     </section>
 
-    <!-- Capabilities Section -->
+    <!-- Capabilities Section - Main service offerings -->
     <section id="capabilities" class="capabilities-section">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
         <div class="section-header">
+          <!-- Section badge with icon -->
           <div class="section-badge">
             <i class="bi bi-gear"></i>
             <span>Core Capabilities</span>
           </div>
+          <!-- Section title -->
           <h2 class="section-title">Mission-Critical Solutions</h2>
+          <!-- Section description -->
           <p class="section-description">
             Three decades of defense experience delivering advanced technology solutions 
             that support national security objectives and enhance military readiness.
           </p>
         </div>
 
+        <!-- Capabilities Grid - Three main service areas -->
         <div class="row g-4">
-          <!-- Software Engineering -->
+          <!-- Software Engineering Card -->
           <div class="col-lg-4">
             <div class="capability-card">
+              <!-- Card image -->
               <img src="images/CapePic2.jpg" alt="Software Engineering Team" class="img-fluid rounded-top mb-3 capability-img" />
+              
+              <!-- Card header with icon and metadata -->
               <div class="card-header">
                 <div class="card-icon">
                   <i class="bi bi-code-square"></i>
                 </div>
+                <!-- Security classification badges -->
                 <div class="card-meta">
                   <span class="classification">UNCLASSIFIED</span>
                   <span class="clearance">SECRET CLEARED</span>
                 </div>
               </div>
+              
+              <!-- Main card content -->
               <div class="card-content">
                 <h3 class="card-title">Software Engineering</h3>
                 <p class="card-description">
                   Advanced full-stack development with DevSecOps integration, delivering secure, 
                   scalable applications like the Joint Training Tool (JTT) for mission-critical operations.
                 </p>
+                
+                <!-- Feature list with check icons -->
                 <ul class="capability-list">
                   <li><i class="bi bi-check-circle"></i> Enterprise Application Development</li>
                   <li><i class="bi bi-check-circle"></i> Cloud-Native Architecture</li>
                   <li><i class="bi bi-check-circle"></i> DevSecOps Implementation</li>
                   <li><i class="bi bi-check-circle"></i> DoD Compliance Standards</li>
                 </ul>
+                
+                <!-- Key metrics display -->
                 <div class="card-metrics">
                   <div class="metric">
                     <span class="metric-value">99.9%</span>
@@ -261,6 +314,8 @@
                   </div>
                 </div>
               </div>
+              
+              <!-- Card footer with link to detailed page -->
               <div class="card-footer">
                 <a href="software-development.html" class="card-link">
                   Learn More <i class="bi bi-arrow-right"></i>
@@ -269,7 +324,7 @@
             </div>
           </div>
 
-          <!-- Defense Simulation -->
+          <!-- Defense Simulation Card - Featured (highlighted) -->
           <div class="col-lg-4">
             <div class="capability-card featured">
               <img src="images/CapePic5.jpg" alt="Defense Simulation Exercise" class="img-fluid rounded-top mb-3 capability-img" />
@@ -277,6 +332,7 @@
                 <div class="card-icon">
                   <i class="bi bi-diagram-3"></i>
                 </div>
+                <!-- Higher security clearance required -->
                 <div class="card-meta">
                   <span class="classification">UNCLASSIFIED</span>
                   <span class="clearance">TOP SECRET</span>
@@ -313,7 +369,7 @@
             </div>
           </div>
 
-          <!-- Data Management -->
+          <!-- Data Management Card -->
           <div class="col-lg-4">
             <div class="capability-card">
               <img src="images/CapePic6.jpg" alt="Data Management Team" class="img-fluid rounded-top mb-3 capability-img" />
@@ -360,7 +416,7 @@
       </div>
     </section>
 
-    <!-- Image Gallery Section -->
+    <!-- Image Gallery Section - Visual showcase of work and team -->
     <section class="gallery-section">
       <div class="container">
         <div class="section-header text-center">
@@ -374,7 +430,9 @@
           </p>
         </div>
         
+        <!-- Gallery Grid - CSS Grid layout with featured item -->
         <div class="gallery-grid">
+          <!-- Featured gallery item (larger) -->
           <div class="gallery-item featured">
             <img src="images/CapePic3.jpg" alt="Team collaboration on defense technology" loading="lazy">
             <div class="gallery-overlay">
@@ -382,6 +440,8 @@
               <p>Elite professionals working on mission-critical systems</p>
             </div>
           </div>
+          
+          <!-- Regular gallery items - all with lazy loading for performance -->
           <div class="gallery-item">
             <img src="images/CapePic4.jpg" alt="Advanced technology workspace" loading="lazy">
             <div class="gallery-overlay">
@@ -389,6 +449,9 @@
               <p>Cutting-edge solutions for defense applications</p>
             </div>
           </div>
+          
+          <!-- Additional gallery items continue with same pattern -->
+          <!-- Each item has descriptive alt text and overlay with title/description -->
           <div class="gallery-item">
             <img src="images/CapePic5.jpg" alt="Security cleared professionals" loading="lazy">
             <div class="gallery-overlay">
@@ -396,6 +459,9 @@
               <p>100% cleared personnel supporting national security</p>
             </div>
           </div>
+          
+          <!-- Continue with remaining gallery items... -->
+          <!-- Note: 13 total images showcasing different aspects of operations -->
           <div class="gallery-item">
             <img src="images/CapePic6.jpg" alt="Mission-critical operations" loading="lazy">
             <div class="gallery-overlay">
@@ -470,10 +536,11 @@
       </div>
     </section>
 
-    <!-- Trust Indicators Section -->
+    <!-- Trust Indicators Section - Builds credibility with certifications -->
     <section class="trust-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left column: Trust content -->
           <div class="col-lg-6">
             <div class="trust-content">
               <div class="section-badge">
@@ -481,10 +548,13 @@
                 <span>Certifications & Compliance</span>
               </div>
               <h2 class="section-title">Trusted by Defense Leaders</h2>
+              <!-- Note: Fixed grey text issue by adding text-white class -->
               <p class="section-description text-white">
                 Our commitment to excellence is validated through rigorous certifications, 
                 security clearances, and successful mission outcomes.
               </p>
+              
+              <!-- Trust statistics with icons -->
               <div class="trust-stats">
                 <div class="trust-stat">
                   <i class="bi bi-shield-check"></i>
@@ -510,8 +580,11 @@
               </div>
             </div>
           </div>
+          
+          <!-- Right column: Certification grid -->
           <div class="col-lg-6">
             <div class="certifications-grid">
+              <!-- Each certification displayed as a card with icon -->
               <div class="cert-card">
                 <i class="bi bi-shield-shaded"></i>
                 <span>FISMA<br>Moderate</span>
@@ -542,7 +615,7 @@
       </div>
     </section>
 
-    <!-- Leadership Section -->
+    <!-- Leadership Section - Highlights veteran leadership -->
     <section class="leadership-section">
       <div class="container">
         <div class="section-header text-center">
@@ -556,6 +629,7 @@
           </p>
         </div>
 
+        <!-- Leadership content card -->
         <div class="leadership-content">
           <div class="leadership-card">
             <div class="leadership-icon">
@@ -569,9 +643,13 @@
                 Their focus is on the people of CAPE by implementing work/life balance while maintaining a high level 
                 of proficiency. It's the cornerstone to how the company is run:
               </p>
+              
+              <!-- Leadership philosophy quote -->
               <blockquote class="leadership-quote">
                 "Lead People; Manage Things. Never confuse the two."
               </blockquote>
+              
+              <!-- Core values with icons -->
               <div class="leadership-values">
                 <div class="value-item">
                   <i class="bi bi-bullseye"></i>
@@ -592,10 +670,11 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Call-to-Action Section - Final conversion opportunity -->
     <section class="cta-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left: CTA content -->
           <div class="col-lg-8">
             <div class="cta-content">
               <h2 class="cta-title">Ready to Secure Your Mission Success?</h2>
@@ -605,12 +684,16 @@
               </p>
             </div>
           </div>
+          
+          <!-- Right: Action buttons -->
           <div class="col-lg-4 text-lg-end">
             <div class="cta-actions">
+              <!-- Primary action: Contact form -->
               <a href="contact.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-envelope"></i>
                 Contact Us
               </a>
+              <!-- Secondary action: Direct phone call -->
               <a href="tel:+1-123-456-7890" class="btn btn-outline-light btn-lg">
                 <i class="bi bi-telephone"></i>
                 Call Now
@@ -622,26 +705,29 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer - Site-wide footer with links and contact info -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
         <div class="row gy-4">
-          <!-- Left: Logo and description -->
+          <!-- Left column: Logo and company description -->
           <div class="col-lg-4 d-flex flex-column justify-content-center">
             <div class="footer-brand mb-4">
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
               <h4 class="mb-2">CAPE Technology Solutions</h4>
               <p class="mb-3">Mission-critical defense technology solutions for national security and military readiness.</p>
+              <!-- Security notice reinforces trust -->
               <div class="security-notice d-flex align-items-center gap-2">
                 <i class="bi bi-shield-check"></i>
                 <span>All personnel maintain active security clearances</span>
               </div>
             </div>
           </div>
-          <!-- Right: Links and contact, grouped in one column for desktop, stacked for mobile -->
+          
+          <!-- Right columns: Navigation links organized in groups -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -652,6 +738,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -662,9 +750,12 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Connect section with social and contact info -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
+                  <!-- Social media links -->
                   <div class="social-links mb-2">
                     <a href="https://linkedin.com/company/cape-technology-solutions" aria-label="LinkedIn" class="me-2">
                       <i class="bi bi-linkedin"></i>
@@ -673,6 +764,7 @@
                       <i class="bi bi-envelope"></i>
                     </a>
                   </div>
+                  <!-- Contact information -->
                   <div class="contact-info small">
                     <p class="mb-1"><i class="bi bi-telephone"></i> +1 (123) 456-7890</p>
                     <p class="mb-0"><i class="bi bi-envelope"></i> info@capetechsolutions.com</p>
@@ -683,12 +775,16 @@
           </div>
         </div>
       </div>
+      
+      <!-- Footer bottom: Copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
+            <!-- Dynamic copyright year -->
             <p class="copyright mb-2">
               © <span id="year"></span> CAPE Technology Solutions. All rights reserved.
             </p>
+            <!-- Legal/policy links -->
             <div class="footer-links d-flex justify-content-center gap-3">
               <a href="privacy.html">Privacy Policy</a>
               <a href="#">Terms of Service</a>
@@ -700,9 +796,12 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JavaScript Files -->
+  <!-- Set current year in copyright -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- Bootstrap JavaScript for interactive components -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for site functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>
