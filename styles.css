@@ -3032,6 +3032,41 @@ a:hover {
   margin-top: var(--space-8);
 }
 
+/* DOD Endorsement Disclaimer */
+.dod-disclaimer {
+  background: rgba(30, 58, 95, 0.05);
+  border: 1px solid rgba(30, 58, 95, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+  text-align: center;
+}
+
+.dod-disclaimer small {
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+.dod-disclaimer i {
+  color: var(--navy-primary);
+  margin-right: var(--space-2);
+}
+
+/* Dark theme support for DOD disclaimer */
+[data-theme="dark"] .dod-disclaimer {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .dod-disclaimer small {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .dod-disclaimer i {
+  color: var(--white);
+}
+
 /* Additional Contact Information */
 .additional-contact-section {
   padding: var(--space-20) 0;
