@@ -441,7 +441,7 @@
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
                   <div class="social-links mb-2">
-                    <a href="https://linkedin.com/company/cape-technology-solutions" aria-label="LinkedIn" class="me-2">
+                    <a href="https://www.linkedin.com/company/cape-technology-solutions-llc/" aria-label="LinkedIn" class="me-2">
                       <i class="bi bi-linkedin"></i>
                     </a>
                     <a href="mailto:info@capetechsolutions.com" aria-label="Email">
@@ -466,8 +466,6 @@
             </p>
             <div class="footer-links d-flex justify-content-center gap-3">
               <a href="privacy.html">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Security</a>
             </div>
           </div>
         </div>
@@ -499,53 +497,6 @@
         }
       });
     }
-
-    // Remove or comment out this entire function
-    /*
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      const form = event.target;
-      const formData = new FormData(form);
-      
-      // Show loading state
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
-      submitBtn.disabled = true;
-      
-      // Simulate form submission (replace with actual backend endpoint)
-      setTimeout(() => {
-        // Show success message
-        const successAlert = document.createElement('div');
-        successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed';
-        successAlert.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
-        successAlert.innerHTML = `
-          <i class="bi bi-check-circle-fill me-2"></i>
-          <strong>Message Sent Successfully!</strong><br>
-          We'll respond within 24 hours.
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
-        document.body.appendChild(successAlert);
-        
-        // Reset form
-        form.reset();
-        
-        // Reset button
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Auto-dismiss after 5 seconds
-        setTimeout(() => {
-          successAlert.remove();
-        }, 5000);
-        
-        // Log form data to console (for development)
-        console.log('Form submitted with data:', Object.fromEntries(formData));
-        
-      }, 1500); // Simulate network delay
-    }
-    */
 
     // Check for success parameter in URL
     if (window.location.search.includes('success=true')) {
