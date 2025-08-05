@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+<!-- DISABLED - Theme initialization script -->
+<!-- This script was previously used for dark/light theme switching -->
+<!-- Currently disabled as theme toggle functionality is not active -->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -11,48 +14,65 @@
 })();
 </script>
 -->
+
 <head>
+  <!-- Character encoding and responsive viewport settings -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme color for mobile browser UI - matches brand colors -->
   <meta name="theme-color" content="#1e3a5f" />
   
-  <!-- Essential SEO Meta Tags -->
+  <!-- Essential SEO Meta Tags for search engine optimization -->
+  <!-- These tags help search engines understand and index the page content -->
   <title>About Us - CAPE Technology Solutions | Veteran-Led Defense Technology</title>
   <meta name="description" content="CAPE Technology Solutions is a veteran-led defense technology company with 70+ years combined experience in mission-critical software development and engineering for national security." />
   <meta name="keywords" content="veteran-led defense contractor, army veterans, defense technology leadership, mission-critical software, DoD contractor, military experience" />
   <meta name="author" content="CAPE Technology Solutions" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <!-- These tags control how the page appears when shared on social platforms -->
   <meta property="og:title" content="About CAPE Technology Solutions - Veteran-Led Defense Technology" />
   <meta property="og:description" content="Veteran-led defense technology company with mission-critical expertise and people-first leadership." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
   <meta property="og:url" content="https://capetechsolutions.com/whoweare.html" />
   <meta property="og:type" content="website" />
   
-  <!-- Performance Optimizations -->
+  <!-- Performance Optimizations for faster font loading -->
+  <!-- DNS prefetch and preconnect improve font loading performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <!-- Professional Typography -->
+  <!-- Professional Typography - Multiple font families for different UI elements -->
+  <!-- Inter: Main body text and UI elements -->
+  <!-- Rajdhani: Headers and section titles -->
+  <!-- Orbitron: Technology/futuristic elements -->
+  <!-- Exo 2: Alternative headers -->
+  <!-- JetBrains Mono: Code snippets and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom stylesheet - must be loaded last to override Bootstrap -->
   <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Page Loader -->
+  <!-- Page Loader - Shows while page is loading, hidden by JavaScript -->
+  <!-- This provides visual feedback during page load -->
   <div class="page-loader"></div>
   
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation - Sticky navigation bar -->
+  <!-- Contains logo, navigation menu, and mobile toggle -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <!-- Logo & Brand -->
+        <!-- Logo & Brand - Company branding with logo and tagline -->
+        <!-- Links back to homepage and establishes brand identity -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -61,22 +81,27 @@
           </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile Toggle - Hamburger menu for mobile devices -->
+        <!-- Bootstrap collapse trigger for responsive navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu - Main site navigation -->
+        <!-- Collapsible menu with dropdown for capabilities -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home link -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
+            <!-- Capabilities dropdown - showcases three main service areas -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
               <ul class="dropdown-menu">
+                <!-- Software Engineering - Full-stack development services -->
                 <li><a class="dropdown-item" href="software-development.html">
                   <i class="bi bi-code-square"></i>
                   <div>
@@ -84,6 +109,7 @@
                     <small>Full-stack enterprise solutions</small>
                   </div>
                 </a></li>
+                <!-- Defense Simulation - JLVC federation management -->
                 <li><a class="dropdown-item" href="defense-simulation.html">
                   <i class="bi bi-diagram-3"></i>
                   <div>
@@ -91,6 +117,7 @@
                     <small>JLVC federation management</small>
                   </div>
                 </a></li>
+                <!-- Data Management - Configuration and analytics -->
                 <li><a class="dropdown-item" href="data-configuration.html">
                   <i class="bi bi-database"></i>
                   <div>
@@ -100,12 +127,14 @@
                 </a></li>
               </ul>
             </li>
+            <!-- About link - marked as active for current page -->
             <li class="nav-item">
               <a class="nav-link active" href="whoweare.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="careers.html">Careers</a>
             </li>
+            <!-- CTA link - styled differently to stand out -->
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
@@ -115,31 +144,51 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
+  <!-- Contains all page sections and content -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section - Full-screen landing area with background image -->
+    <!-- This is the first thing visitors see - establishes veteran leadership -->
     <section class="capability-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background Media Container -->
+      <!-- Contains background image and overlay -->
       <div class="hero-background">
+        <!-- Static background image - veteran leadership team -->
         <img src="images/CapePic9.jpg" alt="Veteran leadership team" class="hero-bg-image">
+        <!-- Dark overlay to improve text readability -->
         <div class="hero-overlay"></div>
       </div>
+      
+      <!-- Hero Content - Positioned above background -->
+      <!-- Contains main headline, description, stats, and call-to-action buttons -->
       <div class="container position-relative z-2">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge with emoji icon -->
+              <!-- Establishes credibility and identifies veteran leadership -->
               <div class="hero-badge mb-4">
                 <span class="badge-icon">🎖️</span>
                 <span>Veteran-Led Excellence</span>
               </div>
+              
+              <!-- Main headline -->
+              <!-- Primary value proposition highlighting veteran leadership -->
               <h1 class="hero-title mb-4">
                 <span class="text-primary">Mission-First</span> Leadership 
                 Driving Defense Innovation
               </h1>
+              
+              <!-- Hero description paragraph -->
+              <!-- Explains veteran leadership and company foundation -->
               <p class="hero-description mb-5">
                 CAPE Technology Solutions is built on the foundation of veteran leadership with 
                 70+ years of combined military and defense technology experience. We lead people, 
                 manage things, and deliver mission-critical solutions that protect our nation.
               </p>
+              
+              <!-- Key statistics displayed prominently -->
+              <!-- Builds credibility with veteran experience numbers -->
               <div class="capability-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">3</span>
@@ -154,11 +203,16 @@
                   <span class="stat-label">Mission Focus</span>
                 </div>
               </div>
+              
+              <!-- Call-to-action buttons -->
+              <!-- Primary and secondary actions for visitors -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
+                <!-- Primary CTA - anchor link to leadership section -->
                 <a href="#leadership" class="btn btn-primary btn-lg">
                   <i class="bi bi-people"></i>
                   Meet Our Team
                 </a>
+                <!-- Secondary CTA - leads to careers page -->
                 <a href="careers.html" class="btn btn-outline-light btn-lg">
                   <i class="bi bi-star"></i>
                   Join Our Mission
@@ -170,9 +224,12 @@
       </div>
     </section>
 
-    <!-- Leadership Philosophy Section -->
+    <!-- Leadership Philosophy Section - Core leadership principles -->
+    <!-- Showcases the company's leadership philosophy and approach -->
     <section id="leadership" class="core-solutions-section main-section section-padding">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-shield-check"></i>
@@ -185,17 +242,26 @@
           </p>
         </div>
 
+        <!-- Leadership philosophy grid -->
+        <!-- Two main leadership philosophy cards -->
         <div class="row g-4">
+          <!-- Core Leadership Quote Card - Featured -->
+          <!-- Primary leadership principle - highlighted as main philosophy -->
           <div class="col-lg-6">
             <div class="solution-card featured card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-quote"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>"Lead People; Manage Things. Never confuse the two."</h3>
                 <p class="solution-description">
                   Our foundational leadership philosophy guides every decision and interaction at CAPE Technology Solutions.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key aspects of the leadership philosophy -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -218,16 +284,23 @@
             </div>
           </div>
           
+          <!-- People-First Culture Card -->
+          <!-- Second leadership philosophy - people-focused approach -->
           <div class="col-lg-6">
             <div class="solution-card card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-person-heart"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>People-First Culture</h3>
                 <p class="solution-description">
                   Focus on the people of CAPE by implementing work-life balance while maintaining high proficiency.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key aspects of people-first culture -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -253,9 +326,12 @@
       </div>
     </section>
 
-    <!-- Mission & Purpose Section -->
+    <!-- Mission & Purpose Section - Company mission and impact -->
+    <!-- Explains the company's mission and life-saving impact -->
     <section class="core-solutions-section main-section section-padding">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-bullseye"></i>
@@ -265,16 +341,22 @@
           <p class="section-description">
             We leverage company talent, passionate perseverance, and impassioned work ethic 
             to provide the best, most realistic staff training experiences possible—preventing 
-            current and future leaders from making critical errors that cost lives.
+            current and future leaders from making critical errors that could cost lives.
           </p>
         </div>
 
+        <!-- Mission and impact grid -->
+        <!-- Two main mission and impact cards -->
         <div class="row g-4">
+          <!-- Foundational Philosophy Card - Featured -->
+          <!-- Primary mission statement - highlighted as main purpose -->
           <div class="col-lg-6">
             <div class="solution-card featured card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-quote"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>Our Foundational Philosophy</h3>
                 <p class="solution-description">
@@ -282,6 +364,9 @@
                   we do at CAPE Technology Solutions, ensuring comprehensive training solutions that 
                   prevent critical errors in real-world scenarios.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key aspects of the foundational philosophy -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -300,6 +385,9 @@
                     <span>Error prevention strategies</span>
                   </div>
                 </div>
+                
+                <!-- Core principles display -->
+                <!-- Shows the core principles that guide the company -->
                 <div class="solution-tech">
                   <h5>Core Principles:</h5>
                   <div class="tech-stack">
@@ -313,11 +401,15 @@
             </div>
           </div>
           
+          <!-- Impact & Self-Worth Card -->
+          <!-- Second mission aspect - real-world impact and meaning -->
           <div class="col-lg-6">
             <div class="solution-card card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-shield-check"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>Impact & Self-Worth</h3>
                 <p class="solution-description">
@@ -325,6 +417,9 @@
                   national security and military readiness. Every solution we deliver contributes 
                   to preventing critical errors that could cost lives.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key aspects of impact and self-worth -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -343,6 +438,9 @@
                     <span>Professional excellence</span>
                   </div>
                 </div>
+                
+                <!-- Key outcomes display -->
+                <!-- Shows the key outcomes of the company's work -->
                 <div class="solution-tech">
                   <h5>Key Outcomes:</h5>
                   <div class="tech-stack">
@@ -359,9 +457,11 @@
       </div>
     </section>
 
-    <!-- Mission Impact Metrics Section -->
+    <!-- Mission Impact Metrics Section - Quantified impact -->
+    <!-- Shows specific metrics and achievements -->
     <section class="metrics-section main-section section-padding">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-graph-up"></i>
@@ -373,7 +473,10 @@
           </p>
         </div>
 
+        <!-- Impact metrics grid -->
+        <!-- Four key impact metrics -->
         <div class="row g-4">
+          <!-- JLVC Applications -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -384,6 +487,7 @@
             </div>
           </div>
           
+          <!-- Leaders Trained -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -394,6 +498,7 @@
             </div>
           </div>
           
+          <!-- Lives Lost to Preventable Errors -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -404,6 +509,7 @@
             </div>
           </div>
           
+          <!-- Mission Success Rate -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -417,9 +523,11 @@
       </div>
     </section>
 
-    <!-- Values & Culture Section -->
+    <!-- Values & Culture Section - Core values -->
+    <!-- Shows the company's core values and culture -->
     <section class="technology-stack-section main-section section-padding">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-heart"></i>
@@ -431,7 +539,10 @@
           </p>
         </div>
 
+        <!-- Values grid -->
+        <!-- Six core values -->
         <div class="row g-4">
+          <!-- Integrity -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -442,6 +553,7 @@
             </div>
           </div>
           
+          <!-- Excellence -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -452,6 +564,7 @@
             </div>
           </div>
           
+          <!-- Innovation -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -462,6 +575,7 @@
             </div>
           </div>
           
+          <!-- People-First -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -472,6 +586,7 @@
             </div>
           </div>
           
+          <!-- Mission Focus -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -482,6 +597,7 @@
             </div>
           </div>
           
+          <!-- Veteran Pride -->
           <div class="col-lg-4 col-md-6">
             <div class="tech-category card-uniform">
               <div class="category-icon">
@@ -495,10 +611,13 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Final conversion opportunity -->
+    <!-- Encourages visitors to take action and contact the company -->
     <section class="software-cta-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left: CTA content -->
+          <!-- Contains compelling message and value proposition -->
           <div class="col-lg-8">
             <div class="cta-content">
               <h2 class="cta-title">Ready to Join Our Mission?</h2>
@@ -509,12 +628,17 @@
               </p>
             </div>
           </div>
+          
+          <!-- Right: Action buttons -->
+          <!-- Primary and secondary call-to-action buttons -->
           <div class="col-lg-4 text-lg-end">
             <div class="cta-actions">
+              <!-- Primary action: Contact form -->
               <a href="contact.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-chat-text"></i>
                 Start Your Project
               </a>
+              <!-- Secondary action: Careers page -->
               <a href="careers.html" class="btn btn-outline-light btn-lg">
                 <i class="bi bi-people"></i>
                 Join Our Team
@@ -526,12 +650,14 @@
     </section>
   </main>
 
-<!-- Footer - Same as other pages -->
+  <!-- Footer - Same as other pages -->
+  <!-- Contains company information, links, and legal disclaimers -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
         <div class="row gy-4">
           <!-- Left: Logo and description -->
+          <!-- Company branding and security notice -->
           <div class="col-lg-4 d-flex flex-column justify-content-center">
             <div class="footer-brand mb-4">
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
@@ -543,6 +669,7 @@
               </div>
               
               <!-- DoD DISCLAIMER - Only change: make text white -->
+              <!-- Required legal disclaimer for DoD-related content -->
               <div class="dod-disclaimer mt-3 p-2 border rounded">
                 <small class="text-white">
                   <i class="bi bi-info-circle me-1"></i>
@@ -551,9 +678,12 @@
               </div>
             </div>
           </div>
+          
           <!-- Right: Links and contact, grouped in columns -->
+          <!-- Navigation links and contact information -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -564,6 +694,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -574,6 +706,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Social and contact links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
@@ -594,6 +728,8 @@
           </div>
         </div>
       </div>
+      
+      <!-- Footer bottom - copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
@@ -609,8 +745,12 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JavaScript Files -->
+  <!-- Bootstrap JavaScript for interactive components -->
+  <!-- Required for dropdown menus, mobile navigation, and other Bootstrap features -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for site functionality -->
+  <!-- Contains custom animations, form handling, and other site-specific functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>

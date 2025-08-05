@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+<!-- DISABLED - Theme initialization script -->
+<!-- This script was previously used for dark/light theme switching -->
+<!-- Currently disabled as theme toggle functionality is not active -->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -11,49 +14,65 @@
 })();
 </script>
 -->
+
 <head>
+  <!-- Character encoding and responsive viewport settings -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Essential SEO Meta Tags -->
+  <!-- Essential SEO Meta Tags for search engine optimization -->
+  <!-- These tags help search engines understand and index the page content -->
   <title>Software Engineering - CAPE Technology Solutions | Enterprise Defense Solutions</title>
   <meta name="description" content="Enterprise software engineering solutions for defense and military applications. Full-stack development, JLVC federation management, and mission-critical system architecture." />
   <meta name="keywords" content="defense software engineering, military software development, JLVC development, enterprise software solutions, DoD software contractors" />
   <meta name="author" content="CAPE Technology Solutions" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <!-- These tags control how the page appears when shared on social platforms -->
   <meta property="og:title" content="Software Engineering - CAPE Technology Solutions" />
   <meta property="og:description" content="Enterprise software engineering solutions for defense and military applications." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
   <meta property="og:url" content="https://capetechsolutions.com/software-development.html" />
   <meta property="og:type" content="website" />
   
-  <!-- Performance Optimizations -->
+  <!-- Performance Optimizations for faster font loading -->
+  <!-- DNS prefetch and preconnect improve font loading performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <!-- Professional Typography -->
+  <!-- Professional Typography - Multiple font families for different UI elements -->
+  <!-- Inter: Main body text and UI elements -->
+  <!-- Rajdhani: Headers and section titles -->
+  <!-- Orbitron: Technology/futuristic elements -->
+  <!-- Exo 2: Alternative headers -->
+  <!-- JetBrains Mono: Code snippets and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Font Awesome as backup icon library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Custom stylesheet - must be loaded last to override Bootstrap -->
   <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Page Loader -->
+  <!-- Page Loader - Shows while page is loading, hidden by JavaScript -->
+  <!-- This provides visual feedback during page load -->
   <div class="page-loader"></div>
 
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation - Sticky navigation bar -->
+  <!-- Contains logo, navigation menu, and mobile toggle -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <!-- Logo & Brand -->
+        <!-- Logo & Brand - Company branding with logo and tagline -->
+        <!-- Links back to homepage and establishes brand identity -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -62,22 +81,28 @@
           </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile Toggle - Hamburger menu for mobile devices -->
+        <!-- Bootstrap collapse trigger for responsive navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu - Main site navigation -->
+        <!-- Collapsible menu with dropdown for capabilities -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home link -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
+            <!-- Capabilities dropdown - showcases three main service areas -->
+            <!-- Software Engineering is marked as active for current page -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
               <ul class="dropdown-menu">
+                <!-- Software Engineering - marked as active -->
                 <li><a class="dropdown-item active" href="software-development.html">
                   <i class="bi bi-code-square"></i>
                   <div>
@@ -85,6 +110,7 @@
                     <small>Full-stack enterprise solutions</small>
                   </div>
                 </a></li>
+                <!-- Defense Simulation - JLVC federation management -->
                 <li><a class="dropdown-item" href="defense-simulation.html">
                   <i class="bi bi-diagram-3"></i>
                   <div>
@@ -92,6 +118,7 @@
                     <small>JLVC federation management</small>
                   </div>
                 </a></li>
+                <!-- Data Management - Configuration and analytics -->
                 <li><a class="dropdown-item" href="data-configuration.html">
                   <i class="bi bi-database"></i>
                   <div>
@@ -101,16 +128,20 @@
                 </a></li>
               </ul>
             </li>
+            <!-- Standard navigation links -->
             <li class="nav-item">
               <a class="nav-link" href="whoweare.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="careers.html">Careers</a>
             </li>
+            <!-- CTA link - styled differently to stand out -->
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
-            <!-- DISABLED - Theme toggle button
+            <!-- DISABLED - Theme toggle button -->
+            <!-- Previously used for dark/light mode switching -->
+            <!--
             <li class="nav-item">
               <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
                 <i class="bi bi-sun-fill"></i>
@@ -123,31 +154,51 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
+  <!-- Contains all page sections and content -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section - Full-screen landing area with background image -->
+    <!-- This is the first thing visitors see - establishes software engineering expertise -->
     <section class="capability-hero-section main-section section-padding d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background Media Container -->
+      <!-- Contains background image and overlay -->
       <div class="hero-background">
+        <!-- Static background image - software development team -->
         <img src="images/CapePic11.jpg" alt="Software development team" class="hero-bg-image">
+        <!-- Dark overlay to improve text readability -->
         <div class="hero-overlay"></div>
       </div>
+      
+      <!-- Hero Content - Positioned above background -->
+      <!-- Contains main headline, description, stats, and call-to-action buttons -->
       <div class="container position-relative z-2">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge with icon -->
+              <!-- Establishes credibility and identifies this as a core capability -->
               <div class="hero-badge mb-4">
                 <i class="bi bi-lightning-fill"></i>
                 <span>Core Capability</span>
               </div>
+              
+              <!-- Main headline -->
+              <!-- Primary value proposition for software engineering services -->
               <h1 class="hero-title mb-4">
                 Enterprise <span class="text-primary">Software Engineering</span>
                 for Defense Operations
               </h1>
+              
+              <!-- Hero description paragraph -->
+              <!-- Explains software engineering capabilities and value -->
               <p class="hero-description mb-5">
                 Building robust, scalable enterprise solutions that power mission-critical defense 
                 operations. From JLVC federation management to operational training tools, our 
                 software engineering expertise delivers results when it matters most.
               </p>
+              
+              <!-- Key statistics displayed prominently -->
+              <!-- Builds credibility with specific numbers and achievements -->
               <div class="capability-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">40+</span>
@@ -162,11 +213,16 @@
                   <span class="stat-label">Mission Support</span>
                 </div>
               </div>
+              
+              <!-- Call-to-action buttons -->
+              <!-- Primary and secondary actions for visitors -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
+                <!-- Primary CTA - anchor link to solutions section -->
                 <a href="#solutions" class="btn btn-primary btn-lg">
                   <i class="bi bi-gear-fill"></i>
                   Explore Solutions
                 </a>
+                <!-- Secondary CTA - leads to contact form -->
                 <a href="contact.html" class="btn btn-outline-light btn-lg">
                   <i class="bi bi-chat-text-fill"></i>
                   Discuss Requirements
@@ -178,9 +234,12 @@
       </div>
     </section>
 
-    <!-- Core Solutions Section -->
+    <!-- Core Solutions Section - Main software engineering offerings -->
+    <!-- Showcases specific software solutions and technologies -->
     <section id="solutions" class="core-solutions-section main-section section-padding">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-cpu-fill"></i>
@@ -192,18 +251,27 @@
           </p>
         </div>
 
+        <!-- Solutions Grid - Two main software solutions -->
+        <!-- Each card represents a specific software solution -->
         <div class="row g-4">
+          <!-- Joint Training Tool (JTT) Card - Featured -->
+          <!-- Primary software solution - highlighted as main offering -->
           <div class="col-lg-6">
             <div class="solution-card featured card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-diagram-3-fill"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>Joint Training Tool (JTT)</h3>
                 <p class="solution-description">
                   Modern web-based application designed to streamline military training exercises with 
                   integrated scheduling, resource management, and real-time collaboration capabilities.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key features and capabilities of JTT -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -222,6 +290,9 @@
                     <span>Joint Staff integration</span>
                   </div>
                 </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows the technologies used in this solution -->
                 <div class="solution-tech">
                   <h5>Technologies:</h5>
                   <div class="tech-stack">
@@ -235,17 +306,24 @@
             </div>
           </div>
 
+          <!-- JLVC Federation Applications Card -->
+          <!-- Second software solution - federation management -->
           <div class="col-lg-6">
             <div class="solution-card card-uniform">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-grid-3x3-gap-fill"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>JLVC Federation Applications</h3>
                 <p class="solution-description">
                   Contributing to the Joint Live, Virtual, Constructive federation - a mature ecosystem 
                   of 40+ distinct applications supporting comprehensive military training scenarios.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key features and capabilities of JLVC applications -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -264,6 +342,9 @@
                     <span>Scalable federation architecture</span>
                   </div>
                 </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows the technologies used in JLVC applications -->
                 <div class="solution-tech">
                   <h5>Technologies:</h5>
                   <div class="tech-stack">
@@ -280,10 +361,13 @@
       </div>
     </section>
 
-    <!-- Technical Approach Section -->
+    <!-- Technical Approach Section - Development methodology -->
+    <!-- Explains the development process and methodology -->
     <section class="technical-approach-section main-section section-padding">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left column: Methodology content -->
+          <!-- Contains development approach and methodology points -->
           <div class="col-lg-6">
             <div class="approach-content">
               <div class="section-badge">
@@ -296,7 +380,10 @@
                 ensuring rapid delivery while maintaining the highest security and quality standards.
               </p>
               
+              <!-- Methodology points with icons -->
+              <!-- Three key aspects of the development approach -->
               <div class="methodology-points">
+                <!-- Agile & Scaled Agile Framework -->
                 <div class="method-item card-uniform">
                   <div class="method-icon">
                     <i class="bi bi-arrow-repeat"></i>
@@ -307,6 +394,7 @@
                   </div>
                 </div>
                 
+                <!-- Security-First Development -->
                 <div class="method-item card-uniform">
                   <div class="method-icon">
                     <i class="bi bi-grid-3x3-gap-fill"></i>
@@ -317,6 +405,7 @@
                   </div>
                 </div>
                 
+                <!-- Collaborative Engineering -->
                 <div class="method-item card-uniform">
                   <div class="method-icon">
                     <i class="bi bi-people-fill"></i>
@@ -330,8 +419,11 @@
             </div>
           </div>
           
+          <!-- Right column: Process visualization -->
+          <!-- Visual representation of the development process -->
           <div class="col-lg-6">
             <div class="process-visualization">
+              <!-- Step 1: Requirements Analysis -->
               <div class="process-step card-uniform" data-step="1">
                 <div class="step-icon">
                   <i class="bi bi-lightbulb-fill"></i>
@@ -340,6 +432,7 @@
                 <p>Deep understanding of mission requirements and operational constraints</p>
               </div>
               
+              <!-- Step 2: Architecture Design -->
               <div class="process-step card-uniform" data-step="2">
                 <div class="step-icon">
                   <i class="bi bi-palette-fill"></i>
@@ -348,6 +441,7 @@
                 <p>Scalable, secure system architecture with enterprise integration</p>
               </div>
               
+              <!-- Step 3: Agile Development -->
               <div class="process-step card-uniform" data-step="3">
                 <div class="step-icon">
                   <i class="bi bi-code-slash"></i>
@@ -356,6 +450,7 @@
                 <p>Sprint-based development with continuous integration and testing</p>
               </div>
               
+              <!-- Step 4: Security & Testing -->
               <div class="process-step card-uniform" data-step="4">
                 <div class="step-icon">
                   <i class="bi bi-grid-3x3-gap-fill"></i>
@@ -364,6 +459,7 @@
                 <p>Comprehensive testing, security validation, and compliance verification</p>
               </div>
               
+              <!-- Step 5: Deployment & Support -->
               <div class="process-step card-uniform" data-step="5">
                 <div class="step-icon">
                   <i class="bi bi-rocket-fill"></i>
@@ -377,11 +473,11 @@
       </div>
     </section>
 
-
-
-    <!-- Technology Stack Section -->
+    <!-- Technology Stack Section - Comprehensive tech overview -->
+    <!-- Shows all technologies and frameworks used -->
     <section class="technology-stack-section main-section section-padding">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-stack"></i>
@@ -393,8 +489,12 @@
           </p>
         </div>
 
+        <!-- Technology categories grid -->
+        <!-- Four main technology categories -->
         <div class="tech-categories">
           <div class="row g-4">
+            <!-- Frontend Development -->
+            <!-- Client-side technologies and frameworks -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category card-uniform">
                 <div class="category-icon">
@@ -412,6 +512,8 @@
               </div>
             </div>
 
+            <!-- Backend Systems -->
+            <!-- Server-side technologies and frameworks -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category card-uniform">
                 <div class="category-icon">
@@ -429,6 +531,8 @@
               </div>
             </div>
 
+            <!-- Data Management -->
+            <!-- Database and data processing technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category card-uniform">
                 <div class="category-icon">
@@ -446,6 +550,8 @@
               </div>
             </div>
 
+            <!-- Infrastructure -->
+            <!-- Cloud, containerization, and deployment technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category card-uniform">
                 <div class="category-icon">
@@ -466,9 +572,11 @@
         </div>
 
         <!-- Specialized Technologies -->
+        <!-- Defense-specific technologies and protocols -->
         <div class="specialized-tech mt-5">
           <h3 class="text-center mb-4">Defense-Specific Technologies</h3>
           <div class="row g-4">
+            <!-- Simulation Protocols -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-broadcast"></i>
@@ -476,6 +584,7 @@
                 <p>IEEE 1516.2010 HLA, RPR 3.0, DIS v6/v7 implementation and federation management</p>
               </div>
             </div>
+            <!-- Geospatial Systems -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-map"></i>
@@ -483,6 +592,7 @@
                 <p>OpenMap, OpenLayers integration for tactical mapping and situational awareness</p>
               </div>
             </div>
+            <!-- Messaging & Integration -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-diagram-2"></i>
@@ -495,9 +605,11 @@
       </div>
     </section>
 
-    <!-- Why Choose CAPE Section -->
+    <!-- Why Choose CAPE Section - Competitive advantages -->
+    <!-- Highlights why clients should choose CAPE for software engineering -->
     <section class="why-choose-section py-5">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center info-card p-4 mb-5 mx-auto" style="max-width: 700px;">
           <div class="section-badge mb-2">
             <i class="bi bi-star-fill"></i>
@@ -508,7 +620,11 @@
             Trusted by defense organizations for our expertise, security, and commitment to mission success.
           </p>
         </div>
+        
+        <!-- Advantages grid -->
+        <!-- Four key competitive advantages -->
         <div class="row justify-content-center g-4">
+          <!-- Proven Defense Experience -->
           <div class="col-md-6 col-lg-3">
             <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
               <div class="advantage-icon mb-3">
@@ -520,6 +636,8 @@
               </div>
             </div>
           </div>
+          
+          <!-- Cleared Professional Team -->
           <div class="col-md-6 col-lg-3">
             <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
               <div class="advantage-icon mb-3">
@@ -531,6 +649,8 @@
               </div>
             </div>
           </div>
+          
+          <!-- Enterprise-Grade Quality -->
           <div class="col-md-6 col-lg-3">
             <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
               <div class="advantage-icon mb-3">
@@ -542,6 +662,8 @@
               </div>
             </div>
           </div>
+          
+          <!-- 24/7 Mission Support -->
           <div class="col-md-6 col-lg-3">
             <div class="info-card p-4 h-100 d-flex flex-column align-items-center text-center">
               <div class="advantage-icon mb-3">
@@ -557,10 +679,12 @@
       </div>
     </section>
 
-    <!-- Metrics Section -->
+    <!-- Metrics Section - Performance indicators -->
+    <!-- Shows key metrics and achievements -->
     <section class="metrics-section main-section section-padding">
       <div class="container">
         <div class="row g-4">
+          <!-- Years Defense Experience -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -571,6 +695,7 @@
             </div>
           </div>
           
+          <!-- JLVC Applications -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -581,6 +706,7 @@
             </div>
           </div>
           
+          <!-- Security Cleared -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -591,6 +717,7 @@
             </div>
           </div>
           
+          <!-- System Uptime -->
           <div class="col-lg-3 col-md-6">
             <div class="metric-card">
               <div class="metric-icon">
@@ -604,10 +731,13 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Final conversion opportunity -->
+    <!-- Encourages visitors to take action and contact the company -->
     <section class="software-cta-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left: CTA content -->
+          <!-- Contains compelling message and value proposition -->
           <div class="col-lg-8">
             <div class="cta-content">
               <h2 class="cta-title">Ready to Build Mission-Critical Software?</h2>
@@ -618,12 +748,17 @@
               </p>
             </div>
           </div>
+          
+          <!-- Right: Action buttons -->
+          <!-- Primary and secondary call-to-action buttons -->
           <div class="col-lg-4 text-lg-end">
             <div class="cta-actions">
+              <!-- Primary action: Contact form -->
               <a href="contact.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-chat-text-fill"></i>
                 Start Your Project
               </a>
+              <!-- Secondary action: Careers page -->
               <a href="careers.html" class="btn btn-outline-light btn-lg">
                 <i class="bi bi-people-fill"></i>
                 Join Our Team
@@ -635,12 +770,14 @@
     </section>
   </main>
 
-<!-- Footer - Same as other pages -->
+  <!-- Footer - Same as other pages -->
+  <!-- Contains company information, links, and legal disclaimers -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
         <div class="row gy-4">
           <!-- Left: Logo and description -->
+          <!-- Company branding and security notice -->
           <div class="col-lg-4 d-flex flex-column justify-content-center">
             <div class="footer-brand mb-4">
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
@@ -652,6 +789,7 @@
               </div>
               
               <!-- DoD DISCLAIMER - Only change: make text white -->
+              <!-- Required legal disclaimer for DoD-related content -->
               <div class="dod-disclaimer mt-3 p-2 border rounded">
                 <small class="text-white">
                   <i class="bi bi-info-circle me-1"></i>
@@ -660,9 +798,12 @@
               </div>
             </div>
           </div>
+          
           <!-- Right: Links and contact, grouped in columns -->
+          <!-- Navigation links and contact information -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -673,6 +814,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -683,6 +826,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Social and contact links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
@@ -703,6 +848,8 @@
           </div>
         </div>
       </div>
+      
+      <!-- Footer bottom - copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
@@ -718,9 +865,15 @@
     </div>
   </footer>
   
-  <!-- Scripts -->
+  <!-- JavaScript Files -->
+  <!-- Set current year in copyright -->
+  <!-- Automatically updates the copyright year -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- Bootstrap JavaScript for interactive components -->
+  <!-- Required for dropdown menus, mobile navigation, and other Bootstrap features -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for site functionality -->
+  <!-- Contains custom animations, form handling, and other site-specific functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>
