@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+<!-- DISABLED - Theme initialization script -->
+<!-- This script was previously used for dark/light theme switching -->
+<!-- Currently disabled as theme toggle functionality is not active -->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -11,48 +14,65 @@
 })();
 </script>
 -->
+
 <head>
+  <!-- Character encoding and responsive viewport settings -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme color for mobile browser UI - matches brand colors -->
   <meta name="theme-color" content="#1e3a5f" />
   
-  <!-- Essential SEO Meta Tags -->
+  <!-- Essential SEO Meta Tags for search engine optimization -->
+  <!-- These tags help search engines understand and index the page content -->
   <title>Data Management - CAPE Technology Solutions | Enterprise Data Configuration</title>
   <meta name="description" content="Enterprise data configuration management for defense applications. JTDS support, exercise data management, and full-lifecycle data governance for mission-critical operations." />
   <meta name="keywords" content="data configuration management, JTDS support, defense data management, exercise data, government data security, data lifecycle management" />
   <meta name="author" content="CAPE Technology Solutions" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <!-- These tags control how the page appears when shared on social platforms -->
   <meta property="og:title" content="Data Management - CAPE Technology Solutions" />
   <meta property="og:description" content="Enterprise data configuration management for defense applications and mission-critical operations." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
   <meta property="og:url" content="https://capetechsolutions.com/data-configuration.html" />
   <meta property="og:type" content="website" />
   
-  <!-- Performance Optimizations -->
+  <!-- Performance Optimizations for faster font loading -->
+  <!-- DNS prefetch and preconnect improve font loading performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <!-- Professional Typography -->
+  <!-- Professional Typography - Multiple font families for different UI elements -->
+  <!-- Inter: Main body text and UI elements -->
+  <!-- Rajdhani: Headers and section titles -->
+  <!-- Orbitron: Technology/futuristic elements -->
+  <!-- Exo 2: Alternative headers -->
+  <!-- JetBrains Mono: Code snippets and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom stylesheet - must be loaded last to override Bootstrap -->
   <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Page Loader -->
+  <!-- Page Loader - Shows while page is loading, hidden by JavaScript -->
+  <!-- This provides visual feedback during page load -->
   <div class="page-loader"></div>
 
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation - Sticky navigation bar -->
+  <!-- Contains logo, navigation menu, and mobile toggle -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <!-- Logo & Brand -->
+        <!-- Logo & Brand - Company branding with logo and tagline -->
+        <!-- Links back to homepage and establishes brand identity -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -61,22 +81,28 @@
           </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile Toggle - Hamburger menu for mobile devices -->
+        <!-- Bootstrap collapse trigger for responsive navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu - Main site navigation -->
+        <!-- Collapsible menu with dropdown for capabilities -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home link -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
+            <!-- Capabilities dropdown - showcases three main service areas -->
+            <!-- Data Management is marked as active for current page -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
               <ul class="dropdown-menu">
+                <!-- Software Engineering - Full-stack development services -->
                 <li><a class="dropdown-item" href="software-development.html">
                   <i class="bi bi-code-square"></i>
                   <div>
@@ -84,6 +110,7 @@
                     <small>Full-stack enterprise solutions</small>
                   </div>
                 </a></li>
+                <!-- Defense Simulation - JLVC federation management -->
                 <li><a class="dropdown-item" href="defense-simulation.html">
                   <i class="bi bi-diagram-3"></i>
                   <div>
@@ -91,6 +118,7 @@
                     <small>JLVC federation management</small>
                   </div>
                 </a></li>
+                <!-- Data Management - marked as active -->
                 <li><a class="dropdown-item active" href="data-configuration.html">
                   <i class="bi bi-database"></i>
                   <div>
@@ -100,16 +128,20 @@
                 </a></li>
               </ul>
             </li>
+            <!-- Standard navigation links -->
             <li class="nav-item">
               <a class="nav-link" href="whoweare.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="careers.html">Careers</a>
             </li>
+            <!-- CTA link - styled differently to stand out -->
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
-            <!-- DISABLED - Theme toggle button
+            <!-- DISABLED - Theme toggle button -->
+            <!-- Previously used for dark/light mode switching -->
+            <!--
             <li class="nav-item">
               <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
                 <i class="bi bi-sun-fill"></i>
@@ -122,31 +154,51 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
+  <!-- Contains all page sections and content -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section - Full-screen landing area with background image -->
+    <!-- This is the first thing visitors see - establishes data management expertise -->
     <section class="capability-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background Media Container -->
+      <!-- Contains background image and overlay -->
       <div class="hero-background">
+        <!-- Static background image - data management team -->
         <img src="images/CapePic3.jpg" alt="Data management team" class="hero-bg-image">
+        <!-- Dark overlay to improve text readability -->
         <div class="hero-overlay"></div>
       </div>
+      
+      <!-- Hero Content - Positioned above background -->
+      <!-- Contains main headline, description, stats, and call-to-action buttons -->
       <div class="container position-relative z-2">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge with emoji icon -->
+              <!-- Establishes credibility and identifies this as a core capability -->
               <div class="hero-badge mb-4">
                 <span class="badge-icon">💾</span>
                 <span>Core Capability</span>
               </div>
+              
+              <!-- Main headline -->
+              <!-- Primary value proposition for data management services -->
               <h1 class="hero-title mb-4">
                 Enterprise <span class="text-primary">Data Management</span>
                 for Defense Operations
               </h1>
+              
+              <!-- Hero description paragraph -->
+              <!-- Explains data management capabilities and value -->
               <p class="hero-description mb-5">
                 Ensuring data integrity, traceability, and lifecycle management for mission-critical 
                 defense systems. From JTDS support to exercise-specific data delivery, our data 
                 management expertise powers reliable training and operational readiness.
               </p>
+              
+              <!-- Key statistics displayed prominently -->
+              <!-- Builds credibility with specific numbers and achievements -->
               <div class="capability-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">24/7</span>
@@ -161,11 +213,16 @@
                   <span class="stat-label">Exercises Supported</span>
                 </div>
               </div>
+              
+              <!-- Call-to-action buttons -->
+              <!-- Primary and secondary actions for visitors -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
+                <!-- Primary CTA - anchor link to solutions section -->
                 <a href="#solutions" class="btn btn-primary btn-lg">
                   <i class="bi bi-database"></i>
                   Explore Solutions
                 </a>
+                <!-- Secondary CTA - leads to contact form -->
                 <a href="contact.html" class="btn btn-outline-light btn-lg">
                   <i class="bi bi-chat-text"></i>
                   Discuss Requirements
@@ -177,9 +234,12 @@
       </div>
     </section>
 
-    <!-- Core Solutions Section -->
+    <!-- Core Solutions Section - Main data management offerings -->
+    <!-- Showcases specific data management solutions and capabilities -->
     <section id="solutions" class="core-solutions-section">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-hdd-stack"></i>
@@ -192,12 +252,18 @@
           </p>
         </div>
 
+        <!-- Solutions Grid - Two main data management solutions -->
+        <!-- Each card represents a specific data management capability -->
         <div class="row g-4">
+          <!-- Exercise Data Configuration Card -->
+          <!-- First data management solution - exercise data support -->
           <div class="col-lg-6">
             <div class="solution-card">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-database-gear"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>Exercise Data Configuration</h3>
                 <p class="solution-description">
@@ -205,6 +271,9 @@
                   including scenario development, entity management, and real-time data 
                   synchronization across distributed training environments.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key features and capabilities of exercise data configuration -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -219,6 +288,9 @@
                     <span>Automated quality assurance</span>
                   </div>
                 </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows the technologies used in exercise data configuration -->
                 <div class="solution-tech">
                   <h5>Technologies:</h5>
                   <div class="tech-stack">
@@ -232,11 +304,15 @@
             </div>
           </div>
 
+          <!-- Government Data Configuration Card -->
+          <!-- Second data management solution - government data handling -->
           <div class="col-lg-6">
             <div class="solution-card">
+              <!-- Solution icon -->
               <div class="solution-icon">
                 <i class="bi bi-gear-wide-connected"></i>
               </div>
+              <!-- Main solution content -->
               <div class="solution-content">
                 <h3>Government Data Configuration</h3>
                 <p class="solution-description">
@@ -244,6 +320,9 @@
                   full lifecycle support, security compliance, and traceability throughout 
                   the data management process.
                 </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key features and capabilities of government data configuration -->
                 <div class="solution-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -262,6 +341,9 @@
                     <span>Classification-aware handling</span>
                   </div>
                 </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows the technologies used in government data configuration -->
                 <div class="solution-tech">
                   <h5>Technologies:</h5>
                   <div class="tech-stack">
@@ -275,15 +357,16 @@
             </div>
           </div>
         </div>
-        
-
       </div>
     </section>
 
-    <!-- Data Lifecycle Section -->
+    <!-- Data Lifecycle Section - End-to-end data management process -->
+    <!-- Explains the complete data lifecycle management approach -->
     <section class="technical-approach-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left column: Data lifecycle content -->
+          <!-- Contains lifecycle approach and methodology points -->
           <div class="col-lg-6">
             <div class="info-card p-4 mb-4 approach-content">
               <div class="section-badge">
@@ -296,7 +379,10 @@
                 accessibility from initial creation through final archival or disposal.
               </p>
               
+              <!-- Methodology points with icons -->
+              <!-- Three key aspects of the data lifecycle approach -->
               <div class="methodology-points">
+                <!-- Security & Compliance -->
                 <div class="method-item">
                   <div class="method-icon">
                     <i class="bi bi-shield-check"></i>
@@ -307,6 +393,7 @@
                   </div>
                 </div>
                 
+                <!-- Quality Assurance -->
                 <div class="method-item">
                   <div class="method-icon">
                     <i class="bi bi-graph-up"></i>
@@ -317,6 +404,7 @@
                   </div>
                 </div>
                 
+                <!-- Version Control -->
                 <div class="method-item">
                   <div class="method-icon">
                     <i class="bi bi-clock-history"></i>
@@ -330,8 +418,11 @@
             </div>
           </div>
           
+          <!-- Right column: Process visualization -->
+          <!-- Visual representation of the data lifecycle process -->
           <div class="col-lg-6">
             <div class="process-visualization">
+              <!-- Step 1: Data Creation -->
               <div class="process-step" data-step="1">
                 <div class="step-icon">
                   <i class="bi bi-plus-circle"></i>
@@ -340,6 +431,7 @@
                 <p>Secure ingestion and initial validation of source data</p>
               </div>
               
+              <!-- Step 2: Configuration -->
               <div class="process-step" data-step="2">
                 <div class="step-icon">
                   <i class="bi bi-gear"></i>
@@ -348,6 +440,7 @@
                 <p>Structured configuration with metadata and classification tagging</p>
               </div>
               
+              <!-- Step 3: Validation -->
               <div class="process-step" data-step="3">
                 <div class="step-icon">
                   <i class="bi bi-check-square"></i>
@@ -356,6 +449,7 @@
                 <p>Automated quality assurance and compliance verification</p>
               </div>
               
+              <!-- Step 4: Distribution -->
               <div class="process-step" data-step="4">
                 <div class="step-icon">
                   <i class="bi bi-share"></i>
@@ -364,6 +458,7 @@
                 <p>Secure delivery to authorized systems and stakeholders</p>
               </div>
               
+              <!-- Step 5: Maintenance -->
               <div class="process-step" data-step="5">
                 <div class="step-icon">
                   <i class="bi bi-arrow-clockwise"></i>
@@ -377,9 +472,11 @@
       </div>
     </section>
 
-    <!-- Exercise Support Section -->
+    <!-- Exercise Support Section - Specific exercise data capabilities -->
+    <!-- Shows specific capabilities for exercise data support -->
     <section class="why-choose-section">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center info-card p-4 mb-4">
           <div class="section-badge">
             <i class="bi bi-bullseye"></i>
@@ -392,7 +489,10 @@
           </p>
         </div>
 
+        <!-- Exercise support capabilities grid -->
+        <!-- Three key exercise support capabilities -->
         <div class="row g-4">
+          <!-- Exercise Planning -->
           <div class="col-lg-4">
             <div class="info-card p-4 h-100 d-flex flex-column">
               <div class="advantage-icon mb-3">
@@ -411,6 +511,7 @@
             </div>
           </div>
 
+          <!-- Database Management -->
           <div class="col-lg-4">
             <div class="info-card p-4 h-100 d-flex flex-column">
               <div class="advantage-icon mb-3">
@@ -429,6 +530,7 @@
             </div>
           </div>
 
+          <!-- Secure Data Delivery -->
           <div class="col-lg-4">
             <div class="info-card p-4 h-100 d-flex flex-column">
               <div class="advantage-icon mb-3">
@@ -450,9 +552,11 @@
       </div>
     </section>
 
-    <!-- Technical Capabilities Section -->
+    <!-- Technical Capabilities Section - Technology overview -->
+    <!-- Shows all technologies and frameworks used in data management -->
     <section class="technology-stack-section">
       <div class="container">
+        <!-- Section header -->
         <div class="section-header text-center info-card p-4 mb-4">
           <div class="section-badge">
             <i class="bi bi-cpu"></i>
@@ -464,8 +568,12 @@
           </p>
         </div>
 
+        <!-- Technology categories grid -->
+        <!-- Four main technology categories -->
         <div class="tech-categories">
           <div class="row g-4">
+            <!-- Database Systems -->
+            <!-- Database and storage technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category">
                 <div class="category-icon">
@@ -483,6 +591,8 @@
               </div>
             </div>
 
+            <!-- Data Processing -->
+            <!-- Data processing and analytics technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category">
                 <div class="category-icon">
@@ -500,6 +610,8 @@
               </div>
             </div>
 
+            <!-- Security & Compliance -->
+            <!-- Security and compliance technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category">
                 <div class="category-icon">
@@ -517,6 +629,8 @@
               </div>
             </div>
 
+            <!-- Infrastructure -->
+            <!-- Infrastructure and deployment technologies -->
             <div class="col-lg-3 col-md-6">
               <div class="tech-category">
                 <div class="category-icon">
@@ -537,9 +651,11 @@
         </div>
 
         <!-- Data Standards -->
+        <!-- Defense-specific data standards and compliance -->
         <div class="specialized-tech mt-5">
           <h3 class="text-center mb-4">Defense Data Standards</h3>
           <div class="row g-4">
+            <!-- DoD Data Standards -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-file-earmark-ruled"></i>
@@ -547,6 +663,7 @@
                 <p>Compliance with DoD 8320.02 data management standards and DoDI 8320.07 implementation guidelines</p>
               </div>
             </div>
+            <!-- Interoperability -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-diagram-3"></i>
@@ -554,6 +671,7 @@
                 <p>Data format standardization ensuring seamless integration across defense systems and platforms</p>
               </div>
             </div>
+            <!-- Security Classifications -->
             <div class="col-lg-4">
               <div class="spec-tech-card">
                 <i class="bi bi-shield-fill-check"></i>
@@ -566,10 +684,13 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Final conversion opportunity -->
+    <!-- Encourages visitors to take action and contact the company -->
     <section class="cta-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left: CTA content -->
+          <!-- Contains compelling message and value proposition -->
           <div class="col-lg-8">
             <h2 class="cta-title">Secure Your Data Management Requirements</h2>
             <p class="cta-description">
@@ -578,8 +699,12 @@
               support, and exercise data management delivers the reliability your operations demand.
             </p>
           </div>
+          
+          <!-- Right: Action buttons -->
+          <!-- Primary call-to-action button -->
           <div class="col-lg-4 text-lg-end">
             <div class="cta-actions">
+              <!-- Primary action: Contact form -->
               <a href="contact.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-database"></i>
                 Discuss Data Needs
@@ -591,12 +716,14 @@
     </section>
   </main>
 
-<!-- Footer - Same as other pages -->
+  <!-- Footer - Same as other pages -->
+  <!-- Contains company information, links, and legal disclaimers -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
         <div class="row gy-4">
           <!-- Left: Logo and description -->
+          <!-- Company branding and security notice -->
           <div class="col-lg-4 d-flex flex-column justify-content-center">
             <div class="footer-brand mb-4">
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
@@ -608,6 +735,7 @@
               </div>
               
               <!-- DoD DISCLAIMER - Only change: make text white -->
+              <!-- Required legal disclaimer for DoD-related content -->
               <div class="dod-disclaimer mt-3 p-2 border rounded">
                 <small class="text-white">
                   <i class="bi bi-info-circle me-1"></i>
@@ -616,9 +744,12 @@
               </div>
             </div>
           </div>
+          
           <!-- Right: Links and contact, grouped in columns -->
+          <!-- Navigation links and contact information -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -629,6 +760,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -639,6 +772,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Social and contact links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
@@ -659,6 +794,8 @@
           </div>
         </div>
       </div>
+      
+      <!-- Footer bottom - copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
@@ -674,8 +811,12 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JavaScript Files -->
+  <!-- Bootstrap JavaScript for interactive components -->
+  <!-- Required for dropdown menus, mobile navigation, and other Bootstrap features -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for site functionality -->
+  <!-- Contains custom animations, form handling, and other site-specific functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>

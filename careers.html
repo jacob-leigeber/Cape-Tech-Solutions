@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DISABLED - Theme initialization script
+<!-- DISABLED - Theme initialization script -->
+<!-- This script was previously used for dark/light theme switching -->
+<!-- Currently disabled as theme toggle functionality is not active -->
+<!--
 <script>
 // Apply theme immediately to prevent any flash
 (function() {
@@ -11,48 +14,65 @@
 })();
 </script>
 -->
+
 <head>
+  <!-- Character encoding and responsive viewport settings -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme color for mobile browser UI - matches brand colors -->
   <meta name="theme-color" content="#1e3a5f" />
   
-  <!-- Essential SEO Meta Tags -->
-  <title>Careers - CAPE Technology Solutions | Defense Technology Careers</title>
-  <meta name="description" content="Join CAPE Technology Solutions' elite team of cleared professionals. Explore senior software engineering, systems engineering, and cybersecurity career opportunities in defense technology." />
-  <meta name="keywords" content="defense careers, software engineer jobs, security clearance jobs, DoD contractor careers, military technology jobs, cleared professionals" />
+  <!-- Essential SEO Meta Tags for search engine optimization -->
+  <!-- These tags help search engines understand and index the page content -->
+  <title>Careers - CAPE Technology Solutions | Join Our Mission-Critical Team</title>
+  <meta name="description" content="Join CAPE Technology Solutions' veteran-led team. Explore career opportunities in defense technology, software engineering, and mission-critical solutions with competitive benefits." />
+  <meta name="keywords" content="defense technology careers, software engineering jobs, veteran employer, DoD contractor jobs, mission-critical careers, security clearance jobs" />
   <meta name="author" content="CAPE Technology Solutions" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Defense Technology Careers - CAPE Technology Solutions" />
-  <meta property="og:description" content="Elite career opportunities for cleared professionals in mission-critical defense technology." />
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <!-- These tags control how the page appears when shared on social platforms -->
+  <meta property="og:title" content="Careers at CAPE Technology Solutions - Join Our Mission" />
+  <meta property="og:description" content="Join our veteran-led team in defense technology. Competitive benefits, meaningful work, and opportunities for growth." />
   <meta property="og:image" content="https://capetechsolutions.com/images/CapeLogo.png" />
   <meta property="og:url" content="https://capetechsolutions.com/careers.html" />
   <meta property="og:type" content="website" />
   
-  <!-- Performance Optimizations -->
+  <!-- Performance Optimizations for faster font loading -->
+  <!-- DNS prefetch and preconnect improve font loading performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <!-- Professional Typography -->
+  <!-- Professional Typography - Multiple font families for different UI elements -->
+  <!-- Inter: Main body text and UI elements -->
+  <!-- Rajdhani: Headers and section titles -->
+  <!-- Orbitron: Technology/futuristic elements -->
+  <!-- Exo 2: Alternative headers -->
+  <!-- JetBrains Mono: Code snippets and technical content -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <!-- Bootstrap 5.3.3 for responsive grid and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for consistent iconography -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom stylesheet - must be loaded last to override Bootstrap -->
   <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Page Loader -->
+  <!-- Page Loader - Shows while page is loading, hidden by JavaScript -->
+  <!-- This provides visual feedback during page load -->
   <div class="page-loader"></div>
   
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation - Sticky navigation bar -->
+  <!-- Contains logo, navigation menu, and mobile toggle -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <!-- Logo & Brand -->
+        <!-- Logo & Brand - Company branding with logo and tagline -->
+        <!-- Links back to homepage and establishes brand identity -->
         <a class="navbar-brand" href="index.html">
           <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="logo" />
           <div class="brand-text">
@@ -61,22 +81,27 @@
           </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile Toggle - Hamburger menu for mobile devices -->
+        <!-- Bootstrap collapse trigger for responsive navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu - Main site navigation -->
+        <!-- Collapsible menu with dropdown for capabilities -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home link -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
+            <!-- Capabilities dropdown - showcases three main service areas -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Capabilities
               </a>
               <ul class="dropdown-menu">
+                <!-- Software Engineering - Full-stack development services -->
                 <li><a class="dropdown-item" href="software-development.html">
                   <i class="bi bi-code-square"></i>
                   <div>
@@ -84,6 +109,7 @@
                     <small>Full-stack enterprise solutions</small>
                   </div>
                 </a></li>
+                <!-- Defense Simulation - JLVC federation management -->
                 <li><a class="dropdown-item" href="defense-simulation.html">
                   <i class="bi bi-diagram-3"></i>
                   <div>
@@ -91,6 +117,7 @@
                     <small>JLVC federation management</small>
                   </div>
                 </a></li>
+                <!-- Data Management - Configuration and analytics -->
                 <li><a class="dropdown-item" href="data-configuration.html">
                   <i class="bi bi-database"></i>
                   <div>
@@ -103,72 +130,92 @@
             <li class="nav-item">
               <a class="nav-link" href="whoweare.html">About</a>
             </li>
+            <!-- Careers link - marked as active for current page -->
             <li class="nav-item">
               <a class="nav-link active" href="careers.html">Careers</a>
             </li>
+            <!-- CTA link - styled differently to stand out -->
             <li class="nav-item">
               <a class="nav-link cta-link" href="contact.html">Contact</a>
             </li>
-            <!-- DISABLED - Theme toggle button
-            <li class="nav-item">
-              <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                <i class="bi bi-sun-fill"></i>
-              </button>
-            </li>
-            -->
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
+  <!-- Contains all page sections and content -->
   <main>
-    <!-- Hero Section -->
-    <section class="careers-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+    <!-- Hero Section - Full-screen landing area with background image -->
+    <!-- This is the first thing visitors see - establishes career opportunities -->
+    <section class="capability-hero-section d-flex align-items-center justify-content-center position-relative" style="min-height:100vh;">
+      <!-- Background Media Container -->
+      <!-- Contains background image and overlay -->
       <div class="hero-background">
-        <img src="images/CapePic4.jpg" alt="Professional team collaboration" class="hero-bg-image">
+        <!-- Static background image - team collaboration -->
+        <img src="images/CapePic8.jpg" alt="Team collaboration and innovation" class="hero-bg-image">
+        <!-- Dark overlay to improve text readability -->
         <div class="hero-overlay"></div>
       </div>
+      
+      <!-- Hero Content - Positioned above background -->
+      <!-- Contains main headline, description, stats, and call-to-action buttons -->
       <div class="container position-relative z-2">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content d-flex flex-column align-items-center text-center py-5">
+              <!-- Trust badge with emoji icon -->
+              <!-- Establishes credibility and identifies career opportunities -->
               <div class="hero-badge mb-4">
-                <span class="badge-icon">🎖️</span>
-                <span>Elite Defense Careers</span>
+                <span class="badge-icon">🚀</span>
+                <span>Join Our Mission</span>
               </div>
+              
+              <!-- Main headline -->
+              <!-- Primary value proposition highlighting career opportunities -->
               <h1 class="hero-title mb-4">
-                Join Our <span class="text-primary">Elite Team</span> 
-                of Cleared Professionals
+                Build Your Career in 
+                <span class="text-primary">Mission-Critical</span> Technology
               </h1>
+              
+              <!-- Hero description paragraph -->
+              <!-- Explains career opportunities and company culture -->
               <p class="hero-description mb-5">
-                Build mission-critical defense technology with the nation's top cleared professionals. 
-                At CAPE Technology Solutions, your expertise directly supports national security 
-                and military readiness in cutting-edge technology environments.
+                Join our veteran-led team and contribute to national security through innovative 
+                defense technology solutions. Enjoy competitive benefits, meaningful work, and 
+                opportunities for professional growth.
               </p>
-              <div class="hero-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
+              
+              <!-- Key statistics displayed prominently -->
+              <!-- Builds credibility with company statistics -->
+              <div class="capability-stats d-flex flex-wrap justify-content-center gap-5 mb-5">
                 <div class="stat-item">
                   <span class="stat-number">100%</span>
-                  <span class="stat-label">Cleared Team</span>
+                  <span class="stat-label">Remote Work</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">Remote</span>
-                  <span class="stat-label">Work Options</span>
+                  <span class="stat-number">Competitive</span>
+                  <span class="stat-label">Benefits</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">70+</span>
-                  <span class="stat-label">Years Experience</span>
+                  <span class="stat-number">Growth</span>
+                  <span class="stat-label">Opportunities</span>
                 </div>
               </div>
+              
+              <!-- Call-to-action buttons -->
+              <!-- Primary and secondary actions for visitors -->
               <div class="hero-actions d-flex flex-wrap justify-content-center gap-3">
-                <a href="#open-positions" class="btn btn-primary btn-lg">
-                  <i class="bi bi-search"></i>
+                <!-- Primary CTA - anchor link to open positions -->
+                <a href="#positions" class="btn btn-primary btn-lg">
+                  <i class="bi bi-briefcase"></i>
                   View Open Positions
                 </a>
-                <a href="https://app.joinhandshake.com/e/687439/jobs" target="_blank" class="btn btn-outline-light btn-lg">
-                  <i class="bi bi-mortarboard"></i>
-                  Apply via Handshake
+                <!-- Secondary CTA - leads to contact page -->
+                <a href="contact.html" class="btn btn-outline-light btn-lg">
+                  <i class="bi bi-chat-text"></i>
+                  Contact Us
                 </a>
               </div>
             </div>
@@ -177,320 +224,312 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
+    <!-- Benefits Section - Company benefits and culture -->
+    <!-- Showcases the benefits of working at CAPE Technology Solutions -->
+    <section class="core-solutions-section main-section section-padding">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
-            <i class="bi bi-award"></i>
-            <span>Why Choose CAPE</span>
+            <i class="bi bi-heart"></i>
+            <span>Why Join CAPE</span>
           </div>
-          <h2 class="section-title">Elite Benefits Package</h2>
+          <h2 class="section-title">Benefits That Matter</h2>
           <p class="section-description">
-            Comprehensive benefits designed for mission-critical professionals
+            We prioritize our team's well-being and professional growth with comprehensive benefits
+            and a supportive work environment.
           </p>
         </div>
 
+        <!-- Benefits grid -->
+        <!-- Six key benefits -->
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="benefit-card" style="background-image: url('images/CapePic2.jpg');">
-              <div class="benefit-overlay"></div>
-              <div class="benefit-icon">
-                <i class="bi bi-shield-check"></i>
+          <!-- Remote Work -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-house"></i>
               </div>
-              <h4>Security Clearance</h4>
-              <p>We support obtaining and maintaining your security clearances</p>
+              <h4>100% Remote Work</h4>
+              <p>Work from anywhere with flexible schedules and work-life balance.</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="benefit-card" style="background-image: url('images/CapePic3.jpg');">
-              <div class="benefit-overlay"></div>
-              <div class="benefit-icon">
-                <i class="bi bi-house-door"></i>
+          
+          <!-- Competitive Salary -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-cash-coin"></i>
               </div>
-              <h4>Remote Work</h4>
-              <p>Flexible remote work with minimal travel requirements</p>
+              <h4>Competitive Salary</h4>
+              <p>Attractive compensation packages with performance-based incentives.</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="benefit-card" style="background-image: url('images/CapePic7.jpg');">
-              <div class="benefit-overlay"></div>
-              <div class="benefit-icon">
+          
+          <!-- Health Benefits -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
                 <i class="bi bi-heart-pulse"></i>
               </div>
-              <h4>Full Benefits</h4>
-              <p>Comprehensive health, dental, vision, and retirement packages</p>
+              <h4>Health Benefits</h4>
+              <p>Comprehensive health, dental, and vision insurance coverage.</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="benefit-card" style="background-image: url('images/CapePic4.jpg');">
-              <div class="benefit-overlay"></div>
-              <div class="benefit-icon">
-                <i class="bi bi-graph-up-arrow"></i>
+          
+          <!-- Professional Development -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-graph-up"></i>
               </div>
-              <h4>Career Growth</h4>
-              <p>Professional development and advancement opportunities</p>
+              <h4>Professional Growth</h4>
+              <p>Continuous learning opportunities and career advancement paths.</p>
+            </div>
+          </div>
+          
+          <!-- Meaningful Work -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-flag"></i>
+              </div>
+              <h4>Mission Impact</h4>
+              <p>Contribute to national security and defense technology innovation.</p>
+            </div>
+          </div>
+          
+          <!-- Veteran Culture -->
+          <div class="col-lg-4 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4>Veteran Leadership</h4>
+              <p>Work with experienced military leaders who understand mission success.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Open Positions Section -->
-    <section id="open-positions" class="positions-section">
+    <!-- Open Positions Section - Current job openings -->
+    <!-- Lists available positions with detailed descriptions -->
+    <section id="positions" class="core-solutions-section main-section section-padding">
       <div class="container">
+        <!-- Section Header - follows consistent pattern throughout site -->
+        <!-- Contains badge, title, and description for the section -->
         <div class="section-header text-center">
           <div class="section-badge">
             <i class="bi bi-briefcase"></i>
             <span>Open Positions</span>
           </div>
-          <h2 class="section-title">Mission-Critical Opportunities</h2>
+          <h2 class="section-title">Join Our Team</h2>
           <p class="section-description">
-            Join elite teams working on JLVC federation and Joint Training Tool projects
+            Explore current opportunities to contribute to mission-critical defense technology solutions
           </p>
         </div>
 
-        <!-- Senior Software Development Positions -->
-        <div class="position-card">
-          <div class="position-header">
-            <div class="position-title">
-              <h3>Senior Software Engineer</h3>
-              <div class="position-badges">
-                <span class="clearance-badge secret">SECRET CLEARED</span>
-                <span class="type-badge">FULL-TIME</span>
-                <span class="location-badge">REMOTE</span>
+        <!-- Job positions grid -->
+        <!-- Four open positions -->
+        <div class="row g-4">
+          <!-- Senior Software Engineer -->
+          <div class="col-lg-6">
+            <div class="solution-card featured card-uniform">
+              <!-- Solution icon -->
+              <div class="solution-icon">
+                <i class="bi bi-code-square"></i>
               </div>
-            </div>
-            <div class="position-salary">
-              <span class="salary-range">Competitive Salary</span>
-              <span class="experience">16+ Years Experience</span>
+              <!-- Main solution content -->
+              <div class="solution-content">
+                <h3>Senior Software Engineer</h3>
+                <p class="solution-description">
+                  Lead development of mission-critical defense applications and mentor junior developers.
+                </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key responsibilities and requirements -->
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>5+ years software development experience</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Active security clearance required</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Full-stack development expertise</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Defense industry experience preferred</span>
+                  </div>
+                </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows required technical skills -->
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Spring</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
-          <div class="position-content">
-            <div class="position-description">
-              <p>Multiple Senior Software Engineer positions available on the <strong>Joint Live, Virtual, Constructive (JLVC)</strong> project and <strong>Joint Training Tool (JTT)</strong> project teams. JLVC is a mature HLA and DIS federation of 40+ distinct applications supporting Joint Staff military exercises.</p>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-6">
-                <h5><i class="bi bi-check-circle-fill"></i> Requirements</h5>
-                <ul class="requirements-list">
-                  <li>Bachelor's degree in CS, Math, IT, or similar</li>
-                  <li>16+ years of relevant experience</li>
-                  <li>Current Security Clearance preferred (eligibility minimum)</li>
-                  <li>Fluent in Agile Development and Scaled Agile Framework</li>
-                  <li>Enterprise software development lifecycle design</li>
-                  <li>Code peer review participation</li>
-                </ul>
+          <!-- Senior Systems Engineer -->
+          <div class="col-lg-6">
+            <div class="solution-card card-uniform">
+              <!-- Solution icon -->
+              <div class="solution-icon">
+                <i class="bi bi-gear"></i>
               </div>
-              <div class="col-lg-6">
-                <h5><i class="bi bi-gear-fill"></i> Technologies</h5>
-                <div class="tech-stack">
-                  <span class="tech-tag">C/C++</span>
-                  <span class="tech-tag">Qt Toolkit</span>
-                  <span class="tech-tag">Java</span>
-                  <span class="tech-tag">ReactJS</span>
-                  <span class="tech-tag">NodeJS</span>
-                  <span class="tech-tag">Docker</span>
-                  <span class="tech-tag">Kubernetes</span>
-                  <span class="tech-tag">ElasticSearch</span>
-                  <span class="tech-tag">HLA/DIS</span>
-                  <span class="tech-tag">Linux (RHEL)</span>
+              <!-- Main solution content -->
+              <div class="solution-content">
+                <h3>Senior Systems Engineer</h3>
+                <p class="solution-description">
+                  Design and implement complex defense simulation systems and JLVC federation solutions.
+                </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key responsibilities and requirements -->
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>7+ years systems engineering experience</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Active security clearance required</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>JLVC/HLA/DIS protocol expertise</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Military simulation experience</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="position-benefits">
-              <h5><i class="bi bi-star-fill"></i> What We Offer</h5>
-              <div class="benefits-grid">
-                <div class="benefit-item">
-                  <i class="bi bi-currency-dollar"></i>
-                  <span>Full-time salary + competitive pay</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-heart-pulse"></i>
-                  <span>Full benefits package</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-house-door"></i>
-                  <span>Remote work (~5 trips/year to Suffolk, VA)</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-people"></i>
-                  <span>Collaborative team environment</span>
+                
+                <!-- Technology stack display -->
+                <!-- Shows required technical skills -->
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">HLA</span>
+                    <span class="tech-tag">DIS</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Linux</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Senior Systems Engineer Position -->
-        <div class="position-card">
-          <div class="position-header">
-            <div class="position-title">
-              <h3>Senior Systems Engineer</h3>
-              <div class="position-badges">
-                <span class="clearance-badge secret">SECRET CLEARED</span>
-                <span class="type-badge">FULL-TIME</span>
-                <span class="location-badge">REMOTE</span>
-              </div>
-            </div>
-            <div class="position-salary">
-              <span class="salary-range">Competitive Salary</span>
-              <span class="experience">20+ Years Experience</span>
             </div>
           </div>
           
-          <div class="position-content">
-            <div class="position-description">
-              <p>Senior Systems Engineer positions on <strong>JLVC</strong> and <strong>JTT</strong> project teams. Focus on configuration management, documentation, and federation interdependencies for large-scale military training systems.</p>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-6">
-                <h5><i class="bi bi-check-circle-fill"></i> Requirements</h5>
-                <ul class="requirements-list">
-                  <li>Bachelor's degree in CS, EE, IT, or similar</li>
-                  <li>20+ years of relevant experience</li>
-                  <li>Current Security Clearance preferred</li>
-                  <li>Fluent in Agile Development and DSEEP</li>
-                  <li>Configuration management strategy design</li>
-                  <li>Large federation documentation experience</li>
-                </ul>
+          <!-- Junior Software Engineer -->
+          <div class="col-lg-6">
+            <div class="solution-card card-uniform">
+              <!-- Solution icon -->
+              <div class="solution-icon">
+                <i class="bi bi-code-slash"></i>
               </div>
-              <div class="col-lg-6">
-                <h5><i class="bi bi-cpu-fill"></i> Capabilities</h5>
-                <div class="tech-stack">
-                  <span class="tech-tag">IEEE 1516.2010 HLA</span>
-                  <span class="tech-tag">RPR 3.0</span>
-                  <span class="tech-tag">DIS v6,7</span>
-                  <span class="tech-tag">Linux (RHEL)</span>
-                  <span class="tech-tag">Windows</span>
-                  <span class="tech-tag">Security+</span>
-                  <span class="tech-tag">JIRA/Confluence</span>
-                  <span class="tech-tag">C4I Integration</span>
+              <!-- Main solution content -->
+              <div class="solution-content">
+                <h3>Junior Software Engineer</h3>
+                <p class="solution-description">
+                  Develop and maintain defense applications with mentorship from senior engineers.
+                </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key responsibilities and requirements -->
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>1-3 years software development experience</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Eligible for security clearance</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Strong problem-solving skills</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Willingness to learn and grow</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="position-benefits">
-              <h5><i class="bi bi-star-fill"></i> What We Offer</h5>
-              <div class="benefits-grid">
-                <div class="benefit-item">
-                  <i class="bi bi-currency-dollar"></i>
-                  <span>Full-time salary + competitive pay</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-heart-pulse"></i>
-                  <span>Full benefits package</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-airplane"></i>
-                  <span>Remote work (~10 trips/year to DoD sites)</span>
-                </div>
-                <div class="benefit-item">
-                  <i class="bi bi-mortarboard"></i>
-                  <span>Customer training opportunities</span>
+                
+                <!-- Technology stack display -->
+                <!-- Shows required technical skills -->
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Git</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Junior Software Development Position -->
-        <div class="position-card">
-          <div class="position-header">
-            <div class="position-title">
-              <h3>Junior Software Engineer</h3>
-              <div class="position-badges">
-                <span class="clearance-badge clearable">CLEARABLE</span>
-                <span class="type-badge">FULL-TIME</span>
-                <span class="location-badge">REMOTE</span>
-              </div>
-            </div>
-            <div class="position-salary">
-              <span class="salary-range">Competitive Salary</span>
-              <span class="experience">0-3 Years Experience</span>
             </div>
           </div>
           
-          <div class="position-content">
-            <div class="position-description">
-              <p>Entry-level position perfect for new graduates ready to contribute to mission-critical defense technology projects.</p>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-6">
-                <h5><i class="bi bi-check-circle-fill"></i> Requirements</h5>
-                <ul class="requirements-list">
-                  <li>Bachelor's degree in Computer Science or similar</li>
-                  <li>0-3 years of relevant experience</li>
-                  <li>U.S. citizen eligible for Secret clearance</li>
-                  <li>Highly motivated individual</li>
-                  <li>Strong problem-solving skills</li>
-                  <li>Proficiency in one modern programming language</li>
-                </ul>
+          <!-- Software Engineering Internship -->
+          <div class="col-lg-6">
+            <div class="solution-card card-uniform">
+              <!-- Solution icon -->
+              <div class="solution-icon">
+                <i class="bi bi-mortarboard"></i>
               </div>
-              <div class="col-lg-6">
-                <h5><i class="bi bi-rocket-takeoff"></i> Growth Path</h5>
-                <ul class="requirements-list">
-                  <li>Mentorship from senior engineers</li>
-                  <li>Exposure to enterprise-scale systems</li>
-                  <li>Professional development opportunities</li>
-                  <li>Clear advancement pathway</li>
-                  <li>Technology training programs</li>
-                  <li>Security clearance sponsorship</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Internship Position -->
-        <div class="position-card featured">
-          <div class="position-header">
-            <div class="position-title">
-              <h3>Software Engineering Internship</h3>
-              <div class="position-badges">
-                <span class="clearance-badge clearable">CLEARABLE</span>
-                <span class="type-badge part-time">PART-TIME</span>
-                <span class="location-badge">REMOTE</span>
-              </div>
-            </div>
-            <div class="position-salary">
-              <span class="salary-range">Hourly Rate</span>
-              <span class="experience">Student Program</span>
-            </div>
-          </div>
-          
-          <div class="position-content">
-            <div class="position-description">
-              <p>Flexible internship program designed for Computer Science seniors. Opportunity to convert to full-time upon graduation.</p>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-6">
-                <h5><i class="bi bi-mortarboard-fill"></i> Student Requirements</h5>
-                <ul class="requirements-list">
-                  <li>Senior pursuing CS degree or similar</li>
-                  <li>0-3 years of relevant experience</li>
-                  <li>U.S. citizen eligible for Secret clearance</li>
-                  <li>Flexible schedule for classes</li>
-                  <li>Proficiency in modern programming language</li>
-                  <li>Near Suffolk, VA complex preferred</li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <h5><i class="bi bi-graph-up-arrow"></i> Opportunities</h5>
-                <ul class="requirements-list">
-                  <li>Real-world defense project experience</li>
-                  <li>Full-time conversion opportunity</li>
-                  <li>Flexible scheduling for academics</li>
-                  <li>Mentorship from industry veterans</li>
-                  <li>Competitive hourly compensation</li>
-                  <li>Professional network building</li>
-                </ul>
+              <!-- Main solution content -->
+              <div class="solution-content">
+                <h3>Software Engineering Internship</h3>
+                <p class="solution-description">
+                  Gain hands-on experience in defense technology development and real-world projects.
+                </p>
+                
+                <!-- Feature list with check icons -->
+                <!-- Key responsibilities and requirements -->
+                <div class="solution-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Currently pursuing CS/Engineering degree</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Strong academic performance</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Interest in defense technology</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Available for summer/fall programs</span>
+                  </div>
+                </div>
+                
+                <!-- Technology stack display -->
+                <!-- Shows required technical skills -->
+                <div class="solution-tech">
+                  <h5>Technologies:</h5>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Web Development</span>
+                    <span class="tech-tag">Databases</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -498,28 +537,102 @@
       </div>
     </section>
 
-    <!-- Application CTA Section -->
-    <section class="application-cta-section">
+    <!-- Application Process Section - How to apply -->
+    <!-- Explains the application process and next steps -->
+    <section class="technology-stack-section main-section section-padding">
+      <div class="container">
+        <!-- Section header -->
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="bi bi-arrow-right-circle"></i>
+            <span>How to Apply</span>
+          </div>
+          <h2 class="section-title">Application Process</h2>
+          <p class="section-description">
+            Simple steps to join our mission-critical team
+          </p>
+        </div>
+
+        <!-- Application steps grid -->
+        <!-- Four application steps -->
+        <div class="row g-4">
+          <!-- Step 1: Review Positions -->
+          <div class="col-lg-3 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-search"></i>
+              </div>
+              <h4>1. Review Positions</h4>
+              <p>Explore our open positions and find the role that matches your skills and interests.</p>
+            </div>
+          </div>
+          
+          <!-- Step 2: Prepare Application -->
+          <div class="col-lg-3 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h4>2. Prepare Application</h4>
+              <p>Update your resume and prepare a cover letter highlighting your relevant experience.</p>
+            </div>
+          </div>
+          
+          <!-- Step 3: Submit Application -->
+          <div class="col-lg-3 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-send"></i>
+              </div>
+              <h4>3. Submit Application</h4>
+              <p>Send your application to our team via email or through our contact form.</p>
+            </div>
+          </div>
+          
+          <!-- Step 4: Interview Process -->
+          <div class="col-lg-3 col-md-6">
+            <div class="tech-category card-uniform">
+              <div class="category-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h4>4. Interview Process</h4>
+              <p>Meet with our team to discuss your background, skills, and career goals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section - Final conversion opportunity -->
+    <!-- Encourages visitors to apply or contact the company -->
+    <section class="software-cta-section">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left: CTA content -->
+          <!-- Contains compelling message and value proposition -->
           <div class="col-lg-8">
             <div class="cta-content">
-              <h2 class="cta-title">Ready to Secure Your Future?</h2>
+              <h2 class="cta-title">Ready to Join Our Mission?</h2>
               <p class="cta-description">
-                Join CAPE Technology Solutions and build the defense technology that protects our nation. 
-                Your skills will directly impact national security and military readiness.
+                Take the first step toward a rewarding career in defense technology. 
+                Contact us to learn more about our open positions and application process.
               </p>
             </div>
           </div>
+          
+          <!-- Right: Action buttons -->
+          <!-- Primary and secondary call-to-action buttons -->
           <div class="col-lg-4 text-lg-end">
             <div class="cta-actions">
+              <!-- Primary action: Contact form -->
               <a href="contact.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-envelope"></i>
                 Apply Now
               </a>
-              <a href="https://app.joinhandshake.com/e/687439/jobs" target="_blank" class="btn btn-outline-light btn-lg">
-                <i class="bi bi-mortarboard"></i>
-                Handshake Portal
+              <!-- Secondary action: Learn more about company -->
+              <a href="whoweare.html" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-info-circle"></i>
+                Learn More
               </a>
             </div>
           </div>
@@ -528,12 +641,14 @@
     </section>
   </main>
 
-<!-- Footer - Same as other pages -->
+  <!-- Footer - Same as other pages -->
+  <!-- Contains company information, links, and legal disclaimers -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content py-5">
         <div class="row gy-4">
           <!-- Left: Logo and description -->
+          <!-- Company branding and security notice -->
           <div class="col-lg-4 d-flex flex-column justify-content-center">
             <div class="footer-brand mb-4">
               <img src="images/CapeLogo.png" alt="CAPE Technology Solutions" class="footer-logo mb-3" />
@@ -545,6 +660,7 @@
               </div>
               
               <!-- DoD DISCLAIMER - Only change: make text white -->
+              <!-- Required legal disclaimer for DoD-related content -->
               <div class="dod-disclaimer mt-3 p-2 border rounded">
                 <small class="text-white">
                   <i class="bi bi-info-circle me-1"></i>
@@ -553,9 +669,12 @@
               </div>
             </div>
           </div>
+          
           <!-- Right: Links and contact, grouped in columns -->
+          <!-- Navigation links and contact information -->
           <div class="col-lg-8">
             <div class="row gy-4">
+              <!-- Capabilities links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Capabilities</h5>
@@ -566,6 +685,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Company links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Company</h5>
@@ -576,6 +697,8 @@
                   </ul>
                 </div>
               </div>
+              
+              <!-- Social and contact links -->
               <div class="col-md-4">
                 <div class="footer-column mb-4">
                   <h5 class="mb-3">Connect</h5>
@@ -596,6 +719,8 @@
           </div>
         </div>
       </div>
+      
+      <!-- Footer bottom - copyright and legal links -->
       <div class="footer-bottom py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-8 text-center">
@@ -610,9 +735,13 @@
       </div>
     </div>
   </footer>
-  
-  <!-- Scripts -->
+
+  <!-- JavaScript Files -->
+  <!-- Bootstrap JavaScript for interactive components -->
+  <!-- Required for dropdown menus, mobile navigation, and other Bootstrap features -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for site functionality -->
+  <!-- Contains custom animations, form handling, and other site-specific functionality -->
   <script src="scripts.js"></script>
 </body>
 </html>
