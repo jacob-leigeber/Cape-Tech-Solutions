@@ -1,12 +1,68 @@
 /**
  * CAPE Technology Solutions - Professional Defense Contractor JavaScript
- * Enhanced interactions and functionality for mission-critical presentation
+ * ===================================================================
+ * 
+ * FILE OVERVIEW:
+ * This JavaScript file provides enhanced interactions and functionality for the
+ * CAPE Technology Solutions website. It implements a modular architecture with
+ * specialized managers for different aspects of the user experience.
+ * 
+ * ARCHITECTURE:
+ * The code follows a modular pattern with separate manager classes for different
+ * functionality areas:
+ * - ThemeManager: Dark/light theme switching (currently disabled)
+ * - HeaderManager: Navigation and header interactions
+ * - SmoothScrollManager: Smooth scrolling for anchor links
+ * - AnimationManager: Intersection Observer for scroll animations
+ * - TechGridManager: Technology grid interactions and rotations
+ * - TypingAnimation: Text typing animation effects
+ * - CounterAnimation: Animated counters for statistics
+ * - ParallaxManager: Parallax scrolling effects
+ * - FormManager: Form validation and interactions
+ * - PerformanceMonitor: Performance tracking and error handling
+ * - AccessibilityManager: Accessibility features and keyboard navigation
+ * - CapeApp: Main application class that orchestrates all managers
+ * 
+ * DESIGN PRINCIPLES:
+ * - Modular and maintainable code structure
+ * - Performance optimization with debouncing and throttling
+ * - Accessibility compliance (WCAG 2.1)
+ * - Progressive enhancement
+ * - Error handling and graceful degradation
+ * 
+ * DEPENDENCIES:
+ * - Modern browser APIs (Intersection Observer, CSS Custom Properties)
+ * - Bootstrap 5.3.3 for some UI components
+ * - No external JavaScript libraries required
+ * 
+ * BROWSER SUPPORT:
+ * - Modern browsers with ES6+ support
+ * - Graceful degradation for older browsers
+ * 
+ * ===================================================================
  */
 
 // =============================================================================
 // UTILITY FUNCTIONS
 // =============================================================================
+/**
+ * UTILITY FUNCTIONS:
+ * These helper functions provide common functionality used throughout the application.
+ * They include performance optimization techniques and common programming patterns.
+ */
 
+/**
+ * Debounce Function
+ * Limits how often a function can be called by delaying execution
+ * until after a specified wait time has elapsed since the last call.
+ * 
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The number of milliseconds to wait
+ * @returns {Function} - The debounced function
+ * 
+ * USAGE: Used for scroll events, resize events, and other frequent events
+ * to improve performance by reducing the number of function calls.
+ */
 const debounce = (func, wait) => {
   let timeout;
   return function executedFunction(...args) {
@@ -19,6 +75,18 @@ const debounce = (func, wait) => {
   };
 };
 
+/**
+ * Throttle Function
+ * Limits how often a function can be called by ensuring it only executes
+ * once within a specified time limit.
+ * 
+ * @param {Function} func - The function to throttle
+ * @param {number} limit - The time limit in milliseconds
+ * @returns {Function} - The throttled function
+ * 
+ * USAGE: Used for events that should fire at regular intervals rather than
+ * being completely debounced (e.g., scroll-based animations).
+ */
 const throttle = (func, limit) => {
   let inThrottle;
   return function() {
@@ -35,6 +103,22 @@ const throttle = (func, limit) => {
 // =============================================================================
 // THEME MANAGEMENT - DISABLED
 // =============================================================================
+/**
+ * THEME MANAGEMENT SYSTEM:
+ * Currently disabled but prepared for future implementation of dark/light theme switching.
+ * 
+ * FEATURES:
+ * - Local storage persistence
+ * - System theme preference detection
+ * - Smooth theme transitions
+ * - Custom event dispatching for theme changes
+ * 
+ * TO ENABLE:
+ * 1. Uncomment the ThemeManager class
+ * 2. Add theme toggle button to HTML
+ * 3. Update CSS with dark theme variables
+ * 4. Initialize ThemeManager in CapeApp
+ */
 
 /*
 class ThemeManager {
@@ -44,14 +128,20 @@ class ThemeManager {
     this.init();
   }
 
+  /**
+   * Get Initial Theme
+   * Determines the initial theme based on user preference or system setting
+   * 
+   * @returns {string} - 'light' or 'dark'
+   */
   getInitialTheme() {
-    // Check localStorage first
+    // Check localStorage first for user preference
     const savedTheme = localStorage.getItem('cape-theme');
     if (savedTheme) {
       return savedTheme;
     }
     
-    // Check system preference
+    // Check system preference if no user preference is saved
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     }
@@ -59,18 +149,30 @@ class ThemeManager {
     return 'light';
   }
 
+  /**
+   * Initialize Theme Manager
+   * Sets up the theme system and event listeners
+   */
   init() {
     this.applyTheme(this.currentTheme);
     this.setupEventListeners();
     this.setupSystemThemeListener();
   }
 
+  /**
+   * Setup Event Listeners
+   * Binds click events to theme toggle button
+   */
   setupEventListeners() {
     if (this.toggleBtn) {
       this.toggleBtn.addEventListener('click', () => this.toggleTheme());
     }
   }
 
+  /**
+   * Setup System Theme Listener
+   * Listens for system theme changes and updates accordingly
+   */
   setupSystemThemeListener() {
     // Listen for system theme changes
     if (window.matchMedia) {
@@ -84,6 +186,10 @@ class ThemeManager {
     }
   }
 
+  /**
+   * Toggle Theme
+   * Switches between light and dark themes
+   */
   toggleTheme() {
     this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
     this.applyTheme(this.currentTheme);
@@ -95,6 +201,12 @@ class ThemeManager {
     }));
   }
 
+  /**
+   * Apply Theme
+   * Applies the specified theme to the document
+   * 
+   * @param {string} theme - The theme to apply ('light' or 'dark')
+   */
   applyTheme(theme) {
     // Add transition class for smooth theme switching
     document.documentElement.classList.add('theme-transitioning');
@@ -138,8 +250,28 @@ class ThemeManager {
 // =============================================================================
 // HEADER SCROLL EFFECTS
 // =============================================================================
+/**
+ * HEADER MANAGER:
+ * Manages navigation header behavior including scroll effects, transparency,
+ * and mobile navigation interactions.
+ * 
+ * FEATURES:
+ * - Transparent to solid header on scroll
+ * - Smooth header transitions
+ * - Mobile navigation handling
+ * - Page transition effects
+ * 
+ * DEPENDENCIES:
+ * - CSS classes: .site-header, .scrolled
+ * - Bootstrap navbar components
+ * - Throttle utility function for performance
+ */
 
 class HeaderManager {
+  /**
+   * Constructor
+   * Initializes the header manager with DOM references and configuration
+   */
   constructor() {
     this.header = document.querySelector('.site-header');
     this.lastScrollY = window.scrollY;
@@ -147,6 +279,10 @@ class HeaderManager {
     this.init();
   }
 
+  /**
+   * Initialize Header Manager
+   * Sets up all header-related functionality
+   */
   init() {
     if (!this.header) return;
     this.setupScrollListener();
@@ -214,12 +350,34 @@ class HeaderManager {
 // =============================================================================
 // SMOOTH SCROLLING
 // =============================================================================
+/**
+ * SMOOTH SCROLL MANAGER:
+ * Provides smooth scrolling behavior for anchor links and internal navigation.
+ * 
+ * FEATURES:
+ * - Smooth scrolling to anchor links
+ * - Offset adjustment for fixed header
+ * - Performance optimized with throttling
+ * - Fallback for browsers without smooth scroll support
+ * 
+ * USAGE:
+ * Any anchor link (e.g., <a href="#section">) will automatically
+ * receive smooth scrolling behavior.
+ */
 
 class SmoothScrollManager {
+  /**
+   * Constructor
+   * Initializes the smooth scroll manager
+   */
   constructor() {
     this.init();
   }
 
+  /**
+   * Initialize Smooth Scroll Manager
+   * Sets up smooth scrolling functionality
+   */
   init() {
     this.setupSmoothScrolling();
   }
