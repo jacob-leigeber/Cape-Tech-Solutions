@@ -1,102 +1,208 @@
 /* =============================================================================
    CAPE Technology Solutions - Professional Defense Contractor Stylesheet
-   Designed to match industry leaders like Lockheed Martin, Raytheon, General Dynamics
+   =============================================================================
+   
+   FILE OVERVIEW:
+   This stylesheet implements a professional, defense industry-focused design system
+   for CAPE Technology Solutions. The design follows industry standards similar to
+   major defense contractors like Lockheed Martin, Raytheon, and General Dynamics.
+   
+   STRUCTURE:
+   1. CSS Custom Properties (Design Tokens)
+   2. Dark Theme Variables (Currently Disabled)
+   3. Global Reset & Base Styles
+   4. Layout Components (Header, Navigation, Footer)
+   5. Page-Specific Sections (Hero, Capabilities, Gallery, etc.)
+   6. Component Styles (Cards, Buttons, Forms, etc.)
+   7. Utility Classes & Animations
+   8. Responsive Design (Media Queries)
+   9. Accessibility Features
+   10. Print Styles
+   
+   DESIGN PRINCIPLES:
+   - Professional and trustworthy appearance
+   - High contrast for readability
+   - Consistent spacing and typography
+   - Mobile-first responsive design
+   - Accessibility compliance (WCAG 2.1)
+   - Performance optimization
+   
+   COLOR SYSTEM:
+   - Primary: Navy blue (#1e3a5f) - Trust and professionalism
+   - Secondary: Gray tones - Neutral and balanced
+   - Accent: Red (#dc3545) - Urgency and importance
+   - Success: Green (#38a169) - Positive actions
+   - Warning: Orange (#dd6b20) - Caution and alerts
+   
+   TYPOGRAPHY:
+   - Primary: Inter - Clean and readable body text
+   - Headings: Rajdhani - Professional and modern
+   - Display: Orbitron - Technology-focused elements
+   - Monospace: JetBrains Mono - Code and technical content
+   
+   BREAKPOINTS:
+   - Mobile: < 576px
+   - Tablet: 576px - 767px
+   - Desktop: 768px - 991px
+   - Large: 992px - 1199px
+   - XL: ≥ 1200px
+   
    ============================================================================= */
 
 /* =============================================================================
    CSS CUSTOM PROPERTIES - DEFENSE INDUSTRY COLOR PALETTE
    ============================================================================= */
+/* 
+   DESIGN TOKENS:
+   These CSS custom properties define the complete design system including:
+   - Color palette optimized for defense industry
+   - Typography scale for consistent text sizing
+   - Spacing scale for consistent layout
+   - Border radius values for component styling
+   - Transition timings for smooth animations
+   - Z-index scale for proper layering
+   
+   USAGE:
+   Use these variables throughout the stylesheet instead of hardcoded values
+   to maintain consistency and enable easy theming.
+*/
 
 :root {
-  /* Primary Defense Colors */
-  --navy-primary: #1e3a5f;
-  --navy-dark: #0f1419;
-  --navy-light: #2d4f7a;
-  --gray-primary: #4a5568;
-  --gray-light: #718096;
-  --gray-lighter: #e2e8f0;
-  --gray-dark: #2d3748;
+  /* ========================================
+       PRIMARY DEFENSE COLORS
+       ======================================== */
+  /* Navy blue palette - primary brand colors */
+  --navy-primary: #1e3a5f;    /* Main brand color - trust and professionalism */
+  --navy-dark: #0f1419;       /* Dark navy for backgrounds and text */
+  --navy-light: #2d4f7a;      /* Lighter navy for hover states */
   
-  /* Accent Colors */
-  --red-primary: #dc3545;
-  --red-dark: #c82333;
-  --blue-accent: #3182ce;
-  --green-success: #38a169;
-  --orange-warning: #dd6b20;
+  /* ========================================
+       GRAY SCALE
+       ======================================== */
+  /* Gray palette - neutral colors for text and backgrounds */
+  --gray-primary: #4a5568;    /* Primary gray for body text */
+  --gray-light: #718096;      /* Light gray for secondary text */
+  --gray-lighter: #e2e8f0;    /* Very light gray for borders and backgrounds */
+  --gray-dark: #2d3748;       /* Dark gray for headings */
   
-  /* Neutral Colors */
-  --white: #ffffff;
-  --black: #000000;
-  --background-light: #f8fafc;
-  --background-dark: #1a202c;
-  --text-primary: #2d3748;
-  --text-secondary: #4a5568;
-  --text-light: #718096;
-  --text-white: #ffffff;
+  /* ========================================
+       ACCENT COLORS
+       ======================================== */
+  /* Accent colors for specific UI states and actions */
+  --red-primary: #dc3545;     /* Primary red for errors and CTAs */
+  --red-dark: #c82333;        /* Darker red for hover states */
+  --blue-accent: #3182ce;     /* Blue accent for links and highlights */
+  --green-success: #38a169;   /* Green for success states */
+  --orange-warning: #dd6b20;  /* Orange for warnings and alerts */
   
-  /* Component Colors */
-  --border-color: #e2e8f0;
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-medium: rgba(0, 0, 0, 0.1);
-  --shadow-dark: rgba(0, 0, 0, 0.25);
-  --overlay-dark: rgba(30, 58, 95, 0.9);
+  /* ========================================
+       NEUTRAL COLORS
+       ======================================== */
+  /* Basic neutral colors for backgrounds and text */
+  --white: #ffffff;           /* Pure white */
+  --black: #000000;           /* Pure black */
+  --background-light: #f8fafc; /* Light background color */
+  --background-dark: #1a202c;  /* Dark background color */
+  --text-primary: #2d3748;     /* Primary text color */
+  --text-secondary: #4a5568;   /* Secondary text color */
+  --text-light: #718096;       /* Light text color */
+  --text-white: #ffffff;       /* White text color */
   
-  /* Typography Scale */
+  /* ========================================
+       COMPONENT COLORS
+       ======================================== */
+  /* Colors specifically for UI components */
+  --border-color: #e2e8f0;     /* Standard border color */
+  --shadow-light: rgba(0, 0, 0, 0.05);   /* Light shadow for subtle depth */
+  --shadow-medium: rgba(0, 0, 0, 0.1);   /* Medium shadow for cards */
+  --shadow-dark: rgba(0, 0, 0, 0.25);    /* Dark shadow for overlays */
+  --overlay-dark: rgba(30, 58, 95, 0.9); /* Dark overlay for hero sections */
+  
+  /* ========================================
+       TYPOGRAPHY SCALE
+       ======================================== */
+  /* Font families for different content types */
   --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-hero: 'Rajdhani', 'Orbitron', 'Exo 2', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-headings: 'Rajdhani', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', monospace;
   
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 3.75rem;
+  /* Font size scale - follows 1.25 ratio for consistent scaling */
+  --font-size-xs: 0.75rem;    /* 12px - Small labels and captions */
+  --font-size-sm: 0.875rem;   /* 14px - Small body text */
+  --font-size-base: 1rem;     /* 16px - Base body text size */
+  --font-size-lg: 1.125rem;   /* 18px - Large body text */
+  --font-size-xl: 1.25rem;    /* 20px - Small headings */
+  --font-size-2xl: 1.5rem;    /* 24px - Medium headings */
+  --font-size-3xl: 1.875rem;  /* 30px - Large headings */
+  --font-size-4xl: 2.25rem;   /* 36px - Extra large headings */
+  --font-size-5xl: 3rem;      /* 48px - Hero headings */
+  --font-size-6xl: 3.75rem;   /* 60px - Display headings */
   
-  /* Spacing Scale */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
+  /* ========================================
+       SPACING SCALE
+       ======================================== */
+  /* Consistent spacing values using 4px base unit */
+  --space-1: 0.25rem;         /* 4px - Minimal spacing */
+  --space-2: 0.5rem;          /* 8px - Small spacing */
+  --space-3: 0.75rem;         /* 12px - Medium-small spacing */
+  --space-4: 1rem;            /* 16px - Base spacing unit */
+  --space-5: 1.25rem;         /* 20px - Medium spacing */
+  --space-6: 1.5rem;          /* 24px - Large spacing */
+  --space-8: 2rem;            /* 32px - Extra large spacing */
+  --space-10: 2.5rem;         /* 40px - Section spacing */
+  --space-12: 3rem;           /* 48px - Large section spacing */
+  --space-16: 4rem;           /* 64px - Extra large section spacing */
+  --space-20: 5rem;           /* 80px - Hero section spacing */
+  --space-24: 6rem;           /* 96px - Maximum section spacing */
   
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
+  /* ========================================
+       BORDER RADIUS
+       ======================================== */
+  /* Border radius values for component styling */
+  --radius-sm: 0.25rem;       /* 4px - Small radius for buttons */
+  --radius-md: 0.375rem;      /* 6px - Medium radius for cards */
+  --radius-lg: 0.5rem;        /* 8px - Large radius for containers */
+  --radius-xl: 0.75rem;       /* 12px - Extra large radius */
+  --radius-2xl: 1rem;         /* 16px - Maximum radius */
   
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  /* ========================================
+       TRANSITIONS
+       ======================================== */
+  /* Transition timing functions for smooth animations */
+  --transition-fast: 0.15s ease;    /* Fast transitions for hover states */
+  --transition-normal: 0.3s ease;   /* Normal transitions for general interactions */
+  --transition-slow: 0.5s ease;     /* Slow transitions for page loads */
   
-  /* Theme Transition */
+  /* Theme transition for dark/light mode switching */
   --theme-transition: 0.15s ease;
   
-  /* Z-index Scale */
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-overlay: 1040;
-  --z-modal: 1050;
-  --z-tooltip: 1070;
+  /* ========================================
+       Z-INDEX SCALE
+       ======================================== */
+  /* Z-index values to ensure proper layering */
+  --z-dropdown: 1000;         /* Dropdown menus */
+  --z-sticky: 1020;           /* Sticky navigation */
+  --z-fixed: 1030;            /* Fixed position elements */
+  --z-overlay: 1040;          /* Overlay backgrounds */
+  --z-modal: 1050;            /* Modal dialogs */
+  --z-tooltip: 1070;          /* Tooltips */
 }
 
-/* Dark Theme Variables - DISABLED
+/* =============================================================================
+   DARK THEME VARIABLES - DISABLED
+   ============================================================================= */
+/* 
+   DARK THEME SYSTEM:
+   Currently disabled but prepared for future implementation.
+   These variables would override the light theme colors for dark mode.
+   
+   To enable dark theme:
+   1. Uncomment this section
+   2. Add theme toggle functionality in JavaScript
+   3. Update HTML to include data-theme="dark" attribute
+*/
+
 [data-theme="dark"] {
   --background-light: #1a202c;
   --background-dark: #0f1419;
@@ -110,7 +216,6 @@
   --white: #1a202c;
   --text-white: #e2e8f0;
 }
-*/
 
 /* =============================================================================
    PAGE TRANSITIONS
